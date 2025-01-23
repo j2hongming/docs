@@ -1,0 +1,29 @@
+site_name: j2hongming Docs
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+theme:
+  name: material
+  features:
+    - navigation.top
+    - navigation.path
+    - search.highlight
+    - search.share
+    - navigation.footer
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+# extra:
+#   social:
+#     - icon: fontawesome/brands/gitlab 
+#       link: https://gitlab.supermicro.com/
+copyright: Copyright &copy; 2025

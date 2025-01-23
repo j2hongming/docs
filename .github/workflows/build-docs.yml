@@ -1,0 +1,101 @@
+name: Fetch HackMD Workspace Notes and Build MkDocs
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+
+
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material 
+      - run: mkdocs gh-deploy --force
+# jobs:
+#   fetch-and-build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout Repository
+#       uses: actions/checkout@v3
+
+#     - name: Set up Python
+#       uses: actions/setup-python@v4
+#       with:
+#         python-version: '3.x'
+
+#     - name: Install MkDocs and Plugins
+#       run: |
+#         python -m pip install --upgrade pip
+#         pip install mkdocs mkdocs-material
+
+    # - name: Fetch Notes List from HackMD
+    #   env:
+    #     HACKMD_API_TOKEN: ${{ secrets.HACKMD_API_TOKEN }}
+    #   run: |
+    #     # Fetch the list of notes from the user's workspace
+    #     curl -X GET "https://api.hackmd.io/v1/notes" \
+    #       -H "Authorization: Bearer $HACKMD_API_TOKEN" \
+    #       -H "Content-Type: application/json" > notes_list.json
+
+    #     # Extract note IDs and titles
+    #     jq -c '[.[] | {id: .id, title: .title}]' notes_list.json > notes_metadata.json
+
+    # - name: Fetch Each Note and Save as Markdown
+    #   env:
+    #     HACKMD_API_TOKEN: ${{ secrets.HACKMD_API_TOKEN }}
+    #   run: |
+    #     mkdir -p docs/hackmd
+    #     API_CALL_COUNT=0  # Initialize API call counter
+
+    #     # Loop through each note's metadata and fetch its content
+    #     jq -c '.[]' notes_metadata.json | while read -r note; do
+    #       NOTE_ID=$(echo "$note" | jq -r '.id')
+    #       NOTE_TITLE=$(echo "$note" | jq -r '.title' | sed 's/[^a-zA-Z0-9_-]/_/g')
+          
+    #       echo "Fetching note $NOTE_ID..."
+    #       curl -X GET "https://api.hackmd.io/v1/notes/$NOTE_ID" \
+    #         -H "Authorization: Bearer $HACKMD_API_TOKEN" \
+    #         -H "Content-Type: application/json" > "note_${NOTE_ID}.json"
+
+    #       # Save the note's content as a Markdown file
+    #       jq -r '.content' "note_${NOTE_ID}.json" > "docs/hackmd/${NOTE_TITLE}.md"
+
+    #       # Increment API call count
+    #       API_CALL_COUNT=$((API_CALL_COUNT + 1))
+
+    #       # Check if rate limit is reached
+    #       if [ "$API_CALL_COUNT" -ge 100 ]; then
+    #         echo "Rate limit reached (100 calls). Waiting for 5 minutes..."
+    #         sleep 300  # Wait for 5 minutes
+    #         API_CALL_COUNT=0  # Reset API call counter
+    #       fi
+    #     done
+    
+    # - name: Build MkDocs Site
+    #   run: mkdocs build
+
+    # - name: Deploy to GitHub Pages
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
+    #     publish_dir: site
