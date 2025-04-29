@@ -30,7 +30,7 @@ jobs:
             mkdocs-material-
       - run: pip install mkdocs-material 
       - run: mkdocs gh-deploy --force
-jobs:
+
   fetch-and-build:
     runs-on: ubuntu-latest
 
