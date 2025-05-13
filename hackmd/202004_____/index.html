@@ -1,0 +1,4275 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../202011_______________/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>202004極速開發+ - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#202004" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              202004極速開發+
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome the docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hackmd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hackmd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    202004極速開發+
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    202004極速開發+
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      課前預習
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="課前預習">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ide-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      IDE &amp; plugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-key-press" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show key press
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      英文打字練習
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tennis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tennis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keymap" class="md-nav__link">
+    <span class="md-ellipsis">
+      KeyMap
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      上課囉
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="上課囉">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pair-navigator" class="md-nav__link">
+    <span class="md-ellipsis">
+      pair navigator紀錄注意事項
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      (補充)Filter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retro" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一次retro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      開始示範平常我們會做的事, 今天課程內容可以做到的效果
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="開始示範平常我們會做的事, 今天課程內容可以做到的效果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      補充
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    <span class="md-ellipsis">
+      vim
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="vim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit" class="md-nav__link">
+    <span class="md-ellipsis">
+      edit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      特殊鍵
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-postfix-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Postfix Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surround-wit-live-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Surround wit Live Template
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      課後練習
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="課後練習">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      抽象步驟
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/12 開始 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/13 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414-tomato-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/14 :tomato: * 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#415-tomato-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/15 :tomato: * 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#416" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/16
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#418-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/18 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#419" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/19
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#420-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/20 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#421-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/21 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#422-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/22 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#426-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/26 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#427-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/27 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#428-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/28 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#429-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/29 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#430-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/30 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/1 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/2 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/3 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/4 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/5 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/6 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58-tomato-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/8 :tomato: * 3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/9 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#511-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/11 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#514-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/14 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#515-tomato-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/15 :tomato: * 3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#516-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/16 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#516-tomato-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/16 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#523-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/23 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#526-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/26 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#527-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/27 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#528-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/28 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#529-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/29 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#530-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/30 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#531-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/31 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/2 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/3 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/5 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/6 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/7 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/11 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/12 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#613-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/13 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#626-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/26 :tomato: 2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6/26 :tomato: 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      參考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../202011_______________/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    202011針對遺留代碼加入單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible_Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer_Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB_Deep_Dive_Advence_Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google_docs_api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google docs api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InfiniBand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux__/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message_Passing_Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Message Passing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nagios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus_Repository_Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus Repository Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Openstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RedHat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redfish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum__/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scrum筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI_Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../__/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../____/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    測試工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_____/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    正規表示法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_____Data_Modeling_/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../______/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向實務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_______/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../___________/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向系統分析與設計
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../________________/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    統計圖表的表達方式以及使用的範圍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise_world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bitwise world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud-init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Influxdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pacemaker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    podman
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell_script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shell script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      課前預習
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="課前預習">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ide-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      IDE &amp; plugins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-key-press" class="md-nav__link">
+    <span class="md-ellipsis">
+      Show key press
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      英文打字練習
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tennis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tennis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keymap" class="md-nav__link">
+    <span class="md-ellipsis">
+      KeyMap
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      上課囉
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="上課囉">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pair-navigator" class="md-nav__link">
+    <span class="md-ellipsis">
+      pair navigator紀錄注意事項
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      (補充)Filter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retro" class="md-nav__link">
+    <span class="md-ellipsis">
+      第一次retro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      開始示範平常我們會做的事, 今天課程內容可以做到的效果
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="開始示範平常我們會做的事, 今天課程內容可以做到的效果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      補充
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    <span class="md-ellipsis">
+      vim
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="vim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edit" class="md-nav__link">
+    <span class="md-ellipsis">
+      edit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      特殊鍵
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-postfix-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Postfix Template
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surround-wit-live-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      Surround wit Live Template
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      課後練習
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="課後練習">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      抽象步驟
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/12 開始 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#413-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/13 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#414-tomato-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/14 :tomato: * 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#415-tomato-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/15 :tomato: * 4
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#416" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/16
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#418-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/18 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#419" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/19
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#420-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/20 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#421-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/21 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#422-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/22 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#426-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/26 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#427-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/27 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#428-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/28 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#429-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/29 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#430-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4/30 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/1 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/2 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/3 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/4 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/5 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/6 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58-tomato-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/8 :tomato: * 3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/9 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#511-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/11 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#514-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/14 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#515-tomato-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/15 :tomato: * 3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#516-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/16 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#516-tomato-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/16 :tomato: * 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#523-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/23 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#526-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/26 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#527-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/27 :tomato: * 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#528-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/28 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#529-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/29 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#530-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/30 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#531-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      5/31 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/2 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/3 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/5 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/6 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/7 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/11 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/12 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#613-tomato-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/13 :tomato: 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#626-tomato-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      6/26 :tomato: 2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6/26 :tomato: 2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      參考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="202004">202004極速開發+</h1>
+<p><a href="https://paper.dropbox.com/doc/Latest-PVfL8js89FiG1vcbRTt1K">教材</a></p>
+<h2 id="_1">課前預習</h2>
+<ul>
+<li><a href="https://medium.com/@gonsakon/%E6%A5%B5%E9%80%9F%E9%96%8B%E7%99%BC-%E6%88%91%E8%8A%B14%E5%80%8B%E6%9C%88%E8%AA%B2%E5%89%8D%E7%B7%B4%E7%BF%92-%E6%9C%89%E6%95%88%E6%8F%90%E5%8D%87-60-%E5%AF%AB-code-%E9%80%9F%E5%BA%A6-3d3979d3063e">【極速開發】我花4個月課前練習，有效提升 60% 寫 Code 速度</a><ul>
+<li><a href="https://www.youtube.com/playlist?list=PLBd8JGCAcUAH56L2CYF7SmWJYKwHQYUDI">即將失傳的古老技藝 Vim - 30 days - 高見龍</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="ide-plugins">IDE &amp; plugins</h3>
+<ul>
+<li>IdeaVim plugin<ul>
+<li>效果: 模擬vim的操作, 可開關</li>
+</ul>
+</li>
+<li>AceJump plugin<ul>
+<li>效果: 斜線移動</li>
+</ul>
+</li>
+<li>Custom Postfix Template<ul>
+<li>效果</li>
+</ul>
+</li>
+<li><a href="https://plugins.jetbrains.com/plugin/9792-key-promoter-x">Key Promoter X</a><ul>
+<li>效果: learn essential shortcuts while you are working</li>
+</ul>
+</li>
+</ul>
+<h3 id="show-key-press">Show key press</h3>
+<ul>
+<li>Linux<ul>
+<li><a href="https://superuser.com/questions/248517/show-keys-pressed-in-linux">Show keys pressed in Linux</a></li>
+<li><a href="https://gitlab.com/screenkey/screenkey#id4">screenkey</a><ul>
+<li><a href="https://www.linuxuprising.com/2020/05/screenkey-is-tool-that-shows-pressed.html">Display Pressed Keys In Screencasts With Screenkey (Now With Python 3 And GTK 3 Support)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Windows<ul>
+<li><a href="http://code52.org/carnac/">Carnac</a></li>
+</ul>
+</li>
+<li>Mac<ul>
+<li><a href="https://github.com/keycastr/keycastr">keycastr</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="_2">英文打字練習</h3>
+<p>https://www.keybr.com/</p>
+<h3 id="tennis">Tennis</h3>
+<p>tennis test case 或是影片記得提前看，最好可以知道整個 tennis 的開發順序跟內容怎麼做
+課前影片觀看重點不是按了什麼鍵，而是 tennis 的需求、測試案例，以及 TDD 的開發方式</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=kSSdwfIH2kg">PyCharm - TDD tennis v2</a></li>
+<li><a href="https://tdd.best/courses/extreme-developing-202104/">活動介紹中的影片</a></li>
+</ul>
+<p>從0:0(love all)開始, 建立Tennis物件然後移動到另一個py檔
+預期Tennis物件有一個負責計算分數的score method, 初始版本只有簡單地回傳love all
+驗測的函式抽出為score_should_be</p>
+<p>接著開始測試1:0(fifteen love), Tennis物件加上能夠增加first player的score, 並在score method增加判斷邏輯並回傳fifteen love</p>
+<p>測試2:0(thirty love), 在Tennis物件score method增加判斷邏輯並回傳thirty love, 歸納後發現重複性, 可以用dict資料結構紀錄分數(1, 2)和呈現(fifty, thirty)的關係, 開始整理score method的邏輯, 告一段落後, 開始整理測試thirty love的重複邏輯, 接著測試3:0(forty love)</p>
+<p>測試0:1(love fifteen), 開始引入second player, Tennis物件加上能夠增加second player的score, 開始整理score method的邏輯, 測試0:2(love thirty), 整理score method的邏輯, 發現dict資料結構可以加上love=0的關係</p>
+<p>測試1:1(fifteen all), 修改score method的邏輯, 測試2:2(thirty all), 發現可以整理score method, 更加語義化, 在這個時候已經具備高可讀性</p>
+<p>測試3:3(deuce), 修改score method的邏輯在分數大於等於3時, return deuce, 測試4:3(first player adv), 修改score method的邏輯, 測試3:4(second player adv)</p>
+<p>測試win
+最後整理score method, 不同分狀況下, 以game point區分, 同分狀況下, 以deuce區分</p>
+<p>:::warning
+1. 為何是從0:0(love all)開始測試, 若我從1:0(fifteen love)開始會發生甚麼事
+2. 1:2, 1:3, 2:1, 3:1好像沒測試
+:::</p>
+<p>:::success
+- 確保Internal邏輯的修改(score method)不會影響到這一個Tennis版本的External Spec行為(test case) =&gt; validation by passing test
+:::</p>
+<h3 id="keymap">KeyMap</h3>
+<ul>
+<li><a href="https://resources.jetbrains.com/storage/products/pycharm/docs/PyCharm_ReferenceCard.pdf">pycharm shortcut cheat sheet</a></li>
+<li>常用的 feature<ul>
+<li>Quick fixed (Alt+Enter or Option+Enter)</li>
+<li>Refactor this… (Ctrl+Alt+Shift+T)</li>
+<li>Introduce variable/field/parameter (Ctrl+Alt+V, Ctrl+Alt+F) </li>
+<li>Extract method (Ctrl+Alt+M)</li>
+<li>Rename (Shift+F6)</li>
+<li>Inline variable/field/parameter/method</li>
+<li>Extend selection/Shrink selection</li>
+<li>Search everywhere (Double Shift)</li>
+<li>Next highlighted error (F2)</li>
+<li>Generate code (Alt + Insert)</li>
+<li>File Structure (Ctrl + F12)</li>
+<li>Reformat (Ctrl + Alt + L)</li>
+<li>Duplicate code (?) </li>
+<li>Duplicate Line or Selection (Ctrl+D) </li>
+<li>Extend Selection (Ctrl+W)</li>
+<li>Change Signature (Ctrl+F6)</li>
+<li>Run (Test) (Ctrl+Shift+F10)</li>
+<li>Cyclic Expand Word (Alt + /)</li>
+</ul>
+</li>
+</ul>
+<h2 id="_3">上課囉</h2>
+<h3 id="pair-navigator">pair navigator紀錄注意事項</h3>
+<p>用==滑鼠==做了甚麼事
+backspace排版
+跑測試</p>
+<h3 id="filter">(補充)Filter</h3>
+<p>OS
+Browser
+IDE</p>
+<h3 id="retro">第一次retro</h3>
+<p>收集回饋(移動, 產生的動作時不必要的操作)
+上下左右, backspace</p>
+<p>括號多, 肉眼確認
+自動補完 ctrl + shift + enter</p>
+<h3 id="_4">開始示範平常我們會做的事, 今天課程內容可以做到的效果</h3>
+<p>vim能做到的效果
+成對符號
+舉例: 
+一個function內容的選取
+一個function內容的刪除
+"Merry Chrismas" 改成 "Hello"
+tag包起來的部分, ex. HTML, XML</p>
+<h4 id="_5">補充</h4>
+<ul>
+<li><a href="http://www.wox.one/">Wox</a><ul>
+<li><a href="https://blog.yowko.com/windows-launcher-wox/">Windows 中強大的 launcher - Wox</a></li>
+<li>Alt + Space</li>
+<li>資料夾, 檔案 by everything</li>
+<li>google, stackoverflow, youtube</li>
+</ul>
+</li>
+<li><a href="https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb">Vimium for chrome extension</a></li>
+</ul>
+<h3 id="vim">vim</h3>
+<p>:::success
+最終目標, 練習用vim控制整個IDE
+:::</p>
+<h4 id="mode">mode</h4>
+<p>normal mode: 移動, 選取, 下指令
+insert mode: 編輯
+visual mode: 選取</p>
+<p>normal =&gt; insert: <code>i</code> or <code>a</code>, <code>I</code> or <code>A</code>
+insert =&gt; normal: <code>Esc</code>(可以用其他key取代, 物理距離會比較順暢)
+normal =&gt; visual: <code>v</code> or <code>V</code></p>
+<p>相對行號: set rnu
+絕對行號: set rnu!
+=&gt; 轉為hot key比較快</p>
+<p>:::info
+vim世界, shift代表往前或選取的含意
+:::</p>
+<h4 id="_6">移動</h4>
+<p>:::success
+最終目標, 練習在畫面上哪一個位置就要移動到那邊
+:::
+字元層級(char)
+方向: hjkl
+:::info
+在同行左右移動會較少用到h or l (因為有wbe和ft)
+:::</p>
+<p>字(word層級)
+wbe
+WBE: 接在一起都算一個字, 遇到空白和斷行算下一個字</p>
+<p>行層級(line)
+原生vim: ^ $ 0
+:::info
+可以用vim設定檔取代, 目的是解決距離太遠不好按的議題
+<code>hh</code> <code>ll</code>
+:::</p>
+<p>段落
+{ }
+成對符號 %
+:::info
+比較少用 ( 和 )
+:::</p>
+<p>視窗
+HLM</p>
+<p>檔案
+gg
+G
+:::info
+行號+G: 跳到第幾行 （幾乎不用，因為相對行號更快）</p>
+<p>:::</p>
+<p>Scroll (keep mode)
+常用
+<code>zt</code>: current line, top
+<code>zz</code>: current line, middle</p>
+<p>搜尋 (keep mode)
+單行搜尋某個char
+ft
+;(repeat) ,(reverse, 不小心按太多次;)</p>
+<h4 id="edit">edit</h4>
+<ul>
+<li>插入/刪除上下行 <ul>
+<li><code>o</code> and <code>O</code> (to insert mode)</li>
+<li><code>J</code> (keep mode)</li>
+</ul>
+</li>
+<li>複製 (keep mode, into vim clipboard)<ul>
+<li><code>y</code><ul>
+<li>組合鍵，例如 <code>yt;</code> or <code>yw</code></li>
+</ul>
+</li>
+<li><code>yy</code> and <code>Y</code></li>
+</ul>
+</li>
+<li>剪下 (to insert mode, into vim clipboard)<ul>
+<li><code>c</code><ul>
+<li>組合鍵，例如 <code>c2f)</code></li>
+</ul>
+</li>
+<li><code>s</code><ul>
+<li>cut char</li>
+</ul>
+</li>
+<li><code>C</code><ul>
+<li>cut end of line</li>
+</ul>
+</li>
+<li><code>S</code><ul>
+<li>delete line</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>刪除 (into vim clipboard)<ul>
+<li><code>d</code> (keep mode)<ul>
+<li>組合鍵，例如 <code>d2/,</code> or <code>d}</code> or <code>dw</code></li>
+</ul>
+</li>
+<li><code>dd</code>  and <code>D</code> (keep mode)<ul>
+<li>數字組合鍵，例如 <code>3dd</code> 刪除 3 行</li>
+</ul>
+</li>
+<li><code>x</code> and <code>X</code> (keep mode)<ul>
+<li>數字組合鍵</li>
+<li>delete or backspace char</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>貼上<ul>
+<li><code>p</code> and <code>P</code></li>
+</ul>
+</li>
+<li>取代 (keep normal mode)<ul>
+<li><code>r</code></li>
+</ul>
+</li>
+<li>重複動作<ul>
+<li><code>.</code><ul>
+<li>上述 Edit command 以及 input text 可被重複執行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>:::info
+循環剪貼簿</p>
+<p>y複製的資料會進到索引為0的剪貼簿
+:::</p>
+<p>:::warning
+複製單字在下一行貼上
+yEoEscp 有更快的方式嗎? 沒有XD, 因為vim也不知道你要貼到哪裡, 和複製一行不太一樣
+:::</p>
+<ul>
+<li>書籤<ul>
+<li><code>m</code> + <code>a~z</code>: 當下位置標記書籤</li>
+<li><code>+</code>a~z`: 移至標記書籤</li>
+</ul>
+</li>
+<li>clipboard register key<ul>
+<li><code>"act;</code><ul>
+<li>將 <code>ct;</code> 的內容放到 key 為 a 的 clipboard 裡面</li>
+</ul>
+</li>
+<li><code>"ap</code><ul>
+<li>將 clipboard 裡面 key 為 a 的內容取出，貼上</li>
+</ul>
+</li>
+<li>可以註冊 a~z</li>
+</ul>
+</li>
+</ul>
+<h4 id="_7">特殊鍵</h4>
+<ul>
+<li>ideaVim<ul>
+<li>Shift + 上/下：pageUp/pageDown</li>
+<li>z右 or z左：水平捲軸往右/左，前面可加數字</li>
+<li>ze or zs: 游標的位置當水平捲軸的結尾或開頭</li>
+</ul>
+</li>
+<li>vim 內建好用 shortcut<ul>
+<li>u: 復原（類似 ctrl+Z, 但認的是 vim 的動作）</li>
+<li>number, <code>Ctrl+A</code>: 該行往右找，第一個數字累加 number</li>
+<li>number, <code>Ctrl+X</code>: 該行往右找，第一個數字減去 number</li>
+</ul>
+</li>
+<li><code>daw</code> (等同自訂組合鍵zb)</li>
+<li><code>di"</code><ul>
+<li>刪除雙引號內的內容</li>
+<li>游標不需要停在雙引號之內</li>
+</ul>
+</li>
+<li>di}<ul>
+<li><code>di}</code>可用 <code>diB</code> 代替，而 <code>di)</code> 可用 <code>dib</code> 代替</li>
+<li>刪除目前所處的 {} block 內容</li>
+<li>同理可用在 () 或 [] 或 {}</li>
+</ul>
+</li>
+<li>dit<ul>
+<li><code>dit</code> 可刪除 <tag> 框起來內容</li>
+<li><code>dat</code> 可連 <tag> 一併刪除</li>
+</ul>
+</li>
+</ul>
+<p>:::info
+成對符號操作
+d i }</p>
+<p>d: 可以換成c, v, y
+i: 不包含的含意,可以換成a
+{: 成對符號, 可以換成), ], ", ', t, w
+:::</p>
+<p>Plugins</p>
+<p>Surround (vsvim/visual studio didn’t support )</p>
+<ul>
+<li>vim surround 參考 <ul>
+<li>c (修改)</li>
+<li>y (加上)</li>
+<li>s (代表 surround)<ul>
+<li>選取後 S</li>
+</ul>
+</li>
+<li>t (tag)</li>
+<li>成對符號<ul>
+<li><div class=”button”></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>:::info
+:set surrond
+:::</p>
+<p>.ideavim
+找IDE action的方式
+shift shift =&gt; track action ids
+或
+:actionlist</p>
+<h4 id="custom-postfix-template">Custom Postfix Template</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.ae: Assertion
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ANY → self.assertEqual($expected$, $expr$) $END$
+</span></code></pre></div>
+<h4 id="surround-wit-live-template">Surround wit Live Template</h4>
+<p><img alt="" src="https://i.imgur.com/gN25Li2.png" />
+Live Templates</p>
+<p>abs
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>abs($SELECTION$)
+</span></code></pre></div></p>
+<p>fake
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$fake_fun$_patcher = patch(&#39;$import$&#39;)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>self.fake_$fake_fun$_ = $fake_fun$_patcher.start()
+</span></code></pre></div></p>
+<h2 id="_8">課後練習</h2>
+<p><a href="https://www.youtube.com/watch?v=MFzDaBzBlL0">The Backwards Brain Bicycle - Smarter Every Day 133</a>
+每天練習一個番茄鐘, 試試看滑鼠拿掉XDD
+第一個門檻: thirty love
+因為該練習的都會練習到</p>
+<p>第一階段
+先不要在工作時間用, 這個階段你是殘廢的XDD
+先用0.25倍速度看影片看到thirty love重構完成
+第一個禮拜練習到30分鐘或到thirty love</p>
+<p>第二階段
+18分鐘</p>
+<h3 id="_9">抽象步驟</h3>
+<ul>
+<li>開新檔案 test_tennis.py <code>A-insert</code></li>
+<li>改名TennisTestCase</li>
+<li>test_love_all<ul>
+<li>Tennis class<ul>
+<li>introduce variable <code>A-;</code></li>
+<li>create class and move it to tennis.py <code>zn</code>, <code>A-En</code>, <code>zro</code></li>
+</ul>
+</li>
+<li>測試score function <code>C-S-F10</code></li>
+<li>測試失敗, 開始構造score function的內容 <code>zn</code></li>
+<li>tennis移至setUp<ul>
+<li>IntroduceField <code>zrf</code></li>
+</ul>
+</li>
+<li>重構assert為score_should_be <code>V</code>, <code>M</code><ul>
+<li>IntroduceParameter <code>zsp</code> =&gt; f':action IntroduceParameter<CR></li>
+<li>ChangeSignature <code>\s</code></li>
+</ul>
+</li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>test_fifteen_love<ul>
+<li>複製test_love_all <code>F1</code></li>
+<li>修改測試字串 by 成對符號操作 <code>zcc</code> == ci'</li>
+<li>player_one加分function <code>A-.</code> == self. <ul>
+<li>add field to constructor <code>zn</code>, <code>A-En</code> </li>
+<li>測試</li>
+</ul>
+</li>
+<li>修改score function<ul>
+<li>post template if</li>
+</ul>
+</li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>test_thirty_love<ul>
+<li>複製test_fifteen_love <code>F1</code></li>
+<li>修改測試字串, by 修改test function name <code>cfn</code></li>
+<li>模擬再加一分 <code>C-D</code></li>
+<li>測試失敗</li>
+<li>修改score function<ul>
+<li>EditorDuplicateLines =&gt; 不使用Vkyp原因是可以使用.重複fifiteen to thirty <code>C-D</code>, <code>n</code>, <code>.</code></li>
+<li>加1分 <code>C-A</code></li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>重構score function<ul>
+<li>dict score_lookup by IntroduceVariable <code>zl</code>=&gt; <End>  <code>A-;</code></li>
+<li>僅選取fifteen, and Introduce variable(IDE level) =&gt; 原因是可以幫忙造出format string, 後續利用Inline結合 <code>n</code>, <code>ve</code>, <code>C-A-V</code>, <code>B</code>, <code>C</code>, <code>zri</code></li>
+<li>轉換為f-string <code>A+En</code></li>
+<li>score_lookup加上thirty <code>C-D</code>, <code>C-A</code>, <code>zcc</code></li>
+<li>複製f-string並取代if first_player_score_times=2 <code>Y</code>, <code>V</code>, <code>p</code></li>
+<li>結合if first_player_score_times= 1 or 2 <code>yf2</code>, <code>z,p</code> =&gt; <Esc>"0pa</li>
+<li>測試成功</li>
+<li>score_lookup抽出至constructor by IntroduceField <code>zrf</code>, <code>zrr</code> =&gt; RenameElement<CR></li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>重構test_thirty_love<ul>
+<li>抽出重複兩次player_one加分function為given_first_player_score_times <code>V</code>, 'k', <code>M</code>, postfix template by for</li>
+<li>次數 by IntroduceParameter <code>zrp</code> =&gt; :action IntroduceParameter<CR></li>
+<li>測試</li>
+<li>test_fifteen_love 修改為given_first_player_score_times(1) <code>Y</code>, <code>V</code>, <code>p</code>, <code>C-X</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test_forty_love<ul>
+<li>複製test_thirty_love <code>F1</code></li>
+<li>修改測試字串, by 修改test function name <code>cfy</code> <code>.</code></li>
+<li>再加一分 <code>C-A</code></li>
+<li>測試失敗</li>
+<li>修改score function<ul>
+<li>score_lookup加上forty的元素</li>
+<li>修改判斷條件 &gt; 0</li>
+<li>測試成功</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test_love_fifteen<ul>
+<li>複製test_forty_love <code>F1</code> </li>
+<li>修改測試字串</li>
+<li>修改given_first_player_score_times為second_player_score() <code>zb</code> =&gt; ciw</li>
+<li>測試失敗</li>
+<li>add field second_player_score_times to constructor <code>zn</code>, <code>A-En</code> <ul>
+<li>測試</li>
+</ul>
+</li>
+<li>修改score function<ul>
+<li>post template if</li>
+</ul>
+</li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>test_love_thirty<ul>
+<li>模擬test_thirty_love流程至修改判斷條件 &gt; 0</li>
+<li>重構score function<ul>
+<li>love 換成score_lookup的元素 <code>C-D</code>, <code>zcc</code>, <code>C-X</code>, <code>/lov</code>, <code>cw</code></li>
+<li>結合 self.first_player_score_times &gt; 0 or self.second_player_score_times &gt; 0</li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>重構test_love_thirty<ul>
+<li>抽出重複兩次player_two加分function為given_second_player_score_times</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test_fifteen_all<ul>
+<li>複製test_love_thirty <code>F1</code> </li>
+<li>新增given_second_player_score_times <code>C-X</code>, <code>C-D</code>, <code>zb</code></li>
+<li>修改測試字串 <code>zcc</code></li>
+<li>測試失敗</li>
+<li>修改score function<ul>
+<li>self.first_player_score_times == 1 <code>post template if</code></li>
+<li>self.first_player_score_times &gt; 0 or self.second_player_score_times &gt; 0 調整為 self.first_player_score_times != self.second_player_score_times</li>
+<li>測試成功</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test_thirty_all<ul>
+<li>複製test_fifteen_all <code>F1</code> </li>
+<li>加一分 <code>C-A</code></li>
+<li>修改score function<ul>
+<li>複製self.first_player_score_times == 1的判斷, 改為return thirty all</li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>重構score function<ul>
+<li>改為score_lookup的元素</li>
+<li>測試成功</li>
+<li>留下score_lookup的format string並且抽出函式all_score</li>
+<li>分數相異的score_lookup的format string, 抽出函式lookup_score</li>
+<li>測試成功</li>
+<li>把self.second_player_score_times != self.first_player_score_times的判斷式改為變數is_score_diff <code>\v</code> =&gt; ?if<CR>wvt::action IntroduceVariable<CR><Esc> ?</li>
+<li>把變數is_score_diff抽出函式is_score_different <code>V</code>, <code>M</code>, <code>zri</code></li>
+<li>測試成功</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test_deuce<ul>
+<li>複製test_thirty_all <code>F1</code></li>
+<li>加一分 <code>C-A</code></li>
+<li>修改score function<ul>
+<li>self.first_player_score_times &gt;= 3 <code>post template if</code></li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>重構test_deuce<ul>
+<li>given_deuce</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test_first_player_adv<ul>
+<li>複製test_deuce <code>k</code> <code>F1</code></li>
+<li>加上given_first_player_score_times(1)</li>
+<li>修改測試字串為'Joey Adv' <code>b</code> <code>zcc</code></li>
+<li>測試失敗</li>
+<li>修改score function<ul>
+<li>在is_score_different內新增self.first_player_score_times &gt; 3 <code>post template if</code></li>
+<li>在self.first_player_score_times &gt; 3內新增first player領先1分則return 'Joey Adv'</li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>重構score function<ul>
+<li>將Joey移動至Consturtor的field, self.first_player_name <code>ve</code> <code>zrf</code> <code>zf</code> =&gt; :action GotoDeclaration<CR> <code>zsp</code> <code>\s</code></li>
+<li>記得改為f-strings format</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test_second_player_adv<ul>
+<li>複製test_first_player_adv <code>k</code> <code>F1</code> <code>cft</code></li>
+<li>Joey改為Tom</li>
+<li>given_first_player_score_times(1)改為given_second_player_score_times(1) <code>zb</code></li>
+<li>測試失敗</li>
+<li>修改score function<ul>
+<li>self.first_player_score_times &gt; 3 改為 self.first_player_score_times &gt; 3 or self.second_player_score_times &gt; 3</li>
+<li>:star: first player領先1分改為絕對值abs <code>C-W</code> =&gt; Extend Selection  <code>\s</code>=&gt; :action SurroundWithLiveTemplate<CR></li>
+<li>self.first_player_name改為adv_player <code>C-W</code> <code>C-A-V</code></li>
+<li>adv_player改為三元運算子<ul>
+<li>if first player score &gt; second plaryer score else 'Tom' </li>
+<li>Tom 置換成second_player_name <code>ve</code> <code>zrf</code> <code>zf</code> <code>zsp</code> <code>\s</code></li>
+</ul>
+</li>
+<li>抽出adv_player method <code>V</code> <code>M</code> <code>zri</code></li>
+<li>if 的判斷條件abs抽出為method is_adv '\v' <code>V</code> <code>M</code> <code>zri</code></li>
+<li>測試成功</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test_second_player_win<ul>
+<li>複製test_second_player_adv <code>k</code> <code>F1</code> <code>/adv</code> <code>cw</code></li>
+<li>加一分</li>
+<li>修改測試字串為 'Tom Win'</li>
+<li>測試失敗</li>
+<li>修改score function<ul>
+<li>f'self.adv_player() Win' <code>Y</code> <code>p</code></li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>重構score function<ul>
+<li>adv_score()<ul>
+<li>f'self.adv_player() Adv'</li>
+</ul>
+</li>
+<li>win_score()<ul>
+<li>f'self.adv_player() Win'</li>
+</ul>
+</li>
+<li>is_ready_for_game_point() <ul>
+<li>self.first_player_score_times &gt; 3 or self.second_player_score_times &gt; 3 <code>\v</code> <code>V</code> <code>M</code> <code>zri</code></li>
+</ul>
+</li>
+<li>adv_state()<ul>
+<li>從 is_adv 到 win_score</li>
+</ul>
+</li>
+<li>adv_state, is_ready_for_game_point, lookup_score整合成一行的三元運算子 <code>J</code> =&gt; Join Lines in vim <code>zl</code> <code>x</code> <code>J</code><ul>
+<li>return self.adv_state() if self.is_ready_for_game_point() else self.lookup_score()</li>
+</ul>
+</li>
+<li>is_deuce 整合成一行 <code>S-Tab</code></li>
+<li>deuce()<ul>
+<li>'deuce' 字串 </li>
+</ul>
+</li>
+<li>is_deuce()<ul>
+<li>self.first_player_score_times &gt;= 3</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="412-tomato-2">4/12 開始 :tomato: * 2</h3>
+<p>0:48 Alt + l ? setUp Method
+1:40 change signaute而不是直接刪除字串, ide介面的Use default
+test love all通過且重構完成</p>
+<p>1:10 zcc 單引號可以work?
+Alt + . =&gt; self.
+1:38 .if ? postfix template
+1:42 Alt + /
+Ctrl + Alt + L =&gt; Reformat code</p>
+<p>0:00 test love all
+0:34 <code>business</code> love all done, and test pass (Tennis and score in another class)
+1:04 <code>refactor</code> test love all done
+1:04 test fifteen love
+1:44 <code>business</code> fifteen love done, and test pass
+1:49 test thirty love
+2:02 <code>business</code> thiry love done, and test pass
+3:08 <code>refactor</code> score done
+3:41 <code>refactor</code> thiry love test done</p>
+<h3 id="413-tomato-2">4/13 :tomato: * 2</h3>
+<p>工作時試著使用IDE提供的Refator功能
+跟著影片跑完第一次love all和fifteen love</p>
+<h3 id="414-tomato-4">4/14 :tomato: * 4</h3>
+<p>跟著影片跑完第一次thirty love
+2:20 Ctrl + Alt + V =&gt; Introduce variable
+2:58 Alt + l ? constructor Method</p>
+<p>跟著影片跑完第二次love all和fifteen love並記錄抽象步驟
+- 開新檔案 test_tennis.py <code>A-insert</code>
+- 改名TennisTestCase
+- test_love_all
+    - Tennis class
+        - introduce variable <code>A-;</code>
+        - create class and move it to tennis.py <code>zn</code>, <code>A-En</code>, <code>zro</code>
+    - 測試score function <code>C-S-F10</code>
+    - 測試失敗, 開始構造score function的內容 <code>zn</code>
+    - tennis移至setUp
+        - IntroduceField <code>zrf</code>
+    - 重構assert為score_should_be <code>V</code>, <code>M</code>
+        - IntroduceParameter <code>zsp</code> =&gt; f':action IntroduceParameter<CR>
+        - ChangeSignature <code>\s</code>
+    - 測試成功
+- test_fifteen_love
+    - 複製test_love_all <code>F1</code>
+    - 修改測試字串 by 成對符號操作 <code>zcc</code> == ci'
+    - player_one加分function <code>A-.</code> == self. 
+        - add field to constructor <code>zn</code>, <code>A-En</code> 
+        - 測試
+    - 修改score function
+        - post template if
+    - 測試成功
+- test_thirty_love
+    - 複製test_fifteen_love <code>F1</code>
+    - 修改測試字串, by 修改test function name <code>cfn</code>
+    - 模擬再加一分 <code>C-D</code>
+    - 測試失敗
+    - 修改score function
+        - EditorDuplicateLines =&gt; 不使用Vkyp原因是可以使用.重複fifiteen to thirty <code>C-D</code>, <code>n</code>, <code>.</code>
+        - 加1分 <code>C-A</code>
+        - 測試成功
+    - 重構score function
+        - dict score_lookup by IntroduceVariable <code>zl</code>=&gt; <End>, <code>A-;</code>
+        - 僅選取fifteen, and Introduce variable(IDE level) =&gt; 原因是可以幫忙造出format string, 後續利用Inline結合 <code>n</code>, <code>ve</code>, <code>C-A-V</code>, <code>B</code>, <code>C</code>, <code>zri</code>
+        - 轉換為f-string <code>A+En</code>
+        - score_lookup加上thirty <code>C-D</code>, <code>C-A</code>, <code>zcc</code>
+        - 複製f-string並取代if first_player_score_times=2 <code>Y</code>, <code>V</code>, <code>p</code>
+        - 結合if first_player_score_times= 1 or 2 <code>yf2</code>, <code>z,p</code> =&gt; <Esc>"0pa
+        - 測試成功
+        - score_lookup抽出至constructor by IntroduceField <code>zrf</code>, <code>zrr</code> =&gt; RenameElement<CR>
+        - 測試成功
+    - 重構test_thirty_love
+        - 抽出重複兩次player_one加分function為given_first_player_score_times <code>V</code>, 'k', <code>M</code>, postfix template by for
+        - 次數 by IntroduceParameter <code>zrp</code> =&gt; :action IntroduceParameter<CR>
+        - 測試
+        - test_fifteen_love 修改為given_first_player_score_times(1) <code>Y</code>, <code>V</code>, <code>p</code>, <code>C-X</code></p>
+<p>跑完第二次thirty love</p>
+<h3 id="415-tomato-4">4/15 :tomato: * 4</h3>
+<p>跟著影片跑完第三次love all, fifteen love, thirty love
+抽象步驟love all, fifteen love加上具體cheat sheet</p>
+<p>跟著影片跑完第四次love all, fifteen love</p>
+<p>擷取螢幕畫面至love all, fifteen love(第六次)</p>
+<h2 id="416">4/16</h2>
+<p>91哥 recap
+- 用 Alt+. 來產生 self.
+- :star:有出現 dialog 視窗（產生或重構時常出現），按住 Alt 產生下底線，就可以直接用 Alt + 那個鍵 去點選。不需要用滑鼠或是方向鍵或是 tab 去選
+- 在 insert mode 也可以用 zn 跳到錯誤的地方，節省一次 <Esc> 鍵
+- 練習用 Alt+/ 來自動補完字串內容
+- shift + Enter在insert mode跳至下一行
+- if 試著用 postfix template 來產生，也就是先寫判斷式，再用 .if<Tab></p>
+<p>跟著recap的修正, 跑完第七次love all, fifteen love</p>
+<h2 id="418-tomato-2">4/18 :tomato: * 2</h2>
+<p>跑完第八次love all, fifteen love
+跟著影片跑完第四次thirty love並在抽象步驟加上具體cheat sheet</p>
+<h2 id="419">4/19</h2>
+<p>跑完第九次love all, fifteen love
+跟著影片跑完第五次thirty love</p>
+<h2 id="420-tomato-2">4/20 :tomato: * 2</h2>
+<p>跑完第十次love all, fifteen love
+跑完第六次thirty love</p>
+<p>擷取螢幕畫面至love all, fifteen love(第十一次), thirty love(第七次)</p>
+<h2 id="421-tomato-1">4/21 :tomato: * 1</h2>
+<p>跑完第十二次love all, fifteen love
+跑完第八次thirty love</p>
+<h2 id="422-tomato-1">4/22 :tomato: * 1</h2>
+<p>跑完第十一次thirty love</p>
+<h2 id="426-tomato-2">4/26 :tomato: * 2</h2>
+<p>91哥 recap
+- .ae 的 postfix template 游標應該要停在 expected 上面（也就是 expected 應該設計為參數）
+- 記得離開 visual mode 再用 . 才能重複命令
+- /fif<CR> 一樣用 n 重複
+- 用 B 取代 bb</p>
+<p>跑完第十三次love all, fifteen love, thirty love</p>
+<h2 id="427-tomato-2">4/27 :tomato: * 2</h2>
+<p>跑完第十四次love all, fifteen love, thirty love
+擷取螢幕畫面至love all, fifteen love, thirty love(第十五次)</p>
+<h2 id="428-tomato-2">4/28 :tomato: * 2</h2>
+<p>記錄抽象步驟</p>
+<ul>
+<li>test_forty_love<ul>
+<li>複製test_thirty_love <code>F1</code></li>
+<li>修改測試字串, by 修改test function name <code>cfy</code> <code>.</code></li>
+<li>再加一分 <code>C-A</code></li>
+<li>測試失敗</li>
+<li>修改score function<ul>
+<li>score_lookup加上forty的元素</li>
+<li>修改判斷條件 &gt; 0</li>
+<li>測試成功</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test_love_fifteen<ul>
+<li>複製test_forty_love <code>F1</code> </li>
+<li>修改測試字串</li>
+<li>修改given_first_player_score_times為second_player_score() <code>zb</code> =&gt; ciw</li>
+<li>測試失敗</li>
+<li>add field second_player_score_times to constructor <code>zn</code>, <code>A-En</code> <ul>
+<li>測試</li>
+</ul>
+</li>
+<li>修改score function<ul>
+<li>post template if</li>
+</ul>
+</li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>test_love_thirty<ul>
+<li>模擬test_thirty_love流程至修改判斷條件 &gt; 0</li>
+<li>重構score function<ul>
+<li>love 換成score_lookup的元素 <code>C-D</code>, <code>zcc</code>, <code>C-X</code>, <code>/lov</code>, <code>cw</code></li>
+<li>結合 self.first_player_score_times &gt; 0 or self.second_player_score_times &gt; 0</li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>重構test_love_thirty<ul>
+<li>抽出重複兩次player_two加分function為given_second_player_score_times</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test_fifteen_all</li>
+<li>test_thirty_all</li>
+<li>test_deuce</li>
+<li>test_first_player_adv</li>
+<li>test_second_player_adv</li>
+<li>test_second_player_win</li>
+</ul>
+<h2 id="429-tomato-1">4/29 :tomato: * 1</h2>
+<p>跑完第十六次love all, fifteen love, thirty love
+跑完第一次test_forty_love, test_love_fifteen</p>
+<h2 id="430-tomato-1">4/30 :tomato: * 1</h2>
+<p>跑完第十七次love all, fifteen love, thirty love
+跑完第二次test_forty_love, test_love_fifteen
+跑完第一次test_love_thirty</p>
+<h2 id="51-tomato-1">5/1 :tomato: * 1</h2>
+<p>製作git commit
+跑完第十八次thirty love
+跑完第三次test_forty_love, test_love_fifteen
+跑完第二次test_love_thirty</p>
+<h2 id="52-tomato-1">5/2 :tomato: * 1</h2>
+<p>跑完第十九次thirty love
+跑完第四次test_forty_love, test_love_fifteen
+跑完第三次test_love_thirty</p>
+<h2 id="53-tomato-1">5/3 :tomato: * 1</h2>
+<p>跑完第二十次thirty love
+跑完第五次test_forty_love, test_love_fifteen
+跑完第四次test_love_thirty</p>
+<h2 id="54-tomato-1">5/4 :tomato: * 1</h2>
+<p>跑完第七次test_forty_love, test_love_fifteen, test_love_thirty</p>
+<h2 id="55-tomato-2">5/5 :tomato: * 2</h2>
+<p>跑完第八次test_forty_love, test_love_fifteen, test_love_thirty
+- test_fifteen_all
+    - 複製test_love_thirty <code>F1</code> 
+    - 新增given_second_player_score_times <code>C-X</code>, <code>C-D</code>, <code>zb</code>
+    - 修改測試字串 <code>zcc</code>
+    - 測試失敗
+    - 修改score function
+        - self.first_player_score_times == 1 <code>post template if</code>
+        - self.first_player_score_times &gt; 0 or self.second_player_score_times &gt; 0 調整為 self.first_player_score_times != self.second_player_score_times
+        - 測試成功
+- test_thirty_all
+    - 複製test_fifteen_all <code>F1</code> 
+    - 加一分 <code>C-A</code>
+    - 修改score function
+        - 複製self.first_player_score_times == 1的判斷, 改為return thirty all
+        - 測試成功
+    - 重構score function
+        - 改為score_lookup的元素
+        - 測試成功
+        - 留下score_lookup的format string並且抽出函式all_score
+        - 分數相異的score_lookup的format string, 抽出函式lookup_score
+        - 測試成功
+        - 把self.second_player_score_times != self.first_player_score_times的判斷式改為變數is_score_diff <code>\v</code> =&gt; ?if<CR>wvt::action IntroduceVariable<CR><Esc> ?
+        - 把變數is_score_diff抽出函式is_score_different <code>V</code>, <code>M</code>, <code>zri</code>
+        - 測試成功
+- test_deuce
+    - 複製test_thirty_all <code>F1</code>
+    - 加一分 <code>C-A</code>
+    - 修改score function
+        - self.first_player_score_times &gt;= 3 <code>post template if</code>
+        - 測試成功
+    - 重構test_deuce
+        - given_deuce</p>
+<h2 id="56-tomato-1">5/6 :tomato: * 1</h2>
+<p>跑完第一次test_fifteen_all, test_thirty_all, test_deuce
+製作git commit</p>
+<h2 id="58-tomato-3">5/8 :tomato: * 3</h2>
+<p>跑完第二十二次test_love_all, test_fifteen_love, test_thirty love
+跑完第十次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第三次test_fifteen_all, test_thirty_all, test_deuce
+擷取螢幕畫面至test_deuce</p>
+<h2 id="59-tomato-2">5/9 :tomato: * 2</h2>
+<p>跑完第二十三次test_love_all, test_fifteen_love, test_thirty love
+跑完第十一次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第四次test_fifteen_all, test_thirty_all, test_deuce</p>
+<h2 id="511-tomato-1">5/11 :tomato: * 1</h2>
+<p>跑完第二十四次test_love_all, test_fifteen_love, test_thirty love
+跑完第十二次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第五次test_fifteen_all, test_thirty_all, test_deuce</p>
+<h2 id="514-tomato-1">5/14 :tomato: * 1</h2>
+<p>跑完第二十五次test_love_all, test_fifteen_love, test_thirty love
+跑完第十三次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第六次test_fifteen_all, test_thirty_all, test_deuce</p>
+<h2 id="515-tomato-3">5/15 :tomato: * 3</h2>
+<p>跑完第二十六次test_love_all, test_fifteen_love, test_thirty love
+跑完第十四次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第七次test_fifteen_all, test_thirty_all, test_deuce
+擷取螢幕畫面至test_deuce</p>
+<ul>
+<li>test_first_player_adv<ul>
+<li>複製test_deuce <code>k</code> <code>F1</code></li>
+<li>加上given_first_player_score_times(1)</li>
+<li>修改測試字串為'Joey Adv' <code>b</code> <code>zcc</code></li>
+<li>測試失敗</li>
+<li>修改score function<ul>
+<li>在is_score_different內新增self.first_player_score_times &gt; 3 <code>post template if</code></li>
+<li>在self.first_player_score_times &gt; 3內新增first player領先1分則return 'Joey Adv'</li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>重構score function<ul>
+<li>將Joey移動至Consturtor的field, self.first_player_name <code>ve</code> <code>zrf</code> <code>zf</code> =&gt; :action GotoDeclaration<CR> <code>zsp</code> <code>\s</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test_second_player_adv<ul>
+<li>複製test_first_player_adv <code>k</code> <code>F1</code> <code>cft</code></li>
+<li>Joey改為Tom</li>
+<li>given_first_player_score_times(1)改為given_second_player_score_times(1)</li>
+<li>測試失敗</li>
+<li>修改score function<ul>
+<li>self.first_player_score_times &gt; 3 改為 self.first_player_score_times &gt; 3 or self.second_player_score_times &gt; 3</li>
+<li>first player領先1分改為絕對值abs <code>C-W</code> =&gt; Extend Selection  <code>\s</code>=&gt; :action SurroundWithLiveTemplate<CR></li>
+<li>self.first_player_name改為adv_player <code>C-W</code> <code>C-A-V</code></li>
+<li>adv_player改為三元運算子 <code>ve</code> <code>zrf</code> <code>zf</code> <code>zsp</code> <code>\s</code></li>
+<li>抽出adv_player method <code>V</code> <code>M</code></li>
+<li>abs抽出method is_adv</li>
+<li>測試成功</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test_second_player_win<ul>
+<li>複製test_second_player_adv <code>k</code> <code>F1</code> <code>/adv</code> <code>cw</code></li>
+<li>修改測試字串為 'Tom Win'</li>
+<li>測試失敗</li>
+<li>修改score function<ul>
+<li>f'self.adv_player() Win' <code>Y</code> <code>p</code></li>
+<li>測試成功</li>
+</ul>
+</li>
+<li>重構score function<ul>
+<li>adv_score</li>
+<li>win_score</li>
+<li>is_ready_for_game_point</li>
+<li>adv_state</li>
+<li>is_deuce</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="516-tomato-1">5/16 :tomato: * 1</h2>
+<p>跑完第二十七次test_love_all, test_fifteen_love, test_thirty love
+跑完第十五次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第八次test_fifteen_all, test_thirty_all, test_deuce</p>
+<h2 id="516-tomato-1_1">5/16 :tomato: * 1</h2>
+<p>跑完第二十八次test_love_all, test_fifteen_love, test_thirty love
+跑完第十六次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第九次test_fifteen_all, test_thirty_all, test_deuce</p>
+<h2 id="523-tomato-2">5/23 :tomato: * 2</h2>
+<p>製作test_first_player_adv commit
+surrond template: abs
+詢問並處理 <code>C-W</code> (Extend Selection fo IDE) 不work =&gt; 和ideavim setting衝突, handler 從vim 改為IDE</p>
+<h2 id="526-tomato-2">5/26 :tomato: * 2</h2>
+<p>完整跑完一次tennis kata</p>
+<h2 id="527-tomato-2">5/27 :tomato: * 2</h2>
+<p>跑完第二十九次test_love_all, test_fifteen_love, test_thirty love
+跑完第十七次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第十次test_fifteen_all, test_thirty_all, test_deuce
+跑完第二次test_first_player_adv, test_second_player_adv, test_second_player_win</p>
+<h2 id="528-tomato-1">5/28 :tomato: 1</h2>
+<p>跑完第三十次test_love_all, test_fifteen_love, test_thirty love
+跑完第十八次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第十一次test_fifteen_all, test_thirty_all, test_deuce
+跑完第三次test_first_player_adv, test_second_player_adv, test_second_player_win</p>
+<h2 id="529-tomato-1">5/29 :tomato: 1</h2>
+<p>跑完第三十一次test_love_all, test_fifteen_love, test_thirty love
+跑完第十九次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第十二次test_fifteen_all, test_thirty_all, test_deuce
+跑完第四次test_first_player_adv, test_second_player_adv, test_second_player_win</p>
+<h2 id="530-tomato-1">5/30 :tomato: 1</h2>
+<p>跑完第三十二次test_love_all, test_fifteen_love, test_thirty love
+跑完第二十次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第十三次test_fifteen_all, test_thirty_all, test_deuce
+跑完第五次test_first_player_adv, test_second_player_adv, test_second_player_win</p>
+<p>擷取螢幕畫面</p>
+<h2 id="531-tomato-1">5/31 :tomato: 1</h2>
+<p>跑完第三十三次test_love_all, test_fifteen_love, test_thirty love
+跑完第二十一次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第十四次test_fifteen_all, test_thirty_all, test_deuce
+跑完第六次test_first_player_adv, test_second_player_adv, test_second_player_win</p>
+<h2 id="62-tomato-1">6/2 :tomato: 1</h2>
+<p>跑完第三十四次test_love_all, test_fifteen_love, test_thirty love
+跑完第二十二次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第十五次test_fifteen_all, test_thirty_all, test_deuce
+跑完第七次test_first_player_adv, test_second_player_adv, test_second_player_win</p>
+<h2 id="63-tomato-1">6/3 :tomato: 1</h2>
+<p>跑完第三十五次test_love_all, test_fifteen_love, test_thirty love
+跑完第二十三次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第十六次test_fifteen_all, test_thirty_all, test_deuce
+跑完第八次test_first_player_adv, test_second_player_adv, test_second_player_win</p>
+<h2 id="65-tomato-1">6/5 :tomato: 1</h2>
+<p>跑完第三十六次test_love_all, test_fifteen_love, test_thirty love
+跑完第二十四次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第十七次test_fifteen_all, test_thirty_all, test_deuce
+跑完第九次test_first_player_adv, test_second_player_adv, test_second_player_win</p>
+<h2 id="66-tomato-1">6/6 :tomato: 1</h2>
+<p>跑完第三十七次test_love_all, test_fifteen_love, test_thirty love
+跑完第二十五次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第十八次test_fifteen_all, test_thirty_all, test_deuce
+跑完第十次test_first_player_adv, test_second_player_adv, test_second_player_win</p>
+<h2 id="67-tomato-1">6/7 :tomato: 1</h2>
+<p>跑完第三十八次test_love_all, test_fifteen_love, test_thirty love
+跑完第二十六次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第十九次test_fifteen_all, test_thirty_all, test_deuce
+跑完第十一次test_first_player_adv, test_second_player_adv, test_second_player_win</p>
+<h2 id="611-tomato-1">6/11 :tomato: 1</h2>
+<p>跑完第三十九次test_love_all, test_fifteen_love, test_thirty love
+跑完第二十七次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第二十次test_fifteen_all, test_thirty_all, test_deuce
+跑完第十二次test_first_player_adv, test_second_player_adv, test_second_player_win</p>
+<h2 id="612-tomato-1">6/12 :tomato: 1</h2>
+<p>跑完第四十次test_love_all, test_fifteen_love, test_thirty love
+跑完第二十八次test_forty_love, test_love_fifteen, test_love_thirty
+跑完第二十一次test_fifteen_all, test_thirty_all, test_deuce
+跑完第十三次test_first_player_adv, test_second_player_adv, test_second_player_win</p>
+<p>觀察91影片
+to test_thirty_love 3:42
+to test_love_thirty 7:14
+to test_deuce 9:58
+to test_second_player_win 14:49</p>
+<h2 id="613-tomato-1">6/13 :tomato: 1</h2>
+<p>test_love_all, test_fifteen_love, test_thirty love
+大約6分鐘</p>
+<p>觀察91影片
+test_love_all 1:05
+test_fifteen_love 1:45
+test_thirty_love 3:42</p>
+<h2 id="626-tomato-2">6/26 :tomato: 2</h2>
+<h3 id="_10">參考</h3>
+<ul>
+<li><a href="https://www.youtube.com/playlist?list=PLNGFBQ6W3IYGGF_7CDg9aLrERMpDz44vv">Extreme Developing From Scratch</a></li>
+<li><a href="https://www.jetbrains.com/help/pycharm/using-live-templates.html">Live Template</a><ul>
+<li><a href="https://medium.com/evan-android-note/%E6%8F%90%E5%8D%87android-%E9%96%8B%E7%99%BC%E9%80%9F%E5%BA%A6%E7%B3%BB%E5%88%97-2-live-template-864ce5d8ffe4">提升Android 開發速度系列 (2) — Live Template</a></li>
+<li><a href="https://www.jetbrains.com/help/pycharm/creating-and-editing-live-templates.html">Create live templates</a></li>
+<li><a href="https://www.jetbrains.com/help/pycharm/template-variables.html#pdtv">Live template variables</a></li>
+</ul>
+</li>
+<li><a href="https://plugins.jetbrains.com/plugin/9862-custom-postfix-templates">Custom Postfix Templates</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Welcome the docs">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Welcome the docs
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../202011_______________/" class="md-footer__link md-footer__link--next" aria-label="Next: 202011針對遺留代碼加入單元測試的藝術">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                202011針對遺留代碼加入單元測試的藝術
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
