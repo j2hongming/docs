@@ -9,20 +9,22 @@
       
       
       
+        <link rel="prev" href="../Docker/">
       
-        <link rel="next" href="hackmd/202004_____/">
+      
+        <link rel="next" href="../GPU/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>j2hongming Docs</title>
+        <title>DynamoDB Deep Dive Advence Design - j2hongming Docs</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
       
 
@@ -41,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-the-docs" class="md-skip">
+        <a href="#dynamodb-deep-dive-advence-design" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -96,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Welcome the docs
+              DynamoDB Deep Dive Advence Design
             
           </span>
         </div>
@@ -179,7 +181,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -194,19 +196,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -217,7 +210,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -226,18 +218,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -253,7 +247,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Hackmd
@@ -267,7 +261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/202004_____/" class="md-nav__link">
+      <a href="../202004_____/" class="md-nav__link">
         
   
   
@@ -290,7 +284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/202011_______________/" class="md-nav__link">
+      <a href="../202011_______________/" class="md-nav__link">
         
   
   
@@ -313,7 +307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/API/" class="md-nav__link">
+      <a href="../API/" class="md-nav__link">
         
   
   
@@ -336,7 +330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/AWS/" class="md-nav__link">
+      <a href="../AWS/" class="md-nav__link">
         
   
   
@@ -359,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Ansible/" class="md-nav__link">
+      <a href="../Ansible/" class="md-nav__link">
         
   
   
@@ -382,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Ansible_Practice/" class="md-nav__link">
+      <a href="../Ansible_Practice/" class="md-nav__link">
         
   
   
@@ -405,7 +399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Ansys/" class="md-nav__link">
+      <a href="../Ansys/" class="md-nav__link">
         
   
   
@@ -428,7 +422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Computer_Networking/" class="md-nav__link">
+      <a href="../Computer_Networking/" class="md-nav__link">
         
   
   
@@ -451,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Deployment/" class="md-nav__link">
+      <a href="../Deployment/" class="md-nav__link">
         
   
   
@@ -474,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Development/" class="md-nav__link">
+      <a href="../Development/" class="md-nav__link">
         
   
   
@@ -497,7 +491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Docker/" class="md-nav__link">
+      <a href="../Docker/" class="md-nav__link">
         
   
   
@@ -517,10 +511,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="hackmd/DynamoDB_Deep_Dive_Advence_Design/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -531,6 +547,131 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      實際使用案例
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#under-the-hood" class="md-nav__link">
+    <span class="md-ellipsis">
+      Under the hood
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      data model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detail-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detail Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-dynamo-db-nosql-designs-and-best-praction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Dynamo DB NoSQL Designs and Best Praction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon Dynamo DB NoSQL Designs and Best Praction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql-vs-nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL vs NoSQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partion-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      partion key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      operation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -543,7 +684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/GPU/" class="md-nav__link">
+      <a href="../GPU/" class="md-nav__link">
         
   
   
@@ -566,7 +707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/GRUB/" class="md-nav__link">
+      <a href="../GRUB/" class="md-nav__link">
         
   
   
@@ -589,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Git/" class="md-nav__link">
+      <a href="../Git/" class="md-nav__link">
         
   
   
@@ -612,7 +753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Google_docs_api/" class="md-nav__link">
+      <a href="../Google_docs_api/" class="md-nav__link">
         
   
   
@@ -635,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/HTTP/" class="md-nav__link">
+      <a href="../HTTP/" class="md-nav__link">
         
   
   
@@ -658,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/HYCOM/" class="md-nav__link">
+      <a href="../HYCOM/" class="md-nav__link">
         
   
   
@@ -681,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/InfiniBand/" class="md-nav__link">
+      <a href="../InfiniBand/" class="md-nav__link">
         
   
   
@@ -704,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/KVM/" class="md-nav__link">
+      <a href="../KVM/" class="md-nav__link">
         
   
   
@@ -727,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Kubernetes/" class="md-nav__link">
+      <a href="../Kubernetes/" class="md-nav__link">
         
   
   
@@ -750,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/LDAP/" class="md-nav__link">
+      <a href="../LDAP/" class="md-nav__link">
         
   
   
@@ -773,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/LLM/" class="md-nav__link">
+      <a href="../LLM/" class="md-nav__link">
         
   
   
@@ -796,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Linux__/" class="md-nav__link">
+      <a href="../Linux__/" class="md-nav__link">
         
   
   
@@ -819,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Makefile/" class="md-nav__link">
+      <a href="../Makefile/" class="md-nav__link">
         
   
   
@@ -842,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Message_Passing_Interface/" class="md-nav__link">
+      <a href="../Message_Passing_Interface/" class="md-nav__link">
         
   
   
@@ -865,7 +1006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Nagios/" class="md-nav__link">
+      <a href="../Nagios/" class="md-nav__link">
         
   
   
@@ -888,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Nexus_Repository_Manager/" class="md-nav__link">
+      <a href="../Nexus_Repository_Manager/" class="md-nav__link">
         
   
   
@@ -911,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/OpenShift/" class="md-nav__link">
+      <a href="../OpenShift/" class="md-nav__link">
         
   
   
@@ -934,7 +1075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Openstack/" class="md-nav__link">
+      <a href="../Openstack/" class="md-nav__link">
         
   
   
@@ -957,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Operation/" class="md-nav__link">
+      <a href="../Operation/" class="md-nav__link">
         
   
   
@@ -980,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/RedHat/" class="md-nav__link">
+      <a href="../RedHat/" class="md-nav__link">
         
   
   
@@ -1003,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Redfish/" class="md-nav__link">
+      <a href="../Redfish/" class="md-nav__link">
         
   
   
@@ -1026,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/SEO/" class="md-nav__link">
+      <a href="../SEO/" class="md-nav__link">
         
   
   
@@ -1049,7 +1190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/SQL/" class="md-nav__link">
+      <a href="../SQL/" class="md-nav__link">
         
   
   
@@ -1072,7 +1213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/SSL/" class="md-nav__link">
+      <a href="../SSL/" class="md-nav__link">
         
   
   
@@ -1095,7 +1236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/SUSE/" class="md-nav__link">
+      <a href="../SUSE/" class="md-nav__link">
         
   
   
@@ -1118,7 +1259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/SVN/" class="md-nav__link">
+      <a href="../SVN/" class="md-nav__link">
         
   
   
@@ -1141,7 +1282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Scrum__/" class="md-nav__link">
+      <a href="../Scrum__/" class="md-nav__link">
         
   
   
@@ -1164,7 +1305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Singularity/" class="md-nav__link">
+      <a href="../Singularity/" class="md-nav__link">
         
   
   
@@ -1187,7 +1328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Slurm/" class="md-nav__link">
+      <a href="../Slurm/" class="md-nav__link">
         
   
   
@@ -1210,7 +1351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Spack/" class="md-nav__link">
+      <a href="../Spack/" class="md-nav__link">
         
   
   
@@ -1233,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/UI_Framework/" class="md-nav__link">
+      <a href="../UI_Framework/" class="md-nav__link">
         
   
   
@@ -1256,7 +1397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Ubuntu/" class="md-nav__link">
+      <a href="../Ubuntu/" class="md-nav__link">
         
   
   
@@ -1279,7 +1420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Web_Server/" class="md-nav__link">
+      <a href="../Web_Server/" class="md-nav__link">
         
   
   
@@ -1302,7 +1443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/Windows/" class="md-nav__link">
+      <a href="../Windows/" class="md-nav__link">
         
   
   
@@ -1325,7 +1466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/__/" class="md-nav__link">
+      <a href="../__/" class="md-nav__link">
         
   
   
@@ -1348,7 +1489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/____/" class="md-nav__link">
+      <a href="../____/" class="md-nav__link">
         
   
   
@@ -1371,7 +1512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/_____/" class="md-nav__link">
+      <a href="../_____/" class="md-nav__link">
         
   
   
@@ -1394,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/_____Data_Modeling_/" class="md-nav__link">
+      <a href="../_____Data_Modeling_/" class="md-nav__link">
         
   
   
@@ -1417,7 +1558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/______/" class="md-nav__link">
+      <a href="../______/" class="md-nav__link">
         
   
   
@@ -1440,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/_______/" class="md-nav__link">
+      <a href="../_______/" class="md-nav__link">
         
   
   
@@ -1463,7 +1604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/___________/" class="md-nav__link">
+      <a href="../___________/" class="md-nav__link">
         
   
   
@@ -1486,7 +1627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/________________/" class="md-nav__link">
+      <a href="../________________/" class="md-nav__link">
         
   
   
@@ -1509,7 +1650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/bitwise_world/" class="md-nav__link">
+      <a href="../bitwise_world/" class="md-nav__link">
         
   
   
@@ -1532,7 +1673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/cloud-init/" class="md-nav__link">
+      <a href="../cloud-init/" class="md-nav__link">
         
   
   
@@ -1555,7 +1696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/container/" class="md-nav__link">
+      <a href="../container/" class="md-nav__link">
         
   
   
@@ -1578,7 +1719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/ffmpeg/" class="md-nav__link">
+      <a href="../ffmpeg/" class="md-nav__link">
         
   
   
@@ -1601,7 +1742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/influxdb/" class="md-nav__link">
+      <a href="../influxdb/" class="md-nav__link">
         
   
   
@@ -1624,7 +1765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/javascript/" class="md-nav__link">
+      <a href="../javascript/" class="md-nav__link">
         
   
   
@@ -1647,7 +1788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/pacemaker/" class="md-nav__link">
+      <a href="../pacemaker/" class="md-nav__link">
         
   
   
@@ -1670,7 +1811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/podman/" class="md-nav__link">
+      <a href="../podman/" class="md-nav__link">
         
   
   
@@ -1693,7 +1834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/prometheus/" class="md-nav__link">
+      <a href="../prometheus/" class="md-nav__link">
         
   
   
@@ -1716,7 +1857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/python/" class="md-nav__link">
+      <a href="../python/" class="md-nav__link">
         
   
   
@@ -1739,7 +1880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/python_web/" class="md-nav__link">
+      <a href="../python_web/" class="md-nav__link">
         
   
   
@@ -1762,7 +1903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/shell_script/" class="md-nav__link">
+      <a href="../shell_script/" class="md-nav__link">
         
   
   
@@ -1785,7 +1926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hackmd/xcat/" class="md-nav__link">
+      <a href="../xcat/" class="md-nav__link">
         
   
   
@@ -1828,6 +1969,119 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      實際使用案例
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#under-the-hood" class="md-nav__link">
+    <span class="md-ellipsis">
+      Under the hood
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      data model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      features
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detail-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detail Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scenario
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-dynamo-db-nosql-designs-and-best-praction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amazon Dynamo DB NoSQL Designs and Best Praction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amazon Dynamo DB NoSQL Designs and Best Praction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql-vs-nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL vs NoSQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partion-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      partion key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      operation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      QA
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1842,13 +2096,100 @@
 
 
 
-<h1 id="welcome-the-docs">Welcome the docs</h1>
+<h1 id="dynamodb-deep-dive-advence-design">DynamoDB Deep Dive Advence Design</h1>
+<ul>
+<li><a href="https://hackmd.io/@t-Nm5db5SpqzWkaeZs8sqQ/rJoJjRP89">[Zyxel] Amazon DynamoDB hands-on training</a></li>
+<li><a href="https://amazon-dynamodb-labs.com/hands-on-labs.html">Hands-on Labs for Amazon DynamoDB</a><ul>
+<li><a href="https://amazon-dynamodb-labs.com/game-player-data.html">Modeling Game Player Data with Amazon DynamoDB</a></li>
+</ul>
+</li>
+</ul>
+<p>from 2004 amazon.com outage</p>
+<h2 id="_1">實際使用案例</h2>
+<ul>
+<li>amazon.com</li>
+<li>disney+</li>
+<li>netflix</li>
+<li>dropbox</li>
+<li>pokemon company</li>
+</ul>
+<h2 id="under-the-hood">Under the hood</h2>
+<ul>
+<li>partition 10GB做一次切割</li>
+</ul>
+<h2 id="data-model">data model</h2>
+<ul>
+<li>different concept from Relational DB</li>
+<li>NoSQL Workbench</li>
+</ul>
+<h2 id="features">features</h2>
+<ul>
+<li>Dynamodb stream(item-level change log) for events</li>
+<li>TTL</li>
+<li>transcation</li>
+<li>Point-in-time recovery (PITR)</li>
+</ul>
+<h2 id="detail-description">Detail Description</h2>
+<ul>
+<li>partion key best practice</li>
+<li>Secondary Index</li>
+<li>事前就想到 =&gt; LSI</li>
+<li>事後才想加Index =&gt; GSI</li>
+<li>Fine-Grain Access Control</li>
+<li>IAM</li>
+<li>horizontal</li>
+<li>vertical</li>
+<li>Memory Cache</li>
+<li>DAX</li>
+</ul>
+<h2 id="scenario">Scenario</h2>
+<ul>
+<li>building and maintaing an S3 metadata</li>
+<li>users buy products in online retail shops</li>
+<li>aggration for raw records</li>
+</ul>
+<h2 id="amazon-dynamo-db-nosql-designs-and-best-praction">Amazon Dynamo DB NoSQL Designs and Best Praction</h2>
+<ul>
+<li>針對Analytics(OLAP)場景較弱</li>
+<li>客戶體驗(OLTP) vs 後端統計(OLAP)(ex. 過去一年/一季/一個月的訂單量)</li>
+<li>SQL is good for OLAP; NoSQL for OLTP for scale</li>
+<li>可以用DynomaDB Stream強化OLAP應用</li>
+<li>Archive</li>
+<li>TTL + DynomaDB Stream</li>
+</ul>
+<h3 id="sql-vs-nosql">SQL vs NoSQL</h3>
+<ul>
+<li>Data Modeling</li>
+<li>Data Access Pattern</li>
+<li>Data Query</li>
+</ul>
+<h3 id="partion-key">partion key</h3>
+<ul>
+<li><a href="https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/">AWS Blog: Choosing the right dynamodb partition key</a>
+高鑑別度的資料，會影響實體partion的存放</li>
+</ul>
+<h3 id="operation">operation</h3>
+<p>建議Batch Write Operation for cost saving</p>
+<h3 id="qa">QA</h3>
+<ul>
+<li>prefix use #? =&gt; 不成文規定</li>
+<li>
+<h1 id="profilealexdebrie-vs-orderabcsdf-profile-order">PROFILE#alexdebrie vs ORDER#abcsdf =&gt; #PROFILE ORDER 沒有特別意思</h1>
+</li>
+<li>update ok status 代表 已經同步至3個AZ完成，包含GSI?</li>
+<li>partition有可能只有一個item的情況嗎? =&gt; 有可能，看AWS後面hash function的設計</li>
+<li>partition key是具有唯一性的資料, ex. uuid, 代表一定會在不同partition嗎? =&gt; 不一定，看AWS後面hash function的設計或是該item是否是非常熱門</li>
+<li>primary key(partion key+sort key)一定具有唯一性?</li>
+</ul>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1877,15 +2218,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="../Docker/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Docker">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Docker
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="hackmd/202004_____/" class="md-footer__link md-footer__link--next" aria-label="Next: 202004極速開發+">
+          <a href="../GPU/" class="md-footer__link md-footer__link--next" aria-label="Next: GPU">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                202004極速開發+
+                GPU
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1925,10 +2282,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
