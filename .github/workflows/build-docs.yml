@@ -75,7 +75,7 @@ jobs:
             NOTE_ID=$(echo "$note" | jq -r '.id')
             NOTE_TITLE=$(echo "$note" | jq -r '.title' | sed 's/[^a-zA-Z0-9_-]/_/g')
             
-            echo "Fetching note $NOTE_ID..."
+            echo "Fetching note $NOTE_ID $NOTE_TITLE..."
             curl -X GET "https://api.hackmd.io/v1/notes/$NOTE_ID" \
               -H "Authorization: Bearer $HACKMD_API_TOKEN" \
               -H "Content-Type: application/json" > "note_${NOTE_ID}.json"
