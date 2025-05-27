@@ -73,7 +73,7 @@ jobs:
           # Loop through each note's metadata and fetch its content
           jq -c '.[]' notes_metadata.json | while read -r note; do
             NOTE_ID=$(echo "$note" | jq -r '.id')
-            NOTE_TITLE=$(echo "$note" | jq -r '.title' | sed 's/[^a-zA-Z0-9_-]/_/g')
+            NOTE_TITLE=$(echo "$note" | jq -r '.title')
             
             echo "Fetching note $NOTE_ID $NOTE_TITLE..."
             curl -X GET "https://api.hackmd.io/v1/notes/$NOTE_ID" \
