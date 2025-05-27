@@ -85,6 +85,7 @@ jobs:
 
             # Increment API call count
             API_CALL_COUNT=$((API_CALL_COUNT + 1))
+            echo "Current API_CALL_COUNT: $API_CALL_COUNT"
 
             # Check if rate limit is reached
             if [ "$API_CALL_COUNT" -ge 100 ]; then
