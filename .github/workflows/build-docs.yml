@@ -75,6 +75,11 @@ jobs:
             NOTE_ID=$(echo "$note" | jq -r '.id')
             NOTE_TITLE=$(echo "$note" | jq -r '.title')
             
+            
+            if [[ "$NOTE_TITLE" == *針對遺留代碼加入單元測試的藝術* || "$NOTE_TITLE" == *極速開發* ]]; then
+              continue
+            fi
+
             echo "Fetching note $NOTE_ID $NOTE_TITLE..."
             curl -X GET "https://api.hackmd.io/v1/notes/$NOTE_ID" \
               -H "Authorization: Bearer $HACKMD_API_TOKEN" \
