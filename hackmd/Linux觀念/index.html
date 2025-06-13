@@ -1,0 +1,2812 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Linux%E6%8A%80%E5%B7%A7/">
+      
+      
+        <link rel="next" href="../Makefile/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Linux觀念 - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux觀念
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome the docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hackmd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hackmd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google docs api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InfiniBand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁碟分割與檔案系統
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="磁碟分割與檔案系統">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁碟分割
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      檔案系統
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Message Passing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nagios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus Repository Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Openstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RedHat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redfish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scrum筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bitwise world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud-init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Influxdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pacemaker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    podman
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shell script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用者體驗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    備份還原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    奇技淫巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    持續整合
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排列組合與機率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    機器學習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    正規表示法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    測試工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    無線網路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向實務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向系統分析與設計
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬體概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    程式本質
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系統的價值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    統計圖表的表達方式以及使用的範圍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    虛擬機器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料庫維運
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資訊安全
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體工程師的專業和通識
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體需求溝通
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁碟分割與檔案系統
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="磁碟分割與檔案系統">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁碟分割
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      檔案系統
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="linux">Linux觀念</h1>
+<ul>
+<li><a href="https://linux.vbird.org/linux_basic_train/centos8/unit11.php">鳥哥私房菜 - 第 11 堂課：基礎設定、備份、檔案壓縮打包與工作排程</a></li>
+<li><a href="https://linux.vbird.org/linux_basic_train/centos8/unit13.php">鳥哥私房菜 - 第 13 堂課：服務管理與開機流程管理</a><ul>
+<li><a href="https://dic.vbird.tw/network_project/unit05.php">專題五 - 建立 rootfs 的無磁碟 Linux 系統環境</a><ul>
+<li><a href="https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html">The kernel’s command-line parameters — The Linux Kernel documentation</a></li>
+</ul>
+</li>
+<li><a href="http://xstarcd.github.io/wiki/Linux/ShengRuLiJie_linux_2.6_initramfs.html">深入理解 Linux 2.6 的 initramfs 機制</a><ul>
+<li><a href="https://dev.to/er_dward/understanding-the-initrd-and-vmlinuz-in-linux-boot-process-534f">Understanding the initrd and vmlinuz in Linux Boot Process - DEV Community</a></li>
+</ul>
+</li>
+<li><a href="https://chatgpt.com/share/67bbefad-5614-8009-b157-03d451b1047b">generate customized iso and explain the boot process by ChatGPT</a></li>
+<li><a href="https://daydreamer.idv.tw/2022/05/15/squashfs-linux%E5%A3%93%E7%B8%AE%E5%9E%8B%E6%AA%94%E6%A1%88%E7%B3%BB%E7%B5%B1%E7%9A%84%E7%8E%8B%E8%80%85/">SQUASHFS-Linux壓縮型檔案系統的王者 - Day dreamer's blog</a></li>
+</ul>
+</li>
+<li><a href="https://dic.vbird.tw/linux_server/unit02.php">第 2 堂課 - SELinux 初探與網路基礎</a></li>
+<li><a href="https://dic.vbird.tw/linux_server/unit03.php">第 3 堂課 - LACP 與 bonding/team 及 IPv6 簡易設定</a></li>
+<li><a href="https://dic.vbird.tw/linux_server/unit04.php">第 4 堂課 - 認識與建置防火牆</a></li>
+<li><a href="https://dic.vbird.tw/linux_server/unit05.php">第 5 堂課 - 區域網路的 DHCP server 建置</a><ul>
+<li><a href="https://superuser.com/questions/1108112/how-can-i-give-ip-addresses-to-1000-users-via-dhcp">How can I give IP addresses to 1000 users via DHCP? - Super User</a></li>
+<li><a href="https://www.youtube.com/watch?v=A67mc07ATeA">PT-27- 實作3棟大樓DHCP Server與DHCP Relay Agent的設定（CCNA先備技能） - YouTube</a><ul>
+<li><a href="https://kingtam.win/archives/dhcp-relay-agent.html">Cisco DHCP Relay Agent (IP Helper) 基本設定 - King Zone</a></li>
+</ul>
+</li>
+<li><a href="https://reintech.io/blog/configure-dhcp-relay-agent-ubuntu-2004">Configuring a DHCP Relay Agent on Ubuntu 20.04 | Reintech media</a></li>
+<li><a href="https://askubuntu.com/questions/1253102/dhcp-dhcp-relay-agent">DHCP-DHCP Relay Agent - Ask Ubuntu</a></li>
+</ul>
+</li>
+<li><a href="https://dic.vbird.tw/linux_server/unit07.php">第 7 堂課 - 身份識別伺服器與內部檔案系統伺服器</a><ul>
+<li><a href="https://linux.vbird.org/linux_server/rocky9/0240ldap.php">鳥哥私房菜 - 第十一章、使用 LDAP 統一管理帳號</a></li>
+</ul>
+</li>
+<li><a href="https://twitter.com/alexxubyte/status/1633871541200125954/photo/1">The 𝐋𝐢𝐧𝐮𝐱 𝐒𝐭𝐨𝐫𝐚𝐠𝐞 𝐒𝐭𝐚𝐜𝐤 𝐃𝐢𝐚𝐠𝐫𝐚𝐦 shows the layout of the the Linux storage stack. Diagram by Thomas-Krenn. </a></li>
+<li><a href="https://sysprog21.github.io/cpumemory-zhtw/">關於 · 每位程式開發者都該有的記憶體知識</a></li>
+<li><a href="https://itsfoss.com/check-uefi-or-bios/">Check if Computer Uses UEFI or Legacy BIOS [Linux &amp; Windows]</a></li>
+<li><a href="https://ivonblog.com/posts/ventoy-linux-installation/">Ventoy教學：製作能當Linux＆Windows開機碟又當資料碟的USB隨身碟 · Ivon的部落格</a></li>
+<li><a href="https://ivonblog.com/posts/linux-learning-history-2th-year/">紀錄使用Linux系統二年後的心得 · Ivon的部落格</a></li>
+<li><a href="https://ivonblog.com/posts/distrobox-usage/">我全都要！Distrobox使用教學，透過容器安裝其他Linux發行版的套件 · Ivon的部落格</a></li>
+<li><a href="https://hackmd.io/@ncnu-opensource/book/%2FF40AXYr2QMOrUD8HO12zTg">NCNU OpenSource - LSA 課程介紹</a></li>
+<li>:star:LPIC<ul>
+<li><a href="https://learning.lpi.org/en/learning-materials/101-500/">LPIC-1 Exam 101</a><ul>
+<li><a href="https://learning.lpi.org/pdfstore/LPI-Learning-Material-101-500-en.pdf">Learning Materials: LPIC-1 (101) - LPI-Learning-Material-101-500-en.pdf</a></li>
+</ul>
+</li>
+<li><a href="https://learning.lpi.org/en/learning-materials/102-500/">LPIC-1 Exam 102</a><ul>
+<li><a href="https://learning.lpi.org/pdfstore/LPI-Learning-Material-102-500-en.pdf">Learning Materials: LPIC-1 (102) - LPI-Learning-Material-102-500-en.pdf</a></li>
+</ul>
+</li>
+<li><a href="https://learning.lpi.org/en/learning-materials/020-100/">Security Essentials</a><ul>
+<li><a href="https://learning.lpi.org/pdfstore/LPI-Learning-Material-020-100-en.pdf">Learning Materials: Security Essentials - LPI-Learning-Material-020-100-en.pdf</a></li>
+</ul>
+</li>
+<li>LPIC-2<ul>
+<li><a href="https://lpic2book.github.io/src/pdf/lpic2book.pdf">The LPIC2 Exam Prep - lpic2book.pdf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>FHS<ul>
+<li><a href="https://refspecs.linuxfoundation.org/fhs.shtml">FHS Referenced Specifications</a></li>
+<li><a href="https://hackmd.io/@ncnu-opensource/book/https%3A%2F%2Fhackmd.io%2F%40Q222wGLkR5Kz-Il_NVAbbA%2FHksSkpZxT">FHS 講義 - HackMD</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="_1">磁碟分割與檔案系統</h2>
+<ul>
+<li><a href="https://superuser.com/questions/455909/how-to-get-the-number-of-physical-disks-in-linux">unix - How to get the number of physical disks in Linux? - Super User</a></li>
+<li><a href="https://blog.jks.coffee/linux-lvm-disk-extend-expand-redhat/">[Linux] Linux LVM 磁區擴增 disk extending (以 Redhat 為例) - 清新下午茶</a></li>
+<li><a href="https://gist.github.com/xxrjun/3886746738c43bb8f1a869b05597026f">了解LVM並於Ubuntu擴充伺服器磁碟空間 · GitHub</a></li>
+<li><a href="https://blog.jason.tools/2024/09/proxmox-ve-storage-choice.html">節省工具箱 Jason Tools: [技術文章] Proxmox VE 儲存架構表</a></li>
+<li><a href="https://blog.clarence.tw/2024/09/29/linux-%e7%a1%ac%e7%a2%9f%e7%a9%ba%e9%96%93%e4%b8%8d%e8%b6%b3%e6%80%8e%e9%ba%bc%e8%be%a6%ef%bc%9f%e6%8e%92%e6%9f%a5%e8%88%87%e6%b8%85%e7%90%86%e7%9a%84%e5%ae%8c%e6%95%b4%e6%8c%87%e5%8d%97/">Linux 硬碟空間不足怎麼辦？排查與清理的完整指南 - Clarence 的科技學習實戰筆記</a></li>
+</ul>
+<h3 id="_2">磁碟分割</h3>
+<p>接近物理層的硬體上做第一層的抽象化
+- <a href="https://linux.vbird.org/linux_basic/centos7/0130designlinux.php#partition_install">鳥哥私房菜 - 第二章、主機規劃與磁碟分割</a>
+    - 在Linux系統中，每個裝置都被當成一個檔案來對待
+        - <a href="https://www.kernel.org/doc/html/latest/admin-guide/devices.html">Linux核心支援的硬體裝置與檔名</a>
+    - 整顆磁碟的第一個磁區特別的重要，因為他記錄了整顆磁碟的重要資訊
+        - MBR (Master Boot Record)
+            - 第一個磁區 512bytes 會有這兩個資料
+                - 主要開機記錄區(Master Boot Record, MBR)：可以安裝開機管理程式的地方，有446 bytes
+                - 分割表(partition table)：記錄整顆硬碟分割的狀態，有64 bytes
+                    - 每組分割表僅有 16bytes, 最多4組
+                    - 主要(Primary)或延伸(Extended)分割槽
+                    - 延伸分割最多只能1組
+        - GPT (GUID partition table)
+            - 在磁區的定義上面， 大多會使用所謂的邏輯區塊位址(Logical Block Address, LBA)來處理
+            - 與 MBR 僅使用第一個 512bytes 區塊來紀錄不同， GPT 使用了 34 個 LBA 區塊來紀錄分割資訊
+    - 如何結合目錄樹的架構(邏輯上)與磁碟內(物理層面)的資料
+        - 掛載: 利用一個目錄當成進入點，將磁碟分割槽的資料放置在該目錄下； 也就是說，進入該目錄就可以讀取該分割槽
+            - 進入點的目錄我們稱為『掛載點』</p>
+<h3 id="_3">檔案系統</h3>
+<p>了解磁碟分割後，引入作業系統概念，做第二層的抽象化(檔案系統)
+可以將檔案系統想成作業系統要管理實際檔案時所需要的資料結構
+分割槽和檔案系統的為多對多關係</p>
+<p>``` bash=
+df -hT
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>- [鳥哥私房菜 - 第七章、Linux 磁碟與檔案系統管理](https://linux.vbird.org/linux_basic/centos7/0230filesystem.php)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    - 磁碟分割完畢後還需要進行格式化(format)，之後作業系統才能夠使用這個檔案系統。 為什麼需要進行『格式化』呢？這是因為每種作業系統所設定的檔案屬性/權限並不相同， 為了存放這些檔案所需的資料，因此就需要將分割槽進行格式化
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    - 常聽到的LVM與軟體磁碟陣列(software raid)， 這些技術可以將一個分割槽格式化為多個檔案系統(例如LVM)，也能夠將多個分割槽合成一個檔案系統(LVM, RAID)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    - 目前我們在格式化時已經不再說成針對 partition 來格式化了， 通常我們可以稱呼一個可被掛載的資料為一個檔案系統而不是一個分割槽
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        - 將檔案系統與目錄樹結合的動作我們稱為『掛載』
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    - 較新的作業系統的檔案資料除了檔案實際內容外， 通常含有非常多的屬性，例如 Linux 作業系統的檔案權限(rwx)與檔案屬性(擁有者、群組、時間參數等)。 檔案系統通常會將這兩部份的資料分別存放在不同的區塊，權限與屬性放置到 inode 中，至於實際資料則放置到 data block 區塊中。 另外，還有一個超級區塊 (superblock) 會記錄整個檔案系統的整體資訊，包括 inode 與 block 的總量、使用量、剩餘量等。
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        - superblock：記錄此 filesystem 的整體資訊，包括inode/block的總量、使用量、剩餘量， 以及檔案系統的格式與相關資訊等；
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        - inode：記錄檔案的屬性，一個檔案佔用一個inode，同時記錄此檔案的資料所在的 block 號碼；
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        - block：實際記錄檔案的內容，若檔案太大時，會佔用多個 block 。
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>- [鳥哥私房菜 - 第 15 堂課：Linux 系統的準備 (Optional)](https://linux.vbird.org/linux_basic_train/centos8/unit15.php)
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>The `tmpfs` and `devtmpfs` devices are file systems in system memory. 
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>All files that are written to the tmpfs or devtmpfs file system disappear after a system reboot.
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>human-readable options
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>- The -h option reports in KiB (210), MiB (220), or GiB (230)
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>- the -H option reports in SI units: KB (103), MB (106), or GB (109)
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>#### /tmp
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>- [linux - When does /tmp get cleared? - Server Fault](https://serverfault.com/questions/377348/when-does-tmp-get-cleared)
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>- [How to use systemd-tmpfiles-clean to automatically remove the old logs in the directory - Red Hat Customer Portal](https://access.redhat.com/solutions/6964016)
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    - [Linux下关于/tmp目录的清理规则 - 爱吃甜食的boy - 博客园](https://www.cnblogs.com/samtech/p/9490166.html)
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    - /usr/lib/systemd/system/systemd-tmpfiles-clean.timer
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    - /usr/lib/systemd/system/systemd-tmpfiles-clean.service
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    - /usr/lib/tmpfiles.d/tmp.conf
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        - [tmpfiles.d](https://www.freedesktop.org/software/systemd/man/latest/tmpfiles.d.html)
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>        - [Ubuntu Manpage: tmpfiles.d - Configuration for creation, deletion and cleaning of volatile and temporary](https://manpages.ubuntu.com/manpages/bionic/man5/tmpfiles.d.5.html)
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>- [/tmp临时目录定期清理机制 — Cloud Atlas 0.1 文档](https://cloud-atlas.readthedocs.io/zh_CN/latest/linux/redhat_linux/systemd/tmp_directory_cleanup_periodically.html)
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>#### mount
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>The /mnt directory exists for use as a temporary mount point.
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>If a directory to use as a mount point is not empty, then the existing files are hidden and not accessible when a file system is mounted there. 
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>The original files are accessible again after the mounted file system is unmounted.
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>It is recommended to use an unchanging device identifier to mount file systems consistently.
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>One stable identifier that is associated with a file system is its universally unique identifier (UUID). 
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>This UUID is stored in the file system superblock and remains the same until the file system is re-created.
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>``` bash=
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a># lists the full path of the device, the UUIDs and mount points, and the partition&#39;s file-system type
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>lsblk -fp
+</span></code></pre></div></p>
+<p>System shutdown and reboot procedures unmount all file systems automatically. </p>
+<p>Unmounting is not possible when the mounted file system is in use.
+- For the umount command to succeed, all processes must stop accessing data under the mount point.</p>
+<p>``` bash=
+mount UUID="efd314d0-b56e-45db-bbb3-3f32ae98f652" /mnt/data
+cd /mnt/data
+umount /mnt/data</p>
+<h1 id="lists-all-open-files-and-the-processes-that-are-accessing-the-file-system">lists all open files and the processes that are accessing the file system.</h1>
+<p>lsof /mnt/data
+cd
+umount /mnt/data
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>### LVM
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>- [4.3.7. Activating and Deactivating Volume Groups Red Hat Enterprise Linux 4 | Red Hat Customer Portal](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/4/html/cluster_logical_volume_manager/vg_activate)
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>- [Chapter 5. LVM Configuration Examples Red Hat Enterprise Linux 7 | Red Hat Customer Portal](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/lvm_examples#doc-wrapper)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>- [“Logical volume vg/lv contains a filesystem in use” – while removing LVM filesystem – The Geek Diary](https://www.thegeekdiary.com/logical-volume-vg-lv-contains-a-filesystem-in-use-while-removing-lvm-filesystem/)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>- [Can not remove Logical Volume, message &quot;Logical volume contains a filesystem in use&quot; returned - Red Hat Customer Portal](https://access.redhat.com/solutions/2961861)
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>``` bash=
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a># deactive
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>vgchange -a n my_volume_group
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a># activce
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>vgchange -a y my_volume_group
+</span></code></pre></div></p>
+<h3 id="raid-and-lvm">RAID and LVM</h3>
+<ul>
+<li><a href="https://linux.vbird.org/linux_basic_train/centos8/unit14.php">鳥哥私房菜 - 第 14 堂課：進階檔案系統管理</a></li>
+</ul>
+<p>RAID 可以將檔案系統容量增加，也有效能增加與容錯的機制，但是就是沒有辦法在既有的檔案系統架構下，直接將容量放大的機制。 </p>
+<p>LVM 最重要的任務就是進行裝置的容量放大與縮小，前提是在該裝置下的檔案系統能夠支援放大與縮小才行。
+目前在 CentOS 8 上面主要的兩款檔案系統中， ext4 可以放大與縮小，但是 xfs 檔案系統則僅能放大而已。因此使用上需要特別注意。</p>
+<p>RAID 主要的目的在效能與容錯 (容量只是附加的)，而 LVM 重點在彈性管理檔案系統 (最好不要考量 LVM 內建的容錯機制)。 若需要兩者的優點，則可以在 RAID 上面建置 LVM。</p>
+<h4 id="resize">Resize</h4>
+<ul>
+<li><a href="https://www.redhat.com/sysadmin/resize-lvm-simple">How to resize a logical volume with 5 simple LVM commands | Enable Sysadmin</a></li>
+<li><a href="https://access.redhat.com/solutions/540013">How to reduce XFS file system - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_logical_volumes/modifying-the-size-of-a-logical-volume_configuring-and-managing-logical-volumes">Chapter 6. Modifying the size of a logical volume Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></li>
+<li><a href="https://dannyda.com/2021/10/08/how-to-shrink-reduce-xfs-partition-size-on-lvm/">How to Shrink/Reduce XFS partition size on LVM &gt; Blog-D without Nonsense</a></li>
+<li><a href="https://yallalabs.com/linux/how-to-reduce-shrink-the-size-of-a-lvm-partition-formatted-with-xfs-filesystem/">How to Reduce / Shrink the Size of a LVM Partition Formatted with XFS Filesystem? - YallaLabs</a></li>
+<li><a href="https://www.howtoforge.com/how-to-resize-lvm-software-raid1-partitions-shrink-and-grow">How To Resize LVM Software RAID1 Partitions (Shrink &amp; Grow)</a></li>
+<li><a href="https://www.kobelnet.ch/2020/02/24/shrinking-lvm-physical-volume-running-on-software-raid">Shrinking LVM physical volume running on software RAID - KobelNET Blog</a></li>
+<li><a href="https://gist.github.com/troyfontaine/87091bd6a5c68f45dd62ced3d12bc377?permalink_comment_id=2929142">Resize root partition (or how to remove the default /home partition) on CentOS 7 online · GitHub</a></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cat /proc/mdstat
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>mdadm --detail /dev/md126
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>lsof /dev/md126
+</span></code></pre></div>
+<h5 id="shrink-xfs-system-on-lvm-on-raid">Shrink xfs system on LVM on RAID</h5>
+<ul>
+<li><a href="https://stackoverflow.com/questions/64800542/how-to-move-mounted-and-mapped-logical-volume-from-one-volume-group-physical-vol">ubuntu 18.04 - How to move mounted and mapped logical volume from one volume group/physical volume to another - Stack Overflow</a></li>
+<li><a href="https://www.thegeekdiary.com/centos-rhel-7-how-to-boot-into-rescue-mode-or-emergency-mode/">CentOS / RHEL 7 : How to boot into Rescue Mode or Emergency Mode – The Geek Diary</a></li>
+</ul>
+<p>/tmp
+``` bash=</p>
+<h1 id="enter-into-resure-mode-after-reboot">enter into Resure mode after reboot</h1>
+<p>umount /tmp</p>
+<h2 id="remove-mount-point-tmp-on-the-etcfstab">remove mount point /tmp on the /etc/fstab</h2>
+<p>sed -i '/\/tmp/d' /etc/fstab</p>
+<h2 id="deactive-and-remove-logic-volume">deactive and remove logic volume</h2>
+<p>lvchange -an -v /dev/rhel/tmp
+lvremove -vf /dev/rhel/tmp
+reboot</p>
+<h1 id="normal-mode">normal mode</h1>
+<p>lvcreate -L 600G -n tmp rhel
+mkfs.xfs -f /dev/rhel/tmp
+sed -i -e '$a/dev/mapper/rhel-tmp    /tmp                    xfs     defaults        0 0' /etc/fstab
+reboot
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>### Ramdisk
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>- [Create a RAM disk in Linux | JamesCoyle.net Limited](https://www.jamescoyle.net/how-to/943-create-a-ram-disk-in-linux)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>- [The Difference Between a tmpfs and ramfs RAM Disk | JamesCoyle.net Limited](https://www.jamescoyle.net/knowledge/951-the-difference-between-a-tmpfs-and-ramfs-ram-disk)
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>- [專題五 - 建立 rootfs 的無磁碟 Linux 系統環境](https://dic.vbird.tw/network_project/unit05.php)
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>- [ramfs, tmpfs, rootfs, initramfs的区别](https://flyflypeng.tech/%E5%86%85%E6%A0%B8/2017/06/14/ramfs-rootfs-initramfs%E7%9A%84%E5%8C%BA%E5%88%AB.html)
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    - [linux - What sets the size of tmpfs? What happens when its full? - Unix &amp; Linux Stack Exchange](https://unix.stackexchange.com/questions/205174/what-sets-the-size-of-tmpfs-what-happens-when-its-full)
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        - The default is half of your physical RAM without swap
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>ramfs is the older file system type and is largely replaced in most scenarios by tmpfs
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>- it creates an in memory file system which uses the same mechanism and storage space as Linux file system cache
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>- it cannot be limited in size like a disk base file system which is limited by it’s capacity.
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    - it will continue using memory storage until the system runs out of RAM and likely crashes or becomes unresponsive.
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>- you cannot see the size of the file system in df and it can only be estimated by looking at the cached entry in free command
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>tmpfs is a more recent RAM file system which overcomes many of the drawbacks with ramfs.
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>- You can specify a size limit in tmpfs which will give a ‘disk full’ error when the limit is reached.
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    - This behaviour is exactly the same as a partition of a physical disk.
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>- tmpfs may use SWAP space.
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>## 網路
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>- [networking - what is the difference between eth1 and eno1? - Super User](https://superuser.com/questions/1053003/what-is-the-difference-between-eth1-and-eno1)
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>## NFS
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>- [nfs(5) - Linux man page](https://linux.die.net/man/5/nfs)
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    - [Additional mounting considerations - Amazon Elastic File System](https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-general.html)
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>- [NFS vs CIFS - 檔案系統之間的區別 - AWS](https://aws.amazon.com/tw/compare/the-difference-between-nfs-and-cifs/)
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>- [Chapter 3. Mounting NFS shares Red Hat Enterprise Linux 8 | Red Hat Customer Portal](https://access.redhat.com/documentation/zh-tw/red_hat_enterprise_linux/8/html/managing_file_systems/mounting-nfs-shares_managing-file-systems#common-nfs-mount-options_mounting-nfs-shares)
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>- [An NFS client hangs on various operations, including &quot;df&quot;. Hard vs Soft NFS mounts. | Support | SUSE](https://www.suse.com/support/kb/doc/?id=000020830)
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>- [Where are NFS defaults specified? - Unix &amp; Linux Stack Exchange](https://unix.stackexchange.com/questions/310178/where-are-nfs-defaults-specified)
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>    - [fstab(5) - Linux manual page](https://man7.org/linux/man-pages/man5/fstab.5.html)
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>- [Chapter 110. Using Ansible to automount NFS shares for IdM users Red Hat Enterprise Linux 8 | Red Hat Customer Portal](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_identity_management/using-ansible-to-automount-nfs-shares-for-idm-users_configuring-and-managing-idm)
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>- [NFS 效能 - IBM 說明文件](https://www.ibm.com/docs/zh-tw/aix/7.3?topic=management-nfs-performance)
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>    - [The nfsstat -s command - IBM Documentation](https://www.ibm.com/docs/en/aix/7.3?topic=server-nfsstat-s-command)
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>    - [Causes of slow access times for NFS - IBM Documentation](https://www.ibm.com/docs/en/aix/7.2?topic=troubleshooting-causes-slow-access-times-nfs)
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    - [Using nfsstat and nfsiostat to troubleshoot NFS performance issues on Linux | Enable Sysadmin](https://www.redhat.com/sysadmin/using-nfsstat-nfsiostat)
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>    - [RHEL NFS Client: slow NFS performance with \`noac\` NFS mount option - Red Hat Customer Portal](https://access.redhat.com/solutions/83723)
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>- [1893329 – Mounting NFS home dirs at boot fails](https://bugzilla.redhat.com/show_bug.cgi?id=1893329)
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>    - [Chapter 28. Mounting file systems on demand Red Hat Enterprise Linux 8 | Red Hat Customer Portal](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_file_systems/assembly_mounting-file-systems-on-demand_managing-file-systems#proc_using-systemd-automount-to-mount-a-file-system-on-demand-with-etc-fstab_assembly_mounting-file-systems-on-demand)
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>        - [systemd.mount](https://www.freedesktop.org/software/systemd/man/systemd.mount.html)
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>    - [networking - systemd: failed to mount NFS share: mount.nfs: Network is unreachable until later in boot process - Unix &amp; Linux Stack Exchange](https://unix.stackexchange.com/questions/459731/systemd-failed-to-mount-nfs-share-mount-nfs-network-is-unreachable-until-late)
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>        - soft,retrans=5,timeo=30,retry=2
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    - [systemd - (Ubuntu 19.04) NFS share won&#39;t automount at boot: &#39;mount.nfs: Network is unreachable&#39; - Unix &amp; Linux Stack Exchange](https://unix.stackexchange.com/questions/542925/ubuntu-19-04-nfs-share-wont-automount-at-boot-mount-nfs-network-is-unreach)
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>    - [fstab与systemd.mount自动挂载的一点研究和见解 · zhangguanzhang&#39;s Blog](https://zhangguanzhang.github.io/2019/01/30/fstab/#/findmnt)
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    - [Reboot hangs when NFS share is mounted and lost connection to NFS server during I/O operation in Red Hat Enterprise Linux. - Red Hat Customer Portal](https://access.redhat.com/solutions/3339001)
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>    - [NFS hard and soft mounts - IBM Documentation](https://www.ibm.com/docs/en/spectrum-protect/8.1.9?topic=considerations-nfs-hard-soft-mounts)
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>- [How to log NFS related messages in &quot;/var/log/messages&quot;? - Red Hat Customer Portal](https://access.redhat.com/solutions/137313)
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>- firewall
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>    - [Configuring the NFS server to run behind a firewall](https://access.redhat.com/documentation/zh-tw/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/exporting-nfs-shares_deploying-different-types-of-servers#assembly_configuring-the-nfs-server-to-run-behind-a-firewall_exporting-nfs-shares)
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>- server is gone
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>    - [How to unmount NFS when server is gone? - Ask Ubuntu](https://askubuntu.com/questions/292043/how-to-unmount-nfs-when-server-is-gone)
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>- server not responding
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>    - [RHEL mount hangs: nfs: server [...] not responding, still trying - Red Hat Customer Portal](https://access.redhat.com/solutions/28211)
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>        - [How to increase the number of threads created by the NFS daemon in RHEL 4, 5, 6, 7 and 8? - Red Hat Customer Portal](https://access.redhat.com/solutions/2216)
+</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>    - [Correct nfs server not responding error in EFS | AWS re:Post](https://repost.aws/knowledge-center/efs-fix-nfs-server-not-responding)
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>        - noresvport
+</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>- NFS client hangs
+</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>    - [NFS client hang problem analysis - IBM Documentation](https://www.ibm.com/docs/en/zos/2.4.0?topic=aids-nfs-client-hang-problem-analysis)
+</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>    - [An NFS client hangs on various operations, including &quot;df&quot;. Hard vs Soft NFS mounts. | Support | SUSE](https://www.suse.com/support/kb/doc/?id=000020830)
+</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>    - [Dell Unity: ls command hung on RHEL 8.4 client when mounting Unity NFS export via NFSv4 (User Correctable) | Dell US](https://www.dell.com/support/kbdoc/en-us/000202521/dell-emc-unity-ls-command-hung-on-rhel-8-4-client-in-a-user-correctable)
+</span><span id="__span-3-60"><a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>    - [Why does the command &#39;df&#39; hang on a RHEL NFS client when the NFS server is unavailable? - Red Hat Customer Portal](https://access.redhat.com/solutions/23338)
+</span><span id="__span-3-61"><a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>    - [linux - Mount nfs hangs client - Unix &amp; Linux Stack Exchange](https://unix.stackexchange.com/questions/404066/mount-nfs-hangs-client)
+</span><span id="__span-3-62"><a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>
+</span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>
+</span><span id="__span-3-64"><a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>``` bash=
+</span><span id="__span-3-65"><a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a># on the server
+</span><span id="__span-3-66"><a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>nfsstat -s
+</span><span id="__span-3-67"><a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>
+</span><span id="__span-3-68"><a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a># on the client
+</span><span id="__span-3-69"><a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a>nfsstat -m
+</span><span id="__span-3-70"><a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>nfsstat -c
+</span><span id="__span-3-71"><a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a>nfsiostat
+</span></code></pre></div></p>
+<p>``` bash=</p>
+<h1 id="on-the-server">on the server</h1>
+<h1 id="firewall">firewall</h1>
+<p>sudo firewall-cmd --zone=public --list-all
+sudo firewall-cmd --add-service=nfs --permanent
+sudo firewall-cmd --reload
+sudo systemctl restart nfs-server
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Test
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>``` bash=
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a># on the client
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>sudo systemctl stop opt_shared.mount
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>sudo sed -i &#39;s/167.22.10.1/167.22.10.2/g&#39; /etc/fstab
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>sudo systemctl daemon-reload
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>systemctl status opt_shared.mount
+</span></code></pre></div></p>
+<h2 id="tty">TTY</h2>
+<ul>
+<li><a href="https://johnliu55.tw/use-python-to-control-other-process-tty.html">用 Python 控制其他行程的 TTY 終端裝置 · John Engineering Stuff</a></li>
+<li><a href="https://www.hwchiu.com/docs/2023/bash_redirection">Bash output 討論 &gt;file 2&gt;&amp;1 與 2&gt;&amp;1 &gt; file 的差異 | hwchiu learning note</a></li>
+</ul>
+<h2 id="privilege-escalation">Privilege Escalation</h2>
+<ul>
+<li><a href="https://delinea.com/blog/linux-privilege-escalation">Privilege Escalation on Linux (With Examples)</a></li>
+</ul>
+<h2 id="cpu">CPU</h2>
+<ul>
+<li><a href="https://cloud.tencent.com/developer/article/1736628">三分钟速览cpu,socket,core,thread等术语之间的关系-腾讯云开发者社区-腾讯云</a></li>
+<li><a href="https://blogs.vmware.com/professional-services/2021/06/sockets-cpus-cores-and-threads-the-history-of-x86-processor-terms.html">Socket vs. Core, CPU vs. Thread: The Evolution of x86 Architecture Terms - VMware Professional Services</a></li>
+<li><a href="https://stackoverflow.com/questions/40163095/what-is-socket-core-threads-cpu">cluster computing - What is socket, core, threads, CPU? - Stack Overflow</a></li>
+<li><a href="https://askubuntu.com/questions/218567/any-way-to-check-the-clock-speed-of-my-processor">cpu - Any way to check the clock speed of my processor? - Ask Ubuntu</a></li>
+<li><a href="https://unix.stackexchange.com/questions/264632/what-is-the-correct-way-to-view-your-cpu-speed-on-linux">What is the correct way to view your CPU speed on Linux? - Unix &amp; Linux Stack Exchange</a></li>
+<li><a href="https://stackoverflow.com/questions/73321957/how-to-determine-armv8-cpus-frequency">linux - How to determine ARMv8 CPU's frequency? - Stack Overflow</a></li>
+<li><a href="https://phoenixnap.com/kb/linux-cpu-temp">Check CPU Temp on Linux {3 Methods} | phoenixNAP KB</a></li>
+<li><a href="https://community.amd.com/t5/processors/cpu-edc-is-high/td-p/544634">Cpu EDC is high - AMD Community</a></li>
+<li><a href="https://blog.mygraphql.com/zh/notes/hw/hyper-threading/">被误解的CPU利用率、超线程、动态调频 —— CPU 性能之迷 Part 1 – Mark Zhu 的博客</a></li>
+<li><a href="https://blog.mygraphql.com/zh/notes/low-tec/kernel/cpu-frequency/">谁动了我的 CPU 频率 —— CPU 性能之迷 Part 2 – Mark Zhu 的博客</a></li>
+<li><a href="https://www.quora.com/Multi-core-Processors-Does-each-core-run-at-the-full-clock-speed-or-some-fraction-of-the-full-clock-frequency">Multi-core Processors: Does each 'core' run at the full clock speed or some fraction of the full clock frequency? - Quora</a></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat /proc/cpuinfo
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cat /proc/cpuinfo | egrep &#39;^processor|^physical|^core id&#39;
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>numactl --hardware
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>lscpu
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>cpupower frequency-info
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>cpupower -c all frequency-info
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>lshw  -c cpu
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>lshw -json -c cpu
+</span></code></pre></div>
+<h3 id="tuning">tuning</h3>
+<ul>
+<li><a href="https://linux.vbird.org/events/cputune.php">鳥哥私房菜 - 高效能電腦的程序優化</a><ul>
+<li>NUMA<ul>
+<li><a href="https://documentation.suse.com/sles/15-SP4/html/SLES-all/cha-tuning-numactl.html">SLES 15 SP4 | System Analysis and Tuning Guide | Automatic Non-Uniform Memory Access (NUMA) balancing</a></li>
+<li>numatop</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://documentation.suse.com/zh-tw/sles/15-SP5/html/SLES-all/cha-tuning-power.html">SLES 15 SP5 | System Analysis and Tuning Guide | Power management</a><ul>
+<li><a href="https://events.static.linuxfound.org/sites/events/files/slides/LinuxConEurope_2015.pdf">Balancing Power and Performance in the Linux Kernel</a></li>
+<li><a href="https://www.kernel.org/doc/Documentation/cpu-freq/intel-pstate.txt">kernel.org/doc/Documentation/cpu-freq/intel-pstate.txt</a></li>
+<li><a href="https://www.kernel.org/doc/html/v4.12/admin-guide/pm/intel_pstate.html">intel_pstate CPU Performance Scaling Driver — The Linux Kernel documentation</a></li>
+<li><a href="https://docs.kernel.org/admin-guide/pm/cpufreq.html">CPU Performance Scaling — The Linux Kernel documentation</a><ul>
+<li>For this reason, CPUFreq allows scaling drivers to bypass the governor layer and implement their own performance scaling algorithms. That is done by the intel_pstate scaling driver.</li>
+</ul>
+</li>
+<li><a href="https://wiki.archlinux.org/title/CPU_frequency_scaling">CPU frequency scaling - ArchWiki</a></li>
+</ul>
+</li>
+<li><a href="https://www.intel.com/content/www/us/en/developer/articles/guide/hpc-cluster-tuning-on-3rd-generation-xeon.html">HPC Cluster Tuning Guide on Intel® Xeon® processor platforms</a><ul>
+<li>For HPC clusters, the goal is to reduce workload runtimes for applications using MPI libraries and high-performance fabrics</li>
+</ul>
+</li>
+<li><a href="https://unix.stackexchange.com/questions/647614/cannot-set-cpu-frequency">linux - Cannot set CPU frequency - Unix &amp; Linux Stack Exchange</a></li>
+<li><a href="https://askubuntu.com/questions/1274029/how-to-update-cpu-frequency-policy">18.04 - How to update CPU frequency policy? - Ask Ubuntu</a></li>
+<li><a href="https://superuser.com/questions/985119/intel-cpu-using-low-clock-for-no-reason">windows - Intel CPU using low clock for no reason - Super User</a></li>
+<li><a href="https://www.ichenfu.com/2020/07/17/cpu-idle-time-managment/">再谈CPU的电源管理（如何做到稳定全核睿频？） | C0reFast记事本</a></li>
+<li><a href="https://access.redhat.com/solutions/2895271">Maximum CPU frequency is not maintained on Intel CPUs - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/7002736">Max CPU Frequency Reported by cpupower Differs Between intel_pstate and acpi_cpufreq drivers - Red Hat Customer Portal</a></li>
+<li><a href="https://stackoverflow.com/questions/61286774/how-to-set-specific-cpu-frequency-when-using-intel-pstate">linux - How to set specific cpu frequency when using intel_pstate - Stack Overflow</a></li>
+<li><a href="https://access.redhat.com/solutions/2895271">Maximum CPU frequency is not maintained on Intel CPUs - Red Hat Customer Portal</a><ul>
+<li>HWP uses hardware information (aperf/mperf counters) to determine the "best" frequency for the cpus.</li>
+<li>For example, if a user requested 800MHz, the hardware using system temperature information, states of other CPUs and other factors may determine that a better frequency for the workload is really 900MHz and will raise the frequencies temporarily to that value.</li>
+</ul>
+</li>
+<li><a href="https://www.ichenfu.com/2020/02/26/cpu-power-management/">服务器的能耗控制以及高性能模式配置（Dell） | C0reFast记事本</a></li>
+<li><a href="https://bbs.archlinux.org/viewtopic.php?id=272928">CPU frequency always at 200Mhz [Solved] / Kernel &amp; Hardware / Arch Linux Forums</a></li>
+<li>intel-pstate<ul>
+<li><a href="https://hackmd.io/@aben20807/rkdzvWJTX?type=view#%E8%BB%9F%E9%AB%94%E5%AF%A6%E9%A9%97%E7%92%B0%E5%A2%83">更換CPU driver - HackMD</a></li>
+<li><a href="https://stackoverflow.com/questions/52477213/how-to-forcefully-disable-intel-pstate-intel-pstate-is-enabled-on-reboot-even-w">linux - HOW TO FORCEFULLY DISABLE intel_pstate? intel_pstate is enabled on reboot even with intel_pstate=disable option in grub - Stack Overflow</a></li>
+<li><a href="https://askubuntu.com/questions/1380386/permanently-setting-intel-pstate-driver-to-passive">cpu - Permanently setting intel pstate driver to "passive" - Ask Ubuntu</a></li>
+<li><a href="https://www.musicha.tw/%E5%BE%9Egrub%E8%A8%AD%E5%AE%9Acpu%E6%95%88%E8%83%BD%E8%AA%BF%E6%95%B4%E9%A9%85%E5%8B%95/">從Grub設定修改CPU效能調整驅動參數 – Musicha ＿＿＿音創筆電</a></li>
+<li><a href="https://documentation.suse.com/zh-tw/sles/15-SP2/html/SLES-all/cha-grub2.html#sec-grub2-commands">SLES 15 SP2 | 管理指南 | 開機載入程式 GRUB 2</a><ul>
+<li>編輯 /etc/default/grub 後，請使用 grub2-mkconfig -o /boot/grub2/grub.cfg 更新主要組態檔案</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://access.redhat.com/documentation/zh-tw/red_hat_enterprise_linux/8/html/monitoring_and_managing_system_status_and_performance/tuning-cpu-frequency-to-optimize-energy-consumption_monitoring-and-managing-system-status-and-performance">Chapter 17. Tuning CPU frequency to optimize energy consumption Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></li>
+<li>intel cpu<ul>
+<li><a href="https://bbs.archlinux.org/viewtopic.php?id=287112">[SOLVED] CPU frequency stuck at 200MHz / Kernel &amp; Hardware / Arch Linux Forums</a><ul>
+<li>microcode<ul>
+<li><a href="https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/secure-coding/loading-microcode-os.html">Loading Microcode from the OS</a><ul>
+<li><a href="https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/tree/main/intel-ucode">Intel-Linux-Processor-Microcode-Data-Files/intel-ucode at main · intel/Intel-Linux-Processor-Microcode-Data-Files · GitHub</a><ul>
+<li>SUSE: zypper install ucode-intel</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.cyberciti.biz/faq/install-update-intel-microcode-firmware-linux/">How to install/update Intel microcode firmware on Linux - nixCraft</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://community.intel.com/t5/Processors/Intel-Xeon-Platinum-8176-Max-Frequency/td-p/702295?profile.language=zh-TW">已解決：Intel Xeon Platinum 8176 Max Frequency - Intel Community</a><ul>
+<li><a href="https://en.wikichip.org/wiki/intel/xeon_platinum/8176">Xeon Platinum 8176 - Intel - WikiChip</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cpupower -c all frequency-set --governor performance
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>cpupower frequency-set -g performance
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>grep . /sys/devices/system/cpu/cpu*/cpufreq/scaling_driver 
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>grep . /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor 
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>grep . /sys/devices/system/cpu/cpu0/cpufreq/*
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>turbostat
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>watch -n 2 &quot;cpupower monitor -m Mperf&quot;
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>watch -n 1 cpupower frequency-info
+</span></code></pre></div>
+<p>driver
+- acpi-cpufreq
+- intel_pstate</p>
+<p>Hardware P-States (HWP)</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cpuid | grep &#39;hardware P-State control&#39;
+</span></code></pre></div>
+<h2 id="driver">Driver</h2>
+<ul>
+<li><a href="https://chatgpt.com/share/d6aaf818-4ce0-49ea-99b6-d643cad82fa9">how to know what dirver can load in linux</a></li>
+</ul>
+<h2 id="init-system">Init System</h2>
+<ul>
+<li><a href="https://medium.com/@Jackiesogi/%E5%BE%9E%E5%95%9F%E5%8B%95%E5%88%B0%E4%BC%91%E7%9C%A0-systemd-%E5%A6%82%E4%BD%95%E6%8E%8C%E6%8E%A7%E4%BD%A0%E7%9A%84linux-%E7%B3%BB%E7%B5%B1-4be6887e55e8">從啟動到休眠 systemd 如何掌控你的 Linux 系統. 在現代Linux系統中，systemd… | by 陳首吉 | Medium</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Linux技巧">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Linux技巧
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Makefile/" class="md-footer__link md-footer__link--next" aria-label="Next: Makefile">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Makefile
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,4339 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Nexus%20Repository%20Manager/">
+      
+      
+        <link rel="next" href="../Openstack/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>OpenShift - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#openshift" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OpenShift
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome the docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hackmd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hackmd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google docs api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InfiniBand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Message Passing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nagios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus Repository Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      install
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openshift-417-build-woker-node-iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      openshift 4.17 build woker node iso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tab-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tab completion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-with-oauth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication with OAuth
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    <span class="md-ellipsis">
+      image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quay" class="md-nav__link">
+    <span class="md-ellipsis">
+      quay
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="quay">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pull-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      pull images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uninstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      uninstall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      debug
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nexus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nexus
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      template
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#machine-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Machine Network
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cluster Network
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Network
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingress
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rbac" class="md-nav__link">
+    <span class="md-ellipsis">
+      RBAC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Console
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storageclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      StorageClass
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openshift-data-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenShift Data Foundation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operators_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openshift-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      openshift AI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="openshift AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvidia-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      NVIDIA GPU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NVIDIA GPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpus-and-bare-metal" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPUs and bare metal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-instance-gpu-mig-partitioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-instance GPU (MIG) partitioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploying-nvidia-ai-enterprise-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying NVIDIA AI Enterprise Containers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying NVIDIA AI Enterprise Containers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      jupyter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-resnet-50-with-tensorflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running ResNet-50 with TensorFlow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pytorch-mnist" class="md-nav__link">
+    <span class="md-ellipsis">
+      PyTorch MNIST
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      agent install
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="agent install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#some-cluster-operators-are-not-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      some cluster operators are not available
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="some cluster operators are not available">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dns-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS issue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmware-virtual-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      vmware virtual machine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirror-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      mirror registry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      deployment failure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identity-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity provider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    <span class="md-ellipsis">
+      LDAP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subscription" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscription
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypershift" class="md-nav__link">
+    <span class="md-ellipsis">
+      HyperShift
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Openstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RedHat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redfish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scrum筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bitwise world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud-init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Influxdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pacemaker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    podman
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shell script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用者體驗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    備份還原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    奇技淫巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    持續整合
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排列組合與機率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    機器學習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    正規表示法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    測試工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    無線網路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向實務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向系統分析與設計
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬體概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    程式本質
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系統的價值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    統計圖表的表達方式以及使用的範圍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    虛擬機器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料庫維運
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資訊安全
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體工程師的專業和通識
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體需求溝通
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      install
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openshift-417-build-woker-node-iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      openshift 4.17 build woker node iso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tab-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tab completion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-with-oauth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication with OAuth
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    <span class="md-ellipsis">
+      image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quay" class="md-nav__link">
+    <span class="md-ellipsis">
+      quay
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="quay">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pull-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      pull images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uninstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      uninstall
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      debug
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nexus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nexus
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template" class="md-nav__link">
+    <span class="md-ellipsis">
+      template
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#machine-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Machine Network
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cluster Network
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service Network
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingress
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rbac" class="md-nav__link">
+    <span class="md-ellipsis">
+      RBAC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#console" class="md-nav__link">
+    <span class="md-ellipsis">
+      Console
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storageclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      StorageClass
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openshift-data-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenShift Data Foundation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operators_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operators
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openshift-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      openshift AI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="openshift AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvidia-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      NVIDIA GPU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NVIDIA GPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpus-and-bare-metal" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPUs and bare metal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-instance-gpu-mig-partitioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-instance GPU (MIG) partitioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploying-nvidia-ai-enterprise-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying NVIDIA AI Enterprise Containers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying NVIDIA AI Enterprise Containers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jupyter" class="md-nav__link">
+    <span class="md-ellipsis">
+      jupyter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-resnet-50-with-tensorflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running ResNet-50 with TensorFlow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pytorch-mnist" class="md-nav__link">
+    <span class="md-ellipsis">
+      PyTorch MNIST
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      agent install
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="agent install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#some-cluster-operators-are-not-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      some cluster operators are not available
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="some cluster operators are not available">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dns-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS issue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmware-virtual-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      vmware virtual machine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mirror-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      mirror registry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      deployment failure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identity-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity provider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    <span class="md-ellipsis">
+      LDAP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subscription" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscription
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypershift" class="md-nav__link">
+    <span class="md-ellipsis">
+      HyperShift
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="openshift">OpenShift</h1>
+<ul>
+<li><a href="https://console.redhat.com/openshift/create/cloud">redhat hybrid cloud console</a></li>
+<li>:star: <a href="https://www.youtube.com/watch?v=t6r3SgK-bDQ">Deploying a simple Python app to Kubernetes/OpenShift | JJ Asghar | Conf42 Python 2022</a><ul>
+<li><a href="https://github.com/jjasghar?tab=repositories">jjasghar (jjasghar) / Repositories · GitHub</a></li>
+</ul>
+</li>
+<li><a href="https://ithelp.ithome.com.tw/users/20130321/ironman/3566">『紅帽』的 Cloud-Native 工作術: 從 Container 到 OpenShift 。 :: 第 12 屆 iThome 鐵人賽</a><ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10248744">免 YAML 部署 App 到 OpenShift: new-app 跟 Template 淺談 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a></li>
+<li><code>oc get all -o NAME --no-headers | xargs oc delete</code></li>
+</ul>
+</li>
+<li><a href="https://ithelp.ithome.com.tw/users/20129737/ironman/3501">Docker獸 究極進化 ～～ Kubernetes獸 :: 第 12 屆 iThome 鐵人賽</a></li>
+<li><a href="https://blog.pichuang.com.tw/20200317-openshift-with-coreos-part-1.html#references">愛的走馬看花 Red Hat CoreOS 與 Red Hat OpenShift Part 1 - 魂系架構 Phil's Workspace</a></li>
+<li><a href="https://docs.openshift.com/container-platform/4.13/post_installation_configuration/machine-configuration-tasks.html#core-user-password_post-install-machine-configuration-tasks">Machine configuration tasks | Post-installation configuration | OpenShift Container Platform 4.13</a></li>
+<li><a href="https://www.goglides.dev/bkpandey/how-to-configure-a-squid-proxy-and-ssh-tunnel-on-rhel-8-to-access-openshift-console-from-your-local-machine-2o20">How to Configure a Squid Proxy and SSH Tunnel on RHEL 8 to access OpenShift Console from your local machine - Goglides Dev 🌱</a></li>
+<li><a href="https://developer.ibm.com/tutorials/configure-openshift-cluster-on-private-network-in-powervs/">Configure access to a Red Hat OpenShift cluster on a private network in IBM Power Systems Virtual Server - IBM Developer</a></li>
+<li><a href="https://www.redhat.com/en/blog/red-hat-openstack-services-openshift-rethinking-storage-design-pod-based-architectures">Red Hat OpenStack Services on OpenShift: Rethinking storage design in pod-based architectures</a></li>
+<li>Course<ul>
+<li>:star: <a href="/B7JvgW8kTImPvMwOBv60kw">Red Hat OpenShift Administration I - Managing Containers and Kubernetes 1</a></li>
+<li><a href="/V-6bvb8eTfKImsT6vyUEQg">Red Hat OpenShift Administration I - Managing Containers and Kubernetes 2</a></li>
+<li><a href="/MUX8bW_2Q8C5KflKUKDytA">Red Hat OpenShift Developer II: Building and Deploying Cloud-native Applications(DO288) 1</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="install">install</h2>
+<ul>
+<li><a href="https://access.redhat.com/documentation/zh-tw/openshift_container_platform/4.11/html/installing/installing-preparing#installing-preparing-selecting-cluster-type">Chapter 2. Selecting a cluster installation method and preparing it for users OpenShift Container Platform 4.11 | Red Hat Customer Portal</a></li>
+<li><a href="https://hackmd.io/@Atolin/ByooMNLt9">OpenShift 4.10 安裝步驟 - HackMD</a><ul>
+<li><a href="https://www.redhat.com/en/blog/meet-the-new-agent-based-openshift-installer-1">Meet The New Agent-Based OpenShift Installer</a></li>
+</ul>
+</li>
+<li><a href="https://www.gaia.net/tc/news_detail/2/202">Day 0 到底該如何規劃 Openshift Container Platform</a></li>
+<li><a href="https://www.gaia.net/tc/news_detail/2/209">Day 1 到底該如何安裝 Openshift Container Platform (Part 1)</a></li>
+<li><a href="https://www.gaia.net/tc/news_detail/2/206">Day 1 到底該如何安裝 Openshift Container Platform (Part 2)</a></li>
+<li>agent install<ul>
+<li><a href="https://docs.openshift.com/container-platform/4.14/installing/installing_with_agent_based_installer/preparing-to-install-with-agent-based-installer.html#installation-bare-metal-agent-installer-config-yaml_preparing-to-install-with-agent-based-installer">Preparing to install with Agent-based Installer - Installing an on-premise cluster with the Agent-based Installer | Installing | OpenShift Container Platform 4.14</a><ul>
+<li><a href="https://docs.openshift.com/container-platform/4.12/installing/installing_with_agent_based_installer/preparing-to-install-with-agent-based-installer.html#recommended-resources-for-topologies">Recommended resources for topologies</a></li>
+</ul>
+</li>
+<li><a href="https://docs.openshift.com/container-platform/4.14/installing/installing_with_agent_based_installer/installing-with-agent-based-installer.html#installing-ocp-agent-boot_installing-with-agent-based-installer">Installing a cluster with Agent-based Installer - Installing an on-premise cluster with the Agent-based Installer | Installing | OpenShift Container Platform 4.14</a><ul>
+<li><a href="https://docs.openshift.com/container-platform/4.14/installing/installing_with_agent_based_installer/installing-with-agent-based-installer.html#installing-ocp-agent-gather-log_installing-with-agent-based-installer">Gathering log data from a failed Agent-based installation</a><ul>
+<li>./openshift-install --dir <installation_directory> agent wait-for bootstrap-complete --log-level=debug</li>
+<li>./openshift-install --dir <install_directory> agent wait-for install-complete --log-level=debug</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.redhat.com/en/blog/red-hat-openshift-disconnected-installations">Better securing the future: Navigating Red Hat OpenShift disconnected installations with the agent-based installer</a></li>
+<li><a href="https://hackmd.io/@Jh6pZgXRQeiT6IgIQf_OsQ/SkYu8JzRi">OpenShift Agent install disconnected - HackMD</a></li>
+<li><a href="https://access.redhat.com/solutions/5309141">What is the best practice for dealing with kubeadmin user in OpenShift 4? - Red Hat Customer Portal</a><ul>
+<li><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.15/html/authentication_and_authorization/using-rbac#creating-cluster-admin_using-rbac">Creating a cluster admin
+</a></li>
+</ul>
+</li>
+<li>Add worker to cluster built with Agent based installation<ul>
+<li><a href="https://www.reddit.com/r/openshift/comments/19e596h/add_worker_to_cluster_built_with_agent_based/">Add worker to cluster built with Agent based installation : r/openshift</a></li>
+<li><a href="https://wangzheng422.github.io/docker_env/ocp4/4.12/4.12.3node.upi.agent.html#add-worker-node">使用 agent based installer 安装 3 节点集群 - OpenShift4 慢慢走</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://docs.openshift.com/container-platform/4.15/support/troubleshooting/troubleshooting-installations.html">Troubleshooting installations - Troubleshooting | Support | OpenShift Container Platform 4.15</a><ul>
+<li>The initial kubeadmin password can be found in <install_directory>/auth/kubeadmin-password on the installation host.</li>
+</ul>
+</li>
+</ul>
+<p>which
+- installer-provisioned infrastructure installation
+- user-provisioned infrastructure installation</p>
+<h3 id="openshift-417-build-woker-node-iso">openshift 4.17 build woker node iso</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>export REGISTRY_AUTH_FILE=/tmp/ocp/mirror-registry/pull-secret.json
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>oc adm node-image create nodes-config.yaml
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>oc adm node-image monitor --ip-addresses &lt;ip_addresses&gt;
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>oc get csr
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>oc adm certificate approve &lt;csr_name&gt;
+</span></code></pre></div>
+<p>nodes-config.yaml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>hosts:
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  - hostname: extra-worker-1
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    rootDeviceHints:
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>      deviceName: /dev/nvme0n1
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    interfaces:
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      - macAddress: 90:5a:08:03:6a:30
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        name: enp23s0f0np0
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>      - macAddress: 5E:09:6B:17:DE:F6
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        name: enp0s20f0u1u1c2
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>      - macAddress: 90:5a:08:03:6a:31
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        name: enp23s0f1np1
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    networkConfig:
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>      interfaces:
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        - name: enp23s0f0np0
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>          type: ethernet
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>          state: up
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>          mac-address: 90:5a:08:03:6a:30
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>          ipv4:
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>            enabled: true
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>            address:
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>              - ip: 172.17.217.240
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>                prefix-length: 24
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>            dhcp: false
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>            auto-dns: false
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>          ipv6:
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>            enabled: false
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>        - name: enp0s20f0u1u1c2
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>          type: ethernet
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>          state: down
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>          mac-address: 5E:09:6B:17:DE:F6
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>          ipv4:
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>            enabled: false
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>          ipv6:
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>            enabled: false
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>        - name: enp23s0f1np1
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>          type: ethernet
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>          state: down
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>          mac-address: 90:5a:08:03:6a:31
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>          ipv4:
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>            enabled: false
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>          ipv6:
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>            enabled: false
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>      routes:
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>        config:
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>          - destination: 0.0.0.0/0
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>            next-hop-address: 172.17.217.1
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>            next-hop-interface: enp23s0f0np0
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>            table-id: 254
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>      dns-resolver:
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>        config:
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>          search:
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>            - b3qportal.com
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>          server:
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>            - 172.17.217.241
+</span></code></pre></div></p>
+<h2 id="cli">CLI</h2>
+<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html-single/cli_tools/index#cli-getting-started">CLI tools OpenShift Container Platform 4.14 | Red Hat Customer Portal</a><ul>
+<li><a href="https://docs.openshift.com/container-platform/4.15/operators/admin/olm-deleting-operators-from-cluster.html#olm-deleting-operator-from-a-cluster-using-cli_olm-deleting-operators-from-a-cluster">Deleting Operators from a cluster - Administrator tasks | Operators | OpenShift Container Platform 4.15</a></li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>oc<span class="w"> </span>cluster-info
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>oc<span class="w"> </span>project
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>oc<span class="w"> </span>login<span class="w"> </span>https://api.ocp4.example.com:6443
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># oc login https://172.24.131.126:6443 --username=kubeadmin --password=bar --insecure-skip-tls-verify</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>oc<span class="w"> </span>whoami<span class="w"> </span>-c
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>oc<span class="w"> </span>whoami<span class="w"> </span>--show-console
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>oc<span class="w"> </span>api-versions
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>oc<span class="w"> </span>status
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># view your current CLI configuration</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>oc<span class="w"> </span>config<span class="w"> </span>view
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1">#  list the total memory and CPU usage of all pods in the cluster, --sum option with the command to print the sum of the resource usage. The -A option shows pods from all namespaces.</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>oc<span class="w"> </span>adm<span class="w"> </span>top<span class="w"> </span>pods<span class="w"> </span>-A<span class="w"> </span>--sum
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># Use the --containers option to display the resource usage of containers within a pod.</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>oc<span class="w"> </span>adm<span class="w"> </span>top<span class="w"> </span>pods<span class="w"> </span>apiserver-75ff56786f-25rpd<span class="w"> </span>-n<span class="w"> </span>openshift-apiserver<span class="w"> </span>--containers
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>oc<span class="w"> </span>get<span class="w"> </span>clusteroperator
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>oc<span class="w"> </span>get<span class="w"> </span>operators
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>oc<span class="w"> </span>get<span class="w"> </span>operators<span class="w"> </span>nfd.openshift-nfd
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>oc<span class="w"> </span>get<span class="w"> </span>RESOURCE_TYPE
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>oc<span class="w"> </span>get<span class="w"> </span>RESOURCE_TYPE<span class="w"> </span>RESOURCE_NAME<span class="w"> </span>-o<span class="w"> </span>yaml
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>oc<span class="w"> </span>get<span class="w"> </span>RESOURCE_TYPE<span class="w"> </span>RESOURCE_NAME<span class="w"> </span>-o<span class="w"> </span>json
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>oc<span class="w"> </span>get<span class="w"> </span>all
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>oc<span class="w"> </span>get<span class="w"> </span>all<span class="w"> </span>-n<span class="w"> </span>openshift-apiserver<span class="w"> </span>--show-kind
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>oc<span class="w"> </span>get<span class="w"> </span>all<span class="w"> </span>-n<span class="w"> </span>openshift-monitoring<span class="w"> </span>--show-kind
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="c1"># execute commands in a different project, you must include the --namespace or -n options.</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>openshift-apiserver
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>openshift-apiserver<span class="w"> </span>-o<span class="w"> </span>yaml
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>openshift-apiserver<span class="w"> </span>-o<span class="w"> </span>json
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="c1"># print the labels used by the pods.</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>openshift-apiserver<span class="w"> </span>--show-labels
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>oc<span class="w"> </span>get<span class="w"> </span>pod<span class="w"> </span>--all-namespaces<span class="w"> </span>-o<span class="w"> </span>wide
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="c1"># shows additional fields.</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-o<span class="w"> </span>wide
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="c1"># this function is not available across all resources. </span>
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>oc<span class="w"> </span>describe<span class="w"> </span>RESOURCE_TYPE<span class="w"> </span>RESOURCE_NAME
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="c1"># to print the documentation of a specific field of a resource. </span>
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="c1"># Fields are identified via a JSONPath identifier.</span>
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="c1"># Information about each field is retrieved from the server in OpenAPI format.</span>
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>oc<span class="w"> </span>explain<span class="w"> </span>pods
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>oc<span class="w"> </span>explain<span class="w"> </span>pods.spec.containers.resources
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="c1"># display all fields of a resource without descriptions.</span>
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>oc<span class="w"> </span>explain<span class="w"> </span>pods<span class="w"> </span>--recursive
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>
+</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>
+</span><span id="__span-2-47"><a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="c1"># create a RHOCP resource in the current project.</span>
+</span><span id="__span-2-48"><a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="c1"># paired with the oc get RESOURCE_TYPE RESOURCE_NAME -o yaml command for editing definitions.</span>
+</span><span id="__span-2-49"><a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="c1"># to indicate the file that contains the JSON or YAML representation of an RHOCP resource.</span>
+</span><span id="__span-2-50"><a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>oc<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>pod.yaml
+</span><span id="__span-2-51"><a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>
+</span><span id="__span-2-52"><a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="c1"># delete an existing RHOCP resource from the current project.</span>
+</span><span id="__span-2-53"><a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="c1"># must specify the resource type and the resource name.</span>
+</span><span id="__span-2-54"><a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>oc<span class="w"> </span>delete<span class="w"> </span>pod<span class="w"> </span>quotes-ui
+</span><span id="__span-2-55"><a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a>
+</span><span id="__span-2-56"><a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a><span class="c1"># RBAC</span>
+</span><span id="__span-2-57"><a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a>oc<span class="w"> </span>get<span class="w"> </span>clusterrole.rbac
+</span></code></pre></div>
+<p>monitor and log about the cluster
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>oc<span class="w"> </span>logs<span class="w"> </span>alertmanager-main-0<span class="w"> </span>-n<span class="w"> </span>openshift-monitoring
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># returns the output for a container within a pod</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>oc<span class="w"> </span>logs<span class="w"> </span>alertmanager-main-0<span class="w"> </span>-n<span class="w"> </span>openshift-monitoring
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>oc<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>master-0<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.status.conditions&#39;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>oc<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>worker-0<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span><span class="s1">&#39;.status.conditions&#39;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>oc<span class="w"> </span>adm<span class="w"> </span>node-logs<span class="w"> </span>worker-0
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>oc<span class="w"> </span>adm<span class="w"> </span>node-logs<span class="w"> </span>worker-0<span class="w"> </span>--tail<span class="w"> </span><span class="m">10</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1">## start a debug session on the node </span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>oc<span class="w"> </span>debug<span class="w"> </span>node/worker-0
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>alertmanager-main-0<span class="w"> </span>-n<span class="w"> </span>openshift-monitoring<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.spec.containers[*].name}&#39;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>oc<span class="w"> </span>logs<span class="w"> </span>alertmanager-main-0<span class="w"> </span>-n<span class="w"> </span>openshift-monitoring<span class="w"> </span>-c<span class="w"> </span>alertmanager-proxy
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>oc<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-n<span class="w"> </span>openshift-monitoring<span class="w"> </span>alertmanager-main-0<span class="w"> </span>-c<span class="w"> </span>alertmanager-proxy<span class="w"> </span>-it<span class="w"> </span>--<span class="w"> </span>bash<span class="w"> </span>-il
+</span></code></pre></div></p>
+<h3 id="tab-completion">Tab completion</h3>
+<ul>
+<li>https://access.redhat.com/documentation/en-us/openshift_container_platform/4.14/html-single/cli_tools/index#cli-enabling-tab-completion
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>oc completion bash &gt; oc_bash_completion
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo cp oc_bash_completion /etc/bash_completion.d/
+</span></code></pre></div>
+You can also save the file to a local directory and source it from your .bashrc file instead.</li>
+</ul>
+<p>Tab completion is enabled when you open a new terminal.</p>
+<h3 id="authentication-with-oauth">Authentication with OAuth</h3>
+<p>For users to interact with RHOCP, they must first authenticate to the cluster. The authentication layer identifies the user that is associated with requests to the RHOCP API. After authentication, the authorization layer then uses information about the requesting user to determine whether the request is allowed.</p>
+<p>A user in OpenShift is an entity that can make requests to the RHOCP API. </p>
+<p>An RHOCP User object represents an actor that can be granted permissions in the system by adding roles to the user or to the user's groups.</p>
+<ul>
+<li>Regular users<ul>
+<li>An RHOCP <strong>User</strong> object represents a regular user.</li>
+</ul>
+</li>
+<li>System users</li>
+<li>Service accounts<ul>
+<li><strong>ServiceAccount</strong> objects represent service accounts. </li>
+<li>RHOCP creates service accounts automatically when a project is created</li>
+</ul>
+</li>
+</ul>
+<p>The RHOCP control plane includes a built-in OAuth server.</p>
+<p>To authenticate themselves to the API, users obtain OAuth access tokens. Token authentication is the only guaranteed method to work with any OpenShift cluster</p>
+<p>To retrieve an OAuth token by using the OpenShift web console, navigate to <strong>Help → Command line tools</strong>. </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[user@host ~]$ oc login --token=sha256-BW...rA8 \
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  --server=https://api.ocp4.example.com:6443
+</span></code></pre></div>
+<h2 id="image">image</h2>
+<ul>
+<li><a href="https://access.redhat.com/documentation/zh-tw/openshift_container_platform/4.11/html/images/image-configuration#images-configuration-registry-mirror_image-configuration">Chapter 9. Image configuration resources OpenShift Container Platform 4.11 | Red Hat Customer Portal</a></li>
+<li><a href="https://weng-albert.medium.com/openshift-external-mirror-image-registry%E6%98%AF%E6%80%8E%E9%BA%BC%E9%81%8B%E4%BD%9C%E7%9A%84-66e9b6755b55">OpenShift External/Mirror Image registry是怎麼運作的? | by Albert Weng | Medium</a></li>
+<li><a href="https://blog.csdn.net/weixin_43902588/article/details/107710166">OpenShift 4 - 配置OpenShift可使用的外部Image Registry和Mirror Registry_openshift配置外部私有registry-CSDN博客</a></li>
+<li><a href="https://how64bit.com/posts/openshift/2023/ocp-quay-standalone/">Openshift - Quay 本地私有 Registry 倉庫 (standalone) - HowHow の WebSite</a></li>
+</ul>
+<h3 id="quay">quay</h3>
+<ul>
+<li><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/disconnected_installation_mirroring/installing-mirroring-creating-registry#uninstalling-mirror-registry_installing-mirroring-creating-registry">Chapter 2. Creating a mirror registry with mirror registry for Red Hat OpenShift | Red Hat Product Documentation</a><ul>
+<li><a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/disconnected_installation_mirroring/installing-mirroring-installation-images#installation-mirror-repository_installing-mirroring-installation-images">Chapter 3. Mirroring images for a disconnected installation | Red Hat Product Documentation</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/quay/mirror-registry">GitHub - quay/mirror-registry: A standalone registry used to mirror images for Openshift installations.</a></li>
+<li><a href="https://hackmd.io/@johnsimcall/Sk1gG5G6o">Installing OpenShift in a disconnected network, step-by-step - HackMD</a></li>
+<li><a href="https://docs.redhat.com/en/documentation/red_hat_quay/3.13/html/securing_red_hat_quay/ssl-tls-quay-overview#creating-custom-ssl-certs-config-bundle">Chapter 1. SSL and TLS for Red Hat Quay | Red Hat Product Documentation</a></li>
+<li><a href="https://weng-albert.medium.com/openshift-external-mirror-image-registry%E6%98%AF%E6%80%8E%E9%BA%BC%E9%81%8B%E4%BD%9C%E7%9A%84-66e9b6755b55">OpenShift External/Mirror Image registry是怎麼運作的? | by Albert Weng | Medium</a></li>
+<li><a href="https://access.redhat.com/solutions/6218921">Quay.io rate limiting - Red Hat Customer Portal</a></li>
+</ul>
+<p>with internet
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>wget<span class="w"> </span>https://mirror.openshift.com/pub/cgw/mirror-registry/latest/mirror-registry-amd64.tar.gz
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>tar<span class="w"> </span>-xvf<span class="w"> </span>mirror-registry-amd64.tar.gz
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>./mirror-registry<span class="w"> </span>install<span class="w"> </span>--quayHostname<span class="w"> </span><span class="k">$(</span>hostname<span class="w"> </span>-f<span class="k">)</span><span class="w"> </span>--quayRoot<span class="w"> </span>/home/foo/quay<span class="w"> </span>--initUser<span class="w"> </span>foo<span class="w"> </span>--initPassword<span class="w"> </span>barbarbar
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># use different port</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># https://github.com/quay/mirror-registry/blob/e609475d2eba1825866909d5d5997b048da5bc88/ansible-runner/context/app/project/roles/mirror_appliance/templates/pod.service.j2#L15</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>./mirror-registry<span class="w"> </span>install<span class="w"> </span>--quayHostname<span class="w"> </span><span class="k">$(</span>hostname<span class="w"> </span>-f<span class="k">)</span>:18443<span class="w"> </span>--quayRoot<span class="w"> </span>/home/foo/quay<span class="w"> </span>--initUser<span class="w"> </span>foo<span class="w"> </span>--initPassword<span class="w"> </span>barbarbar
+</span></code></pre></div></p>
+<p>air-gapped
+https://github.com/quay/mirror-registry#installation
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>wget<span class="w"> </span>https://github.com/quay/mirror-registry/releases/download/v2.0.3/mirror-registry-offline.tar.gz
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>tar<span class="w"> </span>-zxvf<span class="w"> </span>mirror-registry-offline.tar.gz
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>./mirror-registry<span class="w"> </span>install<span class="w"> </span>--quayHostname<span class="w"> </span><span class="k">$(</span>hostname<span class="w"> </span>-f<span class="k">)</span><span class="w"> </span>--quayRoot<span class="w"> </span>/home/foo/quay<span class="w"> </span>--initUser<span class="w"> </span>foo<span class="w"> </span>--initPassword<span class="w"> </span>barbarbar
+</span></code></pre></div></p>
+<h4 id="pull-images">pull images</h4>
+<p>with internet
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc adm release mirror -a /tmp/ocp/mirror-registry/pull-secret.json \
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>--from=quay.io/openshift-release-dev/ocp-release:4.17.10-x86_64 \
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>--to=&lt;LOCAL_REGISTRY&gt;/&lt;LOCAL_REPOSITORY&gt; \
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>--to-release-image=&lt;LOCAL_REGISTRY&gt;/&lt;LOCAL_REPOSITORY&gt;:4.17.10-x86_64
+</span></code></pre></div></p>
+<p>air-gapped
+Mirror the images to a directory on the removable media
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>oc adm release mirror -a /tmp/ocp/mirror-registry/pull-secret.json \
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>--to-dir=/tmp/mirror \
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>quay.io/openshift-release-dev/ocp-release:4.17.10-x86_64
+</span></code></pre></div></p>
+<p>:::info
+info: Mirroring completed in 30m21.7s (10.99MB/s)</p>
+<p>Success
+Update image:  openshift/release:4.17.10-x86_64</p>
+<p>To upload local images to a registry, run:</p>
+<div class="language-text highlight"><pre><span></span><code>oc image mirror --from-dir=/tmp/mirror &#39;file://openshift/release:4.17.10-x86_64*&#39; REGISTRY/REPOSITORY
+</code></pre></div>
+<p>Configmap signature file /tmp/mirror/config/signature-sha256-4c8cc149a8e4ef2f.json created
+:::</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>oc image mirror \
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>-a /tmp/ocp/mirror-registry/pull-secret.json \
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>--certificate-authority=/home/foo/quay/quay-rootCA/rootCA.pem \
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>--from-dir=/tmp/mirror \
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>&#39;file://openshift/release:4.17.10-x86_64*&#39; &lt;LOCAL_REGISTRY&gt;/&lt;LOCAL_REPOSITORY&gt;
+</span></code></pre></div>
+<h4 id="uninstall">uninstall</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>./mirror-registry<span class="w"> </span>uninstall<span class="w"> </span>-v<span class="w"> </span>--autoApprove<span class="w"> </span>--quayRoot<span class="w"> </span>/home/foo/quay
+</span></code></pre></div>
+<h4 id="debug">debug</h4>
+<ul>
+<li><a href="https://access.redhat.com/solutions/7090795">Failed to mirror-registry installation with WRONGPASS invalid username-password pair or user is disabled messages - Red Hat Customer Portal</a></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>podman secret ls
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>podman secret rm redis_pass
+</span></code></pre></div>
+<h3 id="nexus">Nexus</h3>
+<ul>
+<li><a href="https://community.sonatype.com/t/using-nexus-as-a-proxy-registry-for-a-disconnected-openshift-install/13118">Using Nexus as a proxy registry for a disconnected OpenShift install - Sonatype Nexus Repository - Sonatype Community</a><ul>
+<li><a href="https://github.com/sonatype/nexus-public/issues/475">Using Nexus as a proxy registry for a disconnected OpenShift install · Issue #475 · sonatype/nexus-public</a></li>
+<li><a href="https://github.com/karmab/kcli/issues/757">small patch for disconnected OCP deploy with regular proxy registries (like Nexus) · Issue #757 · karmab/kcli · GitHub</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="api">API</h2>
+<ul>
+<li><a href="https://access.redhat.com/solutions/6610781">How to request and pass an oauth token for REST API access in OpenShift 4 - Red Hat Customer Portal</a></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Get OAuth Route Hostname</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>oc<span class="w"> </span>get<span class="w"> </span>route<span class="w"> </span>-n<span class="w"> </span>openshift-authentication<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.items[].spec.host}{&quot;\n&quot;}&#39;</span><span class="w">  </span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># Oauth Bearer Token: Method 1</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-k<span class="w"> </span>-i<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>--user<span class="w"> </span>USER:PASSWORD<span class="w"> </span><span class="s1">&#39;https://&lt;OAuth-route-hostname&gt;/oauth/authorize?response_type=token&amp;client_id=openshift-challenging-client&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-oP<span class="w"> </span><span class="s2">&quot;access_token=\K[^&amp;]*&quot;</span><span class="k">)</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># Oauth Bearer Token: Method 2</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>-k<span class="w"> </span>-i<span class="w"> </span>-L<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>--user<span class="w"> </span>USER:PASSWORD<span class="w"> </span><span class="s1">&#39;https://&lt;oauth-route-hostname&gt;/oauth/authorize?response_type=token&amp;client_id=openshift-challenging-client&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w">  </span><span class="s2">&quot;access_token=&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="s1">&#39;=&#39;</span><span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="s1">&#39;&amp;&#39;</span><span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># Test</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>curl<span class="w"> </span>-s<span class="w"> </span>-k<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">&quot;</span><span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>https://&lt;API<span class="w"> </span>host&gt;:6443/apis/project.openshift.io/v1/projects
+</span></code></pre></div>
+<h3 id="operators">Operators</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>curl -s -k -H &quot;Authorization: Bearer $TOKEN&quot; -X GET https://api.test.supershift.com:6443/apis/operators.coreos.com/v1alpha1/subscriptions
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>curl -k -H &quot;Authorization: Bearer $TOKEN&quot; -X GET https://api.test.supershift.com:6443/apis/operators.coreos.com/v1alpha1/namespaces/openshift-operators/subscriptions/web-terminal
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>curl -k -H &quot;Authorization: Bearer $TOKEN&quot; -X GET https://api.test.supershift.com:6443/apis/operators.coreos.com/v1alpha1/namespaces/redhat-ods-operator/subscriptions/rhods-operator
+</span></code></pre></div>
+<p>web-terminal
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a># remove
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>curl -k -H &quot;Authorization: Bearer $TOKEN&quot; -X DELETE https://api.test.supershift.com:6443/apis/operators.coreos.com/v1alpha1/namespaces/openshift-operators/subscriptions/web-terminal
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>curl -k -H &quot;Authorization: Bearer $TOKEN&quot; -X DELETE https://api.test.supershift.com:6443/apis/operators.coreos.com/v1alpha1/namespaces/openshift-operators/clusterserviceversions/web-terminal.v1.9.0-0.1708477317.p
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a># install
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>curl -k -H &quot;Authorization: Bearer $TOKEN&quot; -H &#39;Content-Type: application/json&#39; -X POST https://api.test.supershift.com:6443/apis/operators.coreos.com/v1alpha1/namespaces/openshift-operators/subscriptions -d &#39;{&quot;apiVersion&quot;:&quot;operators.coreos.com/v1alpha1&quot;,&quot;kind&quot;:&quot;Subscription&quot;,&quot;metadata&quot;:{&quot;name&quot;:&quot;web-terminal&quot;,&quot;namespace&quot;:&quot;openshift-operators&quot;},&quot;spec&quot;:{&quot;channel&quot;:&quot;fast&quot;,&quot;name&quot;:&quot;web-terminal&quot;,&quot;source&quot;:&quot;redhat-operators&quot;,&quot;sourceNamespace&quot;:&quot;openshift-marketplace&quot;,&quot;startingCSV&quot;:&quot;web-terminal.v1.9.0&quot;}}&#39;
+</span></code></pre></div></p>
+<p>openshift AI
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a># get subscription
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>curl -k -H &quot;Authorization: Bearer $TOKEN&quot; -X GET https://api.test.supershift.com:6443/apis/operators.coreos.com/v1alpha1/namespaces/redhat-ods-operator/subscriptions/rhods-operator
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a># remove
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>curl -k -H &quot;Authorization: Bearer $TOKEN&quot; -X DELETE https://api.test.supershift.com:6443/apis/operators.coreos.com/v1alpha1/namespaces/redhat-ods-operator/subscriptions/rhods-operator
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>curl -k -H &quot;Authorization: Bearer $TOKEN&quot; -X DELETE https://api.test.supershift.com:6443/apis/operators.coreos.com/v1alpha1/namespaces/redhat-ods-operator/clusterserviceversions/rhods-operator.2.8.0
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a># install
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>curl -k -H &quot;Authorization: Bearer $TOKEN&quot; -H &#39;Content-Type: application/json&#39; -X POST https://api.test.supershift.com:6443/apis/operators.coreos.com/v1alpha1/namespaces/redhat-ods-operator/subscriptions -d &#39;{&quot;apiVersion&quot;:&quot;operators.coreos.com/v1alpha1&quot;,&quot;kind&quot;:&quot;Subscription&quot;,&quot;metadata&quot;:{&quot;name&quot;:&quot;rhods-operator&quot;,&quot;namespace&quot;:&quot;redhat-ods-operator&quot;},&quot;spec&quot;:{&quot;channel&quot;:&quot;stable&quot;,&quot;name&quot;:&quot;rhods-operator&quot;,&quot;source&quot;:&quot;redhat-operators&quot;,&quot;sourceNamespace&quot;:&quot;openshift-marketplace&quot;, &quot;installPlanApproval&quot;: &quot;Automatic&quot;, &quot;startingCSV&quot;:&quot;rhods-operator.2.8.0&quot;}}&#39;
+</span></code></pre></div></p>
+<h2 id="basic">Basic</h2>
+<ul>
+<li>:star:<a href="https://www.redhat.com/sysadmin/deploy-web-service-openshift">How to deploy a web service on OpenShift | Enable Sysadmin</a></li>
+<li><a href="https://harshitdawar.medium.com/running-a-postgresql-app-in-openshift-connecting-to-it-f895f6995dc6">Running a PostgreSQL app in Openshift &amp; connecting to it! | by Harshit Dawar | Medium</a><ul>
+<li><a href="https://access.redhat.com/solutions/2817281">Facing permission issue when creating application using postgres image - Red Hat Customer Portal</a></li>
+</ul>
+</li>
+<li><a href="https://meatybytes.io/posts/openshift/general-engineering/python/flask/">Harness the Power of Python Microservices in OpenShift · MeatyBytes</a></li>
+</ul>
+<h3 id="template">template</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>oc process openshift//postgresql-persistent POSTGRESQL_USER=test POSTGRESQL_PASSWORD=test POSTGRESQL_DATABASE=test0328 | oc create -n tedchangchien-dev -f -
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>oc status
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>oc get pods
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>oc rsh &lt;pod name&gt;
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>psql -U test -W test0328
+</span></code></pre></div>
+<h2 id="network">Network</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=RWjvzNH1d0A">OpenShift Networking - Full Walkthrough - Containers and Virtual Machines - YouTube</a></li>
+</ul>
+<h3 id="machine-network">Machine Network</h3>
+<p>This is the network at the infrastructure layer of an OpenShift cluster, typically used to connect physical or virtual nodes (e.g., masters, worker nodes).
+The IP range of the machine network is used for communication between nodes and for running management services like ETCD and the Kubernetes control plane.</p>
+<h3 id="cluster-network">Cluster Network</h3>
+<p>The internal Pod network within the cluster used for communication between Pods. </p>
+<p>Each Pod is typically assigned a unique IP address.
+OpenShift uses Software-Defined Networking (SDN) to manage the cluster network, ensuring seamless communication between Pods.</p>
+<h3 id="service-network">Service Network</h3>
+<p>This network manages the virtual IP range for Kubernetes Services. Each Service is assigned a Cluster IP to handle traffic from both internal and external sources.
+Service IPs usually do not communicate directly with the external world but instead use a Service Proxy or Load Balancer for traffic forwarding.</p>
+<h2 id="service">Service</h2>
+<ul>
+<li>https://www.youtube.com/watch?v=AObTrhIeK2U<ul>
+<li>internal<ul>
+<li>ClusterIP</li>
+</ul>
+</li>
+<li>external<ul>
+<li>NodePort</li>
+<li>LoadBalancer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://vocus.cc/article/64462574fd897800010c89ae">Kubernetes Service：Overview｜方格子 vocus</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10194344">[Day 9] 建立外部服務與Pods的溝通管道 - Services</a></li>
+<li><a href="https://learn.redhat.com/t5/DO280-Red-Hat-OpenShift/ClusterIP-vs-NodePort-vs-LoadBalancer-vs-Ingress/td-p/35381">ClusterIP vs NodePort vs LoadBalancer vs Ingress - Red Hat Learning Community</a></li>
+</ul>
+<h2 id="ingress">Ingress</h2>
+<ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10196261">[Day 19] 在 Kubernetes 中實現負載平衡 - Ingress Controller</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10246730">免除 Ingress Controller 煩惱，擁抱 OpenShift Route 新世界。</a></li>
+<li><a href="https://medium.com/andy-blog/kubernetes-%E9%82%A3%E4%BA%9B%E4%BA%8B-ingress-%E7%AF%87-%E4%B8%80-92944d4bf97d">Kubernetes 那些事 — Ingress 篇（一）. 前言 | by Andy Chen | Andy的技術分享blog | Medium</a></li>
+<li><a href="https://medium.com/andy-blog/kubernetes-%E9%82%A3%E4%BA%9B%E4%BA%8B-ingress-%E7%AF%87-%E4%BA%8C-559c7a41404b">Kubernetes 那些事 — Ingress 篇（二）. 前言 | by Andy Chen | Andy的技術分享blog | Medium</a></li>
+<li><a href="https://www.redhat.com/en/blog/kubernetes-ingress-vs-openshift-route">Kubernetes Ingress vs OpenShift Route</a></li>
+</ul>
+<h2 id="rbac">RBAC</h2>
+<ul>
+<li><a href="https://blog.pichuang.com.tw/20200502-openshift-with-coreos-part-6.html#rbac">Red Hat OpenShift RBAC 最小權限實踐 - 魂系架構 Phil's Workspace</a></li>
+</ul>
+<h2 id="console">Console</h2>
+<ul>
+<li><a href="https://docs.openshift.com/container-platform/4.17/web_console/customizing-the-web-console.html#customizing-the-console-route_customizing-web-console">Customizing the console route</a><ul>
+<li><a href="https://access.redhat.com/solutions/5143911">How to customize console URL in OpenShift 4 under the same *.apps subdomain - Red Hat Customer Portal</a></li>
+<li><a href="https://meatybytes.io/posts/openshift/ocp-features/security/tls/customizing-console/">Customizing the OpenShift Console URL with TLS · MeatyBytes</a><ul>
+<li><a href="https://www.redhat.com/en/blog/cert-manager-operator-openshift">How to create a TLS/SSL certificate with a Cert-Manager Operator on OpenShift</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="storageclass">StorageClass</h2>
+<ul>
+<li>:star:<a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/storage/configuring-persistent-storage">Chapter 4. Configuring persistent storage | Red Hat Product Documentation</a></li>
+<li><a href="https://weng-albert.medium.com/openshift-external-mirror-image-registry%E6%98%AF%E6%80%8E%E9%BA%BC%E9%81%8B%E4%BD%9C%E7%9A%84-66e9b6755b55">OpenShift External/Mirror Image registry是怎麼運作的? | by Albert Weng | Medium</a></li>
+</ul>
+<h2 id="openshift-data-foundation">OpenShift Data Foundation</h2>
+<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_openshift_data_foundation/4.15">Product Documentation for Red Hat OpenShift Data Foundation 4.15 | Red Hat Customer Portal</a><ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_openshift_data_foundation/4.15/html/deploying_openshift_data_foundation_on_vmware_vsphere/deploy-using-local-storage-devices-vmware">Chapter 3. Deploy using local storage devices Red Hat OpenShift Data Foundation 4.15 | Red Hat Customer Portal</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="operators_1">Operators</h2>
+<ul>
+<li><a href="https://docs.openshift.com/container-platform/4.15/operators/admin/olm-adding-operators-to-cluster.html">Adding Operators to a cluster - Administrator tasks | Operators | OpenShift Container Platform 4.15</a></li>
+<li><a href="https://docs.openshift.com/container-platform/4.15/operators/admin/olm-deleting-operators-from-cluster.html#olm-deleting-operator-from-a-cluster-using-cli_olm-deleting-operators-from-a-cluster">Deleting Operators from a cluster - Administrator tasks | Operators | OpenShift Container Platform 4.15</a></li>
+<li><a href="https://hazel.style/2020/03/05/3scale-Operator-on-OpenShift4-2/">3scale Operator on OpenShift4.2 | 野生的工程師</a></li>
+</ul>
+<h2 id="openshift-ai">openshift AI</h2>
+<ul>
+<li><a href="https://developers.redhat.com/products/red-hat-openshift-ai/overview">Red Hat OpenShift AI Overview | Red Hat Developer</a><ul>
+<li><a href="https://www.youtube.com/watch?v=75WtOSpn5qU">Red Hat OpenShift AI Demo - YouTube</a></li>
+</ul>
+</li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_openshift_ai_self-managed/2.6/html/installing_and_uninstalling_openshift_ai_self-managed/installing-the-openshift-data-science-operator_operator-install">Chapter 5. Installing the Red Hat OpenShift AI Operator Red Hat OpenShift AI Self-Managed 2.6 | Red Hat Customer Portal</a></li>
+<li><a href="https://developers.redhat.com/learn/openshift/how-create-natural-language-processing-nlp-application-using-red-hat-openshift-ai">How to create a natural language processing (NLP) application using Red Hat OpenShift AI | Red Hat Developer</a></li>
+</ul>
+<h3 id="nvidia-gpu">NVIDIA GPU</h3>
+<ul>
+<li><a href="https://docs.openshift.com/container-platform/4.17/hardware_accelerators/nvidia-gpu-architecture.html">NVIDIA GPU architecture | Hardware accelerators | OpenShift Container Platform 4.17</a><ul>
+<li>:star:<a href="https://docs.nvidia.com/ai-enterprise/deployment/openshift-on-bare-metal/latest/on-bare-metal.html">Red Hat OpenShift on Bare Metal — NVIDIA AI Enterprise: OpenShift on Bare-metal Deployment Guide</a><ul>
+<li>:star:<a href="https://docs.nvidia.com/datacenter/cloud-native/openshift/latest/install-gpu-ocp.html#logging">Installing the NVIDIA GPU Operator on OpenShift — NVIDIA GPU Operator on Red Hat OpenShift Container Platform</a></li>
+<li><a href="https://community.ibm.com/community/user/cloud/blogs/darrell-schrag/2024/04/02/nvidia">Run Nvidia NIM microservice containers in Red Hat OpenShift on IBM Cloud</a></li>
+<li><a href="https://docs.nvidia.com/ai-enterprise/deployment/cloud/latest/appendix-ngc.html">Pulling and Running NVIDIA AI Enterprise Containers — NVIDIA AI Enterprise: Cloud Deployment Guide</a></li>
+</ul>
+</li>
+<li><a href="https://docs.nvidia.com/datacenter/cloud-native/openshift/latest/enable-gpu-monitoring-dashboard.html">Enabling the GPU Monitoring Dashboard — NVIDIA GPU Operator on Red Hat OpenShift Container Platform</a></li>
+</ul>
+</li>
+<li>NVIDIA AI Enterprise<ul>
+<li>Subscription Required for "NVIDIA AI Enterprise Essentials"</li>
+<li><a href="https://docs.nvidia.com/ai-enterprise/planning-resource/licensing-guide/latest/overview.html">Overview — NVIDIA AI Enterprise Licensing Guide</a></li>
+<li><a href="https://docs.nvidia.com/ai-enterprise/index.html#overview">NVIDIA AI Enterprise - NVIDIA Docs</a><ul>
+<li><a href="https://docs.nvidia.com/ai-enterprise/release-6/latest/support/support-matrix.html">Infrastructure Support Matrix — NVIDIA AI Enterprise</a></li>
+<li><a href="https://docs.nvidia.com/certification-programs/nvidia-certified-systems/index.html#nvidia-certified-systems-list">NVIDIA-Certified Systems - NVIDIA Docs</a></li>
+<li><a href="https://docs.nvidia.com/ai-enterprise/release-6/latest/getting-started/quick-start-guide.html">Quick Start Guide — NVIDIA AI Enterprise</a></li>
+</ul>
+</li>
+<li><a href="https://www.nvidia.com/en-us/data-center/activate-license/">Activate Your NVIDIA AI Enterprise License | NVIDIA</a><ul>
+<li><a href="https://docs.nvidia.com/ai-enterprise/planning-resource/licensing-guide/latest/licensing.html">NVIDIA AI Enterprise Licensing — NVIDIA AI Enterprise Licensing Guide</a></li>
+<li><a href="https://resources.nvidia.com/en-us-ai-enterprise-license/activation-instructions?ncid=no-ncid">Activating your NVIDIA Software Subscription and Enterprise Support</a></li>
+<li><a href="https://nvdam.widen.net/s/tfbtm2vznb/nvaie-instruction-document-the-serial-number-of-nvidiagpu-february-2023">nvaie-instruction-document-the-serial-number-of-nvidiagpu-february-2023.pdf</a></li>
+</ul>
+</li>
+<li><a href="https://docs.nvidia.com/ai-enterprise/deployment/openshift-on-bare-metal/latest/ai-enterprise-containers.html">Deploying NVIDIA AI Enterprise Containers — NVIDIA AI Enterprise: OpenShift on Bare-metal Deployment Guide</a><ul>
+<li><a href="https://docs.nvidia.com/ngc/gpu-cloud/ngc-private-registry-user-guide/index.html#generating-api-key">Generating NGC API Keys</a></li>
+<li><a href="https://blog.cavedu.com/2022/04/11/nvidia-ngc-api-key/">申請 NVIDIA NGC API key 用於 TAO toolkit DLI 課程 - CAVEDU教育團隊技術部落格</a></li>
+<li>https://ngc.nvidia.com/signin</li>
+</ul>
+</li>
+<li><a href="https://docs.nvidia.com/ai-enterprise/deployment/cloud/latest/appendix-ngc.html">Pulling and Running NVIDIA AI Enterprise Containers — NVIDIA AI Enterprise: Cloud Deployment Guide</a></li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/watch?v=ShRKIFWaea0">Demo: NVIDIA AI Enterprise with Red Hat OpenShift - YouTube</a></li>
+<li><a href="https://www.redhat.com/rhdc/managed-files/pa-nvidia-steamline-gen-ai-development-brief-1468598-202410-en.pdf">pa-nvidia-steamline-gen-ai-development-brief-1468598-202410-en.pdf</a></li>
+<li>NVIDIA GPU Operator<ul>
+<li><a href="https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html">About the NVIDIA GPU Operator — NVIDIA GPU Operator</a></li>
+<li><a href="https://docs.nvidia.com/datacenter/cloud-native/openshift/latest/install-gpu-ocp.html#install-nvidiagpu">Installing the NVIDIA GPU Operator on OpenShift — NVIDIA GPU Operator on Red Hat OpenShift Container Platform</a></li>
+<li><a href="https://docs.nvidia.com/datacenter/cloud-native/openshift/latest/nvaie-with-ocp.html">NVIDIA AI Enterprise with OpenShift — NVIDIA GPU Operator on Red Hat OpenShift Container Platform</a></li>
+<li><a href="https://docs.nvidia.com/ai-enterprise/deployment/openshift-on-bare-metal/latest/on-bare-metal.html">Red Hat OpenShift on Bare Metal — NVIDIA AI Enterprise: OpenShift on Bare-metal Deployment Guide</a></li>
+</ul>
+</li>
+<li>NVIDIA NIM<ul>
+<li><a href="https://docs.nvidia.com/nim/large-language-models/latest/introduction.html">Introduction — NVIDIA NIM for Large Language Models (LLMs)</a></li>
+<li><a href="https://developers.redhat.com/articles/2025/03/26/generative-ai-nvidia-nim-openshift-ai#configure_and_create_a_workbench">Deliver generative AI at scale with NVIDIA NIM on OpenShift AI | Red Hat Developer</a></li>
+<li><a href="https://docs.nvidia.com/nim-operator/latest/install-openshift.html">Installing NVIDIA NIM Operator on Red Hat OpenShift — NVIDIA NIM Operator</a></li>
+</ul>
+</li>
+<li>Others<ul>
+<li><a href="https://medium.com/bumble-tech/gpu-powered-kubernetes-clusters-7fc6505125c">GPU-powered Kubernetes clusters. A comprehensive and incremental… | by Gleb Vazhenin | Bumble Tech | Medium</a></li>
+<li><a href="https://dev.to/thenjdevopsguy/sharing-a-nvidia-gpu-between-pods-in-kubernetes-4hp9">Sharing A Nvidia GPU Between Pods In Kubernetes - DEV Community</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/">Schedule GPUs | Kubernetes</a><ul>
+<li><a href="https://github.com/NVIDIA/k8s-device-plugin#quick-start">GitHub - NVIDIA/k8s-device-plugin: NVIDIA device plugin for Kubernetes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="gpus-and-bare-metal">GPUs and bare metal</h4>
+<p>In addition, the worker nodes can host one or more GPUs, but they must be of the same type. For example, a node can have two NVIDIA A100 GPUs, but a node with one A100 GPU and one T4 GPU is not supported. The NVIDIA Device Plugin for Kubernetes does not support mixing different GPU models on the same node.</p>
+<h4 id="multi-instance-gpu-mig-partitioning">Multi-instance GPU (MIG) partitioning</h4>
+<ul>
+<li><a href="https://www.redhat.com/en/blog/sharing-caring-how-make-most-your-gpus-part-2-multi-instance-gpu">Sharing is caring: How to make the most of your GPUs part 2 - Multi-instance GPU</a></li>
+</ul>
+<p>MIG is only supported with A30, A100, A100X, A800, AX800, H100, and H800.</p>
+<p>For instance, the NVIDIA A100 40GB, offers multiple partitioning options:</p>
+<ul>
+<li>1g.5gb: 1 Compute Instance (CI), 5GB memory</li>
+<li>2g.10gb: 2 CIs, 10GB memory</li>
+<li>3g.20gb: 3 CIs, 20GB memory</li>
+<li>4g.20gb: 4 CIs, 20GB memory</li>
+<li>7g.40gb: 7 CIs, 40GB memory</li>
+</ul>
+<p>Check the supported profiles
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>oc<span class="w"> </span>rsh<span class="w">  </span>-n<span class="w"> </span>nvidia-gpu-operator<span class="w">  </span><span class="k">$(</span>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>nvidia-gpu-operator<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;nvidia-dcgm-exporter.*&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span><span class="w"> </span>nvidia-smi<span class="w"> </span>mig<span class="w"> </span>-lgip
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="c1"># if not all gpu nodes support the MIG</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>nvidia-gpu-operator<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;nvidia-dcgm-exporter.*&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="err">&#39;</span><span class="o">{</span>print<span class="w"> </span><span class="nv">$1</span><span class="o">}</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>oc<span class="w"> </span>rsh<span class="w">  </span>-n<span class="w"> </span>nvidia-gpu-operator<span class="w"> </span>nvidia-dcgm-exporter-dln49<span class="w">  </span>nvidia-smi<span class="w"> </span>mig<span class="w"> </span>-lgip
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Defaulted container &quot;nvidia-dcgm-exporter&quot; out of: nvidia-dcgm-exporter, toolkit-validation (init), init-pod-nvidia-node-status-exporter (init)
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>+-----------------------------------------------------------------------------+
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>| GPU instance profiles:                                                      |
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>| GPU   Name             ID    Instances   Memory     P2P    SM    DEC   ENC  |
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>|                              Free/Total   GiB              CE    JPEG  OFA  |
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>|=============================================================================|
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>|   0  MIG 1g.5gb        19     7/7        4.75       No     14     0     0   |
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>|                                                             1     0     0   |
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>+-----------------------------------------------------------------------------+
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>|   0  MIG 1g.5gb+me     20     1/1        4.75       No     14     1     0   |
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>|                                                             1     1     1   |
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>+-----------------------------------------------------------------------------+
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>|   0  MIG 1g.10gb       15     4/4        9.75       No     14     1     0   |
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>|                                                             1     0     0   |
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>+-----------------------------------------------------------------------------+
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>|   0  MIG 2g.10gb       14     3/3        9.75       No     28     1     0   |
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>|                                                             2     0     0   |
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>+-----------------------------------------------------------------------------+
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>|   0  MIG 3g.20gb        9     2/2        19.62      No     42     2     0   |
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>|                                                             3     0     0   |
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>+-----------------------------------------------------------------------------+
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>|   0  MIG 4g.20gb        5     1/1        19.62      No     56     2     0   |
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>|                                                             4     0     0   |
+</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>+-----------------------------------------------------------------------------+
+</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>|   0  MIG 7g.40gb        0     1/1        39.38      No     98     5     0   |
+</span><span id="__span-19-26"><a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a>|                                                             7     1     1   |
+</span><span id="__span-19-27"><a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a>+-----------------------------------------------------------------------------+
+</span></code></pre></div>
+<p>config MIG</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># config the mig to node/worker-1(has a GPU A100) which is based on your environment</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>oc<span class="w"> </span>label<span class="w">  </span>node/worker-1<span class="w"> </span>nvidia.com/mig.config<span class="o">=</span>all-1g.10gb<span class="w"> </span>--overwrite<span class="o">=</span><span class="nb">true</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="c1"># check the log</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>oc<span class="w"> </span>logs<span class="w"> </span>-n<span class="w"> </span>nvidia-gpu-operator<span class="w"> </span><span class="k">$(</span>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>nvidia-gpu-operator<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>nvidia-mig-manager<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.items[0].metadata.name}&#39;</span><span class="k">)</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1"># check the node</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>oc<span class="w"> </span>describe<span class="w"> </span>node<span class="w"> </span>worker-1
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>oc<span class="w"> </span>describe<span class="w"> </span>nodes<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A<span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="s2">&quot;Capacity&quot;</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>oc<span class="w"> </span>get<span class="w"> </span>nodes<span class="w"> </span>-o<span class="o">=</span>custom-columns<span class="o">=</span><span class="s1">&#39;Node:metadata.name,GPU Product:metadata.labels.nvidia\.com/gpu\.product,GPU Capacity:status.capacity.nvidia\.com/gpu&#39;</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="c1"># show the mig</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>oc<span class="w"> </span>rsh<span class="w"> </span>-n<span class="w"> </span>nvidia-gpu-operator<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="k">$(</span>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>nvidia-gpu-operator<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;nvidia-driver-daemonset.*&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span><span class="w"> </span>nvidia-smi<span class="w"> </span>mig<span class="w"> </span>-lgi
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="c1"># if not all gpu nodes support the MIG</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>oc<span class="w"> </span>get<span class="w"> </span>pods<span class="w"> </span>-n<span class="w"> </span>nvidia-gpu-operator<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;nvidia-driver-daemonset.*&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>oc<span class="w"> </span>rsh<span class="w">  </span>-n<span class="w"> </span>nvidia-gpu-operator<span class="w"> </span>nvidia-driver-daemonset-417.94.202412180008-0-rzp8x<span class="w"> </span>nvidia-smi<span class="w"> </span>mig<span class="w"> </span>-lgi
+</span></code></pre></div>
+<p>After config it into <strong>all-1g.10gb</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>+-------------------------------------------------------+
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>| GPU instances:                                        |
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>| GPU   Name             Profile  Instance   Placement  |
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>|                          ID       ID       Start:Size |
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>|=======================================================|
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>|   0  MIG 1g.10gb         15        3          4:2     |
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>+-------------------------------------------------------+
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>|   0  MIG 1g.10gb         15        4          6:2     |
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>+-------------------------------------------------------+
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>|   0  MIG 1g.10gb         15        5          0:2     |
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>+-------------------------------------------------------+
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>|   0  MIG 1g.10gb         15        6          2:2     |
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>+-------------------------------------------------------+
+</span></code></pre></div></p>
+<p>After config it into <strong>all-1g.5gb</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>+-------------------------------------------------------+
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>| GPU instances:                                        |
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>| GPU   Name             Profile  Instance   Placement  |
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>|                          ID       ID       Start:Size |
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>|=======================================================|
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>|   0  MIG 1g.5gb          19        7          4:1     |
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>+-------------------------------------------------------+
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>|   0  MIG 1g.5gb          19        8          5:1     |
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>+-------------------------------------------------------+
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>|   0  MIG 1g.5gb          19        9          6:1     |
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>+-------------------------------------------------------+
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>|   0  MIG 1g.5gb          19       11          0:1     |
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>+-------------------------------------------------------+
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>|   0  MIG 1g.5gb          19       12          1:1     |
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>+-------------------------------------------------------+
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>|   0  MIG 1g.5gb          19       13          2:1     |
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>+-------------------------------------------------------+
+</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>|   0  MIG 1g.5gb          19       14          3:1     |
+</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>+-------------------------------------------------------+
+</span></code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># run the gpu application</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>cat<span class="w"> </span><span class="s">&lt;&lt; EOF | oc create -f -</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="s">apiVersion: v1</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="s">kind: Pod</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="s">metadata:</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="s">  name: cuda-vectoradd</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="s">spec:</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="s"> restartPolicy: OnFailure</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="s"> containers:</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="s"> - name: cuda-vectoradd</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="s">   image: &quot;nvcr.io/nvidia/k8s/cuda-sample:vectoradd-cuda12.5.0-ubi8&quot;</span>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="s">   resources:</span>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="s">     limits:</span>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="s">       nvidia.com/gpu: 4</span>
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="s">EOF</span>
+</span></code></pre></div>
+<p>Disalbe the MIG
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># disalbe the mig on node/worker-1</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>oc<span class="w"> </span>label<span class="w">  </span>node/worker-1<span class="w"> </span>nvidia.com/mig.config<span class="o">=</span>all-disabled<span class="w"> </span>--overwrite<span class="o">=</span><span class="nb">true</span>
+</span></code></pre></div></p>
+<h4 id="deploying-nvidia-ai-enterprise-containers">Deploying NVIDIA AI Enterprise Containers</h4>
+<ul>
+<li><a href="https://docs.nvidia.com/ai-enterprise/deployment/openshift-on-bare-metal/latest/ai-enterprise-containers.html">Deploying NVIDIA AI Enterprise Containers — NVIDIA AI Enterprise: OpenShift on Bare-metal Deployment Guide</a></li>
+</ul>
+<p>prerequisite
+1. apply for NGC_KEY</p>
+<ol>
+<li>create a secret for pulling images from NGC
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>oc create secret docker-registry regcred --docker-server=nvcr.io --docker-username=\$oauthtoken --docker-password=&lt;YOUR_NGC_KEY&gt; --docker-email=&lt;your_email_id&gt; -n default
+</span></code></pre></div></li>
+</ol>
+<h5 id="jupyter">jupyter</h5>
+<p>tensorflow-jupyter.yaml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>apiVersion: apps/v1
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>kind: Deployment
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>metadata:
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>  name: tensorflow-jupyter-notebook
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>  labels:
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>    app: tensorflow-jupyter-notebook
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>spec:
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>  replicas: 1
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>  selector:
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>    matchLabels:
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>      app: tensorflow-jupyter-notebook
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>  template:
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>    metadata:
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>      labels:
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>        app: tensorflow-jupyter-notebook
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>    spec:
+</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>      containers:
+</span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>      - name: tensorflow-container
+</span><span id="__span-26-19"><a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>        image: nvcr.io/nvidia/tensorflow-pb24h2:24.08.07-tf2-py3
+</span><span id="__span-26-20"><a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>        # image: nvcr.io/nvaie/tensorflow-2-3:22.09-tf2-nvaie-2.3-py3
+</span><span id="__span-26-21"><a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>        ports:
+</span><span id="__span-26-22"><a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a>        - containerPort: 8888
+</span><span id="__span-26-23"><a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a>        command: [&quot;jupyter-notebook&quot;]
+</span><span id="__span-26-24"><a id="__codelineno-26-24" name="__codelineno-26-24" href="#__codelineno-26-24"></a>        args: [&quot;--NotebookApp.token=&#39;&#39;&quot;]
+</span><span id="__span-26-25"><a id="__codelineno-26-25" name="__codelineno-26-25" href="#__codelineno-26-25"></a>        resources:
+</span><span id="__span-26-26"><a id="__codelineno-26-26" name="__codelineno-26-26" href="#__codelineno-26-26"></a>          requests:
+</span><span id="__span-26-27"><a id="__codelineno-26-27" name="__codelineno-26-27" href="#__codelineno-26-27"></a>            nvidia.com/gpu: 1
+</span><span id="__span-26-28"><a id="__codelineno-26-28" name="__codelineno-26-28" href="#__codelineno-26-28"></a>          limits:
+</span><span id="__span-26-29"><a id="__codelineno-26-29" name="__codelineno-26-29" href="#__codelineno-26-29"></a>            nvidia.com/gpu: 1
+</span><span id="__span-26-30"><a id="__codelineno-26-30" name="__codelineno-26-30" href="#__codelineno-26-30"></a>      imagePullSecrets:
+</span><span id="__span-26-31"><a id="__codelineno-26-31" name="__codelineno-26-31" href="#__codelineno-26-31"></a>      - name: regcred
+</span><span id="__span-26-32"><a id="__codelineno-26-32" name="__codelineno-26-32" href="#__codelineno-26-32"></a>---
+</span><span id="__span-26-33"><a id="__codelineno-26-33" name="__codelineno-26-33" href="#__codelineno-26-33"></a>apiVersion: v1
+</span><span id="__span-26-34"><a id="__codelineno-26-34" name="__codelineno-26-34" href="#__codelineno-26-34"></a>kind: Service
+</span><span id="__span-26-35"><a id="__codelineno-26-35" name="__codelineno-26-35" href="#__codelineno-26-35"></a>metadata:
+</span><span id="__span-26-36"><a id="__codelineno-26-36" name="__codelineno-26-36" href="#__codelineno-26-36"></a>  name: tensorflow-jupyter-notebook
+</span><span id="__span-26-37"><a id="__codelineno-26-37" name="__codelineno-26-37" href="#__codelineno-26-37"></a>spec:
+</span><span id="__span-26-38"><a id="__codelineno-26-38" name="__codelineno-26-38" href="#__codelineno-26-38"></a>  type: NodePort
+</span><span id="__span-26-39"><a id="__codelineno-26-39" name="__codelineno-26-39" href="#__codelineno-26-39"></a>  selector:
+</span><span id="__span-26-40"><a id="__codelineno-26-40" name="__codelineno-26-40" href="#__codelineno-26-40"></a>    app: tensorflow-jupyter-notebook
+</span><span id="__span-26-41"><a id="__codelineno-26-41" name="__codelineno-26-41" href="#__codelineno-26-41"></a>  ports:
+</span><span id="__span-26-42"><a id="__codelineno-26-42" name="__codelineno-26-42" href="#__codelineno-26-42"></a>  - protocol: TCP
+</span><span id="__span-26-43"><a id="__codelineno-26-43" name="__codelineno-26-43" href="#__codelineno-26-43"></a>    nodePort: 30040
+</span><span id="__span-26-44"><a id="__codelineno-26-44" name="__codelineno-26-44" href="#__codelineno-26-44"></a>    port: 8888
+</span><span id="__span-26-45"><a id="__codelineno-26-45" name="__codelineno-26-45" href="#__codelineno-26-45"></a>    targetPort: 8888
+</span></code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>tensorflow-jupyter.yaml
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>oc<span class="w"> </span>get<span class="w"> </span>pods
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>oc<span class="w"> </span>describe<span class="w"> </span>pod<span class="w"> </span>&lt;pod-name&gt;
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="c1"># Note the FQDN or IP of the node it is running on and construct the URL for accessing the notebook.</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="c1"># http://&lt;NODE_FQDN_OR_IP&gt;:30040</span>
+</span></code></pre></div>
+<h5 id="running-resnet-50-with-tensorflow">Running ResNet-50 with TensorFlow</h5>
+<ul>
+<li><a href="https://docs.nvidia.com/ai-enterprise/release-6/latest/getting-started/quick-start-guide.html#running-resnet-50-with-tensorflow">Running ResNet-50 with TensorFlow</a></li>
+</ul>
+<p>tensorflow-gpu.yaml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>apiVersion: apps/v1
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>kind: Deployment
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>metadata:
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>  name: tensorflow-gpu
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>  labels:
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>    app: tensorflow-gpu
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>spec:
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>  replicas: 1
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>  selector:
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>    matchLabels:
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>      app: tensorflow-gpu
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>  template:
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>    metadata:
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>      labels:
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>        app: tensorflow-gpu
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>    spec:
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>      containers:
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a>      - name: tensorflow
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a>        image: nvcr.io/nvidia/tensorflow-pb24h2:24.08.07-tf2-py3
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a>        command: [&quot;/bin/bash&quot;]
+</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a>        args: [&quot;-c&quot;, &quot;sleep infinity&quot;]
+</span><span id="__span-28-22"><a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a>        resources:
+</span><span id="__span-28-23"><a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a>          limits:
+</span><span id="__span-28-24"><a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a>            nvidia.com/gpu: 1
+</span><span id="__span-28-25"><a id="__codelineno-28-25" name="__codelineno-28-25" href="#__codelineno-28-25"></a>      imagePullSecrets:
+</span><span id="__span-28-26"><a id="__codelineno-28-26" name="__codelineno-28-26" href="#__codelineno-28-26"></a>      - name: regcred
+</span></code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>tensorflow-gpu.yaml
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>oc<span class="w"> </span>get<span class="w"> </span>pods
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>oc<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;pod-name&gt;<span class="w"> </span>--<span class="w"> </span>/bin/bash
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="nb">cd</span><span class="w"> </span>/workspace/nvidia-examples/cnn
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>python<span class="w"> </span>resnet.py<span class="w">  </span>-b<span class="w"> </span><span class="m">16</span><span class="w"> </span>-i<span class="w"> </span><span class="m">200</span><span class="w"> </span>-u<span class="w"> </span>batch<span class="w"> </span>--precision<span class="w"> </span>fp16
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="c1"># it works</span>
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>python<span class="w"> </span>resnet.py<span class="w">  </span>-b<span class="w"> </span><span class="m">32</span><span class="w"> </span>-i<span class="w"> </span><span class="m">200</span><span class="w"> </span>-u<span class="w"> </span>batch<span class="w"> </span>--precision<span class="w"> </span>fp16
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="c1"># it works</span>
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="c1"># mpiexec --allow-run-as-root --bind-to socket -np 7 python resnet.py  -b 32 -i 200 -u batch --precision fp16</span>
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="c1"># it can not work</span>
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="c1"># ncclCommInitRank failed: invalid usage (run with NCCL_DEBUG=WARN for details)</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Every 2.0s: nvidia-smi                                                                                                            tensorflow-gpu-56754d7d47-2lgjh: Tue Apr 22 10:00:38 2025
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>Tue Apr 22 10:00:38 2025
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>+-----------------------------------------------------------------------------------------+
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>| NVIDIA-SMI 570.124.06             Driver Version: 570.124.06     CUDA Version: 12.8     |
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>|-----------------------------------------+------------------------+----------------------+
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>|                                         |                        |               MIG M. |
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>|=========================================+========================+======================|
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>|   0  NVIDIA A100-PCIE-40GB          On  |   00000000:01:00.0 Off |                   On |
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>| N/A   55C    P0            104W /  250W |                  N/A   |     N/A      Default |
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>|                                         |                        |              Enabled |
+</span><span id="__span-30-14"><a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>+-----------------------------------------+------------------------+----------------------+
+</span><span id="__span-30-15"><a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>
+</span><span id="__span-30-16"><a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a>+-----------------------------------------------------------------------------------------+
+</span><span id="__span-30-17"><a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a>| MIG devices:                                                                            |
+</span><span id="__span-30-18"><a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a>+------------------+----------------------------------+-----------+-----------------------+
+</span><span id="__span-30-19"><a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a>| GPU  GI  CI  MIG |                     Memory-Usage |        Vol|        Shared         |
+</span><span id="__span-30-20"><a id="__codelineno-30-20" name="__codelineno-30-20" href="#__codelineno-30-20"></a>|      ID  ID  Dev |                       BAR1-Usage | SM     Unc| CE ENC  DEC  OFA  JPG |
+</span><span id="__span-30-21"><a id="__codelineno-30-21" name="__codelineno-30-21" href="#__codelineno-30-21"></a>|                  |                                  |        ECC|                       |
+</span><span id="__span-30-22"><a id="__codelineno-30-22" name="__codelineno-30-22" href="#__codelineno-30-22"></a>|==================+==================================+===========+=======================|
+</span><span id="__span-30-23"><a id="__codelineno-30-23" name="__codelineno-30-23" href="#__codelineno-30-23"></a>|  0    7   0   0  |             375MiB /  4864MiB    | 14      0 |  1   0    0    0    0 |
+</span><span id="__span-30-24"><a id="__codelineno-30-24" name="__codelineno-30-24" href="#__codelineno-30-24"></a>|                  |                 2MiB /  8191MiB  |           |                       |
+</span><span id="__span-30-25"><a id="__codelineno-30-25" name="__codelineno-30-25" href="#__codelineno-30-25"></a>+------------------+----------------------------------+-----------+-----------------------+
+</span><span id="__span-30-26"><a id="__codelineno-30-26" name="__codelineno-30-26" href="#__codelineno-30-26"></a>|  0    8   0   1  |             375MiB /  4864MiB    | 14      0 |  1   0    0    0    0 |
+</span><span id="__span-30-27"><a id="__codelineno-30-27" name="__codelineno-30-27" href="#__codelineno-30-27"></a>|                  |                 2MiB /  8191MiB  |           |                       |
+</span><span id="__span-30-28"><a id="__codelineno-30-28" name="__codelineno-30-28" href="#__codelineno-30-28"></a>+------------------+----------------------------------+-----------+-----------------------+
+</span><span id="__span-30-29"><a id="__codelineno-30-29" name="__codelineno-30-29" href="#__codelineno-30-29"></a>|  0    9   0   2  |             375MiB /  4864MiB    | 14      0 |  1   0    0    0    0 |
+</span><span id="__span-30-30"><a id="__codelineno-30-30" name="__codelineno-30-30" href="#__codelineno-30-30"></a>|                  |                 2MiB /  8191MiB  |           |                       |
+</span><span id="__span-30-31"><a id="__codelineno-30-31" name="__codelineno-30-31" href="#__codelineno-30-31"></a>+------------------+----------------------------------+-----------+-----------------------+
+</span><span id="__span-30-32"><a id="__codelineno-30-32" name="__codelineno-30-32" href="#__codelineno-30-32"></a>|  0   11   0   3  |             375MiB /  4864MiB    | 14      0 |  1   0    0    0    0 |
+</span><span id="__span-30-33"><a id="__codelineno-30-33" name="__codelineno-30-33" href="#__codelineno-30-33"></a>|                  |                 2MiB /  8191MiB  |           |                       |
+</span><span id="__span-30-34"><a id="__codelineno-30-34" name="__codelineno-30-34" href="#__codelineno-30-34"></a>+------------------+----------------------------------+-----------+-----------------------+
+</span><span id="__span-30-35"><a id="__codelineno-30-35" name="__codelineno-30-35" href="#__codelineno-30-35"></a>|  0   12   0   4  |             375MiB /  4864MiB    | 14      0 |  1   0    0    0    0 |
+</span><span id="__span-30-36"><a id="__codelineno-30-36" name="__codelineno-30-36" href="#__codelineno-30-36"></a>|                  |                 2MiB /  8191MiB  |           |                       |
+</span><span id="__span-30-37"><a id="__codelineno-30-37" name="__codelineno-30-37" href="#__codelineno-30-37"></a>+------------------+----------------------------------+-----------+-----------------------+
+</span><span id="__span-30-38"><a id="__codelineno-30-38" name="__codelineno-30-38" href="#__codelineno-30-38"></a>|  0   13   0   5  |             375MiB /  4864MiB    | 14      0 |  1   0    0    0    0 |
+</span><span id="__span-30-39"><a id="__codelineno-30-39" name="__codelineno-30-39" href="#__codelineno-30-39"></a>|                  |                 2MiB /  8191MiB  |           |                       |
+</span><span id="__span-30-40"><a id="__codelineno-30-40" name="__codelineno-30-40" href="#__codelineno-30-40"></a>+------------------+----------------------------------+-----------+-----------------------+
+</span><span id="__span-30-41"><a id="__codelineno-30-41" name="__codelineno-30-41" href="#__codelineno-30-41"></a>|  0   14   0   6  |             375MiB /  4864MiB    | 14      0 |  1   0    0    0    0 |
+</span><span id="__span-30-42"><a id="__codelineno-30-42" name="__codelineno-30-42" href="#__codelineno-30-42"></a>|                  |                 2MiB /  8191MiB  |           |                       |
+</span><span id="__span-30-43"><a id="__codelineno-30-43" name="__codelineno-30-43" href="#__codelineno-30-43"></a>+------------------+----------------------------------+-----------+-----------------------+
+</span><span id="__span-30-44"><a id="__codelineno-30-44" name="__codelineno-30-44" href="#__codelineno-30-44"></a>
+</span><span id="__span-30-45"><a id="__codelineno-30-45" name="__codelineno-30-45" href="#__codelineno-30-45"></a>+-----------------------------------------------------------------------------------------+
+</span><span id="__span-30-46"><a id="__codelineno-30-46" name="__codelineno-30-46" href="#__codelineno-30-46"></a>| Processes:                                                                              |
+</span><span id="__span-30-47"><a id="__codelineno-30-47" name="__codelineno-30-47" href="#__codelineno-30-47"></a>|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+</span><span id="__span-30-48"><a id="__codelineno-30-48" name="__codelineno-30-48" href="#__codelineno-30-48"></a>|        ID   ID                                                               Usage      |
+</span><span id="__span-30-49"><a id="__codelineno-30-49" name="__codelineno-30-49" href="#__codelineno-30-49"></a>|=========================================================================================|
+</span><span id="__span-30-50"><a id="__codelineno-30-50" name="__codelineno-30-50" href="#__codelineno-30-50"></a>|    0    7    0            35027      C   python                                  332MiB |
+</span><span id="__span-30-51"><a id="__codelineno-30-51" name="__codelineno-30-51" href="#__codelineno-30-51"></a>|    0    8    0            35002      C   python                                  332MiB |
+</span><span id="__span-30-52"><a id="__codelineno-30-52" name="__codelineno-30-52" href="#__codelineno-30-52"></a>|    0    9    0            35014      C   python                                  332MiB |
+</span><span id="__span-30-53"><a id="__codelineno-30-53" name="__codelineno-30-53" href="#__codelineno-30-53"></a>|    0   11    0            35001      C   python                                  332MiB |
+</span><span id="__span-30-54"><a id="__codelineno-30-54" name="__codelineno-30-54" href="#__codelineno-30-54"></a>|    0   12    0            35009      C   python                                  332MiB |
+</span><span id="__span-30-55"><a id="__codelineno-30-55" name="__codelineno-30-55" href="#__codelineno-30-55"></a>|    0   13    0            35008      C   python                                  332MiB |
+</span><span id="__span-30-56"><a id="__codelineno-30-56" name="__codelineno-30-56" href="#__codelineno-30-56"></a>|    0   14    0            34993      C   python                                  332MiB |
+</span><span id="__span-30-57"><a id="__codelineno-30-57" name="__codelineno-30-57" href="#__codelineno-30-57"></a>+-----------------------------------------------------------------------------------------+
+</span></code></pre></div>
+<h5 id="pytorch-mnist">PyTorch MNIST</h5>
+<ul>
+<li><a href="https://docs.nvidia.com/ai-enterprise/deployment/cloud/latest/appendix-ngc.html#example-mnist-training-run-using-pytorch-container">Pulling and Running NVIDIA AI Enterprise Containers — NVIDIA AI Enterprise: Cloud Deployment Guide</a></li>
+</ul>
+<p>pytorch.yaml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>apiVersion: apps/v1
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>kind: Deployment
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>metadata:
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>  name: pytorch-mnist
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>  labels:
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>    app: pytorch-mnist
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>spec:
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>  replicas: 1
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>  selector:
+</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>    matchLabels:
+</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>      app: pytorch-mnist
+</span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>  template:
+</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>    metadata:
+</span><span id="__span-31-14"><a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>      labels:
+</span><span id="__span-31-15"><a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>        app: pytorch-mnist
+</span><span id="__span-31-16"><a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a>    spec:
+</span><span id="__span-31-17"><a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a>      containers:
+</span><span id="__span-31-18"><a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a>      - name: pytorch
+</span><span id="__span-31-19"><a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a>        image: nvcr.io/nvidia/pytorch-ltsb2:23.08-lws2.1.0-py3
+</span><span id="__span-31-20"><a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a>        command: [&quot;/bin/bash&quot;]
+</span><span id="__span-31-21"><a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a>        args: [&quot;-c&quot;, &quot;sleep infinity&quot;]
+</span><span id="__span-31-22"><a id="__codelineno-31-22" name="__codelineno-31-22" href="#__codelineno-31-22"></a>        resources:
+</span><span id="__span-31-23"><a id="__codelineno-31-23" name="__codelineno-31-23" href="#__codelineno-31-23"></a>          limits:
+</span><span id="__span-31-24"><a id="__codelineno-31-24" name="__codelineno-31-24" href="#__codelineno-31-24"></a>            nvidia.com/gpu: 1
+</span><span id="__span-31-25"><a id="__codelineno-31-25" name="__codelineno-31-25" href="#__codelineno-31-25"></a>      imagePullSecrets:
+</span><span id="__span-31-26"><a id="__codelineno-31-26" name="__codelineno-31-26" href="#__codelineno-31-26"></a>      - name: regcred
+</span></code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>oc<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>pytorch.yaml
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>oc<span class="w"> </span>get<span class="w"> </span>pods
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>oc<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;pod-name&gt;<span class="w"> </span>--<span class="w"> </span>/bin/bash
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="nb">cd</span><span class="w"> </span>/workspace/examples/upstream/mnist
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>python<span class="w"> </span>main.py
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="c1"># it works</span>
+</span></code></pre></div>
+<h2 id="debug_1">Debug</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/65570498/lost-my-openshift-console-application-is-not-available">oauth - Lost my openshift console ("Application is not available") - Stack Overflow</a></li>
+<li><a href="https://access.redhat.com/solutions/3804501">Troubleshooting Red Hat OpenShift Container Platform 4: DNS - Red Hat Customer Portal</a></li>
+</ul>
+<h3 id="image_1">image</h3>
+<ul>
+<li><a href="https://access.redhat.com/solutions/5114881">"unable to sync: Operation cannot be fulfilled on configs.imageregistry.operator.openshift.io "cluster": the object has been modified; please apply your changes to the latest version and try again, requeuing" in OpenShift 4.4.x - Red Hat Customer Portal</a></li>
+<li><a href="https://www.youtube.com/watch?v=JdF_oNoj9ao">OpenShift 4 Container Image Management - YouTube</a></li>
+<li><a href="https://access.redhat.com/solutions/5391601">Image Registry operator is in degraded state with error "Unable to apply resources: storage backend not configured" - Red Hat Customer Portal</a><ul>
+<li><a href="https://docs.openshift.com/container-platform/4.15/registry/configuring_registry_storage/configuring-registry-storage-vsphere.html">Configuring the registry for vSphere - Setting up and configuring the registry | Registry | OpenShift Container Platform 4.15</a></li>
+</ul>
+</li>
+<li><a href="https://www.ibm.com/docs/zh-tw/mas-cd/continuous-delivery?topic=installing-enabling-openshift-internal-image-registry">啟用 OpenShift 內部映像檔登錄 - IBM 說明文件</a></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>oc patch configs.imageregistry.operator.openshift.io cluster --type merge --patch &#39;{&quot;spec&quot;:{&quot;managementState&quot;:&quot;Managed&quot;}}&#39;
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>oc patch configs.imageregistry.operator.openshift.io cluster --type merge --patch &#39;{&quot;spec&quot;:{&quot;storage&quot;:{&quot;emptyDir&quot;:{}}}}&#39;
+</span></code></pre></div>
+<h3 id="agent-install">agent install</h3>
+<ul>
+<li><a href="https://docs.openshift.com/container-platform/4.14/installing/installing_with_agent_based_installer/installing-with-agent-based-installer.html#installing-ocp-agent-gather-log_installing-with-agent-based-installer">Installing a cluster with Agent-based Installer - Installing an on-premise cluster with the Agent-based Installer | Installing | OpenShift Container Platform 4.14</a></li>
+<li><a href="https://docs.openshift.com/container-platform/4.15/installing/installing-troubleshooting.html#installing-getting-debug-information_installing-troubleshooting">Troubleshooting installation issues | Installing | OpenShift Container Platform 4.15</a></li>
+<li><a href="https://docs.openshift.com/container-platform/4.15/support/troubleshooting/troubleshooting-installations.html#determining-where-installation-issues-occur_troubleshooting-installations">Troubleshooting installations - Troubleshooting | Support | OpenShift Container Platform 4.15</a></li>
+<li><a href="https://access.redhat.com/solutions/5279451">How to recover install-config.yaml file from an installed OpenShift 4.x cluster - Red Hat Customer Portal</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10331124">Day-19-Kubernetes_除錯思路分享 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a></li>
+<li><a href="https://godleon.github.io/blog/Kubernetes/k8s-Taints-and-Tolerations/">[Kubernetes] Taints and Tolerations | 小信豬的原始部落</a></li>
+</ul>
+<h4 id="some-cluster-operators-are-not-available">some cluster operators are not available</h4>
+<p>ClusterVersion: Installing "4.14.15" for About an hour: Unable to apply 4.14.15: some cluster operators are not available</p>
+<p>DEBUG Still waiting for the cluster to initialize: Cluster operators authentication, console, ingress, machine-api, monitoring are not available
+- <a href="https://access.redhat.com/solutions/5151671">OCP 4.x Installation incomplete: cluster failed to initialize due to some cluster operators are still updating - Red Hat Customer Portal</a>
+- <a href="https://github.com/okd-project/okd/issues/386">openshift-install not creating the worker vm using IPI · Issue #386 · okd-project/okd · GitHub</a>
+- <a href="https://access.redhat.com/solutions/6427321">Crio and kubelet services are stuck in "dead" status and are unable to start in OCP 4 - Red Hat Customer Portal</a>
+- <a href="https://access.redhat.com/solutions/6295711">Master kubelet gets Unauthorized and stuck when bootstrapping masters with 10 min gaps in OpenShift 4 - Red Hat Customer Portal</a></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>oc get nodes -o wide
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>oc get clusteroperators
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>oc get pod --all-namespaces -o wide
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>oc get po -n openshift-ingress
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>oc describe pod -n openshift-ingress router-default-66f58c7559-f2gqf
+</span></code></pre></div>
+<p>on Rendezvous node
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>journalctl -u assisted-service.service
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>journalctl -b -f -u release-image.service -u bootkube.service
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>oc get pods -n openshift-ingress  router-default-66f58c7559
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>oc describe pod/router-default-66f58c7559-fmx72 -n openshift-ingress
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>oc get mcp
+</span></code></pre></div>
+<p>on faile node
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>systemctl list-jobs
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>podman login registry.redhat.io --authfile /var/lib/kubelet/config.json
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>dig registry.redhat.io
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>nslookup registry.redhat.io
+</span></code></pre></div></p>
+<p>log in the target core os node
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>ssh<span class="w"> </span>core@&lt;target<span class="w"> </span>core<span class="w"> </span>os<span class="w"> </span>ip<span class="w"> </span>or<span class="w"> </span>FQDN&gt;
+</span></code></pre></div></p>
+<h5 id="dns-issue">DNS issue</h5>
+<p>172.20.0.1 is internal dns and if it can reach internet, it't ok</p>
+<p>otherwise, add the external dns into agent-config.yaml</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>dns-resolver:
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>        config:
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>          search:
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>          - supershift.com
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>          server:
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>          - 172.20.0.1
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>          - 8.8.8.8
+</span></code></pre></div>
+<h4 id="vmware-virtual-machine">vmware virtual machine</h4>
+<ul>
+<li>虛擬機器選項 =&gt; 開機選項 =&gt; 啟用 UEFI 安全開機</li>
+<li>虛擬機器選項 =&gt; 進階 =&gt; 組態參數<ul>
+<li>disk.EnableUUID: TRUE</li>
+</ul>
+</li>
+</ul>
+<h4 id="mirror-registry">mirror registry</h4>
+<p>check the <code>/etc/containers/registries.conf</code></p>
+<h4 id="deployment-failure">deployment failure</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>journalctl -u kubelet -n 100
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>journalctl -u crio -n 100
+</span></code></pre></div>
+<h2 id="integration">Integration</h2>
+<h3 id="identity-provider">Identity provider</h3>
+<ul>
+<li><a href="https://access.redhat.com/solutions/6509791">Openshift Oauth use OpenID (Keycloak) as identity provider, oc login failed but can login successful with web console - Red Hat Customer Portal</a></li>
+<li><a href="https://thenewstack.io/how-to-integrate-openshift-with-keycloak/">How to Integrate OpenShift with Keycloak - The New Stack</a></li>
+<li><a href="https://medium.com/keycloak/using-keycloak-identity-provider-to-secure-openshift-f929a7a0f7f1">Keycloak (as an Identity Provider) to secure Openshift | by Abhishek koserwal | Keycloak | Medium</a></li>
+<li><a href="https://examples.openshift.pub/deploy/keycloak/">Keycloak - OpenShift Examples</a></li>
+<li>install keyclock in openshift<ul>
+<li><a href="https://www.keycloak.org/getting-started/getting-started-openshift">OpenShift - Keycloak</a></li>
+<li><a href="https://www.dell.com/community/en/conversations/developer-blog/openshift-sso-with-keycloak-active-directory/647f9e39f4ccf8a8de2cc1ae">OpenShift, SSO with KeyCloak &amp; Active Directory | DELL Technologies</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="ldap">LDAP</h3>
+<ul>
+<li><a href="https://www.port389.org/docs/389ds/howto/howto-deploy-389ds-on-openshift.html">389 Directory Server - Deploying 389 Directory Server on OpenShift</a></li>
+</ul>
+<h2 id="subscription">Subscription</h2>
+<ul>
+<li><a href="https://docs.redhat.com/en/documentation/openshift_cluster_manager/1-latest/html/managing_clusters/assembly-cluster-subscriptions#assembly-cluster-subscriptions">Chapter 3. Cluster subscriptions and registration | Red Hat Product Documentation</a></li>
+<li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift/pricing">Red Hat OpenShift pricing</a></li>
+<li><a href="https://www.redhat.com/en/resources/self-managed-openshift-subscription-guide">Self-managed Red Hat OpenShift subscription guide</a></li>
+</ul>
+<h2 id="hypershift">HyperShift</h2>
+<ul>
+<li><a href="https://github.com/openshift/hypershift">GitHub - openshift/hypershift: Hyperscale OpenShift - clusters with hosted control planes</a></li>
+</ul>
+<h2 id="support">Support</h2>
+<p>OpenShift Lifecycle:
+https://access.redhat.com/support/policy/updates/openshift</p>
+<p>OpenShift AAA:
+https://docs.openshift.com/container-platform/4.17/authentication/index.html</p>
+<p>OpenShift Identity Providers:
+https://docs.openshift.com/container-platform/4.17/authentication/understanding-identity-provider.html</p>
+<p>Certificates:
+https://docs.openshift.com/container-platform/4.17/security/index.html</p>
+<p>Deploying ODF on Bare Metal:
+https://docs.redhat.com/en/documentation/red_hat_openshift_data_foundation/4.17/html/deploying_openshift_data_foundation_using_bare_metal_infrastructure/index</p>
+<p>ODF Architecture (Internal/External approach):
+https://docs.redhat.com/en/documentation/red_hat_openshift_data_foundation/4.17/html/planning_your_deployment/odf-architecture_rhodf#odf-architecture_rhodf</p>
+<p>Mirror Registry:
+https://docs.openshift.com/container-platform/4.17/disconnected/mirroring/installing-mirroring-creating-registry.html</p>
+<p>OpenShift Web Console customizations:
+https://docs.openshift.com/container-platform/4.17/web_console/customizing-the-web-console.html</p>
+<p>Add Worker Node to an OpenShift cluster:
+https://docs.openshift.com/container-platform/4.17/nodes/nodes/nodes-nodes-adding-node-iso.html</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Nexus%20Repository%20Manager/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Nexus Repository Manager">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Nexus Repository Manager
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Openstack/" class="md-footer__link md-footer__link--next" aria-label="Next: Openstack">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Openstack
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

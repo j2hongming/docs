@@ -1,0 +1,2755 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/">
+      
+      
+        <link rel="next" href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>資訊安全 - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              資訊安全
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome the docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hackmd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hackmd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google docs api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InfiniBand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Message Passing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nagios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus Repository Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Openstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RedHat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redfish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scrum筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bitwise world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud-init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Influxdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pacemaker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    podman
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shell script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用者體驗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    備份還原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    奇技淫巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    持續整合
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排列組合與機率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    機器學習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    正規表示法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    測試工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    無線網路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向實務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向系統分析與設計
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬體概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    程式本質
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系統的價值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    統計圖表的表達方式以及使用的範圍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    虛擬機器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料庫維運
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    資訊安全
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    資訊安全
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      弱點掃描
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="弱點掃描">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      XSS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code injection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insecure-randomness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insecure Randomness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uncontrolled-format-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uncontrolled Format String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command_injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command_Injection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command_Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      python
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體工程師的專業和通識
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體需求溝通
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      弱點掃描
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="弱點掃描">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      XSS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code injection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insecure-randomness" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insecure Randomness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uncontrolled-format-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uncontrolled Format String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command_injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command_Injection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command_Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      python
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">資訊安全</h1>
+<ul>
+<li><a href="https://kevinsmith.io/sanitize-your-inputs/">Sanitize Your Inputs?</a></li>
+<li><a href="https://martinfowler.com/articles/web-security-basics.html#InputValidation">The Basics of Web Application Security</a></li>
+<li><a href="https://www.bmpi.dev/dev/authentication-and-authorization-in-a-distributed-system/">分布式系統下的認證與授權</a></li>
+<li><a href="https://yuanchieh.page/posts/2023/2023-01-20-%E9%A9%97%E8%AD%89%E8%88%87%E6%8E%88%E6%AC%8A%E7%9A%84%E5%B7%AE%E5%88%A5%E6%B7%BA%E8%AB%87-oauth-2.0-%E8%88%87-openid-connect/">驗證與授權的差別，淺談 OAuth 2.0 與 OpenID Connect</a><ul>
+<li><a href="https://blog.logto.io/understanding-tokens-in-oidc">Understanding access tokens, refresh tokens, and ID tokens in OpenID Connect (OIDC) protocol · Logto blog</a></li>
+<li><a href="https://www.linkedin.com/pulse/differences-between-kerberos-saml-oauth-openid-connect-aqueel-akhter-oqxyf">Differences between Kerberos, SAML, OAuth, and OpenID Connect (OIDC)</a></li>
+<li>https://chatgpt.com/share/681475a5-dd74-8009-85cb-3a49637a25f2</li>
+</ul>
+</li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10267368">Day03 - 【入門篇】淺談身份驗證與授權</a></li>
+<li><a href="https://yuanchieh.page/posts/2023/2023-01-28-%E7%A0%94%E7%A9%B6%E5%BE%AE%E6%9C%8D%E5%8B%99%E4%B8%8B%E7%9A%84%E6%8E%88%E6%AC%8A%E8%A8%AD%E8%A8%88-google-zanzibar-%E8%88%87-open-policy-agent/">研究微服務下的授權設計 - Google Zanzibar 與 Open Policy Agent</a></li>
+<li><a href="https://security.stackexchange.com/questions/205563/how-does-using-an-auth-server-for-mobile-app-and-not-storing-api-keys-on-client">How does using an auth server for mobile app and not storing API keys on client add security</a></li>
+<li><a href="https://auth0.com/blog/using-m2m-authorization/">Using Machine to Machine (M2M) Authorization</a><ul>
+<li><a href="https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow">Client Credentials Flow</a><ul>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.2">The OAuth 2.0 Authorization Framework</a><ul>
+<li><a href="https://tools.ietf.org/id/draft-ietf-oauth-security-topics-12.html#rfc.section.4.2">OAuth 2.0 Security Best Current Practice</a></li>
+</ul>
+</li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc6819#section-4.1.1">RFC 6819: OAuth 2.0 Threat Model and Security Considerations - Threat: Obtaining Client Secrets</a></li>
+<li><a href="https://security.stackexchange.com/questions/138816/what-is-the-worst-that-can-happen-if-your-oauth-client-secret-is-leaked">What is the worst that can happen if your OAuth client secret is leaked</a><ul>
+<li><a href="https://www.oauth.com/oauth2-servers/pkce/">Protecting Apps with PKCE - OAuth 2.0 Simplified</a></li>
+<li><a href="https://auth0.com/docs/get-started/authentication-and-authorization-flow/authorization-code-flow-with-proof-key-for-code-exchange-pkce">Authorization Code Flow with Proof Key for Code Exchange (PKCE)</a></li>
+<li><a href="https://engineering.linecorp.com/zh-hant/blog/pkce-line-login/">如何透過 Golang 開發 OAuth2 的 PKCE - 以 LINE Login 為例</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10277215">Day18 - 【概念篇】OAuth flows: PKCE - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a></li>
+</ul>
+</li>
+<li><a href="https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/">The Client ID and Secret - OAuth 2.0 Simplified</a></li>
+<li>The <code>client credentials grant</code> from OAuth 2.0 attempts to fulfill the need for these scenarios. </li>
+<li>In the client credentials grant, the client holds two pieces of information: the client ID and the client secret.</li>
+</ul>
+</li>
+<li><a href="https://myapollo.com.tw/blog/backend-oauth-2/">後端工程師面試考什麼 — OAuth 2.0 - MyApollo</a></li>
+<li><a href="https://myapollo.com.tw/blog/backend-sso-saml/">後端工程師面試考什麼 — 從 SSO (Single Sign-On) 到 SAML 2.0 - MyApollo</a></li>
+</ul>
+</li>
+<li><a href="https://auth0.com/docs/secure/tokens/refresh-tokens/refresh-token-rotation">Refresh Token Rotation</a></li>
+<li>PKI<ul>
+<li><a href="https://blog.miniasp.com/post/2018/04/21/PKI-Digital-Certificate-Format-Convertion-Notes">認識 PKI 架構下的數位憑證格式與憑證格式轉換的心得分享 | The Will Will Web</a></li>
+<li><a href="https://sectigo.com/resource-library/rsa-vs-dsa-vs-ecc-encryption">What Are the Differences Between RSA, DSA, and ECC Encryption Algorithms?</a><ul>
+<li>The key size or bit length of public keys determines the strength of protection</li>
+<li><a href="https://tls.mbed.org/kb/cryptography/rsa-encryption-maximum-data-size">RSA encryption maximum data size</a><ul>
+<li><a href="https://stackoverflow.com/questions/10007147/getting-a-illegalblocksizeexception-data-must-not-be-longer-than-256-bytes-when">getting a IllegalBlockSizeException: Data must not be longer than 256 bytes when using rsa</a></li>
+</ul>
+</li>
+<li>RSA is only able to encrypt data to a maximum amount equal to your key size (2048 bits = 256 bytes), minus any padding and header data (11 bytes for PKCS#1 v1.5 padding).</li>
+<li><a href="https://stackoverflow.com/questions/51073259/difference-between-rsa-oaep-and-rsa-pkcs1-5">Difference Between RSA-OAEP and RSA-PKCS1.5</a><ul>
+<li><a href="https://cloud.tencent.com/developer/article/1499219">聊聊密碼學中的padding</a></li>
+</ul>
+</li>
+<li><a href="https://security.stackexchange.com/questions/183179/what-is-rsa-oaep-rsa-pss-in-simple-terms/183330#183330">What is RSA OAEP &amp; RSA PSS in simple terms</a></li>
+<li><a href="https://stackoverflow.com/questions/51922290/why-cant-i-use-rsa-oaep-padding-when-encrypting-with-a-private-key?rq=1">Why can't I use RSA OAEP padding when encrypting with a private key?</a></li>
+</ul>
+</li>
+<li><a href="https://stackoverflow.com/questions/9375044/can-we-have-multiple-public-keys-with-a-single-private-key-for-rsa">Can we have multiple public keys with a single private key for RSA</a></li>
+<li><a href="https://security.stackexchange.com/questions/226747/what-is-the-difference-between-a-certificate-and-a-private-key">What is the difference between a certificate and a private key? - Information Security Stack Exchange</a></li>
+<li><a href="https://codingbee.net/centos/openssl-demo-encrypting-decrypting-files-using-both-symmetric-and-asymmetric-encryption">Openssl Demo: Encrypting/Decrypting files using both Symmetric and Asymmetric Encryption</a></li>
+<li><a href="https://security.stackexchange.com/questions/14330/what-is-the-actual-value-of-a-certificate-fingerprint">cryptography - What is the actual value of a certificate fingerprint? - Information Security Stack Exchange</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol">Online Certificate Status Protocol - Wikipedia</a><ul>
+<li><a href="https://blog.darkthread.net/blog/ie-ocsp-checking-issue/">【茶包射手日記】同一網站 Chrome 瀏覽正常 IE 奇慢-黑暗執行緒</a></li>
+</ul>
+</li>
+<li>:star:<a href="https://www.kawabangga.com/posts/5330?fbclid=IwAR3pxeO9mjVobzRVcfh-g0YvpNjM830JyCYsgfZQ0zFXmk-ApCA2ni-T1xc_aem_AbEOmVtIx1aBJMWe8cmKQVUVgFeoBtQmbYV_Nf29IG3N6BQU24e6xhXSe3Vhfk23fpE">有关 TLS/SSL 证书的一切 | 卡瓦邦噶！</a></li>
+<li>:star:<a href="https://www.omegaatt.com/blogs/develop/2024/tls_tutorial_with_two_practice/">從實務經驗重新認識 TLS | omegaatt</a></li>
+</ul>
+</li>
+<li>GPG<ul>
+<li><a href="https://blog.miniasp.com/post/2022/05/11/gnupg">使用 GnuPG 確保傳輸重要檔案或文件的過程能確保機密性與完整性 | The Will Will Web</a></li>
+<li><a href="https://codingman.cc/how-to-send-sensitive-information-with-gnupg/">如何傳送敏感資訊 - GnuPG | CodingMan</a></li>
+<li><a href="https://city.shaform.com/zh/2017/05/28/password-management/">密碼管理心得筆記 · 翼之都</a><ul>
+<li>YubiKey</li>
+</ul>
+</li>
+<li><a href="https://myapollo.com.tw/blog/gpg-encrypt-decrypt-backup/">用 gpg 指令加密帳號密碼，安心共享機敏資訊 - MyApollo</a></li>
+<li><a href="https://blog.darkthread.net/blog/gpg-secret-key-as-qrcode/">Coding4Fun - 我的 GPG 金鑰紙本備份解決方案-黑暗執行緒</a></li>
+</ul>
+</li>
+<li>Master password/key<ul>
+<li><a href="https://community.bitwarden.com/t/how-to-remember-where-to-store-master-password/14218">How to remember / where to store master password? - Ask the Community / Archive - Bitwarden Community Forums</a></li>
+</ul>
+</li>
+<li>IOT Security<ul>
+<li><a href="https://azure.microsoft.com/zh-tw/blog/iot-device-authentication-options/">IoT device authentication options | Azure 部落格與更新 | Microsoft Azure</a><ul>
+<li><a href="https://learn.microsoft.com/zh-tw/windows/security/information-protection/tpm/trusted-platform-module-overview">信賴平台模組技術概觀 (Windows) - Windows security | Microsoft Learn</a></li>
+<li><a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html">X.509 client certificates - AWS IoT Core</a></li>
+<li><a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-provision.html">Device provisioning - AWS IoT Core</a></li>
+<li><a href="https://datatracker.ietf.org/doc/draft-hsothers-iotsens-ps/">draft-hsothers-iotsens-ps-02 - The Need for New Authentication Methods for Internet of Things</a></li>
+<li><a href="https://ieeexplore.ieee.org/document/8767192/metrics#metrics">Authentication and Authorization for IoT Devices in Disadvantaged Environments | IEEE Conference Publication | IEEE Xplore</a></li>
+<li><a href="https://medium.com/airwalk/modern-authentication-for-network-devices-9f741c4ac57f">Modern Authentication for Network Devices | by Leo Lee | Airwalk Reply | Medium</a></li>
+<li><a href="https://journals.sagepub.com/doi/full/10.1155/2013/679450">How to Authenticate a Device? Formal Authentication Models for M2M Communications Defending against Ghost Compromising Attack - Wei Ren, Linchen Yu, Liangli Ma, Yi Ren, 2013</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://ithelp.ithome.com.tw/users/20117445/ironman/3778">看完眼眶濕濕的App開發者慘烈對抗險惡資安環境血與淚的控訴</a></li>
+<li><a href="https://thesecurityfactory.be/password-cracking-speed/">Password cracking speed - the Security Factory</a><ul>
+<li><a href="https://blog.darkthread.net/blog/pwd-crack-time/">Coding4Fun - 計算不同密碼長度與複雜度所需暴力破解時間-黑暗執行緒</a></li>
+</ul>
+</li>
+<li><a href="https://codingman.cc/how-to-use-one-time-password-to-secure-ubuntu-server-ssh/">如何使用 One Time Password 加強 Ubuntu 伺服器 SSH 安全性 | CodingMan</a></li>
+<li><a href="http://blog.orange.tw/2023/08/2023-webconf-the-evolution-of-web-security.html">Orange: 從 2013 到 2023: Web Security 十年之進化與趨勢!</a></li>
+<li><a href="https://drive.google.com/file/d/1x-wY5TDIJj2WOmv5s4-409Y8W21ipChK/view?fbclid=IwAR3ibE5_tOtix61pA1R-k2BdGdMA6h-ubj0l3cmUi4nABFs0Ic6s2NEjgTc">20220811 - Web Conf 2023 - 使用 Passkeys 打造無密碼驗證服務</a><ul>
+<li><a href="https://newtoypia.blogspot.com/2023/10/non-resident-key.html">玩具烏托邦: 圖解無密碼登入的 non-resident key 機制</a></li>
+<li><a href="https://blog.darkthread.net/blog/non-discoverable-credential-isnt-passkey/">WebAuthn 無密碼登入不等於 Passkey-黑暗執行緒</a></li>
+<li><a href="https://blog.darkthread.net/blog/google-passkey/">Google Passkey 筆記 - 使用手機免密碼登入 Google 帳號-黑暗執行緒</a></li>
+<li><a href="https://paragraph.xyz/@dhk/passkey">DHK dao | Passkey：最安全的密碼是不使用密碼</a></li>
+</ul>
+</li>
+<li><a href="https://blog.darkthread.net/blog/q-day/">閒聊 - Y2Q 倒數與 Q-Day，當代資訊安全防線即將崩潰-黑暗執行緒</a></li>
+<li><a href="https://medium.com/starbugs/%E5%AF%86%E7%A2%BC%E9%83%BD%E6%94%BE-vault-%E8%A3%A1%E4%BA%86-%E7%84%B6%E5%BE%8C%E5%91%A2-97c7832d59f">密碼都放 Vault 裡了，然後呢？！. 當然要來談談怎麼管理 Vault ＾＾ | by smalltown | Starbugs Weekly 星巴哥技術專欄 | Medium</a></li>
+<li><a href="https://blog.darkthread.net/blog/pqc-notes-1-threat/">PQC 筆記 1 - 靠近一點看量子電腦對當代密碼學的威脅-黑暗執行緒</a></li>
+<li><a href="https://blog.darkthread.net/blog/pqc-notes2-algorithms/">PQC 筆記 2 - 簡單認識後量子時代密碼學演算法-黑暗執行緒</a></li>
+<li><a href="https://israynotarray.com/ai/20240229/2784844101/">有趣的小遊戲 - Gandalf Adventures 之 prompt injection 攻略 | 是 Ray 不是 Array</a></li>
+<li><a href="https://blog.darkthread.net/blog/github-fine-grained-pat/">筆記 - 可微調 Personal Access Token 讓 Github 存取更安全-黑暗執行緒</a></li>
+<li><a href="https://blog.gslin.org/archives/2024/09/04/11958/%e5%9c%a8%e4%bc%81%e6%a5%ad%e8%a3%a1%e9%9d%a2%e7%ae%a1%e7%90%86%e5%af%86%e7%a2%bc%e7%9a%84%e9%81%b8%e6%93%87/">在企業裡面管理密碼的選擇 – Gea-Suan Lin's BLOG</a></li>
+<li><a href="https://blog.fleeto.us/post/something-about-spire/">SPIFFE/SPIRE 从入门到入门 | 伪架构师</a></li>
+<li><a href="https://www.mxp.tw/10046/">[SSL] 一次弄懂 Let’s Encrypt 以及建議使用的工具 – DNSroboCert – 一介資男</a></li>
+<li>RBAC<ul>
+<li><a href="https://www.cloudflare.com/zh-tw/learning/access-management/role-based-access-control-rbac/">什麼是基於角色的存取控制 (RBAC)？ | Cloudflare</a><ul>
+<li><a href="https://www.omegaatt.com/blogs/develop/2024/golang_rbac_with_open_policy_agent/">如何利用 Open Policy Agent 配合 Golang 建構彈性的 RBAC 模組 | omegaatt</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">弱點掃描</h2>
+<h3 id="xss">XSS</h3>
+<p>https://stackoverflow.com/questions/64152836/checkmarx-how-to-validate-and-sanitize-httpservletrequest-getinputstream-to-p
+https://stackoverflow.com/questions/1265282/what-is-the-recommended-way-to-escape-html-symbols-in-plain-java
+https://stackoverflow.com/questions/11478813/request-getparameter-protect-against-xss-what-is-the-best-practice</p>
+<h3 id="code-injection">Code injection</h3>
+<p>https://stackoverflow.com/questions/15197673/using-pythons-eval-vs-ast-literal-eval</p>
+<h3 id="insecure-randomness">Insecure Randomness</h3>
+<p>如果這組偽隨機值被用做任何安全性使用，如密碼、金鑰、Session或是隱密辨識值，攻擊者就可以
+預測下一個或已經產生的數值</p>
+<h3 id="uncontrolled-format-string">Uncontrolled Format String</h3>
+<p>https://www.netsparker.com/blog/web-security/format-string-vulnerabilities/
+Format strings are used in many programming languages to insert values into a text string. In some cases, this mechanism can be abused to perform 
+- buffer overflow attacks
+- extract information
+- execute arbitrary code.</p>
+<h3 id="command_injection">Command_Injection</h3>
+<h4 id="python">python</h4>
+<p>https://docs.python.org/3.6/library/subprocess.html#subprocess.Popen</p>
+<blockquote>
+<p>args is required for all calls and should be a string, or a sequence of program arguments.</p>
+<p>Providing a sequence of arguments is generally preferred, as it allows the module to take care of any required escaping and quoting of arguments (e.g. to permit spaces in file names).</p>
+<p>If passing a single string, either shell must be True (see below) or else the string must simply name the program to be executed without specifying any arguments.</p>
+</blockquote>
+<p>``` python=</p>
+<h1 id="subprocesscallping-c-1-8888-rm-test_file-shelltrue">subprocess.call(["ping -c 1 8.8.8.8; rm test_file"], shell=True)</h1>
+<h1 id="the-test_file-will-be-removed">the test_file will be removed</h1>
+<h1 id="subprocesscallping-c-1-8888-rm-test_file-shelltrue_1">subprocess.call(["ping", "-c", "1", "8.8.8.8", "rm", "test_file"], shell=True)</h1>
+<h1 id="ping-usage-error-destination-address-required">ping: usage error: Destination address required</h1>
+<h1 id="subprocesscallping-c-1-8888-rm-test_file">subprocess.call(["ping", "-c", "1", "8.8.8.8", "rm", "test_file"])</h1>
+<h1 id="ping-test_file-temporary-failure-in-name-resolution">ping: test_file: Temporary failure in name resolution</h1>
+<p>```</p>
+<p><a href="https://docs.python.org/3.6/library/subprocess.html#popen-constructor">Popen Constructor</a> , the default shell=False</p>
+<blockquote>
+<p>If env is not None, it must be a mapping that defines the environment variables for the new process; these are used instead of the default behavior of inheriting the current process’ environment.
+<a href="https://stackoverflow.com/questions/60074823/python-subprocess-and-the-env-argument">Python - subprocess and the env argument</a></p>
+</blockquote>
+<h4 id="java">java</h4>
+<p><a href="https://medium.com/codex/on-command-injection-over-javas-processbuilder-8d9f833c808c">On Command Injection over Java’s ProcessBuilder</a></p>
+<h2 id="_3">事件</h2>
+<h3 id="log4j-vulnerability">log4j vulnerability</h3>
+<ul>
+<li><a href="https://www.techsolvency.com/story-so-far/cve-2021-44228-log4j-log4shell/">Log4Shell log4j vulnerability (CVE-2021-44228 / CVE-2021-45046) - cheat-sheet reference guide</a></li>
+</ul>
+<h2 id="certificate">Certificate</h2>
+<ul>
+<li><a href="https://gist.github.com/yamen/af6ec8cc86e4f40a87ea">Generate a full self-signed certificate chain (Root -&gt; Intermediate CA -&gt; Server) using keytool, that can be used for 'localhost' development · GitHub</a></li>
+</ul>
+<h2 id="authorization-authentication">Authorization &amp; Authentication</h2>
+<ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10270968">Day08 - 【入門篇】OAuth 2.0 Playground</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10271674">Day09 - 【概念篇】再談身份驗證與授權</a></li>
+<li><a href="https://www.osohq.com/academy">Oso - Authorization Academy</a><ul>
+<li><a href="https://www.osohq.com/academy/what-is-authorization">Authorization Academy - What is Authorization?</a></li>
+<li><a href="https://www.osohq.com/academy/role-based-access-control-rbac">Authorization Academy - Role-Based Access Control (RBAC)</a></li>
+<li><a href="https://www.osohq.com/academy/relationship-based-access-control-rebac">Authorization Academy - Relationship-Based Access Control (ReBAC)</a></li>
+<li><a href="https://www.osohq.com/academy/authorization-enforcement">Authorization Academy - Authorization Enforcement</a></li>
+<li><a href="https://www.osohq.com/academy/microservices-authorization">Authorization Academy - Microservices Authorization</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="keycloak">Keycloak</h3>
+<ul>
+<li><a href="https://blog.kevinyang.net/2022/10/23/keycloak-note-1/">[Keycloak] 環境準備 &amp; 基本設定 | CK's Notepad</a></li>
+<li><a href="https://blog.miniasp.com/post/2023/04/21/Running-Keycloak-in-development-mode?full=1&amp;fbclid=IwAR2a66JT8Onn15buezLpChwxk-em7RJvgyz1C5EiX_be48DGIgw_3jTzoew">如何用 Docker 快速上手 Keycloak 開發模式 | The Will Will Web</a></li>
+<li><a href="https://www.lagagain.com/post/%E7%94%A8keycloak%E5%AD%B8%E7%BF%92%E8%BA%AB%E4%BB%BD%E9%A9%97%E8%AD%89%E8%88%87%E6%8E%88%E6%AC%8A%E7%B3%BB%E5%88%97%E7%9B%AE%E9%8C%84/">【用Keycloak學習身份驗證與授權】系列目錄 | 又LAG隨性筆記</a><ul>
+<li><a href="https://ithelp.ithome.com.tw/users/20112470/ironman/4324">用Keycloak學習身份驗證與授權 :: 2021 iThome 鐵人賽</a></li>
+</ul>
+</li>
+<li>container<ul>
+<li><a href="https://blog.miniasp.com/post/2023/04/21/Running-Keycloak-in-development-mode">如何用 Docker 快速上手 Keycloak 開發模式 | The Will Will Web</a></li>
+<li><a href="https://github.com/slominskir/keycloak_ldap">GitHub - slominskir/keycloak_ldap: Docker Compose with Keycloak and 389 LDAP Directory Server</a></li>
+<li>https<ul>
+<li><a href="https://stackoverflow.com/questions/77478341/keycloak-22-0-5-docker-production-deployment-ssl-certificate-error">Keycloak 22.0.5 Docker production deployment SSL certificate error - Stack Overflow</a></li>
+<li><a href="https://github.com/ahmedbaberkhan/keycloak-with-nginx-over-https">GitHub - ahmedbaberkhan/keycloak-with-nginx-over-https: Streamline Keycloak Setup: Context Path, Nginx Proxy, HTTPS, and SSL/TLS Certificates</a><ul>
+<li><a href="https://www.keycloak.org/server/reverseproxy">Using a reverse proxy - Keycloak</a></li>
+</ul>
+</li>
+<li><a href="https://pecenekmanas.medium.com/keycloak-behind-a-reverse-proxy-with-https-b149eda3b9f3">Keycloak Behind a Reverse Proxy with HTTPS | by Manas Peçenek | Medium</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://bra.live/using-synology-directory-server-as-keycloak-user-federation-source/">Keycloak使用群晖Synology Directory Server作为AD/LDAP用户数据源</a></li>
+<li><a href="https://jovepater.com/article/keycloak-windows-ad-ldap/">設定Keycloak v19串接Windows AD / LDAP - Jovepater</a><ul>
+<li>user and group</li>
+</ul>
+</li>
+<li><a href="https://bamhm182.notion.site/Keycloak-Mariadb-and-OpenLDAP-d1587c81353c42e598526cae9c8f5efd">Keycloak, Mariadb, and OpenLDAP</a></li>
+</ul>
+<h3 id="oso">Oso</h3>
+<ul>
+<li><a href="https://editor.leonh.space/2024/oso/">存取控制與 Oso | 六小編 Editor Leon</a></li>
+</ul>
+<h2 id="malware-analysis">Malware analysis</h2>
+<ul>
+<li><a href="https://class.malware.re/">CS6038/CS5138 Malware Analysis</a></li>
+<li><a href="https://github.com/dhondta/awesome-executable-packing#package-packers">awesome-executable-packing</a></li>
+<li><a href="https://thepythoncorner.com/posts/2021-08-30-how-to-create-virus-python/">How to create a computer virus in Python</a></li>
+</ul>
+<h2 id="_4">工具</h2>
+<h3 id="fail2ban">Fail2ban</h3>
+<ul>
+<li><a href="https://chengweichen.com/2021/12/fail2ban-log4shell-log4j.html">運用 Fail2ban 自動封鎖攻擊者的 IP</a></li>
+</ul>
+<h3 id="infisical">Infisical</h3>
+<ul>
+<li><a href="https://myapollo.com.tw/post/infisical-open-source-secretops/">Infisical - Open Source SecretOps - MyApollo</a><ul>
+<li>開源的機密管理平台，專門用以儲存資料庫帳密、 API key, Token 等機敏性的資料，可以讓機密的管理更加方便</li>
+</ul>
+</li>
+</ul>
+<h2 id="_5">防毒技術</h2>
+<ul>
+<li><a href="https://www.av-test.org/en/antivirus/home-windows/">AV Test</a></li>
+<li><a href="https://www.av-comparatives.org/consumer/test-results/microsoft-windows/">av-comparatives</a></li>
+</ul>
+<p><a href="https://forum.gamer.com.tw/C.php?bsn=60030&amp;snA=463208">【科普】2017各款防毒軟體技術原理剖析</a>
+2017 預防尚未進入防毒資料庫的未知威脅
+- 啟發法: 通過一系列的規則試圖推理出可能的目標，實際上，通過一系列手段還原出可執行檔案的實際行為，並將其與記錄病毒行為的啟發特徵庫相比對
+    - 靜態啟發: 在可疑文件讀入到記憶體執行前，先行一步反編譯，根據得到的代碼分析出程式可執行的命令種類和順序，再與啟發特徵庫中的行為比較，近似者報毒
+    - 動態啟發: 建立一個隔離的虛擬環境預先執行要掃描的程式幾十毫秒。通過監控程式最初的幾條或幾十條指令來判斷程式是否可疑（正常程式一般會先調用圖形 API 繪製界面等，但病毒通常直接開始讀寫硬碟，注入其他程序）
+- 行為攔截（Behavior Blocker）
+- HIPS: 主機入侵防禦的英文縮寫，分為 AD 應用程式防護、RD 註冊表防護、FD 文件防護三塊。在程式執行時攔截所有行為並詢問用戶是否放行
+- 主動防禦: 有啟發能力的 HIPS，與啟發式的不同在於，擁有主動防禦的防毒可以在程式正常執行（不隔離）的情況下不間斷地監視程式的行為，發現與啟發特徵庫匹配的動作便終止該程序
+- 雲分析
+- 人工智慧（AI）: 分析雲端的大量資料，機器學習後再下放到本地
+- 廣譜/基因: 通過衡量某個未知的文件和已知惡意文件的相似度來進行判別。如果一個未知文件在關鍵的地方和已知惡意威脅高度相似則判為有害
+- 沙盒（SandBox）</p>
+<blockquote>
+<p>主防和 HIPS 都屬於執行後保護，在其運作時，可疑程式已經在記憶體中執行，可以說是防毒軟體的最後一道關卡</p>
+</blockquote>
+<ul>
+<li>Comodo<ul>
+<li>以防護為重，查殺為輔</li>
+<li>防護思路<ul>
+<li>第一步一樣由 AntiVirus 做判斷，並連接到雲信譽庫，白名單文件放行，沒檢測到病毒又不在白名單裡的文件自動入沙；Viruscope 再對沙盒裡的檔案進行行為分析，判斷為有害立即清除</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Bitdefender<ul>
+<li>對於病毒的檢測率相當精準，很少有誤判的情況發生</li>
+<li>防護流程包含四個步驟<ul>
+<li>入口防護，使用流量掃描（含 Web、Email、IM）</li>
+<li>到達本地的文件將 hash 核對簽名數據庫</li>
+<li>如果沒有簽名匹配，會使用 B-HAVE 引擎進行啟發檢測</li>
+<li>主防監控程式的行為，當分數達到閾值立刻阻止執行</li>
+</ul>
+</li>
+<li>ATC 主防</li>
+</ul>
+</li>
+<li>Kaspersky<ul>
+<li>所有的雲都會靠 MD5、Hash 來判斷檔案的安全性，這就是所謂的雲拉黑，MD5 是一個快速判斷檔案的好方法，但對於卡巴來說不是唯一方法。首次執行程式會先進入 KSN 進行雲數據庫匹配，白 Hash 直接放入信任組，黑名單報 DangerousObject；而未知應用自動分析安全的話放入限制組（需搭配 HIPS 模塊），符合雲危險模型報 DangerousPattern</li>
+<li>卡巴斯基有多個防護層。第一層是 Web 防護，網頁的木馬在第一層就被擋下；若病毒不幸被下載到本地，會被特徵碼和啟發檢測到；如果檔案資料沒有被收入在本地病毒庫，還會連上 KSN 查詢；再下一層是主動防禦模塊，分析程式的行為，若有可疑活動立刻阻止</li>
+</ul>
+</li>
+<li>F-Secure</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 資料模型(Data Modeling)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                資料模型(Data Modeling)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-footer__link md-footer__link--next" aria-label="Next: 軟體工程師的專業和通識">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                軟體工程師的專業和通識
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,4583 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../API/">
+      
+      
+        <link rel="next" href="../Ansible%20Practice/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>AWS - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aws" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AWS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome the docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hackmd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hackmd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      RDS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinvent" class="md-nav__link">
+    <span class="md-ellipsis">
+      re:Invent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="S3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-side-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server-side encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-object-by-prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      download object by prefix
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam" class="md-nav__link">
+    <span class="md-ellipsis">
+      IAM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IAM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#awsmultifactorauthpresent" class="md-nav__link">
+    <span class="md-ellipsis">
+      aws:MultiFactorAuthPresent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iampassrole" class="md-nav__link">
+    <span class="md-ellipsis">
+      IAM:PassRole
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      EC2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spot-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spot instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vcpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      vCPU
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ebs" class="md-nav__link">
+    <span class="md-ellipsis">
+      EBS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ami" class="md-nav__link">
+    <span class="md-ellipsis">
+      AMI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elb" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambda
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lambda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      VPC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Gateway
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambda-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambda integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-http-status-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom HTTP Status Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage plan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acm" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ACM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Regions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Manager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      Route 53
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      tag
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="tag">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sns" class="md-nav__link">
+    <span class="md-ellipsis">
+      SNS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SQS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deplicated-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      deplicated messages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudWatch
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CloudWatch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metrics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#others" class="md-nav__link">
+    <span class="md-ellipsis">
+      Others
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alarms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alarms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insight
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Insight">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file_search_api-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      file_search_api log
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scan-task-forwarder-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      scan task forwarder log
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report-forwarder-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      report forwarder log
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quarantine" class="md-nav__link">
+    <span class="md-ellipsis">
+      quarantine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      cloud query
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventbriedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      EventBriedge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudFront
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudtrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudTrail
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elasticsearch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      DynamoDB
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DynamoDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-secondary-indexes-max-is-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local secondary indexes (max is 5)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-for-local-dev" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker for local dev
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateexpression" class="md-nav__link">
+    <span class="md-ellipsis">
+      UpdateExpression
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rcu-wcu" class="md-nav__link">
+    <span class="md-ellipsis">
+      RCU &amp; WCU
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efs" class="md-nav__link">
+    <span class="md-ellipsis">
+      EFS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dms" class="md-nav__link">
+    <span class="md-ellipsis">
+      DMS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#athena" class="md-nav__link">
+    <span class="md-ellipsis">
+      Athena
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Athena">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-duts-to-dc-total-request-counts-per-daymonth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get DUTs to DC Total Request Counts Per Day/Month
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Glue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#polly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      整合情境
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google docs api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InfiniBand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Message Passing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nagios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus Repository Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Openstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RedHat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redfish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scrum筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bitwise world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud-init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Influxdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pacemaker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    podman
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shell script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用者體驗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    備份還原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    奇技淫巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    持續整合
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排列組合與機率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    機器學習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    正規表示法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    測試工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    無線網路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向實務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向系統分析與設計
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬體概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    程式本質
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系統的價值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    統計圖表的表達方式以及使用的範圍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    虛擬機器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料庫維運
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資訊安全
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體工程師的專業和通識
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體需求溝通
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rds" class="md-nav__link">
+    <span class="md-ellipsis">
+      RDS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinvent" class="md-nav__link">
+    <span class="md-ellipsis">
+      re:Invent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      S3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="S3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-side-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server-side encryption
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#download-object-by-prefix" class="md-nav__link">
+    <span class="md-ellipsis">
+      download object by prefix
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iam" class="md-nav__link">
+    <span class="md-ellipsis">
+      IAM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IAM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#awsmultifactorauthpresent" class="md-nav__link">
+    <span class="md-ellipsis">
+      aws:MultiFactorAuthPresent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iampassrole" class="md-nav__link">
+    <span class="md-ellipsis">
+      IAM:PassRole
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      EC2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spot-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spot instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vcpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      vCPU
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ebs" class="md-nav__link">
+    <span class="md-ellipsis">
+      EBS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      DNS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ami" class="md-nav__link">
+    <span class="md-ellipsis">
+      AMI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elb" class="md-nav__link">
+    <span class="md-ellipsis">
+      ELB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambda
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lambda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local test
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      VPC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Gateway
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lambda-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambda integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-http-status-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom HTTP Status Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metrics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage plan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acm" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ACM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Regions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Manager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      Route 53
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      tag
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="tag">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practice
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sns" class="md-nav__link">
+    <span class="md-ellipsis">
+      SNS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SQS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deplicated-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      deplicated messages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudwatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudWatch
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CloudWatch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metrics_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metrics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#others" class="md-nav__link">
+    <span class="md-ellipsis">
+      Others
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alarms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alarms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insight
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Insight">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file_search_api-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      file_search_api log
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scan-task-forwarder-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      scan task forwarder log
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report-forwarder-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      report forwarder log
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quarantine" class="md-nav__link">
+    <span class="md-ellipsis">
+      quarantine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      cloud query
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eventbriedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      EventBriedge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudFront
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudtrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      CloudTrail
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elasticsearch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      DynamoDB
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DynamoDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-secondary-indexes-max-is-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Local secondary indexes (max is 5)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-for-local-dev" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker for local dev
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateexpression" class="md-nav__link">
+    <span class="md-ellipsis">
+      UpdateExpression
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rcu-wcu" class="md-nav__link">
+    <span class="md-ellipsis">
+      RCU &amp; WCU
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efs" class="md-nav__link">
+    <span class="md-ellipsis">
+      EFS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dms" class="md-nav__link">
+    <span class="md-ellipsis">
+      DMS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#athena" class="md-nav__link">
+    <span class="md-ellipsis">
+      Athena
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Athena">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-duts-to-dc-total-request-counts-per-daymonth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get DUTs to DC Total Request Counts Per Day/Month
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Glue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#polly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Polly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      整合情境
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="aws">AWS</h1>
+<ul>
+<li><a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for AWS services</a><ul>
+<li>Reference for all 𝗜𝗔𝗠 𝗔𝗰𝘁𝗶𝗼𝗻𝘀, 𝗿𝗲𝘀𝗼𝘂𝗿𝗰𝗲𝘀, 𝗮𝗻𝗱 𝗰𝗼𝗻𝗱𝗶𝘁𝗶𝗼𝗻 𝗸𝗲𝘆𝘀 𝗳𝗼𝗿 𝗮𝗹𝗹 𝗔𝗪𝗦 𝘀𝗲𝗿𝘃𝗶𝗰𝗲𝘀</li>
+</ul>
+</li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">Policy Evaluation Logic</a><ul>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based policies and resource-based policies</a></li>
+</ul>
+</li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html">AWS Global Condition Context Keys</a></li>
+<li><a href="https://docs.aws.amazon.com/code-samples/latest/catalog/welcome.html">AWS Code Sample</a></li>
+<li><a href="https://workshops.aws/">AWS Workshop</a><ul>
+<li><a href="https://workshop.aws-management.tools/">AWS Management and Governance Tools Workshop</a></li>
+<li><a href="https://serverless-data-lake-immersionday.workshop.aws/en/introduction.html">Serverless Data Lake Day</a></li>
+<li><a href="https://catalog.us-east-1.prod.workshops.aws/v2/workshops/ef1c179d-8097-4f34-8dc3-0e9eb381b6eb/en-US/">AWS CI/CD Workshop</a></li>
+</ul>
+</li>
+<li><a href="https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-storage-optimization/indentifying-your-storage-requirements.html">AWS Storage Optimization</a></li>
+<li>https://github.com/serverless/serverless/issues/4285<ul>
+<li>https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-servicerole.html</li>
+<li>https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-multifactorauthpresent</li>
+<li>https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html</li>
+</ul>
+</li>
+<li>Cost<ul>
+<li><a href="https://aws.amazon.com/blogs/architecture/overview-of-data-transfer-costs-for-common-architectures/">Overview of Data Transfer Costs for Common Architectures</a></li>
+<li><a href="https://mulupuru.medium.com/your-comprehensive-guide-to-understanding-aws-data-transfer-costs-f5c8241d65ed">Your Comprehensive Guide to Understanding AWS Data Transfer Costs</a></li>
+</ul>
+</li>
+<li>Accounts<ul>
+<li><a href="https://guicommits.com/why-use-aws-organizations-with-terraform/">AWS Organizations with Terraform Workspaces</a></li>
+</ul>
+</li>
+<li>Solution Architect Associate Exam<ul>
+<li><a href="https://chloemcateer.medium.com/aws-solution-architect-associate-exam-study-notes-b6c5884ee500">AWS Solution Architect Associate Exam Study Notes</a></li>
+</ul>
+</li>
+<li>Dashboard<ul>
+<li><a href="https://aws.amazon.com/tw/blogs/opensource/dashboards-as-code-a-new-approach-to-visualizing-aws-apis/">Dashboards as code: A new approach to visualizing AWS APIs | AWS Open Source Blog</a></li>
+</ul>
+</li>
+<li>Diagram<ul>
+<li><a href="https://github.com/mhlabs/cfn-diagram">mhlabs/cfn-diagram: CLI tool to visualise CloudFormation/SAM/CDK stacks as visjs networks, draw.io or ascii-art diagrams.</a></li>
+<li><a href="https://github.com/duo-labs/cloudmapper">duo-labs/cloudmapper: CloudMapper helps you analyze your Amazon Web Services (AWS) environments.</a></li>
+<li><a href="https://www.cloudcraft.co/">Cloudcraft – Draw AWS diagrams</a></li>
+<li><a href="https://github.com/mingrammer/diagrams">mingrammer/diagrams: Diagram as Code for prototyping cloud system architectures</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="rds">RDS</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying an Amazon RDS DB Instance</a><ul>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/rds-required-maintenance/">How do I minimize downtime during required Amazon RDS maintenance</a></li>
+<li><a href="https://www.linuxschoolonline.com/how-to-modify-mysql-rds-with-zero-downtime/">HOW TO MODIFY MYSQL RDS WITH ZERO DOWNTIME</a></li>
+</ul>
+</li>
+<li><a href="https://aws.amazon.com/tw/blogs/database/best-practices-for-upgrading-amazon-rds-for-mysql-and-amazon-rds-for-mariadb/">Best Practices for Upgrading Amazon RDS for MySQL and Amazon RDS for MariaDB</a></li>
+<li><a href="https://stackoverflow.com/questions/30217299/how-to-export-database-from-amazon-rds-mysql-instance-to-local-instance">How to export database from Amazon RDS MySQL instance to local instance?</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.MySQL.Binarylog.html">Accessing MySQL binary logs</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.NonRDSRepl.html">Importing data to an Amazon RDS MySQL or MariaDB DB instance with reduced downtime</a><ul>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/mysqldump-error-rds-mysql-mariadb/?nc1=h_ls">How can I resolve an error that I received when using mysqldump on Amazon RDS for MySQL or MariaDB?</a></li>
+</ul>
+</li>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html">Amazon RDS DB instance storage</a><ul>
+<li>IOPS限制</li>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#EBSVolumeTypes_gp2">General Purpose SSD volumes (gp2)</a></li>
+<li><a href="https://docs.amazonaws.cn/en_us/AmazonRDS/latest/UserGuide/monitoring-cloudwatch.html">Monitoring Amazon RDS metrics with Amazon CloudWatch</a></li>
+</ul>
+</li>
+<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.ModifyingExisting">Increasing DB instance storage capacity</a><ul>
+<li>
+<blockquote>
+<p>In most cases, scaling storage doesn't require any outage and doesn't degrade performance of the server.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/rds-db-storage-size/">How can I decrease the total provisioned storage size of my Amazon RDS DB instance?</a></li>
+<li><a href="https://aws.amazon.com/tw/premiumsupport/knowledge-center/reset-master-user-password-rds/">How do I reset the master user password for my Amazon RDS DB instance?</a></li>
+<li><a href="https://aws.amazon.com/tw/blogs/database/best-practices-for-configuring-parameters-for-amazon-rds-for-mysql-part-3-parameters-related-to-security-operational-manageability-and-connectivity-timeout/">Best practices for configuring parameters for Amazon RDS for MySQL, part 3: Parameters related to security, operational manageability, and connectivity timeout</a></li>
+</ul>
+<h2 id="reinvent">re:Invent</h2>
+<p>2024
+- <a href="https://ithome.com.tw/news/166347">【re:Invent 2024現場直擊】S3雲端儲存兩大新功能瞄準AI需求，Iceberg超大型資料表查詢能快3倍，還能自動產生Metadata | iThome</a>
+- <a href="https://ithome.com.tw/news/166349">【re:Invent 2024現場直擊】AWS執行長揭2款資料庫服務新進展，兼顧高可用、低延遲、無需管理基礎設施等優勢 | iThome</a></p>
+<h2 id="s3">S3</h2>
+<ul>
+<li><a href="https://aws.amazon.com/tw/premiumsupport/knowledge-center/presigned-url-s3-bucket-expiration/">Why is my presigned URL for an Amazon S3 bucket expiring before the expiration time that I specified?</a><ul>
+<li><a href="https://stackoverflow.com/questions/24014306/aws-s3-pre-signed-url-without-expiry-date">AWS S3 pre signed URL without Expiry date</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a></li>
+</ul>
+</li>
+<li><a href="https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/">Amazon S3 Path Deprecation Plan – The Rest of the Story</a></li>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/s3-troubleshoot-403/">How do I troubleshoot 403 Access Denied errors from Amazon S3</a></li>
+<li><a href="https://aws.amazon.com/tw/blogs/security/iam-policies-and-bucket-policies-and-acls-oh-my-controlling-access-to-s3-resources/">IAM Policies and Bucket Policies and ACLs! Oh, My! (Controlling Access to S3 Resources)</a></li>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/s3-bucket-owner-access/">Why can't I access an object that was uploaded to my Amazon S3 bucket by another AWS account?</a></li>
+<li><a href="https://stackoverflow.com/questions/30697746/why-does-s3-deleteobject-not-fail-when-the-specified-key-doesnt-exist">Why does S3.deleteObject not fail when the specified key doesn't exist?</a></li>
+</ul>
+<h3 id="server-side-encryption">Server-side encryption</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting data with server-side encryption using AWS KMS CMKs (SSE-KMS)</a></li>
+</ul>
+<h3 id="metadata">Metadata</h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/4979218/how-do-you-search-an-amazon-s3-bucket">How do you search an amazon s3 bucket?</a></li>
+<li><a href="https://stackoverflow.com/questions/50174803/retrieve-list-objects-using-metadata-in-s3-aws-sdk">Retrieve/List objects using metadata in s3 - aws sdk</a></li>
+<li><a href="https://stackoverflow.com/questions/24885059/amazon-s3-listing-object-with-metadata-in-single-request/24902974#24902974">Amazon S3 : Listing Object with Metadata in single request</a></li>
+<li><a href="https://stackoverflow.com/questions/59565069/boto3-find-object-by-metadata-or-tag">boto3 find object by metadata or tag</a></li>
+<li><a href="https://aws.amazon.com/tw/blogs/big-data/building-and-maintaining-an-amazon-s3-metadata-index-without-servers/">Building and Maintaining an Amazon S3 Metadata Index without Servers</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-inventory.html">Amazon S3 Inventory</a></li>
+</ul>
+<h3 id="cli">CLI</h3>
+<h4 id="download-object-by-prefix">download object by prefix</h4>
+<p>```shell=
+aws s3api list-objects-v2 --bucket {bucket name} --prefix {prefix} &gt; download.json
+jq '.Contents[].Key' download.json | awk -F '"' '{print $2}' &gt; s3_object_keys
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>```bash=
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>#!/bin/bash
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>FILENAME=&quot;s3_object_keys&quot;
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>BUCKET_NAME=&quot;bucket name&quot;
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>PREFIX=&quot;prefix&quot;
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>aws s3api list-objects-v2 --bucket ${BUCKET_NAME} --prefix ${PREFIX} &gt; download.json
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>jq &#39;.Contents[].Key&#39; download.json | awk -F &#39;&quot;&#39; &#39;{print $2}&#39; &gt; ${FILENAME}
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>LINES=$(cat $FILENAME)
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>for s3_object_key in $LINES
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>do
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    echo $s3_object_key
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    local_file_name=$(echo $s3_object_key | awk -F &#39;/&#39; &#39;{print $2}&#39;)  
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    echo $local_file_name
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    aws s3api get-object --bucket {bucket name} --key $s3_object_key $local_file_name
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>done
+</span></code></pre></div></p>
+<h2 id="iam">IAM</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_identityandaccessmanagement.html">Actions, resources, and condition keys for Identity And Access Management</a></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">IAM tutorial: Delegate access across AWS accounts using IAM roles</a></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html">Creating a condition with multiple keys or values</a></li>
+</ul>
+<h3 id="awsmultifactorauthpresent">aws:MultiFactorAuthPresent</h3>
+<p>aws:MultiFactorAuthPresent is present
+principal uses temporary credentials to make the request
+Temporary credentials are used to authenticate 
+- IAM roles, 
+- federated users, 
+- IAM users with temporary tokens from sts:GetSessionToken
+- users of the AWS Management Console</p>
+<p>The aws:MultiFactorAuthPresent key is NOT present when an API or CLI command is called with long-term credentials
+- user access key pairs</p>
+<p>...IfExists Condition Operators
+You do this to say "If the policy key is present in the context of the request, process the key as specified in the policy. If the key is not present, evaluate the condition element as true."</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-multifactorauthpresent">MultiFactorAuthPresent</a></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_IfExists">...IfExists Condition Operators</a></li>
+</ul>
+<h3 id="iampassrole">IAM:PassRole</h3>
+<ul>
+<li><a href="https://blog.rowanudell.com/iam-passrole-explained/">AWS IAM:PassRole explained</a></li>
+</ul>
+<h2 id="ec2">EC2</h2>
+<h3 id="spot-instance">Spot instance</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html">Launching Spot Instances in Your Auto Scaling Group</a></li>
+<li><a href="https://aws.amazon.com/tw/blogs/compute/new-amazon-ec2-spot-pricing/">New Amazon EC2 Spot pricing model: Simplified purchasing without bidding and fewer interruptions</a></li>
+</ul>
+<blockquote>
+<p>You set the maximum price you are willing to pay as part of the launch configuration or launch template. If the Spot price is within your maximum price, whether your request is fulfilled depends on Spot Instance capacity. You pay only the Spot price for the Spot Instances that you launch.
+</p>
+</blockquote>
+<h3 id="vcpu">vCPU</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing CPU options</a><ul>
+<li>The number of vCPUs for the instance is the number of CPU cores multiplied by the threads per core</li>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values">CPU cores and threads per CPU core per instance type</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="ebs">EBS</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html">Extend a Linux file system after resizing a volume</a></li>
+</ul>
+<h3 id="ssh">SSH</h3>
+<ul>
+<li><a href="https://aws.amazon.com/blogs/compute/new-using-amazon-ec2-instance-connect-for-ssh-access-to-your-ec2-instances/">New: Using Amazon EC2 Instance Connect for SSH access to your EC2 Instances</a></li>
+</ul>
+<h3 id="dns">DNS</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-viewing">Viewing DNS hostnames for your EC2 instance</a></li>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/dns-resolution-failures-ec2-linux/">How can I avoid DNS resolution failures with an Amazon EC2 Linux instance</a></li>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/ec2-static-dns-ubuntu-debian/">How do I assign a static DNS server to the EC2 instance that persists during reboot</a></li>
+</ul>
+<h3 id="ami">AMI</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-explicit.html">Share an AMI with specific AWS accounts</a></li>
+</ul>
+<h2 id="elb">ELB</h2>
+<p>Q. 請問 Application Load Balancer (ALB) DNS name 的 IP 是否會改變?
+是的，ELB 會更新 Load balancer 的 DNS 紀錄，所以當 ELB 新增資源時，每個新增的資源都有相對註冊在 DNS 裡的 IP</p>
+<p>ELB 後面有一群 EC2 的集合，其中一個 EC2 如果 malfunction/unhealthy 的話
+     就會替換另一個正常運作的 EC2 上去，此時 IP 就會改變</p>
+<p>Application Load Balancer 也有 Auto Scaling 的機制
+假設: 一台 ALB 後面接 2 個 EC2，因此有2個 IP A, B流量增加時，這些新增長出的 EC2 也都會有相對應的IP 如 C, D但當流量變少 Scale in 時，不會有固定的模式先去刪除哪些 EC2有可能Scale in 時，先縮減 A, B 的 EC2，此時剩 C, D 的 EC2此時IP就會變更為 C, D 的 IP</p>
+<p>Q: wildcard 是否包含 slash?
+以文件中的例子為例，我在ALB 設定兩個 rule
+/img/<em> =&gt; forward to Target Group A
+/img/</em>/pics =&gt; forward to Target Group B
+請問 rule 1 是否包含 rule 2，永遠不會有 /img 開頭的 request 到 Target Group B 呢?</p>
+<p>是的， rule 2 的確有被包含在 rule 1 中。
+至於是否會有 request 送至 Target Group B 內，需要取決於您 rule 的優先順序。
+load balancer 會依據優先順序最低值的 rule 往高值 rule 執行，預設的 rule 則會最後執行。
+若您的 /img/<em>/pics 優先順序較 /img/</em> 前面，您的 request 還是可以送到 Target Group B。</p>
+<p>Q: 變更 ALB rule 時，是否會立即套用至後續的request 呢? 是否需等待一段時間後，才會套用至 ALB?</p>
+<p>在變更 rule 時，並不會立即套用生效。
+正如您所說，新的 rule 會需等待一段時間後，才會套用至 ALB。</p>
+<ul>
+<li><a href="https://aws.amazon.com/tw/articles/best-practices-in-evaluating-elastic-load-balancing/">Best Practices in Evaluating Elastic Load Balancing</a></li>
+<li><a href="https://aws.amazon.com/tw/blogs/networking-and-content-delivery/using-static-ip-addresses-for-application-load-balancers/">Using static IP addresses for Application Load Balancers</a></li>
+<li><a href="https://docs.aws.amazon.com/zh_tw/elasticloadbalancing/latest/application/listener-update-rules.html#update-rule-priority">Update Rule Priority</a></li>
+<li><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-troubleshooting.html">Troubleshoot your Application Load Balancers</a></li>
+</ul>
+<p>Integration options
+- <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-alb.html">Using AWS Lambda with an Application Load Balancer</a>
+- <a href="https://www.bogotobogo.com/DevOps/AWS/aws-ELB-ALB-Application-Load-Balancer-ECS.php">AWS APPLICATION LOAD BALANCER (ALB) AND ECS WITH FLASK APP</a></p>
+<p>Troubleshoot
+- <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-troubleshooting.html#load-balancer-http-error-codes">The load balancer generates an HTTP error</a>
+- <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html">Access logs for your Application Load Balancer</a></p>
+<h2 id="ecs">ECS</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/54181244/is-it-possible-to-define-a-task-timeout-on-aws-ecs">Is it possible to define a task timeout on AWS ECS</a></li>
+</ul>
+<h2 id="lambda">Lambda</h2>
+<p>Overview
+- <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is AWS Lambda</a>
+- <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-concepts.html">Lambda concepts</a>
+    - <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Lambda reserved concurrency</a>
+        - :star: <a href="https://aws.amazon.com/blogs/compute/understanding-aws-lambda-scaling-and-throughput/">Understanding AWS Lambda scaling and throughput | AWS Compute Blog</a>
+    - <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-scaling.html">Lambda function scaling</a>
+    - <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics.html">Working with Lambda function metrics</a>
+    - <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtime-support-policy.html">Runtime deprecation policy</a>
+- Security
+    - <a href="https://docs.aws.amazon.com/lambda/latest/operatorguide/security-ops.html">Lambda operator guide</a>
+        - <a href="https://docs.aws.amazon.com/lambda/latest/operatorguide/execution-environment.html">Understanding the Lambda execution environment</a>
+        - <a href="https://docs.aws.amazon.com/lambda/latest/operatorguide/data-in-applications.html">Encrypting data in Lambda-based applications</a>
+    - <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-security.html">Security in AWS Lambda</a>
+- <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html">Using AWS Lambda with Amazon API Gateway</a>
+    - <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html#services-apigateway-errors">Handling errors with an API Gateway API</a>
+        - If the Lambda API rejects the invocation request, API Gateway returns a 500 error code.
+        - If the function runs but returns an error, or returns a response in the wrong format, API Gateway returns a 502.
+        - In both cases, the body of the response from API Gateway is {"message": "Internal server error"}.
+    - <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/handle-errors-in-lambda-integration.html">Handle Lambda errors in API Gateway - Amazon API Gateway</a>
+    - <a href="https://aws.amazon.com/tw/premiumsupport/knowledge-center/malformed-502-api-gateway/">Resolve HTTP 502 errors from API Gateway REST APIs with Lambda functions</a>
+- <a href="https://theburningmonk.com/2023/07/sns-to-lambda-or-sns-to-sqs-to-lambda-what-are-the-trade-offs/">SNS to Lambda or SNS to SQS to Lambda, what are the trade-offs? | theburningmonk.com</a></p>
+<p>https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
+https://aws.amazon.com/amazon-linux-ami/2018-03-packages/
+https://www.openssl.org/news/openssl-1.0.2-notes.html
+<a href="https://cloudbriefly.com/post/exploring-the-aws-lambda-execution-environment/">Exploring the AWS Lambda Execution Environment</a></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="c1"># TODO implement</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">openssl_cmd_subprocess</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s1">&#39;openssl version&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">output</span> <span class="o">=</span> <span class="n">openssl_cmd_subprocess</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">openssl_cmd_subprocess</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s1">&#39;touch /tmp/key.txt &amp;&amp; echo 456 &gt;&gt; /tmp/key.txt&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">)</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">openssl_cmd_subprocess</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s1">&#39;touch /tmp/test.txt &amp;&amp; echo 123 &gt;&gt; /tmp/test.txt&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">)</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">openssl_cmd_subprocess</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s1">&#39;openssl aes-256-cbc -k 456 -salt -in /tmp/test.txt -out /tmp/test.enc&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">)</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">openssl_cmd_subprocess</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s1">&#39;file /tmp/test.enc&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">output</span> <span class="o">=</span> <span class="n">openssl_cmd_subprocess</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">openssl_cmd_subprocess</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s1">&#39;openssl aes-256-cbc -d -k 456 -in /tmp/test.enc -out /tmp/test.dec&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">)</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="n">openssl_cmd_subprocess</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="s1">&#39;ls -la /tmp &amp;&amp; md5sum /tmp/*&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">)</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>    <span class="n">output</span> <span class="o">=</span> <span class="n">openssl_cmd_subprocess</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="k">return</span> <span class="p">{</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>        <span class="s1">&#39;statusCode&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>        <span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="s1">&#39;Hello from Lambda!&#39;</span><span class="p">)</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="p">}</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Function logs:
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Function logs:
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>START RequestId: cd75f4ff-b209-44ac-bfc5-fcf3deee287e Version: $LATEST
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>b&#39;OpenSSL 1.0.2k-fips  26 Jan 2017\n&#39;
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>b&quot;/tmp/test.enc: openssl enc&#39;d data with salted password&quot;
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>b&#39;total 24&#39;
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>b&#39;drwx------  2 sbx_user1051  991 4096 Sep 21 10:00 .&#39;
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>b&#39;dr-xr-xr-x 21 root         root 4096 Aug 31 10:28 ..&#39;
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>b&#39;-rw-rw-r--  1 sbx_user1051  991    4 Sep 21 10:00 key.txt&#39;
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>b&#39;-rw-rw-r--  1 sbx_user1051  991    4 Sep 21 10:00 test.dec&#39;
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>b&#39;-rw-rw-r--  1 sbx_user1051  991   32 Sep 21 10:00 test.enc&#39;
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>b&#39;-rw-rw-r--  1 sbx_user1051  991    4 Sep 21 10:00 test.txt&#39;
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>b&#39;d2d362cdc6579390f1c0617d74a7913d  /tmp/key.txt&#39;
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>b&#39;ba1f2511fc30423bdbb183fe33f3dd0f  /tmp/test.dec&#39;
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>b&#39;189671449c7e95e7bf09942b654df82f  /tmp/test.enc&#39;
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>b&#39;ba1f2511fc30423bdbb183fe33f3dd0f  /tmp/test.txt&#39;
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>END RequestId: cd75f4ff-b209-44ac-bfc5-fcf3deee287eREPORT RequestId: cd75f4ff-b209-44ac-bfc5-fcf3deee287e Duration: 588.25 ms Billed Duration: 600 ms Memory Size: 128 MB Max Memory Used: 48 MB Init Duration: 1.40 ms
+</span></code></pre></div>
+<p><a href="https://theburningmonk.com/2020/04/hit-the-6mb-lambda-payload-limit-heres-what-you-can-do/">Hit the 6MB Lambda payload limit? Here’s what you can do</a></p>
+<p><a href="https://www.learnaws.org/2021/02/20/aws-kms-boto3-guide/">AWS KMS, Boto3 and Python: Complete Guide with examples</a></p>
+<h3 id="layer">Layer</h3>
+<ul>
+<li><a href="https://aws.amazon.com/tw/blogs/compute/using-lambda-layers-to-simplify-your-development-process/">Using Lambda layers to simplify your development process</a></li>
+<li><a href="https://github.com/mthenw/awesome-layers">AWSome Lambda Layers</a></li>
+<li><a href="https://www.serverless.com/blog/publish-aws-lambda-layers-serverless-framework">How to publish and use AWS Lambda Layers with the Serverless Framework</a></li>
+</ul>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li><a href="https://www.serverless.com/framework/docs/providers/aws/guide/variables#current-variable-sources">variable sources</a></li>
+<li><a href="https://aws.amazon.com/tw/blogs/compute/sharing-secrets-with-aws-lambda-using-aws-systems-manager-parameter-store/">Sharing Secrets with AWS Lambda Using AWS Systems Manager Parameter Store</a></li>
+<li><a href="https://www.serverless.com/blog/serverless-secrets-api-keys">Managing secrets, API keys and more with Serverless</a></li>
+<li><a href="https://www.serverless.com/blog/aws-secrets-management">Secrets Management for AWS Powered Serverless Applications</a></li>
+</ul>
+<h3 id="extensions">Extensions</h3>
+<ul>
+<li><a href="https://aws.amazon.com/tw/blogs/compute/caching-data-and-configuration-settings-with-aws-lambda-extensions/">Caching data and configuration settings with AWS Lambda extensions</a></li>
+<li><a href="https://www.youtube.com/watch?v=cKj01IU4WQ0">Overview of AWS Lambda Extensions</a></li>
+</ul>
+<h3 id="local-test">Local test</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-images.html#runtimes-images-lp">AWS base images for Lambda</a><ul>
+<li><a href="https://docs.aws.amazon.com/lambda/latest/dg/python-image.html#python-image-base">AWS base images for Python</a></li>
+</ul>
+</li>
+<li><a href="https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/">New for AWS Lambda – Container Image Support</a></li>
+<li><a href="https://docs.aws.amazon.com/lambda/latest/dg/images-test.html">Testing Lambda container images locally</a></li>
+</ul>
+<h3 id="support">Support</h3>
+<p>:::info
+I understand that you would like to know why is CloudWatch "ConcurrentExecutions" metric only 826 for all Lambda functions in us-east-1 region and you are still facing Throttle error?</p>
+<p>To investigate this issue further, I discuss with internal Lambda expert, kindly refer to the following explanation:</p>
+<p>Since Lambda service uses a counter-like mechanism to count the number of current execution environments. In addition, the CloudWatch ConcurrentExecutions metric is recorded by sampling and may cause some gaps due to time intervals. For example, even though the current sample value of ConcurrentExecutions is 826, due to too many invocations, the next moment ConcurrentExecution is likely to suddenly exceed the upper limit of 1000. </p>
+<p>Later, when some Lambdas function execution is completed, the available execution environment is released. Therefore, before the time of the next sampling, ConcurrentExecution returns to normal again. This is why, we would advise our customer to observe that when ConcurrentExecution metrics and the upper limit value is extremely close, customer can consider raising the limit of "ConcurrentExecutions", which should help reduce Throttle errors.
+:::</p>
+<h2 id="vpc">VPC</h2>
+<ul>
+<li><a href="https://medium.com/@abc822162001/aws-elastic-ip%E5%8D%B3%E5%B0%87%E6%94%B6%E8%B2%BB%E6%88%91%E8%A9%B2%E6%80%8E%E9%BA%BC%E8%BE%A6-road-to-ipv6-vpc-ec2-eef2f07e4a34">AWS Elastic IP即將收費我該怎麼辦?-Road to IPv6-VPC&amp;EC2 - Tonychung - Medium</a></li>
+</ul>
+<h2 id="api-gateway">API Gateway</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#input-variable-reference">API Gateway mapping template and access logging variable reference</a></li>
+<li><a href="https://www.youtube.com/watch?v=2yg0XgEjtbA">Introducing HTTP APIs: A Better, Cheaper, Faster Way to Build APIs - AWS Online Tech Talks</a></li>
+<li><a href="https://docs.aws.amazon.com/apigateway/api-reference/handling-errors">Handling Errors in Amazon API Gateway</a></li>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html#api-gateway-execution-service-limits-table">API Gateway quotas for configuring and running a REST API</a><ul>
+<li>Integration timeout =&gt; 50 milliseconds - 29 seconds for all integration types, including Lambda, Lambda proxy, HTTP, HTTP proxy, and AWS integrations.</li>
+</ul>
+</li>
+<li><a href="https://stackoverflow.com/questions/58037317/getting-x-amzn-remapped-www-authenticate-instead-of-www-authenticate-and-jetty">Getting “x-amzn-Remapped-WWW-Authenticate instead of WWW-Authenticate and jetty client not able to recognise</a><ul>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-known-issues.html">Amazon API Gateway important notes</a></li>
+</ul>
+</li>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html#wildcard-custom-domain-names">Wildcard custom domain names</a></li>
+<li><a href="https://www.alexdebrie.com/posts/api-gateway-elements/">A Detailed Overview of AWS API Gateway</a></li>
+</ul>
+<h3 id="lambda-integration">Lambda integration</h3>
+<ul>
+<li><a href="https://aws.amazon.com/tw/premiumsupport/knowledge-center/api-gateway-lambda-template-invoke-error/">Why am I getting “Execution failed due to configuration” errors from API Gateway after using a CloudFormation template or OpenAPI definition to create a REST API with a Lambda integration</a></li>
+</ul>
+<h3 id="custom-http-status-code">Custom HTTP Status Code</h3>
+<ul>
+<li><a href="https://aws.amazon.com/blogs/compute/error-handling-patterns-in-amazon-api-gateway-and-aws-lambda/">Error Handling Patterns in Amazon API Gateway and AWS Lambda</a></li>
+</ul>
+<blockquote>
+<p>The routing of Lambda function errors to HTTP responses in API Gateway is achieved by pattern matching against this “errorMessage” field in the Lambda response.
+The Lambda function must exit with an error in order for the response pattern to be evaluated – it is not possible to “fake” an error response by simply returning an “errorMessage” field in a successful Lambda response.</p>
+</blockquote>
+<ul>
+<li><a href="https://medium.com/@dikshitkathuria1803/mapping-api-gateway-with-lambda-output-e8ea9e435bbf">Send Custom HTTP Status Code from Lambda to API Gateway</a></li>
+<li><a href="https://marcelog.github.io/articles/aws_api_gateway_return_custom_http_status_codes.html">How to Return Custom HTTP Status codes from a Lambda function in Amazon API Gateway</a></li>
+</ul>
+<h3 id="metrics">Metrics</h3>
+<ul>
+<li><a href="https://medium.com/@lancers/how-to-dig-latencies-and-4xx-5xx-errors-on-aws-api-gateway-a5ca460714d3">How to dig latencies and 4xx/5xx errors on AWS API Gateway</a></li>
+</ul>
+<h3 id="usage-plan">Usage plan</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html">What are usage plans and API keys</a><ul>
+<li>Throttling and quota limits apply to requests for individual API keys that are aggregated across all API stages within a usage plan.</li>
+<li><a href="https://stackoverflow.com/questions/70859428/do-different-api-keys-associated-on-the-same-usage-plan-share-the-same-quota-lim">Do different API keys associated on the same usage plan share the same quota limit too</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="acm">ACM</h2>
+<ul>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/import-ssl-certificate-to-iam/">How can I upload and import an SSL certificate to AWS Identity and Access Management (IAM)</a></li>
+</ul>
+<h3 id="supported-regions">Supported Regions</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-regions.html">Supported Regions</a><blockquote>
+<p>Certificates in ACM are regional resources. To use a certificate with Elastic Load Balancing for the same fully qualified domain name (FQDN) or set of FQDNs in more than one AWS region, you must request or import a certificate for each region. For certificates provided by ACM, this means you must revalidate each domain name in the certificate for each region. You cannot copy a certificate between regions.</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>To use an ACM certificate with Amazon CloudFront, you must request or import the certificate in the US East (N. Virginia) region. ACM certificates in this region that are associated with a CloudFront distribution are distributed to all the geographic locations configured for that distribution.
+</p>
+</blockquote>
+<h2 id="system-manager">System Manager</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/quick-setup-scheduler.html">Stop and start EC2 instances automatically on a schedule using Quick Setup - AWS Systems Manager</a></li>
+</ul>
+<p>SSM也可以管理機房的機器和VM
+必須在需要被SSM管理的機器或VM內安裝SSM agent
+Session Manager: 好處, 可以將inbound port關掉; Windows RDP也可以
+Distributor: 裝軟體套件</p>
+<p>以下是AWS Senior SA的補充資訊：</p>
+<ol>
+<li>Automation with rollback – 可以參考下面這個document，較複雜的流程還是需要搭配Lambda來完成：</li>
+</ol>
+<p>AWS-PatchInstanceWithRollback:
+https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-patchinstancewithrollback.html</p>
+<ol>
+<li>AWS Health Events automation (EC2 Retired)</li>
+</ol>
+<p>先設定AWS Health Event做為CloudWatch Events (EventBridge)來源：
+https://docs.aws.amazon.com/health/latest/ug/cloudwatch-events-health.html
+How can I receive notifications for scheduled events for my EC2 instance using CloudWatch Events?
+https://aws.amazon.com/tw/premiumsupport/knowledge-center/cloudwatch-notification-scheduled-events/</p>
+<p>CloudWatch Events可以直接觸發SSM Automation:
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/SSM_Automation_as_Target.html</p>
+<p>如果要透過SSM OpsCenter集中管理ops事件的話：
+https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-automatically-create-OpsItems-2.html</p>
+<h2 id="route-53">Route 53</h2>
+<ul>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/route-53-verify-domain-with-third-party/">Why is my third-party SSL provider unable to verify my Route 53 domain ownership</a></li>
+<li><a href="https://stackoverflow.com/questions/20215729/rrset-of-type-cname-with-dns-name-foo-com-is-not-permitted-at-apex-in-zone-bar">RRSet of type CNAME with DNS name foo.com. is not permitted at apex in zone bar.com</a><ul>
+<li><a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html">Choosing between alias and non-alias records</a></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Unlike a CNAME record, you can create an alias record at the top node of a DNS namespace, also known as the zone apex. For example, if you register the DNS name example.com, the zone apex is example.com. You can't create a CNAME record for example.com, but you can create an alias record for example.com that routes traffic to www.example.com.</p>
+</blockquote>
+<h2 id="tag">tag</h2>
+<h3 id="overview">Overview</h3>
+<ul>
+<li>Focus on Required and Conditionally Required Tags</li>
+<li>Consider naming your tags using all lowercase, with hyphens separating words, and a prefix identifying the organization name or abbreviated name</li>
+<li>In 2016, the number of tags per resource was increased to 50 (with a few exceptions, such as S3 objects)</li>
+<li>it’s generally recommended to follow good data management practice by including only one data attribute per tag</li>
+<li>Remediate Untagged Resources</li>
+<li>Tag Editor is a feature of the AWS Management Console that allows you to search for resources using a variety of search criteria and add, modify, or delete tags in bulk.</li>
+<li>The AWS Resource Tagging API allows you to perform these same functions programmatically.</li>
+</ul>
+<h3 id="practice">Practice</h3>
+<ul>
+<li>purpose</li>
+<li>key and value</li>
+<li>product</li>
+<li>component</li>
+<li>application</li>
+<li>owner</li>
+<li>department</li>
+<li>environment</li>
+<li>version</li>
+<li>required, conditionally required</li>
+</ul>
+<p>examples:
+anycompany:cost-center
+anycompany:environment-type
+anycompany:application-id</p>
+<h2 id="sns">SNS</h2>
+<ul>
+<li><a href="https://forums.aws.amazon.com/message.jspa?messageID=624440#624440">Public SNS security group</a><ul>
+<li><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html">Verifying the signatures of Amazon SNS messages</a></li>
+<li><a href="https://github.com/boto/boto3/issues/2508">Verifying the signatures of Amazon SNS messages</a></li>
+</ul>
+</li>
+<li><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-subscribe-https-s-endpoints-to-topic.html">Subscribing an HTTP/S endpoint to a topic</a></li>
+</ul>
+<h2 id="sqs">SQS</h2>
+<ul>
+<li><a href="https://data.solita.fi/lessons-learned-from-combining-sqs-and-lambda-in-a-data-project/">Lessons learned from combining SQS and Lambda in a data project - Solita Data</a></li>
+<li><a href="https://medium.com/geekculture/aws-lambda-and-sqs-what-nobody-tells-you-about-their-mix-c9e4631dbb0f">AWS Lambda and SQS: What Nobody Tells You About Their Mix | by Ehsan Yazdanparast | Geek Culture | Medium</a></li>
+<li><a href="https://betterprogramming.pub/lambda-sqs-trigger-and-concurrency-87131dad9a12">Lambda SQS Triggers and Concurrency | by Shilpi Gupta | Better Programming</a></li>
+</ul>
+<h3 id="deplicated-messages">deplicated messages</h3>
+<p>SQS message may be duplicated on some situlations
+- <a href="https://aws.amazon.com/tw/premiumsupport/knowledge-center/s3-duplicate-sqs-messages/">Resolve Duplicate Messages in Amazon SQS for the Same Amazon S3 Event</a>
+- <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html#standard-queues-at-least-once-delivery">At-least-once delivery</a></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Warm Greetings from AWS Premium Support. Thank you for contacting AWS Premium Support. 
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>This is Jennifer and I will be assisting you with your case today.
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>From the case note, I understand that you would like to confirm that the message ID of standard SQS Queue will be the same for the following two scenarios. Kindly refer to the following information:
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>### case1 ### Producer application sends a message, but the consumer application receive two duplication messages
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>As you may alredy know, there are some inherent characteristics of a Standard SQS Queue that allows for duplicative messaging. As per the note on this document [1]:
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>For Standard SQS Queues, the `Visibility Timeout` is not a guarantee against receiving a message more than once.
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>➜ As per this document [2], a Standard SQS Queue ensures \&quot;at-least-once delivery\&quot; which implies that it is possible for the same message to be delivered more than once.
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>➜ When messages are added to a Standard SQS Queue, a unique Message ID is allocated to each message. Amazon SQS returns the Message ID in the response of the \&quot;SendMessage\&quot; [3] API call.
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>➜ Amazon SQS stores copies of the messages on multiple servers for redundancy and high availability.
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>➜ On rare occasions, one of the servers that stores a copy of a message might be unavailable when you receive or delete a message.
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>➜ This can result in a duplicate message being received when the server becomes available again.
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>I would like to highlight that, duplicate messages (introduced by Amazon SQS as a result of the above mentioned point) will contain the SAME Message ID.
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>### case2 ### Put a single file to S3 bucket and then trigger duplicated SQS messages for the PutObject action
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>To investigate this issue, I have setup the configuration and performed the testing in my environment. Based on my test, when I upload the same object 3 times in a row, normally, the ` sequencer key` and `message ID` of the 3 responses are totally different. However, it is difficult to reproduce the phenomenon of sequencer key duplication, as it occurs in rare cases [4]. After delving into this issue, I am able to confirm from internal sources: \&quot;For S3 event notifications, it is expected to see duplicates. However, they&#39;d show up as DIFFERENT SQS messages id if they were generated by the events system\&quot;.
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>Furthermore, for case1, here is an example of the application logic that would need to be implemented in order to facilitate idempotency:
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>1. Extract the value of a unique attribute of the input event (such as, the Message ID).
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>2. Check if the attribute value already exists in a control database. Depending on the outcome, do the following:
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>➜ If a unique value exists, end the action without producing an error.
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>➜ If a unique value does not exist, proceed with the actions that you designed.
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>3. Thereafter, include a record of the attribute value in the control database.
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>I hope the above information helps.
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>Have a nice day :)
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>■ References:
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>============
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>[1] Amazon SQS Visibility Timeout: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html 
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>[2] At-least-once Delivery: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html#standard-queues-at-least-once-delivery 
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>[3] SendMessage: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html 
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>[4] https://aws.amazon.com/tw/premiumsupport/knowledge-center/s3-duplicate-sqs-messages/ 
+</span></code></pre></div>
+<h2 id="cloudwatch">CloudWatch</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">AWS Services That Publish CloudWatch Metrics</a></li>
+</ul>
+<h3 id="metrics_1">Metrics</h3>
+<p>Metric data is kept for 15 months</p>
+<p><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#publishingDataPoints">Publishing Single Data Points</a>
+Each metric is one of the following:
+- Standard resolution, with data having a one-minute granularity
+    - Metrics produced by AWS services are standard resolution by default
+- High resolution, with data at a granularity of one second
+    - :money_with_wings:  Keep in mind that every PutMetricData call for a custom metric is charged, so calling PutMetricData more often on a high-resolution metric can lead to higher charges.</p>
+<p>Namespace: 類似分類
+Dimension: 類似上標籤做grouping
+SampleCount: record數量</p>
+<h4 id="others">Others</h4>
+<ul>
+<li><a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/publish-amazon-cloudwatch-metrics-to-a-comma-separated-values-output.html">Publish Amazon CloudWatch metrics to a comma-separated values output</a></li>
+<li><a href="https://gist.github.com/mmansoor/b8aed280a3f2cd2de81ea27ff2d24a78">how to export CloudWatch Metrics to CSV</a></li>
+</ul>
+<h3 id="alarms">Alarms</h3>
+<p><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html">Using Amazon CloudWatch Alarms</a>
+<a href="https://aws.amazon.com/tw/premiumsupport/knowledge-center/cloudwatch-trigger-metric/">Why did my CloudWatch alarm trigger when its metric doesn't have any breaching data points</a></p>
+<ul>
+<li>Type<ul>
+<li>metric alarm</li>
+<li>composite alarm</li>
+</ul>
+</li>
+<li>Alarm States<ul>
+<li>OK</li>
+<li>ALARM</li>
+<li>INSUFFICIENT_DATA</li>
+</ul>
+</li>
+</ul>
+<p>An alarm invokes actions only when the alarm changes state</p>
+<p>The exception is for alarms with Auto Scaling actions. For Auto Scaling actions, the alarm continues to invoke the action once per minute that the alarm remains in the new state.</p>
+<p>==Three settings== to enable CloudWatch to evaluate when to change the alarm state
+- Period: 檢查的間隔, 輸出 data point
+    - the length of time to evaluate the metric or expression to create each individual data point for an alarm
+    - If you choose one minute as the period, the alarm evaluates the metric once per minute.
+    - each specific data point reported to CloudWatch falls under one of three categories
+        - Not breaching (within the threshold)
+        - Breaching (violating the threshold)
+        - Missing
+    - missing data points
+- Evaluation Periods: 最近的候選檢查點個數, 有點類似check window
+    - the number of the most recent periods, or data points, to evaluate when determining alarm state
+- Datapoints to Alarm: 滿足的檢查點個數
+    - the number of data points within the Evaluation Periods that must be breaching to cause the alarm to go to the ALARM state</p>
+<p>When you configure Evaluation Periods and Datapoints to Alarm as different values, you're setting an "M out of N" alarm. 
+Datapoints to Alarm is ("M") and Evaluation Periods is ("N"). 
+The evaluation interval is the number of data points multiplied by the period. 
+For example, if you configure 4 out of 5 data points with a period of 1 minute, the evaluation interval is 5 minutes. If you configure 3 out of 3 data points with a period of 10 minutes, the evaluation interval is 30 minutes.</p>
+<h3 id="logs">Logs</h3>
+<p>MetricFilter
+- <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and pattern syntax</a></p>
+<h3 id="insight">Insight</h3>
+<h4 id="file_search_api-log">file_search_api log</h4>
+<p>file info done
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>fields @timestamp, @message
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>| filter @message like /File Info Status: 5/
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>fields @timestamp, @message
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>| filter @message like /File Info Status: 5/ or @message like /File Info Status: 6/ or @message like /File Info Status: 7/ or @message like /File Info Status: 8/ or @message like /File Info Status: 9/
+</span></code></pre></div>
+<p>Hit prefilter cache
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>fields @timestamp, @message
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>| filter @message like &#39;File with valid score&#39;
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>| filter @message like &#39;-1&#39;
+</span></code></pre></div></p>
+<p>get uplod url
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>fields @timestamp, @message
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>| filter @message like /Response json string of new file case/
+</span></code></pre></div></p>
+<p>Undefined or unsupported file type</p>
+<p>sum
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>fields @timestamp, @message, @logStream
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>| filter @message like &#39;Undefined or unsupported file type&#39;
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>| filter @message like &#39;file_type&#39;
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>| parse @message &#39;&quot;hash&quot;: &quot;*&quot;&#39; as hash
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>| parse @message &#39;&quot;file_type&quot;: *,&#39; as file_type
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>| parse @logStream &#39;*/*/*/[$LATEST]&#39; as year, month, day
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>| stats count_distinct(hash) as sum by day
+</span></code></pre></div></p>
+<p>group results
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>fields @timestamp, @message
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>| filter @message like &#39;Undefined or unsupported file type&#39;
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>| filter @message like &#39;file_type&#39;
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>| parse @message &#39;&quot;hash&quot;: &quot;*&quot;&#39; as hash
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>| parse @message &#39;&quot;file_type&quot;: *,&#39; as file_type
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>| stats count_distinct(hash) as sum by hash, file_type
+</span></code></pre></div></p>
+<h4 id="scan-task-forwarder-log">scan task forwarder log</h4>
+<p>send vendor
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>fields @timestamp, @message, @logStream
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>| filter @message like &#39;handle sandbox reply task id&#39; or @message like &#39;handle sandbox reply report&#39;
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>| parse @logStream &#39;*/*/*/[$LATEST]&#39; as year, month, day
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>| stats count(*) as sum by day
+</span></code></pre></div></p>
+<h4 id="report-forwarder-log">report forwarder log</h4>
+<p>score distribution
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>fields @timestamp, @message
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>| filter @message like &#39;virus_score&#39;
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>| parse @message &#39;virus_score * is&#39; as score
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>| stats count(score) as sum by bin(1d), score
+</span></code></pre></div></p>
+<h4 id="quarantine">quarantine</h4>
+<p>file type distribution</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>fields @timestamp, @message
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>| filter @message like &#39;filter queue msg&#39;
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>| parse message &#39;&quot;file_type&quot;: *}&#39; as file_type
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>| stats count(file_type) as sum by bin(1d), file_type
+</span></code></pre></div>
+<h4 id="cloud-query">cloud query</h4>
+<p>hit cache and score
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>fields @timestamp, @message
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>| filter @message like &#39;has been cached&#39;
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>| parse @message /(?&lt;md5&gt;[0-9a-z]{32}) has been cached and score is (?&lt;score&gt;-?[0-9]+)/
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>| filter score &gt; 0
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>| stats count(md5) as sum by md5, score
+</span></code></pre></div></p>
+<h2 id="eventbriedge">EventBriedge</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/62807320/how-to-get-the-event-content-in-ecs-when-it-is-invoked-by-cloudwatch-eventbridge">How to get the event content in ECS when it is invoked by cloudwatch/eventbridge event?</a></li>
+<li><a href="https://stackoverflow.com/questions/59206175/how-to-extract-event-relayed-from-aws-eventbridge-to-ecs-fargate">How to extract event relayed from AWS EventBridge to ECS Fargate</a></li>
+<li><a href="https://stackoverflow.com/questions/63348405/passing-event-data-from-amazon-eventbridge-into-an-aws-fargate-task">Passing event data from Amazon EventBridge into an AWS Fargate task</a></li>
+<li><a href="https://stackoverflow.com/questions/62743504/aws-question-how-can-i-get-cloudwatch-event-data-in-a-fargate-task-with-python">AWS question - How can I get Cloudwatch event data in a Fargate task with Python</a></li>
+<li><a href="https://stackoverflow.com/questions/55564904/passing-input-to-ecs-task-from-cloudwatch-rule">Passing input to ECS task from CloudWatch rule</a></li>
+</ul>
+<h2 id="cloudfront">CloudFront</h2>
+<ul>
+<li><a href="https://aws.amazon.com/tw/premiumsupport/knowledge-center/route-53-redirect-to-another-domain/">How can I redirect one domain to another in Route 53?</a></li>
+</ul>
+<h2 id="cloudtrail">CloudTrail</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-examples">Logging data events for trails</a><ul>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatch-Events-tutorial-ECS.html">Tutorial: Run an Amazon ECS Task When a File is Uploaded to an Amazon S3 Bucket</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="elasticsearch">Elasticsearch</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-bp.html">Amazon Elasticsearch Service Best Practices</a></li>
+<li><a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/sizing-domains.html#aes-bp-sharding">Sizing Amazon ES Domains</a></li>
+</ul>
+<h2 id="dynamodb">DynamoDB</h2>
+<ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10195339">30天鐵人賽介紹 AWS 雲端世界 - 26: AWS 提供的 Managed NoSQL DBMS - DynamoDB</a></li>
+<li><a href="http://andy51002000.blogspot.com/2018/08/aws-dynamodb.html">AWS功能整理- Dynamodb</a></li>
+<li><a href="https://aws-blog.de/2021/03/dynamodb-in-15-minutes.html">DynamoDB in 15 minutes</a></li>
+<li><a href="https://www.dynamodbguide.com/what-is-dynamo-db">DynamoDBGuide</a></li>
+<li><a href="https://www.alexdebrie.com/posts/dynamodb-one-to-many/">How to model one-to-many relationships in DynamoDB</a><ul>
+<li>With one-to-many relationships, there’s one core problem: how do I fetch information about the parent entity when retrieving one or more of the related entities<ul>
+<li>Denormalization by using a complex attribute<ul>
+<li>Do you have any access patterns based on the values in the complex attribute?</li>
+<li>Is the amount of data in the complex attribute unbounded?</li>
+</ul>
+</li>
+<li>Denormalization by duplicating data<ul>
+<li>Is the duplicated information immutable?</li>
+<li>If the data does change, how often does it change and how many items include the duplicated information?</li>
+</ul>
+</li>
+<li>Composite primary key + the Query API action<ul>
+<li>This is a pretty common way to model one-to-many relationships</li>
+</ul>
+</li>
+<li>Secondary index + the Query API action<ul>
+<li>You may need to use this pattern instead of the previous pattern because the primary keys in your table are reserved for another purpose</li>
+</ul>
+</li>
+<li>Composite sort keys with hierarchical data<ul>
+<li>You have many levels of hierarchy (&gt;2), and you have access patterns for different levels within the hierarchy.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.alexdebrie.com/posts/dynamodb-single-table/">The What, Why, and When of Single-Table Design with DynamoDB</a></li>
+<li>官方<ul>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Core Components of Amazon DynamoDB</a></li>
+<li><a href="https://aws.amazon.com/tw/dynamodb/getting-started/">Amazon DynamoDB 入門影片</a></li>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.html">Getting Started Developing with Python and DynamoDB</a><ul>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html">QueryFilter</a><ul>
+<li>This parameter does not support attributes of type List or Map</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://aws.amazon.com/tw/blogs/compute/creating-a-single-table-design-with-amazon-dynamodb/">Creating a single-table design with Amazon DynamoDB</a></li>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AppendixSampleTables.html">Example Tables and Data</a></li>
+<li><a href="https://www.slideshare.net/AmazonWebServices/aws-dynamodb-and-schema-design">AWS DynamoDB and Schema Design</a></li>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.OperatorsAndFunctions.html#Expressions.OperatorsAndFunctions.Functions">Comparison Operator and Function Reference</a></li>
+<li><a href="https://github.com/aws-samples/amazon-dynamodb-design-patterns">aws-samples/amazon-dynamodb-design-patterns</a><ul>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.settingup.html">NoSQL Workbench for Amazon DynamoDB</a></li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/watch?v=DIQVJqiSUkE">AWS re:Invent 2019: Data modeling with Amazon DynamoDB (CMY304)</a><ul>
+<li>https://twitter.com/angelo_randazzo/status/1510362054489739267?s=12&amp;t=mGlZq948otytJT6q4RjaIg<ul>
+<li>This video (from AWS events) is very interesting to understand the key concepts behind designing a DB model in DynamoDB (totally different vs a classical relational SQL DB)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.jeremydaly.com/how-to-switch-from-rdbms-to-dynamodb-in-20-easy-steps/">How to switch from RDBMS to DynamoDB in 20 easy steps</a></li>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.CapacityUnits">Capacity units consumed by query</a><ul>
+<li>DynamoDB calculates the number of read capacity units consumed based on item size, not on the amount of data that is returned to an application. For this reason, the number of capacity units consumed is the same whether you request all of the attributes (the default behavior) or just some of them (using a projection expression). The number is also the same whether or not you use a filter expression.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>課程<ul>
+<li><a href="/agvtrMDESGOiK3-Q6n8fIA">DynamoDB Deep Dive Advence Design</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="primary-key">Primary key</h3>
+<p>The primary key uniquely identifies each item in the table, so that no two items can have the same key. </p>
+<p>Each primary key attribute must be a <strong>scalar</strong> (meaning that it can hold only a single value). The only data types allowed for primary key attributes are string, number, or binary</p>
+<ul>
+<li><a href="https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/">Choosing the Right DynamoDB Partition Key</a></li>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-uniform-load.html">Designing Partition Keys to Distribute Your Workload Evenly</a></li>
+</ul>
+<h3 id="local-secondary-indexes-max-is-5">Local secondary indexes (max is 5)</h3>
+<p>At table creation</p>
+<h3 id="docker-for-local-dev">docker for local dev</h3>
+<p>https://github.com/instructure/dynamo-local-admin-docker</p>
+<h3 id="updateexpression">UpdateExpression</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html#DDB-UpdateItem-request-UpdateExpression">UpdateExpression</a></li>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.html">Update Expressions</a></li>
+<li><a href="https://stackoverflow.com/questions/36705563/dynamodb-if-not-exists-on-updateitem">DynamoDB if_not_exists on UpdateItem</a></li>
+</ul>
+<h3 id="rcu-wcu">RCU &amp; WCU</h3>
+<ul>
+<li><a href="https://zaccharles.medium.com/calculating-a-dynamodb-items-size-and-consumed-capacity-d1728942eb7c">How to Calculate a DynamoDB Item’s Size and Consumed Capacity</a><ul>
+<li><a href="https://zaccharles.github.io/dynamodb-calculator/">dynamodb-calculator</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="efs">EFS</h2>
+<blockquote>
+<p>I understand that you want to find out the 12 additional connections that shows in Cloudwatch. 
+I would like to share some information with you after speaking with EFS service team: 
+1. The connections in Cloudwatch can get overcounted when connections get closed and re-established within the same period. 
+2. The issue might be caused by a specific behavior of the Linux NFS client with regards to TCP reconnection events. When a reconnection event occurs, the Linux NFS client reuses the TCP source port. This behavior is not conformant with the TCP RFC, and can cause a network issue where NFS responses from EFS to an EC2 instance are blocked for multiple minutes.</p>
+<p>To resolve this issue, we recommend to add the "noresvport" mount option when mounting an EFS file system. This option has the effect that a new port is allocated when a reconnection event occurs.</p>
+<ul>
+<li>noresvport – Tells the NFS client to use a new Transmission Control Protocol (TCP) source port when a network connection is reestablished. Doing this helps make sure that the EFS file system has uninterrupted availability after a network recovery event.</li>
+</ul>
+</blockquote>
+<h2 id="dms">DMS</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_GettingStarted.html#CHAP_GettingStarted.Dashboard">Getting started with AWS Database Migration Service</a></li>
+<li><a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html">Using a MySQL-compatible database as a source for AWS DMS</a></li>
+<li><a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html">Using a MySQL-compatible database as a target for AWS Database Migration Service </a></li>
+</ul>
+<h2 id="athena">Athena</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/athena/latest/ug/glue-best-practices.html">Best practices when using Athena with AWS Glue</a></li>
+<li><a href="https://prestodb.io/docs/0.172/index.html">Presto 0.172 Documentation</a><ul>
+<li><a href="https://prestodb.github.io/docs/0.172/functions/string.html">STRING FUNCTIONS AND OPERATORS</a></li>
+</ul>
+</li>
+<li><a href="https://aws.amazon.com/premiumsupport/knowledge-center/athena-hive-partition-schema-mismatch/">Why does my Athena query fail with the error "HIVE_PARTITION_SCHEMA_MISMATCH"</a></li>
+<li><a href="https://stackoverflow.com/questions/58122059/hive-partition-schema-mismatch">HIVE_PARTITION_SCHEMA_MISMATCH</a></li>
+</ul>
+<p>:::success
+S3 建議使用 YYYY/MM/dd/1.log，原因是Glue做parse時可以直接建立partition
+:::</p>
+<h3 id="basic">Basic</h3>
+<p>``` sql=
+SHOW PARTITIONS dc_log
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>``` sql=
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>ALTER TABLE dc_log DROP PARTITION (year=&#39;2020&#39;, month=&#39;04&#39;);
+</span></code></pre></div></p>
+<h3 id="get-duts-to-dc-total-request-counts-per-daymonth">Get DUTs to DC Total Request Counts Per Day/Month</h3>
+<p>Per day per DUT</p>
+<p>``` sql=
+SELECT date_format(CAST(dc.time_stamp as timestamp), '%Y%m%d') as day, dc.device_info.sn, count(*) as requests FROM dc_log as dc 
+WHERE dc.category = 'file-search-api' AND
+dc.extra_info.system_tag['device-request-counter'] is not null
+GROUP BY date_format(CAST(dc.time_stamp as timestamp), '%Y%m%d'), dc.device_info.sn
+order by day asc
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>``` sql=
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>SELECT DAY(CAST(dc.time_stamp as timestamp)) as day, dc.device_info.sn, count(*) as requests 
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>FROM dc_log as dc 
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>WHERE dc.category = &#39;cloud-anti-malware-query&#39; AND
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>dc.extra_info.system_tag[&#39;device-request-counter&#39;] is not null AND
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>YEAR(CAST(dc.time_stamp as timestamp)) = 2019 AND
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>MONTH(CAST(dc.time_stamp as timestamp)) = 6
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>GROUP BY DAY(CAST(dc.time_stamp as timestamp)), dc.device_info.sn
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>order by day asc
+</span></code></pre></div></p>
+<h2 id="glue">Glue</h2>
+<ul>
+<li><a href="https://aws.amazon.com/tw/blogs/big-data/easily-query-aws-service-logs-using-amazon-athena/">Easily query AWS service logs using Amazon Athena</a></li>
+</ul>
+<h2 id="polly">Polly</h2>
+<ul>
+<li><a href="https://blog.kalan.dev/2021-12-07-amazon-polly-text-to-speech/">Amazon Polly - 文字轉聲音，效果十分顯著</a></li>
+</ul>
+<h2 id="_1">整合情境</h2>
+<ul>
+<li><a href="https://chatgpt.com/share/6809ec24-c070-8009-9dcc-a98b2b4350c7">EC2透過SNS發送Mail</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../API/" class="md-footer__link md-footer__link--prev" aria-label="Previous: API">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                API
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Ansible%20Practice/" class="md-footer__link md-footer__link--next" aria-label="Next: Ansible Practice">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Ansible Practice
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
