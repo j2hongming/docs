@@ -1,0 +1,3123 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Singularity/">
+      
+      
+        <link rel="next" href="../Spack/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Slurm - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#slurm" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Slurm
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome the docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hackmd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hackmd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google docs api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InfiniBand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Message Passing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nagios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus Repository Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Openstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RedHat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redfish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scrum筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      deploy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="deploy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#firewall-if-only-using-sbatch-and-srun" class="md-nav__link">
+    <span class="md-ellipsis">
+      firewall if only using sbatch and srun
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall-if-only-using-sbatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      firewall if only using sbatch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slurmrestd" class="md-nav__link">
+    <span class="md-ellipsis">
+      slurmrestd
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-slurmnode-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the slurm(node, job)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvml" class="md-nav__link">
+    <span class="md-ellipsis">
+      nvml
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="nvml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvidia-smi" class="md-nav__link">
+    <span class="md-ellipsis">
+      nvidia-smi
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      run
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deepops" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeepOps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeepOps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#release-2308-for-redhat-88" class="md-nav__link">
+    <span class="md-ellipsis">
+      release-23.08 for redhat 8.8
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAQ
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bitwise world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud-init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Influxdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pacemaker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    podman
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shell script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用者體驗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    備份還原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    奇技淫巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    持續整合
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排列組合與機率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    機器學習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    正規表示法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    測試工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    無線網路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向實務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向系統分析與設計
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬體概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    程式本質
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系統的價值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    統計圖表的表達方式以及使用的範圍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    虛擬機器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料庫維運
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資訊安全
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體工程師的專業和通識
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體需求溝通
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      deploy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="deploy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#firewall-if-only-using-sbatch-and-srun" class="md-nav__link">
+    <span class="md-ellipsis">
+      firewall if only using sbatch and srun
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall-if-only-using-sbatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      firewall if only using sbatch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slurmrestd" class="md-nav__link">
+    <span class="md-ellipsis">
+      slurmrestd
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-slurmnode-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the slurm(node, job)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvml" class="md-nav__link">
+    <span class="md-ellipsis">
+      nvml
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="nvml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvidia-smi" class="md-nav__link">
+    <span class="md-ellipsis">
+      nvidia-smi
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      run
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deepops" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeepOps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeepOps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#release-2308-for-redhat-88" class="md-nav__link">
+    <span class="md-ellipsis">
+      release-23.08 for redhat 8.8
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      FAQ
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="slurm">Slurm</h1>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=51SyuTBk72k">Three ways to use slurm on a high performance computer (HPC) (CC130) - YouTube</a></li>
+<li><a href="https://slurm.schedmd.com/documentation.html">Slurm Workload Manager - Documentation</a><ul>
+<li><a href="https://slurm.schedmd.com/quickstart_admin.html#rpms">Node role</a></li>
+<li>Network<ul>
+<li><a href="https://slurm.schedmd.com/network.html">Slurm Workload Manager - Network Configuration Guide</a></li>
+</ul>
+</li>
+<li>Database<ul>
+<li><a href="https://slurm.schedmd.com/accounting.html">Slurm Workload Manager - Accounting and Resource Limits</a><ul>
+<li>MySQL or MariaDB is the preferred database.</li>
+<li><a href="https://groups.google.com/g/slurm-users/c/y2XiPbYwCoo">[slurm-users] slurmdbd database usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NFS<ul>
+<li>https://slurm.schedmd.com/quickstart.html<ul>
+<li>Slurm does not automatically migrate executable or data files to the nodes allocated to a job. Either the files must exists on local disk or in some global file system (e.g. NFS or Lustre).</li>
+</ul>
+</li>
+<li><a href="https://repost.aws/zh-Hant/questions/QUMj3p2dxOS4-7B59PYhJGLg/how-does-slurm-sync-files-between-compute-and-master-nodes">How does Slurm sync files between compute and master nodes? | AWS re:Post</a></li>
+</ul>
+</li>
+<li><a href="https://man.twcc.ai/@twccdocs/doc-twnia2-main-zh/https%3A%2F%2Fman.twcc.ai%2F%40twccdocs%2Fguide-twnia2-slurm-intro-zh">Slurm 基本說明 - HackMD</a></li>
+<li><a href="https://hackmd.io/@stargazerwang/S1t60i6lF">Slurm 安裝流程 - HackMD</a></li>
+<li><a href="https://ssarcandy.tw/2019/03/16/Setup-Slurm-Cluster/">Setup Slurm Cluster | SSARCandy's Blog</a><ul>
+<li><a href="https://ssarcandy.tw/2020/04/21/Build-a-High-Performance-Computing-Cluster-on-GCP/">Build a High Performance Computing Cluster on GCP | SSARCandy's Blog</a></li>
+</ul>
+</li>
+<li><a href="https://pkuhpc.github.io/SCOW/docs/slurm">slurm集群部署 | SCOW</a></li>
+<li><a href="https://chingchuan-chen.github.io/posts/201812/2018-12-21-SLURM-cluster-in-docker.html">SLURM Cluster in Docker Swarm Cluster | Ching-Chuan Chen's Blogger</a></li>
+<li><a href="https://cloud.google.com/architecture/deploying-containerized-workloads-slurm-cluster-compute-engine">Deploying containerized workloads to Slurm on Compute Engine  |  Cloud Architecture Center  |  Google Cloud</a></li>
+<li><a href="https://slurm.schedmd.com/publications.html">Slurm Workload Manager - Presentations</a></li>
+<li><a href="https://documentation.suse.com/sle-hpc/15-SP5/single-html/hpc-guide/#cha-slurm">SLE-HPC 15 SP5 | Administration Guide</a></li>
+<li><a href="https://hmli.ustc.edu.cn/doc/linux/slurm-install/slurm-install.html">1. Slurm简介 — Slurm资源管理与作业调度系统安装配置 2021-12 文档</a></li>
+<li><a href="https://stackoverflow.com/questions/50267566/slurm-how-to-submit-a-job-under-another-user-and-prevent-to-read-other-users-f">sbatch - slurm: How to submit a job under another user and prevent to read other users' files? - Stack Overflow</a></li>
+<li>Ubuntu<ul>
+<li><a href="https://nekodaemon.com/2022/09/02/Slurm-Quick-Installation-for-Cluster-on-Ubuntu-20-04/">Slurm Quick Installation for Cluster on Ubuntu 20.04 | NekoDaemon's Blog</a></li>
+<li><a href="https://medium.com/@anarmammadli/how-to-install-slurm-node-on-ubuntu-18-80e80a27006a">How to install Slurm node on Ubuntu 18 | by Anar Mammadli | Medium</a></li>
+<li><a href="https://www.amaxchina.com/Support/TechDocument/Detail/548">单节点的 slurm 安装 - 苏州超集信息科技有限公司</a></li>
+<li><a href="https://drtailor.medium.com/how-to-setup-slurm-on-ubuntu-20-04-for-single-node-work-scheduling-6cc909574365">How to quickly set up Slurm on Ubuntu 20.04 for single node workload scheduling. | by Pritesh Tailor | Medium</a></li>
+<li><a href="https://craykorea.tistory.com/53">[Ubuntu] Slurm source install :: HPE CRAY 자료 공유</a></li>
+<li><a href="https://wxyhgk.com/article%2Fubuntu-slurm">Ubuntu20.04单机安装slrum教程 | 我心永恒的小站</a></li>
+<li><a href="https://groups.google.com/g/slurm-users/c/0dJhe5r6_2Q?pli=1">[slurm-users] Problem with cgroup plugin in Ubuntu22.04 and slurm 21.08.5</a><ul>
+<li><a href="https://stackoverflow.com/questions/74038679/slurmd-error-couldnt-find-the-specified-plugin-name-for-cgroup-v2-looking-at">centos - slurmd: error: Couldn't find the specified plugin name for cgroup/v2 looking at all files - Stack Overflow</a></li>
+<li><a href="https://slurm.schedmd.com/cgroup_v2.html#cgroup_plugin">Slurm Workload Manager - Control Group v2 plugin</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>container<ul>
+<li><a href="https://slurm.schedmd.com/SLUG23/containers-slug23.pdf">Containers in Slurm - SLUG 2023</a></li>
+</ul>
+</li>
+<li>REST API<ul>
+<li><a href="https://slurm.schedmd.com/SLUG23/REST-API-SLUG23.pdf">REST API - SLUG23</a><ul>
+<li><a href="https://slurm.schedmd.com/rest.html">Slurm Workload Manager - Slurm REST API</a></li>
+<li><a href="https://slurm.schedmd.com/rest_api.html">Slurm Workload Manager - Slurm REST API doc</a></li>
+<li><a href="https://slurm.schedmd.com/slurmrestd.html">Slurm Workload Manager - slurmrestd</a></li>
+<li><a href="https://github.com/aws/aws-parallelcluster/wiki/How-to-enable-slurmrestd-on-ParallelCluster">How to enable slurmrestd on ParallelCluster · aws/aws-parallelcluster Wiki · GitHub</a></li>
+<li><a href="https://groups.google.com/g/slurm-users/c/PO0TNfJC2D8">[slurm-users] slurmrestd configuration</a></li>
+<li><a href="https://groups.google.com/g/slurm-users/c/VDeFmSDao1U">Re: [slurm-users] Setting up slurmrestd</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Debug<ul>
+<li><a href="https://stackoverflow.com/questions/57079707/slurm-and-munge-invalid-credential#:~:text=This%20could%20be%20caused%20by%20the%20date%20and%20time%20being%20out%2Dof%2Dsync%20between%20nodes.">Slurm and Munge "Invalid Credential" - Stack Overflow</a></li>
+</ul>
+</li>
+<li>Guide<ul>
+<li><a href="https://research-computing.git-pages.rit.edu/docs/slurm_quick_start_tutorial.html">Slurm Tutorial 1: Getting Started | RIT Research Computing Documentation</a></li>
+<li><a href="https://research-computing.git-pages.rit.edu/docs/slurm_tutorial_2.html#32---shared-memory-example">Slurm Tutorial 2: Scaling Up | RIT Research Computing Documentation</a></li>
+<li><a href="https://hmli.ustc.edu.cn/doc/userguide/slurm-userguide.pdf">Slurm作业调度系统使用指南</a></li>
+<li><a href="https://hpc-docs.uni.lu/slurm/">Slurm Overview - ULHPC Technical Documentation</a></li>
+<li><a href="https://batchdocs.web.cern.ch/linuxhpc/introduction.html">Introduction to SLURM and MPI - Batch Docs</a></li>
+<li><a href="https://kb.uconn.edu/space/SH/26032963685/SLURM+Guide">SLURM Guide - Storrs HPC - UConn Knowledge Base</a></li>
+<li><a href="https://hackmd.io/@praexisio/A100manuel_DEMO">Axtasy @A100 使用指南 - HackMD</a></li>
+<li><a href="https://researchcomputing.princeton.edu/support/knowledge-base/slurm">Introducing Slurm | Princeton Research Computing</a><ul>
+<li><a href="https://researchcomputing.princeton.edu/get-started/mistakes-avoid">Top 10 Mistakes to Avoid on the Research Computing Clusters | Princeton Research Computing</a></li>
+</ul>
+</li>
+<li>account and user<ul>
+<li><a href="https://documentation.tjhsst.edu/services/cluster/slurm-administration">Slurm Administration - TJ CSL</a></li>
+<li><a href="https://slurm.schedmd.com/SLUG19/DTU_Slurm_Account_Sync.pdf">Slurm account synchronization with
+UNIX groups and users</a></li>
+</ul>
+</li>
+<li>MPI<ul>
+<li><a href="https://github.com/NVIDIA/deepops/blob/master/workloads/examples/slurm/mpi-hello/README.md">deepops/workloads/examples/slurm/mpi-hello/README.md at master · NVIDIA/deepops · GitHub</a></li>
+<li><a href="https://stackoverflow.com/questions/73791758/openmpi-4-1-1-there-was-an-error-initializing-an-openfabrics-device-infinband-me">infiniband - OpenMPI 4.1.1 There was an error initializing an OpenFabrics device Infinband Mellanox MT28908 - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/70993987/mpi-hello-world-to-test-infiniband">linux - MPI hello_world to test infiniband - Stack Overflow</a></li>
+<li><a href="https://lists.schedmd.com/pipermail/slurm-users/2019-December/004501.html">[slurm-users] Question about networks and connectivity</a></li>
+</ul>
+</li>
+<li>Singularity<ul>
+<li><a href="https://www.carc.usc.edu/user-information/user-guides/software-and-programming/singularity">Using Singularity | USC Advanced Research Computing</a></li>
+</ul>
+</li>
+<li>Troubleshooting<ul>
+<li><a href="https://hpc.pku.edu.cn/_book/guide/faq.html">【7】常见问题 · Doc</a></li>
+<li><a href="https://hpc-docs.chicagobooth.edu/faq.html">Frequently Asked Questions — Mercury Computing Cluster documentation</a>
+<a href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/batch-job/">Batch jobs - Documentation</a></li>
+</ul>
+</li>
+<li>HA<ul>
+<li><a href="https://slurm.schedmd.com/quickstart_admin.html#HA">Slurm Workload Manager - Quick Start Administrator Guide -HIGH AVAILABILITY</a></li>
+<li><a href="https://slurm.schedmd.com/slurm.conf.html#OPT_SlurmctldHost">Slurm Workload Manager - slurm.conf - SlurmctldHost</a><ul>
+<li><a href="https://slurm.schedmd.com/slurm.conf.html#SECTION_EXAMPLE">example</a></li>
+</ul>
+</li>
+<li><a href="https://slurm.schedmd.com/slurm.conf.html#OPT_StateSaveLocation">Slurm Workload Manager - slurm.conf - StateSaveLocation</a><ul>
+<li>
+<blockquote>
+<p>If you have a secondary SlurmctldHost configured, this location should be readable and writable by both systems.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><a href="https://slurm.schedmd.com/SLUG19/Field_Notes_3.pdf">Field_Notes_3.pdf - page 38</a><ul>
+<li><a href="https://bugs.schedmd.com/show_bug.cgi?id=2413">2413 – SLURM high availability with centos 7.2</a></li>
+</ul>
+</li>
+<li><a href="https://groups.google.com/g/slurm-users/c/tjPrmmmG034">[slurm-users] Slurmdbd High Availability</a></li>
+<li><a href="https://groups.google.com/g/slurm-users/c/aEgBpfiK8_0">[slurm-users] Ideal NFS exported StateSaveLocation size.</a>
+<a href="https://www.mail-archive.com/slurm-users@lists.schedmd.com/msg08611.html">[slurm-users] what is the possible reason for secondary slurmctld node not allocate job after takeover?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.linkedin.com/pulse/kubernetes-vs-slurm-which-container-orchestration-tool-tom-burwell">Kubernetes vs. Slurm: Which Container Orchestration Tool is Right for You? #kubernetes #AI #MachineLearning</a></li>
+<li><a href="https://www.sesync.org/resources/faqs/where-should-i-store-temporary-files-created-slurm-cluster-jobs">Where should I store temporary files created by Slurm cluster jobs? | SESYNC</a></li>
+<li>NVIDIA<ul>
+<li><a href="https://github.com/NVIDIA/deepops">GitHub - NVIDIA/deepops: Tools for building GPU clusters</a></li>
+<li><a href="https://speakerdeck.com/yylin1/deepops-an-efficient-way-to-deploy-gpu-cluster-for-computing">DeepOps – An efficient way to deploy GPU cluster for computing - Speaker Deck</a></li>
+<li><a href="https://github.com/NVIDIA/deepops/tree/master/docs/slurm-cluster">deepops/docs/slurm-cluster at master · NVIDIA/deepops · GitHub</a></li>
+</ul>
+</li>
+<li>DELL<ul>
+<li><a href="https://infohub.delltechnologies.com/l/architecture-guide-dell-emc-hpc-ready-solution-for-ai-and-data-analytics-1/playbooks-40/">Playbooks | Architecture Guide—Dell EMC HPC Ready Solution for AI and Data Analytics | Dell Technologies Info Hub</a></li>
+<li><a href="https://github.com/dell/omnia">GitHub - dell/omnia: An open-source toolkit for deploying and managing high performance clusters for HPC, AI, and data analytics workloads.</a></li>
+</ul>
+</li>
+<li>altair<ul>
+<li><a href="https://altair.com/hpc-cloud-applications">High-performance Computing (HPC) and Cloud Solutions | Altair</a></li>
+</ul>
+</li>
+<li>ansible<ul>
+<li><a href="https://github.com/stackhpc/ansible-slurm-appliance">GitHub - stackhpc/ansible-slurm-appliance: A Slurm-based HPC workload management environment, driven by Ansible.</a></li>
+<li><a href="https://gitlab.com/ifb-elixirfr/ansible-roles/ansible-slurm">Institut Français de Bioinformatique / Ansible Roles / ansible-slurm · GitLab</a></li>
+<li><a href="https://github.com/galaxyproject/ansible-slurm">GitHub - galaxyproject/ansible-slurm: Ansible role for installing and managing the Slurm Workload Manager</a></li>
+<li><a href="https://galaxy.ansible.com/ui/search/?keywords=slurm">Galaxy NG</a></li>
+<li><a href="https://github.com/fgci-org/ansible-role-slurm">GitHub - fgci-org/ansible-role-slurm: For installing and configuring SLURM - Simple Linux Utility for Resource Management</a></li>
+</ul>
+</li>
+<li>container<ul>
+<li><a href="https://guiesbibtic.upf.edu/recerca/hpc/running-singularity-containers">9.3. Running Singularity containers on Slurm - HPC High Performance Computing - Guies BibTIC at Universitat Pompeu Fabra</a></li>
+<li><a href="https://researchcomputing.princeton.edu/sites/g/files/toruqf311/files/documents/containers_workshop_fall2021.pdf">containers_workshop_fall2021.pdf</a></li>
+</ul>
+</li>
+<li>Slurm Alternatives(competitor)<ul>
+<li><a href="https://hpc-wiki.info/hpc/Scheduling_Basics">Scheduling Basics - HPC Wiki</a></li>
+<li><a href="https://hpc.llnl.gov/banks-jobs/running-jobs/slurm">Slurm Tutorial (formerly Slurm and Moab) | HPC @ LLNL</a><ul>
+<li>Slurm from SchedMD</li>
+<li>Spectrum LSF from IBM</li>
+<li>Tivoli Workload Scheduler (LoadLeveler) from IBM</li>
+<li>PBS from Altair Engineering</li>
+<li>TORQUE, Maui, Moab from Adaptive Computing</li>
+<li>Univa Grid Engine</li>
+<li>OpenLava</li>
+</ul>
+</li>
+<li><a href="https://blog.csdn.net/qq_23435961/article/details/125642346">基于HPC场景的集群任务调度系统LSF/SGE/Slurm/PBS_pbs slurm-CSDN博客</a><ul>
+<li>LSF<ul>
+<li>Spectrum LSF</li>
+<li>Platform LSF</li>
+<li>OpenLava</li>
+</ul>
+</li>
+<li>SGE<ul>
+<li>Altair Grid Engine</li>
+<li>Univa Grid Engine</li>
+</ul>
+</li>
+<li>Slurm<ul>
+<li><a href="https://slurm.schedmd.com/rosetta.pdf">rosetta.pdf</a></li>
+</ul>
+</li>
+<li>PBS<ul>
+<li>openPBS</li>
+<li>Altair PBS Professional</li>
+<li>Torque</li>
+</ul>
+</li>
+<li>Kubernetes Scheduler<ul>
+<li><a href="https://github.com/flux-framework/flux-k8s">GitHub - flux-framework/flux-k8s: Project to manage Flux tasks needed to standardize kubernetes HPC scheduling interfaces</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://hackmd.io/@chialu/B1UaHCtHd">PBS - HackMD</a></li>
+</ul>
+</li>
+<li>example<ul>
+<li><a href="https://nrel.github.io/HPC/blog/2021-06-18-srun/">Using srun to Launch Applications Under Slurm - NREL HPC</a><ul>
+<li><a href="https://github.com/NREL/HPC/tree/master/slurm">HPC/slurm at master · NREL/HPC</a></li>
+</ul>
+</li>
+<li><a href="https://uwaterloo.ca/math-faculty-computing-facility/services/service-catalogue-research-linux/job-submit-commands-examples">Job submit commands with examples | Math Faculty Computing Facility (MFCF) | University of Waterloo</a></li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="deploy">deploy</h2>
+<p>config the hostname properly on all nodes
+prepare /etc/hosts on all nodes
+be careful about firewall config</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cat<span class="w"> </span>&gt;/etc/yum.repos.d/MariaDB.repo<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s">[mariadb]</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s">name=MariaDB</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s">baseurl=https://ftp.ubuntu-tw.org/mirror/mariadb/yum/10.5/centos7-amd64</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="s">gpgkey=https://ftp.ubuntu-tw.org/mirror/mariadb/yum/RPM-GPG-KEY-MariaDB</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="s">gpgcheck=1</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s">EOF</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>dnf<span class="w"> </span>makecache
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>epel-release
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>dnf<span class="w"> </span>makecache
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>dnf<span class="w"> </span>config-manager<span class="w"> </span>--set-enabled<span class="w"> </span>powertools
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>groupadd<span class="w"> </span>-g<span class="w"> </span><span class="m">901</span><span class="w"> </span>munge
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>useradd<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;MUNGE Uid &#39;N&#39; Gid Emporium&quot;</span><span class="w"> </span>-d<span class="w"> </span>/var/lib/munge<span class="w"> </span>-g<span class="w"> </span>munge<span class="w"> </span>-m<span class="w"> </span>-s<span class="w"> </span>/sbin/nologin<span class="w"> </span>-u<span class="w"> </span><span class="m">901</span><span class="w"> </span>munge
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>groupadd<span class="w"> </span>-g<span class="w"> </span><span class="m">902</span><span class="w"> </span>slurm
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>useradd<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;Slurm Workload Manager&quot;</span><span class="w"> </span>-d<span class="w"> </span>/var/lib/slurm<span class="w"> </span>-g<span class="w"> </span>slurm<span class="w"> </span>-m<span class="w"> </span>-s<span class="w"> </span>/bin/bash<span class="w"> </span>-u<span class="w"> </span><span class="m">902</span><span class="w"> </span>slurm
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1">#https://forums.rockylinux.org/t/slurm-does-not-install-from-the-epel-repo/2832</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>munge<span class="w"> </span>slurm<span class="w"> </span>slurm-contribs<span class="w"> </span>slurm-perlapi
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="c1"># login node</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>slurm-devel<span class="w"> </span>slurm-pmi<span class="w"> </span>slurm-pmi-devel
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="c1"># control node</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>slurm-slurmctld
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="c1"># database node</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>mariadb-server<span class="w"> </span>slurm-slurmdbd
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="c1"># compute node</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>slurm-slurmd<span class="w"> </span>slurm-pmi
+</span></code></pre></div>
+<h3 id="firewall-if-only-using-sbatch-and-srun">firewall if only using sbatch and srun</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># both control node and compute node</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>systemctl<span class="w"> </span>stop<span class="w"> </span>firewalld.service
+</span></code></pre></div>
+<h3 id="firewall-if-only-using-sbatch">firewall if only using sbatch</h3>
+<p><a href="https://slurm.schedmd.com/network.html">Slurm Workload Manager - Network Configuration Guide</a>
+The machines running <strong>srun</strong> also use a range of ports to be able to communicate with slurmstepd. By default these ports are chosen at random from the ephemeral port range, but you can use the <strong>SrunPortRange</strong> to specify a range of ports from which they can be chosen. This is necessary for login nodes that are behind a firewall.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># firewall on slurmctld</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># slurmctld for compute node access</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>public<span class="w"> </span>--add-port<span class="o">=</span><span class="m">6817</span>/tcp
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># mariadb access from outer client like workbench</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>public<span class="w"> </span>--add-port<span class="o">=</span><span class="m">3306</span>/tcp
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># firewall on slurmd</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># slurmd for control node access</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>firewall-cmd<span class="w"> </span>--permanent<span class="w"> </span>--zone<span class="o">=</span>public<span class="w"> </span>--add-port<span class="o">=</span><span class="m">6818</span>/tcp
+</span></code></pre></div></p>
+<h3 id="slurmrestd">slurmrestd</h3>
+<ul>
+<li><a href="https://slurm.schedmd.com/rest_quickstart.html#prereq">Slurm Workload Manager - REST API Quick Start Guide</a></li>
+<li><a href="https://groups.google.com/g/slurm-users/c/PO0TNfJC2D8">[slurm-users] slurmrestd configuration</a></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>apt install -y libhttp-parser-dev libjson-c-dev libjwt-dev
+</span></code></pre></div>
+<p>change the systemd
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo useradd -M -r -s /usr/sbin/nologin -U slurmrestd
+</span></code></pre></div></p>
+<p>/lib/systemd/system/slurmrestd.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[Unit]
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Description=Slurm REST daemon
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>After=network-online.target slurmctld.service
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Wants=network-online.target
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>ConditionPathExists=/etc/slurm/slurm.conf
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>[Service]
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Type=simple
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>EnvironmentFile=-/etc/sysconfig/slurmrestd
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>EnvironmentFile=-/etc/default/slurmrestd
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a># slurmrestd should not run as root or the slurm user.
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a># Please either use the -u and -g options in /etc/sysconfig/slurmrestd or
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a># /etc/default/slurmrestd, or explicitly set the User and Group in this file
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a># an unpriviledged user to run as.
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>User=slurmrestd
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>Group=slurmrestd
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a># Default to listen on both socket and slurmrestd port
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>#ExecStart=/usr/local/sbin/slurmrestd $SLURMRESTD_OPTIONS unix:/usr/local/com/slurmrestd.socket 0.0.0.0:6820
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>ExecStart=/usr/local/sbin/slurmrestd -a rest_auth/jwt -s openapi/v0.0.39  0.0.0.0:6820
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a># Enable auth/jwt be default, comment out the line to disable it for slurmrestd
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>Environment=&quot;SLURM_JWT=daemon&quot; &quot;SLURMRESTD_DEBUG=debug&quot;
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>ExecReload=/bin/kill -HUP $MAINPID
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>[Install]
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>WantedBy=multi-user.target
+</span></code></pre></div></p>
+<p>prepare the jwt key on control node(slurmctld) and storage node(slurmdbd)
+- <a href="https://slurm.schedmd.com/jwt.html">Slurm Workload Manager - JSON Web Tokens (JWT) Authentication</a>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dd if=/dev/random of=/var/spool/slurm/ctld/jwt_hs256.key bs=32 count=1
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>chown slurm:slurm /var/spool/slurm/ctld/jwt_hs256.key
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>chmod 0600 /var/spool/slurm/ctld/jwt_hs256.key
+</span></code></pre></div></p>
+<p>slurm.conf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>...
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>AuthAltTypes=auth/jwt
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>AuthAltParameters=jwt_key=/var/spool/slurm/ctld/jwt_hs256.key
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>...
+</span></code></pre></div></p>
+<p>slurmdbd.conf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>...
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>AuthAltTypes=auth/jwt
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>AuthAltParameters=jwt_key=/var/spool/slurm/ctld/jwt_hs256.key
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>...
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>slurmrestd -a list
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>slurmrestd -s list
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>unset SLURM_JWT; export $(scontrol token)
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>curl -H &quot;X-SLURM-USER-TOKEN:$SLURM_JWT&quot; http://172.19.30.198:6820/slurm/v0.0.39/ping
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>curl -H &quot;X-SLURM-USER-TOKEN:$SLURM_JWT&quot; http://172.19.30.198:6820/slurm/v0.0.39/diag
+</span></code></pre></div>
+<h3 id="test-the-slurmnode-job">Test the slurm(node, job)</h3>
+<p><a href="https://man.twcc.ai/@twccdocs/doc-twnia2-main-zh/https%3A%2F%2Fman.twcc.ai%2F%40twccdocs%2Fguide-twnia2-submit-job-zh">提交第一個 Job - HackMD</a>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># test</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sinfo
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>sinfo<span class="w"> </span>-N
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>sinfo<span class="w"> </span>-N<span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;%20N  %10c  %10m  %25f  %10G &quot;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>sinfo<span class="w"> </span>-o<span class="w"> </span><span class="s1">&#39;%11P %5D %22N %4c %21G %7m %11l&#39;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>scontrol<span class="w"> </span>show<span class="w"> </span>node
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>scontrol<span class="w"> </span>show<span class="w"> </span>node<span class="w"> </span>slurm_compute_1
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>scontrol<span class="w"> </span>show<span class="w"> </span>config
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>scontrol<span class="w"> </span>ping
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>sacctmgr<span class="w"> </span>list<span class="w"> </span>cluster
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1"># if test.sh in the &quot;foo&quot; directory, then the &quot;foo&quot; should be on everty compute node</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>sbatch<span class="w"> </span>-p<span class="w"> </span>debug<span class="w"> </span>test.sh
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>squeue
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>scontrol<span class="w"> </span>show<span class="w"> </span>job<span class="w"> </span>&lt;job_id&gt;
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>sacct
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="c1"># https://ask.cyberinfrastructure.org/t/how-do-i-get-the-list-of-features-and-resources-of-each-node-in-slurm/201</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>sacct<span class="w"> </span>--jobs<span class="o">={{</span><span class="w"> </span>job_id<span class="w"> </span><span class="o">}}</span><span class="w"> </span>--format<span class="w"> </span>JobID,JobName,Partition,Account,AllocCPUS,State,ExitCode,NodeList%40
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>scancel<span class="w"> </span>&lt;jobid&gt;
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="c1"># interactive</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>salloc<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>-p<span class="w"> </span>debug
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>srun<span class="w"> </span>date
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>srun<span class="w"> </span>hostname
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="c1"># after reboot compute node(Restart nodes in state down)</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="c1"># https://slurm.schedmd.com/prolog_epilog.html#failure_handling (drain status)</span>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>sinfo<span class="w"> </span>-R
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>scontrol<span class="w"> </span>update<span class="w"> </span><span class="nv">nodename</span><span class="o">=</span>slurm-compute-01<span class="w"> </span><span class="nv">state</span><span class="o">=</span>resume
+</span></code></pre></div></p>
+<ul>
+<li><a href="https://www.vanderbilt.edu/accre/documentation/parallel/">GPUs, Parallel Processing, and Job Arrays | ACCRE | Vanderbilt University</a></li>
+<li><a href="https://wiki.orc.gmu.edu/mkdocs/Running_GPU_Jobs/">Running GPU Jobs - Office of Research Computing - Wiki</a></li>
+<li><a href="https://doc.zih.tu-dresden.de/jobs_and_resources/slurm_examples/">Job Examples - ZIH HPC Compendium</a></li>
+<li><a href="https://iservice.nchc.org.tw/nchc_service/nchc_service_qa_single.php?qa_code=666">SLURM上與計算核心數/節點數比較相關且常用的設定，有以下4個 - 國網中心-計算資源服務網</a>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>srun --ntasks 24 hostname
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>srun --ntasks 24 --nodelist=slurm-compute-02 hostname
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>srun --ntasks 24 --nodelist=slurm-compute-01,slurm-compute-02 hostname
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>srun --ntasks 10 --nodelist=slurm-compute-01,slurm-compute-02 hostname
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>srun --ntasks 10 --ntasks-per-node=5 hostname
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>srun --ntasks 10 --nodes=2 hostname
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>srun --ntasks-per-node=10 --nodes=2 hostname
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>srun --nodes=1 --gres=gpu:tesla:1 nvidia-smi -L
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>srun --nodes=1 --ntasks-per-node=12 --gres=gpu:tesla:1 nvidia-smi -L
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>srun --nodes=1 --nodelist=slurm-compute-02 --gres=gpu:tesla:1 nvidia-smi -L
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>srun --nodes=2 --ntasks-per-node=12 --gres=gpu:tesla:1 nvidia-smi -L
+</span></code></pre></div></li>
+</ul>
+<p>account and user
+- <a href="https://slurm.schedmd.com/sacctmgr.html">Slurm Workload Manager - sacctmgr</a>
+- <a href="https://groups.google.com/g/slurm-users/c/QjAvvRhbj1k">[slurm-users] SlurmdSpoolDir</a>
+    - /var/spool/slurm/d/ =&gt; 755
+    - /var/spool/slurm =&gt; <code>775</code></p>
+<p>create a user with password on <code>login nodes</code> and <code>control node</code> which exist slurmctld, for example, ben
+project_a is a virtual concept</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>useradd ben
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>passwd ben
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sacctmgr list associations
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>sacctmgr show assoc
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>sacctmgr show tres
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>sacctmgr create account name=project_a fairshare=50
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>sacctmgr create user name=jimmy cluster=cluster account=project_a partition=debug
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>sacctmgr delete user name=jimmy cluster=cluster account=project_a
+</span></code></pre></div>
+<h3 id="gpu">GPU</h3>
+<ul>
+<li><a href="https://slurm.schedmd.com/gres.html">Slurm Workload Manager - Generic Resource (GRES) Scheduling</a></li>
+</ul>
+<h4 id="nvml">nvml</h4>
+<ul>
+<li><a href="https://cloud.redhat.com/blog/how-to-accelerate-workloads-with-nvidia-gpus-on-red-hat-device-edge">How to accelerate workloads with NVIDIA GPUs on Red Hat Device Edge</a><ul>
+<li>Disable Nouveau<ul>
+<li><a href="https://docs.nvidia.com/ai-enterprise/deployment-guide-vmware/0.1.0/nouveau.html">Disable Nouveau - NVIDIA Docs</a></li>
+<li>deepops/roles/galaxy/nvidia.nvidia_driver/tasks/install-redhat.yml</li>
+<li>deepops/roles/nvidia-gpu-operator-node-prep/tasks/main.yml</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://github.com/NVIDIA/deepops/issues/1214">AutoDetect=nvml on gres.conf not working. Error "fatal: We were configured to autodetect nvml functionality, but we weren't able to find that lib when Slurm was configured" · Issue #1214 · NVIDIA/deepops · GitHub</a></li>
+<li>Invalid generic resource (gres) specification<ul>
+<li><a href="https://bugs.schedmd.com/show_bug.cgi?id=10827">10827 – Invalid gres specification with AutoDetect=nvml</a></li>
+<li><a href="https://groups.google.com/g/slurm-users/c/QB0pRmww28E">[slurm-users] GRES and GPUs</a></li>
+<li><a href="https://stackoverflow.com/questions/65701099/cannot-allocate-gpu-in-slurm">distributed computing - Cannot allocate GPU in Slurm - Stack Overflow</a></li>
+<li><a href="https://serverfault.com/questions/1085541/slurm-srun-cannot-allocate-ressources-for-gpus-invalid-generic-resource-specif">Slurm srun cannot allocate ressources for GPUs - Invalid generic resource specification - Server Fault</a></li>
+</ul>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>rpm --import https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/D42D0685.pub
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>dnf module install nvidia-driver:525
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>systemctl reboot
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>nvidia-smi
+</span></code></pre></div>
+<p>method 1: build rpm
+- <a href="https://craykorea.tistory.com/84">[slurm] rpmbuild with gpu :: HPE CRAY 자료 공유</a>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>dnf install cuda-toolkit
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>dnf module install nvidia-driver:525
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>rpmbuild -ta /tmp/slurm-20.11.9.tar.bz2 --with mysql --define &quot;_with_nvml --with-nvml=/usr/local/cuda&quot;
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>rpm -qlp /root/rpmbuild/RPMS/x86_64/slurm-20.11.9-1.el8.x86_64.rpm | grep nvml
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>find /usr -type f -name &#39;*nvml*&#39;
+</span></code></pre></div></p>
+<p>method 2: build and install
+reference: <code>deepops/roles/slurm/tasks/build.yml</code>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>dnf install cuda-toolkit
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>dnf module install nvidia-driver:525
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>./configure --prefix=/usr/local --disable-dependency-tracking --disable-debug --disable-x11 --enable-really-no-cray --enable-salloc-kill-cmd --with-hdf5=no --sysconfdir=/etc/slurm --enable-pam --with-pam_dir=/lib64/security --with-shared-libslurm --without-rpath --with-nvml=/usr/local/cuda
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>make -j$(nproc)
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>make -j$(nproc) contrib
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>make -j$(nproc) install
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>find /usr -type f -name &#39;*nvml*&#39;
+</span></code></pre></div></p>
+<h5 id="nvidia-smi">nvidia-smi</h5>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>[root@slurm-compute-01 ~]# nvidia-smi --list-gpus
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>GPU 0: Tesla T4 (UUID: GPU-2640e36d-125d-89fa-ed7c-ec40de7a44b4)
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>[root@slurm-compute-01 ~]# 
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>[root@slurm-compute-01 ~]# nvidia-smi --query-gpu=gpu_name --format=csv,noheader
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>Tesla T4
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>[root@slurm-compute-01 ~]# nvidia-smi --list-gpus
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>[foo@slurm-compute-02 ~]$ nvidia-smi --list-gpus
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>GPU 0: NVIDIA A100 80GB PCIe (UUID: GPU-a211d1d2-a220-6e1b-890d-c0b25fedcbda)
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>GPU 1: NVIDIA A100 80GB PCIe (UUID: GPU-9d34191d-1da9-a613-2aad-935778eb6683)
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>[foo@slurm-compute-02 ~]$ nvidia-smi --query-gpu=gpu_name --format=csv,noheader
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>NVIDIA A100 80GB PCIe
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>NVIDIA A100 80GB PCIe
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>[foo@slurm-compute-02 ~]$
+</span></code></pre></div>
+<h4 id="run">run</h4>
+<p>single-node multi-GPUs
+distributed training on multiple GPUs over multiple nodes using the SLURM</p>
+<ul>
+<li><a href="https://guiesbibtic.upf.edu/recerca/hpc/multi-node-multi-gpu">4.7. Submitting multi-node/multi-gpu jobs - HPC High Performance Computing - Guies BibTIC at Universitat Pompeu Fabra</a></li>
+<li><a href="https://pytorch-geometric.readthedocs.io/en/latest/tutorial/multi_node_multi_gpu_vanilla.html">Multi-Node Training using SLURM — pytorch_geometric documentation</a></li>
+<li><a href="https://huggingface.co/docs/transformers/perf_train_gpu_many">Efficient Training on Multiple GPUs</a></li>
+<li><a href="https://hpc-discourse.usc.edu/t/how-to-launch-a-gpu-job-on-multiple-nodes/118">How to launch a GPU job on multiple nodes? - Discovery Cluster / Slurm - USC Advanced Research Computing</a></li>
+<li><a href="https://pytorch.org/tutorials/intermediate/ddp_series_multinode.html">Multinode Training — PyTorch Tutorials 2.2.0+cu121 documentation</a><ul>
+<li><a href="https://pytorch.org/tutorials/beginner/ddp_series_fault_tolerance.html">Fault-tolerant Distributed Training with torchrun — PyTorch Tutorials 2.2.0+cu121 documentation</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="deepops">DeepOps</h2>
+<h3 id="release-2308-for-redhat-88">release-23.08 for redhat 8.8</h3>
+<p>https://github.com/NVIDIA/deepops/tree/master/docs/slurm-cluster</p>
+<p>./scripts/setup.sh</p>
+<ul>
+<li>environment variable $ID</li>
+<li>python<ul>
+<li>seliux<ul>
+<li>sudo pip3.8 install selinux</li>
+</ul>
+</li>
+<li>virtualenv<ul>
+<li>sudo pip3.8 virtualenv</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>ansible-playbook -l slurm-cluster playbooks/slurm-cluster.yml</p>
+<ul>
+<li>pmix<ul>
+<li>roles/slurm/tasks/pmix.yml</li>
+</ul>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>- name: Enable repo
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>  shell: subscription-manager repos --enable &quot;codeready-builder-for-rhel-8-x86_64-rpms&quot;
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>  when: ansible_os_family == &#39;RedHat&#39; and ansible_distribution_major_version == &quot;8&quot;
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>- name: install pmix &#39;pandoc&#39; build dependency for RHEL 8
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>  dnf:
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    name: pandoc
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    state: present
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>    enablerepo: powertools
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>  when: ansible_os_family == &#39;RedHat&#39; and ansible_distribution_major_version == &quot;8&quot;
+</span></code></pre></div>
+<ul>
+<li>pyxis<ul>
+<li>roles/galaxy/nvidia.enroot/tasks/redhat.yml</li>
+</ul>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>- name: enroot rpm packages
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    yum:
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>      name: &quot;{{ item }}&quot;
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>      state: &quot;{{ enroot_package_state }}&quot;
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>      disable_gpg_check: True
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>    with_items: &quot;{{ enroot_rpm_packages }}&quot;
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>    environment: &quot;{{proxy_env if proxy_env is defined else {}}}&quot;
+</span></code></pre></div>
+<ul>
+<li>firewall<ul>
+<li>systemctl status firewalld.service</li>
+</ul>
+</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<ul>
+<li><a href="https://slurm.schedmd.com/troubleshoot.html">Slurm Workload Manager - Slurm Troubleshooting Guide</a></li>
+<li><a href="https://iservice.nchc.org.tw/nchc_service/nchc_service_qa.php?target=118">國網中心-計算資源服務網</a></li>
+<li><a href="https://stackoverflow.com/questions/57144602/restart-nodes-in-state-down">centos - Restart nodes in state down - Stack Overflow</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Singularity/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Singularity">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Singularity
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Spack/" class="md-footer__link md-footer__link--next" aria-label="Next: Spack">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Spack
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

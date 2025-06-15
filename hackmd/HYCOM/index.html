@@ -1,0 +1,2997 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../HTTP/">
+      
+      
+        <link rel="next" href="../InfiniBand/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>HYCOM - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hycom" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HYCOM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome the docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hackmd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hackmd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google docs api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-run-source-code-2301" class="md-nav__link">
+    <span class="md-ellipsis">
+      how to run source code 2.3.01
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="how to run source code 2.3.01">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prepare-basic-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prepare basic environment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InfiniBand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Message Passing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nagios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus Repository Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Openstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RedHat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redfish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scrum筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bitwise world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud-init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Influxdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pacemaker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    podman
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shell script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用者體驗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    備份還原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    奇技淫巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    持續整合
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排列組合與機率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    機器學習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    正規表示法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    測試工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    無線網路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向實務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向系統分析與設計
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬體概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    程式本質
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系統的價值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    統計圖表的表達方式以及使用的範圍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    虛擬機器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料庫維運
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資訊安全
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體工程師的專業和通識
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體需求溝通
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-run-source-code-2301" class="md-nav__link">
+    <span class="md-ellipsis">
+      how to run source code 2.3.01
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="how to run source code 2.3.01">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prepare-basic-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prepare basic environment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="hycom">HYCOM</h1>
+<ul>
+<li>official<ul>
+<li><a href="https://github.com/HYCOM/HYCOM-examples/wiki/GLBt0.72">GLBt0.72 · HYCOM/HYCOM-examples Wiki · GitHub</a></li>
+<li><a href="https://github.com/HYCOM/HYCOM-src/wiki">Home · HYCOM/HYCOM-src Wiki · GitHub</a></li>
+<li><a href="https://github.com/HYCOM/HYCOM-src/wiki/Compilation-(Make)">Compilation (Make) · HYCOM/HYCOM-src Wiki · GitHub</a></li>
+<li><a href="https://github.com/HYCOM/HYCOM-src/wiki/Compilation-(config)">Compilation (config) · HYCOM/HYCOM-src Wiki · GitHub</a></li>
+<li><a href="https://groups.google.com/a/hycom.org/g/forum/">HYCOM.org Forum - Google 網路論壇</a></li>
+</ul>
+</li>
+<li>AMD<ul>
+<li><a href="https://www.amd.com/system/files/documents/epyc_hycom_sophisticated_weather_modeling.pdf">AMD-EPYC-with-HYCOM</a><ul>
+<li>"GLB" stands for Global HYCOM Benchmark</li>
+<li>GLBT0.72, is smaller and easily runs on a single compute node</li>
+<li>GLBT0.08, is a more challenging workload and is equivalent to a true production run.</li>
+</ul>
+</li>
+<li><a href="https://www.amd.com/system/files/documents/guide-to-running-hycom-on-epyc.pdf">Guide-To-Running-HYCOM-on-EPYC</a></li>
+</ul>
+</li>
+<li><a href="https://community.arm.com/arm-community-blogs/b/high-performance-computing-blog/posts/ocean-modeling-with-hycom-on-aws-graviton2">Ocean Modeling with HYCOM on AWS Graviton2 - High Performance Computing (HPC) blog - Arm Community blogs - Arm Community</a></li>
+<li>:star:<a href="https://gitlab.com/arm-hpc/packages/-/wikis/packages/HYCOM">HYCOM · Wiki · Arm HPC Resources / packages · GitLab</a></li>
+<li>compiler<ul>
+<li><a href="https://www.intel.com/content/www/us/en/docs/mpi-library/developer-reference-linux/2021-8/compiler-commands.html">Compiler Commands</a></li>
+</ul>
+</li>
+</ul>
+<p>The script Make_global.csh is just Make.csh configured for the typical global tripole case.</p>
+<p>The Makefile sources ./config/\$(ARCH)_\$(TYPE) where ARCH defines exactly what machine architecture to target and TYPE is the parallelization strategy and precision (one, omp, mpi, ompi, mpisr, shmem).</p>
+<p>If some problems occur, read the error messages, correct the errors and be sure to remove the <em>.o and </em>.mod files before running the Make.com again.</p>
+<p>all the input/ouput files of HYCOM are presented as a couple of .a and .b files. The .a file actually contains the binary data and the .b file describes what is in the .a file and how it is stored.</p>
+<h2 id="how-to-run-source-code-2301">how to run source code 2.3.01</h2>
+<p>experiment
+executable(hycom tool, pre/post processing tool)</p>
+<p><img alt="" src="https://www.dropbox.com/s/facjsux20b41abd/hycom-overview.png?dl=1" /></p>
+<h3 id="prepare-basic-environment">Prepare basic environment</h3>
+<p>``` bash=</p>
+<h1 id="basic-env">basic env</h1>
+<p>sudo yum group install "Development Tools" 
+sudo yum install -y curl findutils gcc-c++ gcc gcc-gfortran git gnupg2 hostname iproute redhat-lsb-core make patch python3 python3-pip python3-setuptools unzip</p>
+<h1 id="for-runing-makecsh">for runing Make.csh</h1>
+<p>sudo yum install -y csh make environment-modules </p>
+<h1 id="spack">spack</h1>
+<p>git clone -c feature.manyFiles=true https://github.com/spack/spack.git
+. spack/share/spack/setup-env.sh
+spack install intel-oneapi-compilers@2023.0.0
+spack compiler add <code>spack location -i intel-oneapi-compilers</code>/compiler/latest/linux/bin/intel64
+spack compiler add <code>spack location -i intel-oneapi-compilers</code>/compiler/latest/linux/bin
+spack compilers</p>
+<h1 id="spack-install-openmpi415-gcc">spack install openmpi@4.1.5 %gcc</h1>
+<p>spack install openmpi@4.1.5 %intel@2021.8.0</p>
+<h1 id="spack-install-intel-oneapi-mpi-gcc">spack install intel-oneapi-mpi %gcc</h1>
+<h1 id="spack-install-intel-oneapi-mpi-intel202180">spack install intel-oneapi-mpi %intel@2021.8.0</h1>
+<h1 id="spack-install-netcdf-c-openmpi-gcc">spack install netcdf-c ^openmpi %gcc</h1>
+<h1 id="spack-install-netcdf-fortran-openmpi-gcc">spack install netcdf-fortran ^openmpi %gcc</h1>
+<p>spack install netcdf-c ^openmpi %intel@2021.8.0
+spack install netcdf-fortran ^openmpi %intel@2021.8.0</p>
+<h1 id="for-environment-modules-files">for environment-modules files</h1>
+<p>spack module tcl refresh
+spack load openmpi@4.1.5
+spack load intel-oneapi-compilers@2023.0.0</p>
+<h1 id="ansbile">ansbile</h1>
+<p>sudo yum install ansible-core.x86_64</p>
+<h1 id="add-fortune-compiler-path-bingfortran">add fortune compiler path /bin/gfortran</h1>
+<p>vim /home/smci/.spack/linux/compilers.yaml</p>
+<hr />
+<p>compilers:
+- compiler:
+    spec: gcc@8.5.0
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /bin/gfortran
+      fc: /bin/gfortran
+    flags: {}
+    operating_system: rhel8
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []</p>
+<hr />
+<h1 id="hycom-examples-example-source-from-github">HYCOM-examples example source from github</h1>
+<p>wget -O HYCOM-examples.zip https://github.com/HYCOM/HYCOM-examples/archive/refs/heads/master.zip &amp;&amp; unzip HYCOM-examples.zip &amp;&amp; mv HYCOM-examples-master HYCOM-examples
+cd HYCOM-examples/datasets/
+vim get_datasets.csh</p>
+<h1 id="long-time-because-large-size4213g">long time because large size(42.13G)</h1>
+<h1 id="18g-cfsr_gomtargz">18G     CFSR_GOM.tar.gz</h1>
+<h1 id="16g-cfsv2_gomtargz">16G     CFSv2_GOM.tar.gz</h1>
+<h1 id="802m-core2_nyftargz">802M    CORE2_NYF.tar.gz</h1>
+<h1 id="139m-phc3_hycomtargz">139M    PHC3_HYCOM.tar.gz</h1>
+<h1 id="36g-woa13_hycomtargz">3.6G    WOA13_HYCOM.tar.gz</h1>
+<h1 id="36g-woa18_hycomtargz">3.6G    WOA18_HYCOM.tar.gz</h1>
+<p>csh get_datasets.csh</p>
+<h1 id="hycom-tools">HYCOM-tools</h1>
+<h1 id="git-clone-recursive-httpsgithubcomhycomhycom-toolsgit">git clone --recursive https://github.com/HYCOM/HYCOM-tools.git</h1>
+<p>wget -O HYCOM-tools.zip https://github.com/HYCOM/HYCOM-tools/archive/refs/heads/master.zip &amp;&amp; unzip HYCOM-tools.zip &amp;&amp; mv HYCOM-tools-master HYCOM-tools</p>
+<h1 id="make_allcsh-this-creates-all-executables-in-all-source-directories-except-plot-and-those-that-depend-on-the-netcdf-library">Make_all.csh. This creates all executables in all source directories, except plot and those that depend on the NetCDF library</h1>
+<h1 id="running-make_ncdfcsh-in-the-hycom-tools-root-directory-creates-all-netcdf-executables-in-all-source-directories-including-hycom-toolsbin">Running Make_ncdf.csh in the HYCOM-tools root directory creates all netCDF executables in all source directories, including HYCOM-tools/bin</h1>
+<p>cd HYCOM-tools
+csh Make_clean.csh
+vim Make_all.src</p>
+<hr />
+<h2 id="setenv-arch-amdif">setenv ARCH amdIF</h2>
+<h2 id="vim-binmake_allcsh">vim bin/Make_all.csh</h2>
+<p>if ($OS == "Linux") then
+ setenv OS LinuxAIF</p>
+<hr />
+<p>csh Make_all.csh &gt;&amp; Make_all.log
+module avail
+vim Make_ncdf.src</p>
+<p>--- intel compiler
+module unload netcdf-fortran-4.6.0-intel-2021.8.0-5hpf7gh
+module unload netcdf-c-4.9.0-intel-2021.8.0-etqveet
+module   load netcdf-c-4.9.0-intel-2021.8.0-etqveet
+module   load netcdf-fortran-4.6.0-intel-2021.8.0-5hpf7gh
+module   list
+setenv NCDFC     /home/smci/spack/opt/spack/linux-rhel8-zen2/intel-2021.8.0/netcdf-c-4.9.0-etqveetgf6tzouaveywcqkxgnqb6ef47
+setenv NCDF      /home/smci/spack/opt/spack/linux-rhel8-zen2/intel-2021.8.0/netcdf-fortran-4.6.0-5hpf7gh76cytq6q7ob5rymcay3gj6qu3
+setenv EXTRANCDF "-L${NCDFC}/lib -L${NCDF}/lib -lnetcdf -lnetcdff" </p>
+<hr />
+<p>--- gcc</p>
+<h1 id="module-load-costinit">module   load costinit</h1>
+<p>module unload netcdf-fortran-4.6.0-gcc-8.5.0-inxalsx
+module unload netcdf-c-4.9.0-gcc-8.5.0-2qwncum
+module   load netcdf-c-4.9.0-gcc-8.5.0-2qwncum
+module   load netcdf-fortran-4.6.0-gcc-8.5.0-inxalsx
+module   list
+setenv NCDFC     /home/smci/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/netcdf-c-4.9.0-2qwncumfartt3qrjqpixzxgipxs3hgrq
+setenv NCDF      /home/smci/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/netcdf-fortran-4.6.0-inxalsxzrfxb4q4nposghyu44gpw4vuy
+setenv EXTRANCDF "-L${NCDFC}/lib -L${NCDF}/lib -lnetcdf -lnetcdff" </p>
+<hr />
+<h2 id="vim-binmake_ncdfcsh">vim bin/Make_ncdf.csh</h2>
+<p>if ($OS == "Linux") then
+ setenv OS LinuxAIF</p>
+<hr />
+<p>cat config/amdIF_setup
+csh Make_ncdf.csh &gt;&amp; Make_ncdf.log
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>### run GLBt0.72
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>#### data preparation
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>``` bash=
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sed -i &#39;s|setenv S  /p/work1/${user}|setenv S  /home/smci|g&#39; /home/smci/HYCOM-examples/GLBt0.72/datasets/get_datasets.csh
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>csh get_datasets.csh
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a># All the input files for the GLBt0.72 configuration can be downloaded from the HYCOM.org website through the GLBt0.72/datasets/get_datasets.csh script.
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a># Maybe option
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a># https://github.com/HYCOM/HYCOM-examples/wiki/GLBt0.72#how-to-create-forcing-and-relax-files-for-glbt072
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>export PATH=$PATH:/home/smci/HYCOM-tools/bin
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(spack location -i netcdf-c@4.9.0%intel)/lib:$(spack location -i netcdf-fortran@4.6.0%intel)/lib
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>cd /home/smci/HYCOM-examples/GLBt0.72/topo &amp;&amp; sed -i &#39;s|setenv SP  /p/work1/${user}|setenv SP  /home/smci|g&#39; *.csh
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>find /home/smci/HYCOM-examples/GLBt0.72/topo/ -type f -name &quot;regional.grid.csh&quot; -execdir csh {} \;
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>cd /home/smci/HYCOM-examples/GLBt0.72/force &amp;&amp; sed -i &#39;s|setenv SP  /p/work1/${user}|setenv SP  /home/smci|g&#39; *.csh
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>find /home/smci/HYCOM-examples/GLBt0.72/force/ -type f -name &quot;*.csh&quot; -execdir csh {} \;
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>cd /home/smci/HYCOM-examples/GLBt0.72/relax &amp;&amp; sed -i &#39;s|setenv SP  /p/work1/${user}|setenv SP  /home/smci|g&#39; EXPT.src
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>find /home/smci/HYCOM-examples/GLBt0.72/relax/ -type f -name &quot;iso_sigma*&quot; -execdir csh {} \;
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>find /home/smci/HYCOM-examples/GLBt0.72/relax/ -type f -name &quot;z_*&quot; -execdir csh {} \;
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>find /home/smci/HYCOM-examples/GLBt0.72/relax/ -type f -name &quot;relax*&quot; -execdir csh {} \;
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>find /home/smci/HYCOM-examples/GLBt0.72/relax/ -type f \( -name &quot;sefold*&quot; -o -name &quot;tbaric*&quot; -o -name &quot;thkdf4*&quot; \)
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a># in addition for mpi
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>cd /home/smci/HYCOM-examples/GLBt0.72/topo/partit/15 &amp;&amp; sed -i &#39;s|setenv DS /p/work1/${user}|setenv DS  /home/smci|g&#39; *.csh
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>csh depth_2d_Ssq.csh
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>csh size_S.csh
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>csh ppm1.csh
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>csh resize8.csh
+</span></code></pre></div></p>
+<h4 id="run-the-experiment">run the experiment</h4>
+<p>``` bash=</p>
+<h1 id="new-experiment-directory">new experiment directory</h1>
+<p>cd /home/smci/HYCOM-examples/GLBt0.72
+mkdir expt_02.0
+cp expt_01.2/new_expt.csh expt_02.0
+cd expt_02.0
+sed -i 's|setenv  O 011|setenv  O 012|g' new_expt.csh
+sed -i 's|setenv  N 012|setenv  N 020|g' new_expt.csh
+sed -i 's|setenv OS   HPE|setenv OS   Linux|g' new_expt.csh
+sed -i 's|setenv SCRN /p/work1/${user}|setenv SCRN /home/smci|g' new_expt.csh</p>
+<h1 id="build-hycom-binary-by-type">build hycom binary by type</h1>
+<h1 id="_1">...</h1>
+<h1 id="_2">...</h1>
+<h1 id="set-up-and-ready-to-run">set up and ready to run</h1>
+<p>csh new_expt.csh
+sed -i 's|setenv QSUBMIT ~wallcraf/bin/q_navo|setenv QSUBMIT /bin/csh|g' EXPT.src
+vim GLBt0.72/expt_02.0/blkdat.input
+===
+   5.0    'hybthn' = HYBGEN: ratio of layer thicknesses to select the thiner
+   3      'hybmap' = HYBGEN: remapper  flag (0=PCM, 1=PLM,  2=PPM, 3=WENO-like)
+===</p>
+<p>vim EXPT.src
+vim 020.csh</p>
+<h1 id="type-one">type one</h1>
+<p>===
+C --- Set parallel configuration, see ../README/README.expt_parallel.
+C --- NOMP = number of OpenMP threads, 0 for no OpenMP, 1 for inactive OpenMP
+C --- NMPI = number of MPI    tasks,   0 for no MPI
+C
+switch ($OS)
+case 'Linux':
+  setenv NOMP 0
+  setenv NMPI 0
+  breaksw</p>
+<p>setenv A "a"
+setenv B "b"
+setenv Y01 "011"
+setenv YXX "011"</p>
+<p>if ($NOMP == 0) then
+  setenv NOMP 0
+endif
+===</p>
+<h1 id="type-mpi">type mpi</h1>
+<p>===
+C --- Set parallel configuration, see ../README/README.expt_parallel.
+C --- NOMP = number of OpenMP threads, 0 for no OpenMP, 1 for inactive OpenMP
+C --- NMPI = number of MPI    tasks,   0 for no MPI
+C
+switch ($OS)
+case 'Linux':
+  setenv NOMP 0
+  setenv NMPI 16
+  breaksw</p>
+<p>setenv A "a"
+setenv B "b"
+setenv Y01 "011"
+setenv YXX "011"
+===</p>
+<p>spack load openmpi@4.1.5 %intel
+export PATH=$PATH:/home/smci/HYCOM-tools/bin
+nohup csh 020.csh &gt;&amp; results.log &amp;</p>
+<h1 id="check-if-run-successfully">check if run successfully</h1>
+<p>grep "^normal stop" data/summary_out
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>#### build hycom binary by type
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>type is one
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>``` bash=
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>git clone --recursive https://github.com/HYCOM/HYCOM-src.git /home/smci/HYCOM-examples/GLBt0.72/src_2.3.01-17tsig2_relo_one
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>cd /home/smci/HYCOM-examples/GLBt0.72/src_2.3.01-17tsig2_relo_one
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>module avail
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>vim Make.csh
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a># ARCH xc40-intel-relo_one is from config/xc40-intel-relo_one
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>--- HPE
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>unset echo
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>module purge
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>#module load compiler/intel/2017.4.196
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>#module load compiler/intel/2023.0.0
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>#module load mpt/2.16
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>module load intel-oneapi-compilers-2023.0.0-gcc-8.5.0-7ccmh6l
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>module list
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>set echo
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>setenv ARCH xc40-intel-relo_one
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>---
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>rm *.o *.mod *.log hycom
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>csh Make.csh &gt;&amp; Make_hycom.log
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>ls -la hycom
+</span></code></pre></div></p>
+<p>type is mpi
+``` bash=
+git clone --recursive https://github.com/HYCOM/HYCOM-src.git /home/smci/HYCOM-examples/GLBt0.72/src_2.3.01-17tsig2_relo_mpi
+cd /home/smci/HYCOM-examples/GLBt0.72/src_2.3.01-17tsig2_relo_mpi
+module avail
+vim Make.csh</p>
+<h1 id="arch-intelsse-impi-sm-relo-is-from-configintelsse-impi-sm-relo">ARCH intelsse-impi-sm-relo is from config/intelsse-impi-sm-relo</h1>
+<hr />
+<p>setenv OCN_EOS -DEOS_9T  ## EOS  9-term</p>
+<h1 id="setenv-ocn_eos-deos_17t-eos-17-term">setenv OCN_EOS -DEOS_17T ## EOS 17-term</h1>
+<p>setenv OCN_GLB -DARCTIC ## global tripolar simulation</p>
+<h1 id="setenv-ocn_glb">setenv OCN_GLB ""</h1>
+<hr />
+<p>--- OPENMPI
+unset echo
+module purge
+module load intel-oneapi-compilers-2023.0.0-gcc-8.5.0-7ccmh6l
+module load openmpi-4.1.5-intel-2021.8.0-v2iv375
+module list
+set echo
+setenv ARCH intelsse-impi-sm-relo</p>
+<hr />
+<p>rm <em>.o </em>.mod *.log hycom
+csh Make.csh &gt;&amp; Make_hycom.log
+ls -la hycom
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>config/intelsse-impi-sm-relo_mpi
+</span></code></pre></div>
+FC            = mpifort</p>
+<h1 id="fcfflags-traceback-xsse42-o3-fp-model-source-r8-warn-nogeneral-mcmodelsmall">FCFFLAGS      =        -traceback -xSSE4.2 -O3 -fp-model source -r8 -warn nogeneral -mcmodel=small</h1>
+<p>FCFFLAGS      = -traceback  -O3 -fp-model source -r8 -warn nogeneral -mcmodel=small
+CC            = icc</p>
+<h1 id="ccflags-traceback-xsse42-o-mcmodelsmall">CCFLAGS       =        -traceback -xSSE4.2 -O -mcmodel=small</h1>
+<p>CCFLAGS       = -traceback -O -mcmodel=small
+CPP           = cpp -P
+CPPFLAGS      = -DREAL8 -DMPI -DSERIAL_IO -DENDIAN_IO -DNAN2003 -DTIMER -DRELO $(CPP_EXTRAS)
+LD            = $(FC)
+LDFLAGS       = -V $(FCFFLAGS) -static-intel
+EXTRALIBS     =</p>
+<h1 id="_3"></h1>
+<h1 id="-generic-make-definitions">--- generic make definitions</h1>
+<h1 id="_4"></h1>
+<p>SHELL         = /bin/sh
+RM            = \rm -f</p>
+<h1 id="_5"></h1>
+<h1 id="rules">rules.</h1>
+<h1 id="_6"></h1>
+<p>.c.o:
+        $(CC) $(CPPFLAGS) $(CCFLAGS)  -c $*.c</p>
+<p>.F90.o:
+        $(FC) $(CPPFLAGS) $(FCFFLAGS) -c $*.F90
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>### run GOMb0.08
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>#### data preparation
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>``` bash=
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>sed -i &#39;s|setenv S  /p/work1/${user}|setenv S  /home/${user}|g&#39; /home/smci/HYCOM-examples/GLBt0.72/datasets/get_datasets.csh
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>csh get_datasets.csh
+</span></code></pre></div></p>
+<h4 id="run-the-experiment_1">run the experiment</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>/home/smci/HYCOM-examples/GOMb0.08
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>mkdir<span class="w"> </span>expt_02.0
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>cp<span class="w"> </span>expt_01.0/new_expt.csh<span class="w"> </span>expt_02.0
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">cd</span><span class="w"> </span>expt_02.0
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|setenv  O 011|setenv  O 012|g&#39;</span><span class="w"> </span>new_expt.csh
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|setenv  N 012|setenv  N 020|g&#39;</span><span class="w"> </span>new_expt.csh
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|setenv OS   HPE|setenv OS   Linux|g&#39;</span><span class="w"> </span>new_expt.csh
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|setenv SCRN /p/work1/${user}|setenv SCRN /home/${user}|g&#39;</span><span class="w"> </span>new_expt.csh
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|setenv W  /p/work1/abozec|setenv SCRN /home/${user}|g&#39;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1"># build hycom binary</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/HYCOM/HYCOM-src.git<span class="w"> </span>/home/smci/HYCOM-examples/GOMb0.08/src_2.3.01_relo_mpi
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>vim<span class="w"> </span>Make.csh
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>---
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="c1">#setenv OCN_EOS -DEOS_9T  ## EOS  9-term</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>setenv<span class="w"> </span>OCN_EOS<span class="w"> </span>-DEOS_17T<span class="w"> </span><span class="c1">## EOS 17-term</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="c1">#setenv OCN_GLB -DARCTIC ## global tripolar simulation</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>setenv<span class="w"> </span>OCN_GLB<span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>---
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>---<span class="w"> </span>OPENMPI
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="nb">unset</span><span class="w"> </span><span class="nb">echo</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>module<span class="w"> </span>purge
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>module<span class="w"> </span>load<span class="w"> </span>intel-oneapi-compilers-2023.0.0-gcc-8.5.0-7ccmh6l
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>module<span class="w"> </span>load<span class="w"> </span>openmpi-4.1.5-intel-2021.8.0-v2iv375
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>module<span class="w"> </span>list
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="nb">set</span><span class="w"> </span><span class="nb">echo</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="c1"># ARCH smci-intel-sm-relo is from config/smci-intel-sm-relo</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>setenv<span class="w"> </span>ARCH<span class="w"> </span>smci-intel-sm-relo
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>---
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>rm<span class="w"> </span>*.o<span class="w"> </span>*.mod<span class="w"> </span>*.log<span class="w"> </span>hycom
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>csh<span class="w"> </span>Make.csh<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>Make_hycom.log
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>ls<span class="w"> </span>-la<span class="w"> </span>hycom
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="c1"># set up and ready to run</span>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="nb">cd</span><span class="w"> </span>../expt_02.0
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>csh<span class="w"> </span>new_expt.csh
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s|setenv QSUBMIT ~wallcraf/bin/q_navo|setenv QSUBMIT /bin/csh|g&#39;</span><span class="w"> </span>EXPT.src
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>vim<span class="w"> </span>GOMb0.08/expt_02.0/blkdat.input
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>---
+</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a><span class="w">   </span><span class="m">1</span>.0<span class="w">    </span><span class="s1">&#39;hybthn&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>HYBGEN:<span class="w"> </span>ratio<span class="w"> </span>of<span class="w"> </span>layer<span class="w"> </span>thicknesses<span class="w"> </span>to<span class="w"> </span><span class="k">select</span><span class="w"> </span>the<span class="w"> </span>thiner
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a><span class="w">   </span><span class="m">3</span><span class="w">      </span><span class="s1">&#39;hybmap&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>HYBGEN:<span class="w"> </span>remapper<span class="w">  </span>flag<span class="w"> </span><span class="o">(</span><span class="nv">0</span><span class="o">=</span>PCM,<span class="w"> </span><span class="nv">1</span><span class="o">=</span>PLM,<span class="w">  </span><span class="nv">2</span><span class="o">=</span>PPM,<span class="w"> </span><span class="nv">3</span><span class="o">=</span>WENO-like<span class="o">)</span>
+</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a><span class="w">   </span>...
+</span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a><span class="w">   </span><span class="m">0</span><span class="w">      </span><span class="s1">&#39;sshflg&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>diagnostic<span class="w"> </span>SSH<span class="w"> </span>flag<span class="w"> </span><span class="o">(</span><span class="nv">0</span><span class="o">=</span>SSH,1<span class="o">=</span>SSH<span class="p">&amp;</span>stericSSH,2<span class="o">=</span>SSH<span class="p">&amp;</span>stericMONTG<span class="o">)</span>
+</span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>---
+</span><span id="__span-4-49"><a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a>
+</span><span id="__span-4-50"><a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a>vim<span class="w"> </span><span class="m">020</span>.csh
+</span><span id="__span-4-51"><a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a><span class="c1"># type mpi</span>
+</span><span id="__span-4-52"><a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a><span class="o">===</span>
+</span><span id="__span-4-53"><a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a>C<span class="w"> </span>---<span class="w"> </span>Set<span class="w"> </span>parallel<span class="w"> </span>configuration,<span class="w"> </span>see<span class="w"> </span>../README/README.expt_parallel.
+</span><span id="__span-4-54"><a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a>C<span class="w"> </span>---<span class="w"> </span><span class="nv">NOMP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>OpenMP<span class="w"> </span>threads,<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>no<span class="w"> </span>OpenMP,<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>inactive<span class="w"> </span>OpenMP
+</span><span id="__span-4-55"><a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a>C<span class="w"> </span>---<span class="w"> </span><span class="nv">NMPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>MPI<span class="w">    </span>tasks,<span class="w">   </span><span class="m">0</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>no<span class="w"> </span>MPI
+</span><span id="__span-4-56"><a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>C
+</span><span id="__span-4-57"><a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>switch<span class="w"> </span><span class="o">(</span><span class="nv">$OS</span><span class="o">)</span>
+</span><span id="__span-4-58"><a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a><span class="k">case</span><span class="w"> </span><span class="s1">&#39;Linux&#39;</span>:
+</span><span id="__span-4-59"><a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a><span class="w">  </span>setenv<span class="w"> </span>NOMP<span class="w"> </span><span class="m">0</span>
+</span><span id="__span-4-60"><a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a><span class="w">  </span>setenv<span class="w"> </span>NMPI<span class="w"> </span><span class="m">16</span>
+</span><span id="__span-4-61"><a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a><span class="w">  </span>breaksw
+</span><span id="__span-4-62"><a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a>
+</span><span id="__span-4-63"><a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a>setenv<span class="w"> </span>A<span class="w"> </span><span class="s2">&quot;a&quot;</span>
+</span><span id="__span-4-64"><a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a>setenv<span class="w"> </span>B<span class="w"> </span><span class="s2">&quot;b&quot;</span>
+</span><span id="__span-4-65"><a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a>setenv<span class="w"> </span>Y01<span class="w"> </span><span class="s2">&quot;011&quot;</span>
+</span><span id="__span-4-66"><a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a>setenv<span class="w"> </span>YXX<span class="w"> </span><span class="s2">&quot;011&quot;</span>
+</span><span id="__span-4-67"><a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a><span class="o">===</span>
+</span><span id="__span-4-68"><a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a>
+</span><span id="__span-4-69"><a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a><span class="nb">cd</span><span class="w"> </span>expt_02.0<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>touch<span class="w"> </span>020y011a.limits<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;-3653.00000  3684.00000&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>020y011a.limits
+</span><span id="__span-4-70"><a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a>
+</span><span id="__span-4-71"><a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a><span class="c1"># begin to run</span>
+</span><span id="__span-4-72"><a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a>spack<span class="w"> </span>load<span class="w"> </span>openmpi@4.1.5<span class="w"> </span>%intel
+</span><span id="__span-4-73"><a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/home/smci/HYCOM-tools/bin
+</span><span id="__span-4-74"><a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a>nohup<span class="w"> </span>csh<span class="w"> </span><span class="m">020</span>.csh<span class="w"> </span>&gt;<span class="p">&amp;</span><span class="w"> </span>results.log<span class="w"> </span><span class="p">&amp;</span>
+</span><span id="__span-4-75"><a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a>
+</span><span id="__span-4-76"><a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a><span class="c1"># check if run successfully</span>
+</span><span id="__span-4-77"><a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a>grep<span class="w"> </span><span class="s2">&quot;^normal stop&quot;</span><span class="w"> </span>data/summary_out
+</span></code></pre></div>
+<p>config/smci-intel-sm-relo_mpi
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>#
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a># ---------------------------------------------------------------------------
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a># common definitions for Intel Fortran and MPI, small memory, real*8
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a># -fp-model source to maintain bit for bit equality for all NMPI values
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a># On IBM iDATAPlex, use the mpi/intel/impi module
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a># Emulate SGI Altix ICE on IBM iDataPlex using -xSSE4.2
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a># version that uses Serial I/O for HYCOM
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a># relocatable version
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a># ---------------------------------------------------------------------------
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>#
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a># MACROS      DESCRIPTIONS:
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>#
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a># FC:         Fortran 90 compiler.
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a># FCFFLAGS:   Fortran 90 compilation flags.
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a># CC:         C compiler.
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a># CCFLAGS:    C compilation flags.
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a># CPP:        cpp preprocessor (may be implied by FC).
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a># CPPFLAGS:   cpp -D macro flags.
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a># LD:         Loader.
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a># LDFLAGS:    Loader flags.
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a># EXTRALIBS:  Extra local libraries (if any).
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>#
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>FC            = mpifort
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>#FCFFLAGS      =        -traceback -xSSE4.2 -O3 -fp-model source -r8 -warn nogeneral -mcmodel=small
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>FCFFLAGS      = -traceback  -O3 -fp-model source -r8 -warn nogeneral -mcmodel=small
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>CC            = icc
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>#CCFLAGS       =        -traceback -xSSE4.2 -O -mcmodel=small
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>CCFLAGS       = -traceback -O -mcmodel=small
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>CPP           = cpp -P
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>CPPFLAGS      = -DREAL8 -DMPI -DSERIAL_IO -DENDIAN_IO -DNAN2003 -DTIMER -DRELO $(CPP_EXTRAS)
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>LD            = $(FC)
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>LDFLAGS       = -V $(FCFFLAGS) -static-intel
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>EXTRALIBS     =
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>#
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a># --- generic make definitions
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>#
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>SHELL         = /bin/sh
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>RM            = \rm -f
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>#
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a># rules.
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>#
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>
+</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>.c.o:
+</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>        $(CC) $(CPPFLAGS) $(CCFLAGS)  -c $*.c
+</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>
+</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a>.F90.o:
+</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a>        $(FC) $(CPPFLAGS) $(FCFFLAGS) -c $*.F90
+</span></code></pre></div></p>
+<h2 id="error">error</h2>
+<h3 id="run-type-one">run type one</h3>
+<h4 id="error-in-blkinr-input-hybmap-but-should-be-hybthn">error in blkinr - input hybmap but should be hybthn</h4>
+<p>https://github.com/HYCOM/HYCOM-src/commit/8d247021484c5cb7f8ded897c1e2020c028ef7e9
+edit GLBt0.72/expt_02.0/blkdat.input</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>1.0    &#39;hybthn&#39; = HYBGEN: ratio of layer thicknesses to select the thiner
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>3      &#39;hybmap&#39; = HYBGEN: remapper  flag (0=PCM, 1=PLM,  2=PPM, 3=WENO-like)
+</span></code></pre></div>
+<h4 id="error-neg-depm-1000">error: neg. dep(m) &lt; -10.00</h4>
+<ul>
+<li><a href="https://groups.google.com/a/hycom.org/g/forum/c/v6Td26K4fvw">error: neg. dep(m) &lt; -10.00</a></li>
+<li><a href="https://groups.google.com/a/hycom.org/g/forum/c/KWAPIMZFk7U">Error running GLBt0.72</a></li>
+</ul>
+<p>method 1: add dp00x in GLBt0.72/expt_02.0/blkdat.input
+100.00   'dp00x ' = deep z-level spacing maximum thickness (m)
+=&gt; error in blkinr - input dp00x  but should be isotop</p>
+<p>method 2: change isotop in GLBt0.72/expt_02.0/blkdat.input
+83.0    'isotop' = shallowest depth for isopycnal layers (m), &lt;0 from file =&gt; 100.0    'isotop' = shallowest depth for isopycnal layers (m), &lt;0 from file 
+=&gt; error: neg. dep(m) &lt; -10.00</p>
+<p>method 3: change sefold in GLBt0.72/expt_02.0/blkdat.input
+-365.0  'sefold' = e-folding time                  for SSS relaxation (days) =&gt; 0.3  'sefold' = e-folding time                  for SSS relaxation (days)
+=&gt; error: neg. dp (m) &lt;    -10.00</p>
+<p>method 4: build hycom with amd-intel-relo_one(copy FCFFLAGS, CCFLAGS, CPPFLAGS from HYCON-tools/config/amdIF_setup)
+=&gt; error: neg. dp (m) &lt;    -10.00</p>
+<h3 id="run-type-mpi">run type mpi</h3>
+<h4 id="xcspmd-patchinput-for-wrong-nreg">xcspmd: patch.input for wrong nreg</h4>
+<ul>
+<li><a href="https://groups.google.com/a/hycom.org/g/forum/c/-8eLGdW-i8A">ATTN: Alan Wallcraft</a></li>
+</ul>
+<p>change the src_2.3.01-17tsig2_relo_mpi/Make.csh
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>setenv OCN_EOS -DEOS_9T  ## EOS  9-term
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>#setenv OCN_EOS -DEOS_17T ## EOS 17-term
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>setenv OCN_GLB -DARCTIC ## global tripolar simulation
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>#setenv OCN_GLB &quot;&quot;
+</span></code></pre></div>
+=&gt; xcspmd: patch.input for wrong nreg</p>
+<h4 id="error-in-rdmonth-hit-end-of-input">error in rdmonth - hit end of input</h4>
+<ul>
+<li>https://groups.google.com/a/hycom.org/g/forum/c/KWAPIMZFk7U/m/T8ahkU1fEQAJ</li>
+</ul>
+<p>blkdat.input
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>0      &#39;sshflg&#39; = diagnostic SSH flag (0=SSH,1=SSH&amp;stericSSH,2=SSH&amp;stericMONTG)
+</span></code></pre></div></p>
+<h4 id="xcspmd-patchinput-must-be-for-arctic">xcspmd: patch.input must be for arctic,</h4>
+<p>https://groups.google.com/a/hycom.org/g/forum/c/ywUlB7pSalE/m/2OsN9j5JBQAJ</p>
+<h4 id="forrtl-severe-24-end-of-file-during-read-unit-2911-file-homesanyahycomscsp008expt_010datascratchrelaxtempb">forrtl: severe (24): end-of-file during read, unit 2911, file /home/sanya/hycom/SCSp0.08/expt_01.0/data/SCRATCH/./relax.temp.b.</h4>
+<p>https://groups.google.com/a/hycom.org/g/forum/c/KWA19-48uHg/m/_MYGMGImBAAJ
+check the datasets/relax if correct soft link</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>datasets/relax/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unlink<span class="w"> </span><span class="m">020</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span><span class="m">010</span><span class="w"> </span><span class="m">020</span>
+</span></code></pre></div>
+<h4 id="error-in-zaiopf-cant-open-unit-11-for-array-io-cfile-restart_ina">error in zaiopf -  can't open unit  11, for array I/O. cfile = restart_in.a</h4>
+<p>https://groups.google.com/a/hycom.org/g/forum/c/ccOVIBW2LnM/m/J7S41TCWBgAJ
+Is this the first month of the run?  If so, the limits file should have a negative (or zero) 1st entry and it is typically from a file like 011y011a.limits. This signals that the initial state is from climatology, not from a restart file.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>C
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>C --- local input files.
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>C
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>if ( -e /home/smci/HYCOM-examples/GLBt0.72/expt_02.0/data/../020y011a.limits ) then
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>/bin/cp /home/smci/HYCOM-examples/GLBt0.72/expt_02.0/data/../020y011a.limits limits
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>else
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>cat GLBt0.72/expt_02.0/data/limits
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>-3653.00000  3684.00000
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>C
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>C --- local input files.
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>C
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>if ( -e /home/smci/HYCOM-examples/GOMb0.08/expt_02.0/data/../020y011a.limits ) then
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>echo LIMITS
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>awk -f /home/smci/HYCOM-examples/GOMb0.08/expt_02.0/data/../020.awk y01=011 ab=a
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>endif
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>cat GOMb0.08/expt_02.0/data/limits
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>     3653.00000     3684.00000
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>C
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cd GOMb0.08/expt_02.0 &amp;&amp; touch 020y011a.limits &amp;&amp; echo &quot;-3653.00000  3684.00000&quot; &gt; 020y011a.limits
+</span></code></pre></div>
+<h2 id="amd-cpu-with-intel-compiler">AMD CPU with intel compiler</h2>
+<p>HYCOM-tools/Make_all.src
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>setenv ARCH amdIF
+</span></code></pre></div></p>
+<p>HYCOM-tools/Make_ncdf.src
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>module unload netcdf-fortran-4.6.0-intel-2021.8.0-5hpf7gh
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>module unload netcdf-c-4.9.0-intel-2021.8.0-etqveet
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>module   load netcdf-c-4.9.0-intel-2021.8.0-etqveet
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>module   load netcdf-fortran-4.6.0-intel-2021.8.0-5hpf7gh
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>setenv NCDFC     /home/smci/spack/opt/spack/linux-rhel8-zen2/intel-2021.8.0/netcdf-c-4.9.0-etqveetgf6tzouaveywcqkxgnqb6ef47
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>setenv NCDF      /home/smci/spack/opt/spack/linux-rhel8-zen2/intel-2021.8.0/netcdf-fortran-4.6.0-5hpf7gh76cytq6q7ob5rymcay3gj6qu3
+</span></code></pre></div></p>
+<p>HYCOM-tools/bin/Make_all.csh
+HYCOM-tools/bin/Make_ncdf.csh
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>if ($OS == &quot;Linux&quot;) then
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a> setenv OS LinuxAIF
+</span></code></pre></div></p>
+<h3 id="hycom-binary-from-openmpi">hycom binary from openmpi</h3>
+<p>HYCOM-examples/GLBt0.72/src_2.3.01-17tsig2_relo_mpi/Make.csh
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>unset echo
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>module purge
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>module load intel-oneapi-compilers-2023.0.0-gcc-8.5.0-7ccmh6l
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>module load openmpi-4.1.5-intel-2021.8.0-v2iv375
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>module list
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>set echo
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>setenv ARCH intelsse-impi-sm-relo
+</span></code></pre></div></p>
+<p>HYCOM-examples/GLBt0.72/src_2.3.01-17tsig2_relo_mpi/config/intelsse-impi-sm-relo_mpi
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>FC            = mpifort
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>#FCFFLAGS      =        -traceback -xSSE4.2 -O3 -fp-model source -r8 -warn nogeneral -mcmodel=small
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>FCFFLAGS      = -traceback  -O3 -fp-model source -r8 -warn nogeneral -mcmodel=small
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>CC            = icc
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>#CCFLAGS       =        -traceback -xSSE4.2 -O -mcmodel=small
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>CCFLAGS       = -traceback -O -mcmodel=small
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>CPP           = cpp -P
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>CPPFLAGS      = -DREAL8 -DMPI -DSERIAL_IO -DENDIAN_IO -DNAN2003 -DTIMER -DRELO $(CPP_EXTRAS)
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>LD            = $(FC)
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>LDFLAGS       = -V $(FCFFLAGS) -static-intel
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>EXTRALIBS     =
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>#
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a># --- generic make definitions
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>#
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>SHELL         = /bin/sh
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>RM            = \rm -f
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>#
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a># rules.
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>#
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>.c.o:
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>        $(CC) $(CPPFLAGS) $(CCFLAGS)  -c $*.c
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>.F90.o:
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>        $(FC) $(CPPFLAGS) $(FCFFLAGS) -c $*.F90
+</span></code></pre></div></p>
+<h2 id="amd-cpu-with-gnu-compiler">AMD CPU with GNU compiler</h2>
+<p>HYCOM-tools/Make_all.src
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>setenv ARCH amdIF
+</span></code></pre></div></p>
+<p>HYCOM-tools/Make_ncdf.src
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>module unload netcdf-fortran-4.6.0-gcc-8.5.0-inxalsx
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>module unload netcdf-c-4.9.0-gcc-8.5.0-2qwncum
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>module   load netcdf-c-4.9.0-gcc-8.5.0-2qwncum
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>module   load netcdf-fortran-4.6.0-gcc-8.5.0-inxalsx
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>setenv NCDFC     /home/smci/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/netcdf-c-4.9.0-2qwncumfartt3qrjqpixzxgipxs3hgrq
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>setenv NCDF      /home/smci/spack/opt/spack/linux-rhel8-zen/gcc-8.5.0/netcdf-fortran-4.6.0-inxalsxzrfxb4q4nposghyu44gpw4vuy
+</span></code></pre></div></p>
+<p>HYCOM-tools/bin/Make_all.csh
+HYCOM-tools/bin/Make_ncdf.csh
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>if ($OS == &quot;Linux&quot;) then
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a> setenv OS LinuxGF
+</span></code></pre></div></p>
+<h3 id="hycom-binary-from-openmpi_1">hycom binary from openmpi</h3>
+<p>HYCOM-examples/GLBt0.72/src_2.3.01-17tsig2_relo_mpi/Make.csh
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>unset echo
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>module purge
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>module load openmpi-4.1.5-gcc-8.5.0-uqgr6vy
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>module list
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>set echo
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>setenv ARCH aepyc-gnu-relo
+</span></code></pre></div></p>
+<p>HYCOM-examples/GLBt0.72/src_2.3.01-17tsig2_relo_mpi/config/aepyc-gnu-relo_mpi
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>FC            = mpif90
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>FCFFLAGS      = -fPIC -fno-second-underscore -O2 -mavx -m64 -fdefault-real-8 -fdefault-double-8
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>CC            = mpicc
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>CCFLAGS       = -O -m64
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>CPP           = cpp -P
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>CPPFLAGS      = -DREAL8 -DMPI -DSERIAL_IO -DENDIAN_IO -DNAN2003 -DTIMER -DRELO $(CPP_EXTRAS)
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>LD            = $(FC)
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>LDFLAGS       = $(FCFFLAGS)
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>EXTRALIBS     =
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>#
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a># --- generic make definitions
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>#
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>SHELL         = /bin/sh
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>RM            = \rm -f
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>#
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a># rules.
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>#
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>.c.o:
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>        $(CC) $(CPPFLAGS) $(CCFLAGS)  -c $*.c
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>
+</span><span id="__span-21-24"><a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>.F90.o:
+</span><span id="__span-21-25"><a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>        $(FC) $(CPPFLAGS) $(FCFFLAGS) -c $*.F90
+</span></code></pre></div></p>
+<h3 id="results">results</h3>
+<p>Note: The following floating-point exceptions are signalling: IEEE_INVALID_FLAG IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+STOP (xcstop)</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../HTTP/" class="md-footer__link md-footer__link--prev" aria-label="Previous: HTTP">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                HTTP
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../InfiniBand/" class="md-footer__link md-footer__link--next" aria-label="Next: InfiniBand">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                InfiniBand
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

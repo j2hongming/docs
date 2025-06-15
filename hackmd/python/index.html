@@ -1,0 +1,4119 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../python%20web/">
+      
+      
+        <link rel="next" href="../shell%20script/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>python - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              python
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome the docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hackmd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hackmd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google docs api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InfiniBand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Message Passing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nagios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus Repository Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Openstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RedHat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redfish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scrum筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bitwise world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud-init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Influxdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pacemaker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    podman
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dev-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      dev environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="dev environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    <span class="md-ellipsis">
+      build
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      各版本
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-developers-survey" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Developers Survey
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-hint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type hint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pypi" class="md-nav__link">
+    <span class="md-ellipsis">
+      PyPI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PyPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      hatch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call-by-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      call by what
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pycon" class="md-nav__link">
+    <span class="md-ellipsis">
+      PyCon
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pythonic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pythonic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error" class="md-nav__link">
+    <span class="md-ellipsis">
+      error
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pacakge" class="md-nav__link">
+    <span class="md-ellipsis">
+      pacakge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="pacakge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#offiline-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      offiline installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      參考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module" class="md-nav__link">
+    <span class="md-ellipsis">
+      module
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-vs-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      module vs class
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    <span class="md-ellipsis">
+      import
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="import">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      參考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      原生語法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="原生語法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      dictionary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shell script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用者體驗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    備份還原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    奇技淫巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    持續整合
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排列組合與機率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    機器學習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    正規表示法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    測試工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    無線網路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向實務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向系統分析與設計
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬體概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    程式本質
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系統的價值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    統計圖表的表達方式以及使用的範圍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    虛擬機器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料庫維運
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資訊安全
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體工程師的專業和通識
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體需求溝通
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dev-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      dev environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="dev environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    <span class="md-ellipsis">
+      build
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      各版本
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-developers-survey" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Developers Survey
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      performance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-hint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type hint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pypi" class="md-nav__link">
+    <span class="md-ellipsis">
+      PyPI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PyPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      hatch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call-by-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      call by what
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pycon" class="md-nav__link">
+    <span class="md-ellipsis">
+      PyCon
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pythonic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pythonic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error" class="md-nav__link">
+    <span class="md-ellipsis">
+      error
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pacakge" class="md-nav__link">
+    <span class="md-ellipsis">
+      pacakge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="pacakge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#offiline-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      offiline installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      參考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module" class="md-nav__link">
+    <span class="md-ellipsis">
+      module
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-vs-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      module vs class
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    <span class="md-ellipsis">
+      import
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="import">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      參考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      原生語法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="原生語法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      dictionary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="python">python</h1>
+<p>Instagram
+Pinkoi
+iCHEF
+carousell
+Dcard
+- <a href="https://www.youtube.com/watch?v=RLEKjVBSEEY&amp;list=PLqtzN042QpfcqkLGyhjvbsrpUXk5--LuF&amp;index=26">在 Dcard 我們如何用 Python 打造推薦系統｜陳子元｜PyCon Taiwan 2023 - YouTube</a>
+- <a href="https://speakerdeck.com/mosky/coding-is-magic">Coding Is Magic - Speaker Deck</a>
+- <a href="https://pythonbook.cc/">為你自己學 PYTHON | 為你自己學 PYTHON</a></p>
+<h2 id="dev-environment">dev environment</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># pip style</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pip<span class="w"> </span>freeze
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 檢查相依性</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>python<span class="w"> </span>-m<span class="w"> </span>requests.help
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># 安裝virtualenv</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span><span class="o">{</span>virtualenv<span class="w"> </span>dir<span class="o">}</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Test</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>python3<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;import math;print( math.sqrt( 512 * 1024 *1024 * 1024 * 0.85 / 8 ))&#39;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># simple http server</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>python<span class="w"> </span>-m<span class="w"> </span>http.server
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Pretty-Printing JSON with Python&#39;s JSON Tool</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>curl<span class="w"> </span>http://api.joind.in<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>json.tool
+</span></code></pre></div>
+<h3 id="build">build</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget liblzma-dev -y
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>curl https://pyenv.run | bash
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>cat &gt; ~/.bashrc &lt;&lt; EOF
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a># pyenv
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>command -v pyenv &gt;/dev/null || export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>eval &quot;$(pyenv init -)&quot;
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>eval &quot;$(pyenv virtualenv-init -)&quot;
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>EOF
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>source ~/.bashrc
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>pyenv install 3.10.4
+</span></code></pre></div>
+<h2 id="_1">各版本</h2>
+<ul>
+<li><a href="https://snarky.ca/a-reverse-chronology-of-some-python-features/">A reverse chronology of some Python features</a><ul>
+<li><a href="https://martinheinz.dev/blog/97">Real Multithreading is Coming to Python 3.12</a></li>
+<li><a href="https://www.nicholashairs.com/posts/major-changes-between-python-versions/">Summary of Major Changes Between Python Versions</a></li>
+<li><a href="https://blog.miguelgrinberg.com/post/is-python-really-that-slow">Is Python Really That Slow? - miguelgrinberg.com</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/vinta/awesome-python">awesome-python</a></li>
+<li><a href="https://github.com/Python-World/python-mini-projects">python-mini-projects</a></li>
+</ul>
+<h2 id="python-developers-survey">Python Developers Survey</h2>
+<ul>
+<li><a href="https://lp.jetbrains.com/python-developers-survey-2022/">Python Developers Survey 2022 Results</a></li>
+<li><a href="https://www.reddit.com/r/Python/comments/1h3jize/big_tech_best_practices/">Big Tech Best Practices : r/Python</a></li>
+</ul>
+<h2 id="performance">performance</h2>
+<ul>
+<li><a href="https://myapollo.com.tw/post/python-1brc/">好影片推薦 — How Fast can Python Parse 1 Billion Rows of Data? - MyApollo</a></li>
+<li><a href="https://myapollo.com.tw/post/python-time-complexities/">好文分享 — Python Big O: the time complexities of different data structures in Python - MyApollo</a><ul>
+<li><a href="https://www.pythonmorsels.com/time-complexities/">Python Big O: the time complexities of different data structures in Python - Python Morsels</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="layout">Layout</h2>
+<ul>
+<li><a href="https://realpython.com/python-application-layouts/">Python Application Layouts: A Reference</a><ul>
+<li>One-Off Script<ul>
+<li>You just make a .py script, and it’s gravy, right? No need to install—just run the script in its directory</li>
+</ul>
+</li>
+<li>Installable Single Package<ul>
+<li>Let’s imagine that helloworld.py is still the main script to execute, but you’ve moved all helper methods to a new file called helpers.py</li>
+</ul>
+</li>
+<li>Application with Internal Packages<ul>
+<li>In larger applications, you may have one or more internal packages that are either tied together with a main runner script or that provide specific functionality to a larger library you are packaging</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://blog.ionelmc.ro/2014/05/25/python-packaging/#the-structure">Packaging a python library</a></li>
+</ul>
+<h3 id="type-hint">Type hint</h3>
+<ul>
+<li><a href="https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html">Type hints cheat sheet (Python 3)</a></li>
+</ul>
+<h3 id="pypi">PyPI</h3>
+<ul>
+<li><a href="https://realpython.com/pypi-publish-python-package/">How to Publish an Open-Source Python Package to PyPI</a><ul>
+<li>The most common formats for distribution packages are source archives and Python wheels<ul>
+<li><a href="https://realpython.com/python-wheels/">What Are Python Wheels and Why Should You Care</a></li>
+</ul>
+</li>
+<li>setup.py + twine<ul>
+<li><code>python setup.py sdist bdist_wheel</code></li>
+<li><code>twine check dist/*</code></li>
+</ul>
+</li>
+<li>Cookiecutter</li>
+<li>Flit</li>
+<li>Poetry</li>
+<li><a href="https://realpython.com/python-wheels/">What Are Python Wheels and Why Should You Care</a></li>
+<li><a href="https://stackoverflow.com/questions/31401762/python-packaging-wheels-vs-tarball-tar-gz">Python packaging: wheels vs tarball (tar.gz)</a></li>
+</ul>
+</li>
+<li><a href="https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools">Packaging and distributing projects</a></li>
+<li><a href="https://medium.com/%E8%B3%87%E5%B7%A5%E7%AD%86%E8%A8%98/%E6%89%93%E5%8C%85python-module-%E5%88%B0pypi-%E4%B8%8A-aef1f73e1774">打包python module 到PYPI 上</a></li>
+<li><a href="https://www.youtube.com/watch?v=VCFb1Im43-w">PIP Install Local Package - PIP Install Wheel - PIP Install Packages Offline</a></li>
+<li><a href="https://stackoverflow.com/questions/7225900/how-can-i-install-packages-using-pip-according-to-the-requirements-txt-file-from">How can I install packages using pip according to the requirements.txt file from a local directory</a></li>
+<li><a href="https://ithome.com.tw/news/166832">PyPI隔離措施奏效，數月阻擋逾百惡意專案 | iThome</a><ul>
+<li><a href="https://www.ithome.com.tw/news/167206">駭客假借提供AI工具DeepSeek的名義，在PyPI散布惡意軟體，不到一小時就有逾200人上當 | iThome</a></li>
+</ul>
+</li>
+<li><a href="https://stackoverflow.com/questions/15031694/installing-python-packages-from-local-file-system-folder-to-virtualenv-with-pip">Installing Python packages from local file system folder to virtualenv with pip</a>
+```python=
+pip install -r requirements.txt --no-index --find-links file:///tmp/packages
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>### GIL
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>- [深入 GIL: 如何寫出快速且 thread-safe 的 Python - Grok the GIL: How to write fast and thread-safe Python | louie\_lu&#39;s blog](https://blog.louie.lu/2017/05/19/%e6%b7%b1%e5%85%a5-gil-%e5%a6%82%e4%bd%95%e5%af%ab%e5%87%ba%e5%bf%ab%e9%80%9f%e4%b8%94-thread-safe-%e7%9a%84-python-grok-the-gil-how-to-write-fast-and-thread-safe-python/)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>### 程式碼保護
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>- [如何保護你的python程式碼](https://zhuanlan.zhihu.com/p/54296517)
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>程式碼混淆: obfuscator
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>- [How to obfuscate Python code effectively](https://stackoverflow.com/questions/3344115/how-to-obfuscate-python-code-effectively)
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>- [Python Source Code Obfuscation](https://medium.com/geekculture/python-source-code-obfuscation-6b97f88a460d)
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>- [Python package obfuscation](https://stackoverflow.com/questions/68691077/python-package-obfuscation)
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>- [Distributing python packages protected with Cython](https://medium.com/swlh/distributing-python-packages-protected-with-cython-40fc29d84caf)
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>- [How to Deploy a Cython Package to PyPI](https://levelup.gitconnected.com/how-to-deploy-a-cython-package-to-pypi-8217a6581f09)
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>- [Publishing Proprietary Python Packages on PyPI Using Poetry](https://d39l7znklsxxzt.cloudfront.net/zh/blog/2021/01/19/publishing-a-proprietary-python-package-on-pypi-using-poetry/)
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>#### virtualenv
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>- [virtualenv的原理 | 卡瓦邦噶！](https://www.kawabangga.com/posts/3543)
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>- [你的 Python 包都装到哪了？ | Frost&#39;s Blog](https://frostming.com/2019/03-13/where-do-your-packages-go/)
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>#### venv
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>- [Python 虛擬環境--venv - DEV Community](https://dev.to/codemee/python-xu-ni-huan-jing-venv-nbg)
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>- [把 Python 的 venv 移到其他機器 | Pan in the Nutshell](https://blog.pan93.com/posts/move-venv-to-other-machines/)
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>#### pyenv
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>- [Python 版本管理的好工具 - pyenv - MyApollo](https://myapollo.com.tw/blog/pyenv/)
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>    - [GitHub - pyenv/pyenv-virtualenv: a pyenv plugin to manage virtualenv (a.k.a. python-virtualenv)](https://github.com/pyenv/pyenv-virtualenv)
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>    - [pyenv no module named &#39;\_sqlite3&#39; - DEV Community](https://dev.to/waylonwalker/pyenv-no-module-named-sqlite3-3ea2?comments_sort=latest)
+</span></code></pre></div>
+pyenv versions
+pyenv install --list
+pyenv install 3.10.8
+pyenv global 3.10.8</li>
+</ul>
+<p>pyenv virtualenvs
+pyenv virtualenv 3.10.0 ansible-playbook-graph
+pyenv activate ansible-playbook-graph
+pyenv deactivate
+pyenv uninstall ansible-playbook-graph
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>#### poetry
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>- [koko&#39;s Note – Python - 取代 Pipenv 的新套件管理器 Poetry](https://note.koko.guru/posts/using-poetry-manage-python-package-environments)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>- [再見了 pip！最佳 Python 套件管理器——Poetry 完全入門指南 - Code and Me](https://blog.kyomind.tw/python-poetry/)
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>- [Create and Publish a Python Package with Poetry](https://johnfraney.ca/blog/create-publish-python-package-poetry/)
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>- [Install](https://python-poetry.org/docs/#installation)
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>```bash=
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>curl -sSL https://install.python-poetry.org | python -
+</span></code></pre></div></p>
+<h4 id="hatch">hatch</h4>
+<ul>
+<li><a href="https://github.com/pypa/hatch">GitHub - pypa/hatch: Modern, extensible Python project management</a></li>
+</ul>
+<h3 id="call-by-what">call by what</h3>
+<ul>
+<li><a href="https://nedbatchelder.com/text/names1.html">Python Names and Values</a></li>
+</ul>
+<h2 id="pycon">PyCon</h2>
+<ul>
+<li><a href="https://www.youtube.com/playlist?list=PLqtzN042QpfcqkLGyhjvbsrpUXk5--LuF">PyCon Taiwan 2023 - YouTube</a></li>
+</ul>
+<h2 id="pythonic">Pythonic</h2>
+<ul>
+<li><a href="https://www.mropengate.com/2020/07/pythonic-python.html">Pythonic 實踐：實用的 python 慣用法整理 | Mr. Opengate</a></li>
+<li><a href="https://frostming.com/2022/friendly-python-oop/">友好的 Python：面向对象接口 | Frost's Blog</a></li>
+<li><a href="https://frostming.com/2021/07-07/friendly-python-1/#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83">友好的 Python：扩展友好 | Frost's Blog</a></li>
+</ul>
+<h2 id="error">error</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/27022373/python3-importerror-no-module-named-ctypes-when-using-value-from-module-mul">python - Python3: ImportError: No module named '_ctypes' when using Value from module multiprocessing - Stack Overflow</a></li>
+<li><a href="https://blog.miguelgrinberg.com/post/the-ultimate-guide-to-error-handling-in-python">The Ultimate Guide to Error Handling in Python - miguelgrinberg.com</a></li>
+</ul>
+<h2 id="pacakge">pacakge</h2>
+<blockquote>
+<p>Python defines two types of packages, regular packages and namespace packages. Regular packages are traditional packages as they existed in Python 3.2 and earlier. A regular package is typically implemented as a directory containing an __init__.py</p>
+</blockquote>
+<h3 id="offiline-installation">offiline installation</h3>
+<ul>
+<li>https://superuser.com/questions/1523218/how-to-install-python-packages-with-all-dependencies-offline-via-pip3</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python3 -m pip download ansible -d /tmp/ansible-offiline
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python3 -m pip install --no-index --find-links /tmp/ansible-offiline ansible
+</span></code></pre></div>
+<h3 id="_2">參考</h3>
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/modules.html#packages">python docs</a></li>
+<li>__init__.py<ul>
+<li><a href="https://realpython.com/python-modules-packages/">Python Modules and Packages – An Introduction</a><ul>
+<li>This can be used for execution of package initialization code, such as initialization of package-level data</li>
+<li>__init__.py can also be used to effect automatic importing of modules from a package.</li>
+</ul>
+</li>
+<li><a href="https://stackoverflow.com/questions/448271/what-is-init-py-for">What is __init__.py for?</a></li>
+<li><a href="https://www.reddit.com/r/Python/comments/1bbbwk/whats_your_opinion_on_what_to_include_in_init_py/">What's your opinion on what to include in __init__.py ?</a></li>
+</ul>
+</li>
+<li>organizie<ul>
+<li><a href="https://docs.python-guide.org/writing/structure/#modules">Structuring Your Project</a></li>
+<li><a href="https://stackoverflow.com/questions/1801878/the-pythonic-way-of-organizing-modules-and-packages">The Pythonic way of organizing modules and packages</a></li>
+</ul>
+</li>
+<li><a href="https://stackoverflow.com/questions/44834/can-someone-explain-all-in-python">Can someone explain __all__ in Python?</a></li>
+<li><a href="https://medium.com/@will.wang/%E6%92%A5%E9%96%8B-python-pip-site-packages-%E7%9A%84%E8%97%8D%E8%89%B2%E8%9C%98%E8%9B%9B%E7%B6%B2-90e398bb3785">撥開 Python, pip, site-packages 的藍色蜘蛛網</a></li>
+<li>:star: <a href="https://mathspp.com/blog/how-to-create-a-python-package-in-2022">How to create a Python package in 2022 | Mathspp</a></li>
+</ul>
+<h2 id="module">module</h2>
+<h3 id="module-vs-class">module vs class</h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/40929959/why-use-python-classes-over-modules-with-functions">Why use python classes over modules with functions</a></li>
+<li><a href="https://stackoverflow.com/questions/43183244/difference-between-module-and-class-in-python">Difference between Module and Class in Python</a></li>
+<li><a href="https://stackoverflow.com/questions/600190/choosing-between-modules-and-classes">choosing between Modules and Classes</a></li>
+<li><a href="https://softwareengineering.stackexchange.com/questions/329348/classes-vs-modules-in-python">Classes vs. modules in Python</a></li>
+</ul>
+<p>file (name)
+- variables
+- functions
+    - parameters
+- classes
+    - elements
+        - fields
+        - methods
+    - ==store/share== state between methods
+    - multiple instances</p>
+<h2 id="import">import</h2>
+<h3 id="_3">參考</h3>
+<ul>
+<li><a href="https://www.pythonforthelab.com/blog/complete-guide-to-imports-in-python-absolute-relative-and-more/">Complete Guide to Imports in Python: Absolute, Relative, and More</a></li>
+<li><a href="https://atunglu.blogspot.com/2018/03/python-import.html">Python - import</a></li>
+</ul>
+<h2 id="_4">原生語法</h2>
+<ul>
+<li><a href="https://mathspp.com/blog/pydonts">Pydon'ts | Mathspp</a></li>
+<li><a href="https://pybit.es/articles/make-each-line-count-keeping-things-simple-in-python/">Make Each Line Count, Keeping Things Simple In Python - Pybites</a><ul>
+<li>all()</li>
+<li>List comprehensions</li>
+<li>set()</li>
+<li>from collections import Counter</li>
+</ul>
+</li>
+<li><a href="https://www.pythonmorsels.com/every-dunder-method/">Every dunder method in Python - Python Morsels</a></li>
+<li>Object<ul>
+<li><a href="https://frostming.com/2022/friendly-python-oop/">友好的 Python：面向对象接口 | Frost's Blog</a><ul>
+<li>classmethod的使用時機</li>
+</ul>
+</li>
+<li><a href="https://frostming.com/2024/friendly-python-reuse/">友好的 Python：封装和复用 | Frost's Blog</a></li>
+<li><a href="https://frostming.com/2021/07-07/friendly-python-1/#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83">友好的 Python：扩展友好 | Frost's Blog</a><ul>
+<li>register</li>
+</ul>
+</li>
+<li><a href="https://myapollo.com.tw/blog/python-super-mro/">Python - super() 函式與 MRO 詳解 - MyApollo</a></li>
+</ul>
+</li>
+<li><a href="https://realpython.com/python-built-in-functions/">Python's Built-in Functions: A Complete Exploration – Real Python</a></li>
+<li><a href="https://myapollo.com.tw/blog/python-asterisk-symbols/">Python 單雙星號(* &amp; **)解說 - MyApollo</a></li>
+<li><a href="https://myapollo.com.tw/blog/python-with/">Python 淺談 with 語句 - MyApollo</a><ul>
+<li><a href="https://myapollo.com.tw/blog/python-contextlib/">Python 模組介紹 - contextlib - MyApollo</a></li>
+</ul>
+</li>
+<li><a href="https://myapollo.com.tw/blog/python-dataclasses/">Python 模組教學 - 方便又實用的 dataclasses - MyApollo</a></li>
+<li><a href="https://clay-atlas.com/blog/2024/09/11/cn-python-contextmanager/">[Python] @contextmanager 裝飾器的使用方式 - Clay-Technology World</a></li>
+</ul>
+<h3 id="dictionary">dictionary</h3>
+<p>sorted</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value">How do I sort a dictionary by value?
+</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10218710">[Day21]排序？index sort? lambda又有你的事了</a></li>
+</ul>
+<p>copy
+- <a href="https://stackoverflow.com/questions/2465921/how-to-copy-a-dictionary-and-only-edit-the-copy">How to copy a dictionary and only edit the copy</a></p>
+<p>get key
+- <a href="https://stackoverflow.com/questions/16819222/how-to-return-dictionary-keys-as-a-list-in-python/45253740#45253740">How to return dictionary keys as a list in Python?</a></p>
+<p>```python=
+ newdict = {1:0, 2:0, 3:0}
+[*newdict]</p>
+<h1 id="1-2-3">[1, 2, 3]</h1>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>### list
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>[How do I concatenate two lists in Python?](https://stackoverflow.com/questions/1720421/how-do-i-concatenate-two-lists-in-python)
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>[Create list with numbers between 2 values](https://stackoverflow.com/questions/18265935/python-create-list-with-numbers-between-2-values?rq=1)
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>``` python=
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>list(range(11, 17))
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a># [11, 12, 13, 14, 15, 16]
+</span></code></pre></div>
+<h3 id="dataclass">dataclass</h3>
+<ul>
+<li><a href="https://www.smalldragon.tw/python37-1-dataclasses/">Python3.7 特色(1)-dataclasses</a></li>
+<li><a href="https://medium.com/@jerrymao19/%E6%B7%BA%E8%AB%87%E5%9C%A8python%E4%B8%AD%E5%BB%BA%E7%AB%8B%E7%89%A9%E4%BB%B6-class-namedtuple-namedtuple-and-dataclass-9249fe3213">淺談在Python中建立物件: class, namedtuple, NamedTuple and dataclass</a></li>
+<li><a href="https://stackoverflow.com/questions/51671699/data-classes-vs-typing-namedtuple-primary-use-cases">Data Classes vs typing.NamedTuple primary use cases</a></li>
+</ul>
+<h3 id="__str__-and-__repr">__str__ and __repr</h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/1436703/what-is-the-difference-between-str-and-repr">What is the difference between __str__ and __repr__</a></li>
+</ul>
+<h3 id="type-hint_1">Type hint</h3>
+<ul>
+<li><a href="https://haosquare.com/python-type-hints-3-beginner-mistakes/?fbclid=IwAR2TKbx78eOw-caxdtCdqJxHCRmBxdqhS2W9R8gFR0wYBRH0j8S6FR8OFfI">Python Type Hints 教學：我犯過的 3 個菜鳥錯誤</a></li>
+<li><a href="https://nskm.xyz/posts/stcmp2/">My journey to type checking 7521 lines of Python</a><ul>
+<li><a href="https://mypy.readthedocs.io/en/stable/existing_code.html#using-mypy-with-an-existing-codebase">mypy</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="divmod">divmod</h3>
+<ul>
+<li><a href="https://zoejoyuliao.medium.com/%E6%AF%94%E8%BC%83-python-%E7%9A%84-%E8%88%87-divmod-9f71786c0d33">比較 Python 與除法相關的運算子與函式 – /、//、% 與 divmod</a></li>
+</ul>
+<h3 id="str">str</h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/44891070/whats-the-difference-between-str-isdigit-isnumeric-and-isdecimal-in-python">What's the difference between str.isdigit, isnumeric and isdecimal in python</a></li>
+<li><a href="https://docs.python.org/3/reference/expressions.html#membership-test-details">Membership test operations</a><ul>
+<li><a href="https://stackoverflow.com/questions/35220418/runtime-of-pythons-if-substring-in-string">Runtime of python's if substring in string</a></li>
+<li><a href="https://stackoverflow.com/questions/18139660/python-string-in-operator-implementation-algorithm-and-time-complexity">Python string 'in' operator implementation algorithm and time complexity</a></li>
+<li><a href="https://stackoverflow.com/questions/7175020/python-efficient-way-to-check-if-very-large-string-contains-a-substring">Python efficient way to check if very large string contains a substring</a></li>
+<li><a href="https://stackoverflow.com/questions/4901523/whats-a-faster-operation-re-match-search-or-str-find">What's a faster operation, re.match/search or str.find?</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="decorator">decorator</h3>
+<ul>
+<li><a href="http://dokelung.me/category/python/dont-reinvent-sandwich/">dokelung.me</a></li>
+<li><a href="https://myapollo.com.tw/blog/python-decorator-tutorial/">看了肯定會的 Python 裝飾子(decorator)教學 - MyApollo</a></li>
+<li><a href="https://www.kawabangga.com/posts/5757">Python 复用装饰器代码 | 卡瓦邦噶！</a></li>
+<li><a href="https://medium.com/citycoddee/python%E9%80%B2%E9%9A%8E%E6%8A%80%E5%B7%A7-3-%E7%A5%9E%E5%A5%87%E5%8F%88%E7%BE%8E%E5%A5%BD%E7%9A%84-decorator-%E5%97%B7%E5%97%9A-6559edc87bc0">Python進階技巧 (3) — 神奇又美好的 Decorator ，嗷嗚！ | by Jack Cheng | 整個程式都是我的咖啡館 | Medium</a></li>
+<li>real world example<ul>
+<li><a href="https://medium.com/@manikolbe/python-decorators-for-data-engineering-5-real-world-use-cases-24a919d417a1">Python Decorators for Data Engineering: 5 Real-World Use Cases | by Mani Kolbe | Medium</a></li>
+<li><a href="https://realpython.com/primer-on-python-decorators/#more-real-world-examples">Primer on Python Decorators – Real Python</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="_5">案例</h4>
+<p>紀錄分層帶入的函式名稱和參數, 因為參數可能會在過程中被修改而造成錯誤
+分層: view =&gt; business =&gt; dao</p>
+<p>使用decorator
+在過程中紀錄函式名稱和參數
+名稱的部分使用<a href="https://stackoverflow.com/questions/58108488/what-is-qualname-in-python"><strong>qualname</strong></a>, 參數的部分使用args, kwargs
+並在需要紀錄的函式加上該decorator</p>
+<h3 id="eval-and-astliteral_eval">eval() and ast.literal_eval()</h3>
+<p>https://stackoverflow.com/questions/15197673/using-pythons-eval-vs-ast-literal-eval</p>
+<p>ast.literal_eval() only considers a small subset of Python's syntax to be valid</p>
+<p>Passing <strong>import</strong>('os').system('rm -rf /a-path-you-really-care-about') into ast.literal_eval() will raise an error, but eval() will happily delete your files.</p>
+<h3 id="re">re</h3>
+<ul>
+<li><a href="https://www.regextester.com/">Regex Tester and Debugger Online - Javascript, PCRE, PHP</a></li>
+<li><a href="https://stackoverflow.com/questions/180986/what-is-the-difference-between-re-search-and-re-match">python - What is the difference between re.search and re.match? - Stack Overflow</a></li>
+<li><a href="https://docs.python.org/3/library/re.html#search-vs-match">re — Regular expression operations — Python 3.10.6 documentation</a></li>
+<li><a href="https://github.com/learnbyexample/py_regular_expressions/tree/master/interactive_exercises">py_regular_expressions</a></li>
+</ul>
+<p>``` python=
+def get_previous_version(version: str, is_breaking_change: bool):
+    previous_version = '1.0'
+    if version is None:
+        return previous_version
+    matched = re.match('([\d]{1}).([\d]{1})', version)
+    if matched:
+        if is_breaking_change:
+            previous_major_version = int(matched.group(1)) - 1 if int(matched.group(1)) &gt; 0 else int(matched.group(1))
+            previous_version = f'{previous_major_version}.{matched.group(2)}'
+        else:
+            previous_minor_version = int(matched.group(2)) - 1 if int(matched.group(2)) &gt; 0 else int(matched.group(2))
+            previous_version = f'{matched.group(1)}.{previous_minor_version}'
+    return previous_version
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>``` python=
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>def is_feeback_type_valid(feedback_type: str) -&gt; bool:
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    valid_length = len(feedback_type) &lt;= 63
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    invalid_regulation = re.search(&#39;[^a-zA-Z0-9,_\s]{1,63}$&#39;, feedback_type)
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    return valid_length and not invalid_regulation
+</span></code></pre></div></p>
+<h3 id="class-name">class name</h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/56320056/fetching-python-class-name-while-using-abstract-classes-with-abc-library">Fetching python class name while using abstract classes with <code>abc</code> library</a></li>
+</ul>
+<p>```python=
+class Foo:
+    def <strong>init</strong>(self):
+        print(self.<strong>class</strong>.<strong>name</strong>)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>```python=
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>import abc
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>class AService(abc.ABC):
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    pass
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>class A1Service(AService):
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    pass
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>a1 = A1Service()
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>print(A1Service.__class__.__name__)
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>print(A1Service.__name__)
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>print(a1.__class__.__name__)
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>print(a1.__name__)
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a># ABCMeta
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a># A1Service
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a># A1Service
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a># Traceback (most recent call last):
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>#   File &quot;name.py&quot;, line 14, in &lt;module&gt;
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>#     print(a1.__name__)
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a># AttributeError: &#39;A1Service&#39; object has no attribute &#39;__name__&#39;
+</span></code></pre></div></p>
+<h3 id="global">global</h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/47660938/python-change-global-variable-from-within-another-file">Python: change global variable from within another file</a></li>
+<li><a href="https://stackoverflow.com/questions/7060711/accessing-module-level-variables-from-within-a-function-in-the-module">Accessing module level variables, from within a function in the module</a><ul>
+<li>sys.modules[<strong>name</strong>].var = something()</li>
+</ul>
+</li>
+</ul>
+<h3 id="nonlocal">nonlocal</h3>
+<ul>
+<li><a href="https://ktinglee.github.io/LearningPython100days(6)_global_and_nonlocal/">[Python]自學 Python 100 天，全域變數、區域變數(global、nonlocal) - KTing’s Blog</a></li>
+</ul>
+<h3 id="enum">enum</h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/43634618/how-do-i-test-if-int-value-exists-in-python-enum-without-using-try-catch">How do I if int value exists in Python Enum without using try/catch?</a></li>
+</ul>
+<p>``` python=
+class DoaminSource(Enum):
+    A = (0, 'a')
+    B = (1, 'b')</p>
+<div class="language-text highlight"><pre><span></span><code>def __init__(self, identity, name):
+    self.id = identity
+    self.human_readable = name
+
+def to_dict(self):
+    return {&#39;id&#39;: self.id, &#39;name&#39;: self.human_readable}
+
+@classmethod
+def get_item_by_id(cls, source_id):
+    for enum_item in cls.__members__.values():
+        if source_id == enum_item.id:
+            return enum_item
+</code></pre></div>
+<p>```
+</p>
+<h3 id="isinstance">isinstance</h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/51567356/list-of-classinfo-types">python - List of classinfo Types - Stack Overflow</a>
+</li>
+</ul>
+<h3 id="getattr">getattr</h3>
+<ul>
+<li><a href="https://stackoverflow.com/a/56294475">Python using getattr to call function with variable parameters</a></li>
+<li><a href="https://stackoverflow.com/questions/63878595/access-object-methods-from-getattr">python - Access object methods from getattr() - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/2909423/is-it-bad-practice-to-use-pythons-getattr-extensively">shell - Is it bad practice to use python's getattr extensively? - Stack Overflow</a></li>
+<li><a href="https://chatgpt.com/share/a54434f9-0f1b-430e-a4fc-d081235ada32">what scenario can use the getattr and what is the security concern</a>
+</li>
+</ul>
+<h3 id="functools">functools</h3>
+<ul>
+<li><a href="https://martinheinz.dev/blog/50">The Correct Way to Overload Functions in Python | Martin Heinz | Personal Website &amp; Blog</a>
+
+</li>
+</ul>
+<h3 id="multiprocessing">multiprocessing</h3>
+<ul>
+<li><a href="https://myapollo.com.tw/blog/python-multiprocessing-pipe-queue-array-rawarray-structure/">multiprocessing 模組進階篇 - Pipe, Queue, Array, RawArray 以及 Structure 之教學範例 - MyApollo</a></li>
+<li><a href="https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/">Developing an Asynchronous Task Queue in Python | TestDriven.io</a></li>
+<li><a href="https://testdriven.io/blog/concurrency-parallelism-asyncio/">Speeding Up Python with Concurrency, Parallelism, and asyncio | TestDriven.io</a>
+</li>
+</ul>
+<h3 id="_6">其他</h3>
+<p>lambda 
+
+</p>
+<h2 id="python-standard-library">Python Standard Library</h2>
+<ul>
+<li><a href="https://docs.python.org/3.10/library/index.html">The Python Standard Library</a>
+
+</li>
+</ul>
+<h3 id="logging">logging</h3>
+<p>leverage log quickly
+<code>python=
+FORMAT = '%(asctime)s %(levelname)s: %(message)s'
+logging.basicConfig(level=logging.DEBUG, filename='filter.log', filemode='a', format=FORMAT)
+logging.info('test')</code></p>
+<p>``` python=
+import logging</p>
+<p>logging.basicConfig(
+    level=logging.DEBUG, 
+    format='[%(asctime)s][%(levelname)s][%(filename)s %(lineno)d]: %(message)s',
+    handlers=[
+        logging.FileHandler('/tmp/foo.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(<strong>name</strong>)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>- [Logging Cookbook](https://docs.python.org/3/howto/logging-cookbook.html#adding-contextual-information-to-your-logging-output)
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>- [Understanding logging in Python ](https://gist.github.com/mariocj89/73824162a3e35d50db8e758a42e39aab)
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>- [Understanding Python’s logging module](https://www.electricmonk.nl/log/2017/08/06/understanding-pythons-logging-module/)
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>- [Logging in Python like a PRO](https://guicommits.com/how-to-log-in-python-like-a-pro/)
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>- [Python logging: create log if not exists or open and continue logging if it does](https://stackoverflow.com/questions/41764941/python-logging-create-log-if-not-exists-or-open-and-continue-logging-if-it-does)
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>- [python - logger configuration to log to file and print to stdout - Stack Overflow](https://stackoverflow.com/questions/13733552/logger-configuration-to-log-to-file-and-print-to-stdout)
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>Loggers have a hierarchy
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>At the top of the hierarchy is the root logger, and the logger names don’t include the root logger
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>- created by asking a parent logger for a new child logger
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>- use dot notation
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>message propagation
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>the level of the message is **only checked** by the logger you give the message to. If the message’s level is lower or equal to the logger’s, the message is propagated up the hierarchy, but none of the other loggers will check the level! They’ll simply invoke their handlers.
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>level僅在進入點檢查一次
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>when giving a message to a logger, the logger checks the level. After that, the level on the loggers is no longer checked and all handlers in the entire chain are invoked, regardless of level.
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>When you log a message, the level is only checked at the logger you logged the message against. If it passes, every handler on every logger up the hierarchy is called, regardless of that logger’s level.
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>### time
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>- [Python 程式效能分析:量測運行時間 — 1010Code](https://andy6804tw.github.io//2023/06/22/time_profiler/)
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>ISO 8601
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>``` python=
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>from datetime import datetime, timezone, timedelta
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>datetime.now(timezone.utc).isoformat(timespec=&quot;seconds&quot;)
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>datetime.now(datetime.utcnow().astimezone().tzinfo).isoformat(timespec=&quot;seconds&quot;)
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a># iso 8601 string to datetime
+</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>result_time = datetime.datetime.strptime(&#39;2022-04-27T09:43:17+0800&#39;, &#39;%Y-%m-%dT%H:%M:%S%z&#39;)
+</span></code></pre></div></p>
+<p>time shift
+``` python=
+import datetime</p>
+<p>expired = datetime.datetime.now() + datetime.timedelta(seconds=30)
+expired_timestamp = int(expired.timestamp())
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>timestamp to datetime
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>``` python=
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>import datetime
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>datetime.fromtimestamp(finished_at)
+</span></code></pre></div></p>
+<p>str to datetime
+``` python=
+import datetime
+d = datetime.datetime.strptime('2021-03-18 10:51:22', '%Y-%m-%d %H:%M:%S')</p>
+<h1 id="if-the-string-is-utc0">if the string is utc+0</h1>
+<p>d.astimezone(datetime.timezone.utc)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>str to timestamp
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>``` python=
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>dt = datetime.datetime.strptime(&#39;2021-03-18 10:51:22&#39;, &#39;%Y-%m-%d %H:%M:%S&#39;)
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>utc_time = dt.replace(tzinfo=datetime.timezone.utc)
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>utc_timestamp = utc_time.timestamp()
+</span></code></pre></div></p>
+<p>today format string
+``` python=
+today = datetime.today().strftime('%Y%m%d')
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>### pathlib
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>- [Python pathlib 教學：檔案路徑操作超簡單，不再煩惱前斜線或後斜線！ • 好豪筆記](https://haosquare.com/python-pathlib/)
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>- [Python 好用模組 - pathlib - MyApollo](https://myapollo.com.tw/blog/python-pathlib/)
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>make dir if not exist
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>``` python=
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>p_foo = Path(&#39;foo&#39;)
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>p_foo.mkdir(parents=True, exist_ok=True)
+</span></code></pre></div></p>
+<p>use exist Path
+``` python=
+p_foo = Path('foo')
+p_csv = p_foo / 'csv'
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>find files by specific pattern
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>``` python=
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>p_foo = Path(&#39;/foo&#39;)
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>files = p_foo.glob(&#39;*.csv&#39;)
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>for file in files:
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    # handle the file
+</span></code></pre></div></p>
+<p><a href="https://stackoverflow.com/questions/4152963/get-name-of-current-script-in-python">Get name of current script in Python</a>
+``` python=
+from pathlib import Path
+Path(<strong>file</strong>).name
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>vs
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>``` python=
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>__name__
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a># if execute by script, output is __main__
+</span></code></pre></div></p>
+<h3 id="csv">csv</h3>
+<p>``` python=</p>
+<p>with open(file) as csvfile:
+    rows = csv.DictReader(csvfile)
+    headers = list(rows.fieldnames)
+    for row in rows:
+        # logging.info(row)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>### unittest
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>assertRaises
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertRaises
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>``` python=
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>with self.assertRaises(SomeException) as cm:
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>    do_something()
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>the_exception = cm.exception
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>self.assertEqual(the_exception.error_code, 3)
+</span></code></pre></div></p>
+<h4 id="patch">patch</h4>
+<ul>
+<li><a href="https://nedbatchelder.com/blog/201908/why_your_mock_doesnt_work.html">Why your mock doesn’t work</a></li>
+</ul>
+<h3 id="shutil">shutil</h3>
+<ul>
+<li><a href="https://martinheinz.dev/blog/98">The Right Way to Run Shell Commands From Python | Martin Heinz | Personal Website &amp; Blog</a></li>
+<li><a href="https://myapollo.com.tw/blog/python-subprocess/">Python subprocess 模組使用教學 - MyApollo</a></li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">shlex</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">ipmi_dcmi_power</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;ipmitool dcmi power reading&#39;</span><span class="p">)</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="n">ipmi_sdr_elist_full</span> <span class="o">=</span>  <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;ipmitool -c sdr elist full&#39;</span><span class="p">)</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1">#p = subprocess.run(&#39;ipmitool dcmi power reading&#39;, shell=True, check=True, capture_output=True, encoding=&#39;utf-8&#39;)</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">ipmi_dcmi_power</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Command </span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">args</span><span class="si">}</span><span class="s1"> exited with </span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s1"> code, output: </span><span class="se">\n</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">stdout</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>  <span class="k">if</span> <span class="s1">&#39;Instantaneous power reading&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="c1">#p = subprocess.run(&#39;ipmitool -c sdr elist full&#39;, shell=True, check=True, capture_output=True, encoding=&#39;utf-8&#39;)</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">ipmi_sdr_elist_full</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
+</span></code></pre></div>
+<p>``` python=
+import subprocess
+import logging
+import shlex</p>
+<p>logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s: %(message)s')
+logger = logging.getLogger(<strong>name</strong>)</p>
+<p>def run(cmd_string):
+    data = ''
+    cmd = shlex.split(cmd_string)
+    try:
+        p = subprocess.run(cmd, check=True, capture_output=True, encoding='utf-8')
+        logger.debug(f'Command {p.args} exited with {p.returncode} code, output: \n{p.stdout}')
+        data = p.stdout
+    except subprocess.SubprocessError as e:
+        logger.error(e)</p>
+<div class="language-text highlight"><pre><span></span><code>return data
+</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>``` python=
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>import asyncio
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>import logging
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>import datetime
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>import shlex
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>import threading
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>logging.basicConfig(level=logging.DEBUG, format=&#39;%(asctime)s %(levelname)s: %(message)s&#39;)
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>logger = logging.getLogger(__name__)
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>async def run(cmd, host, location):
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>    logger.debug(f&#39;{datetime.datetime.now().isoformat()}, thread id {threading.current_thread().ident}&#39;)
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>    proc = await asyncio.create_subprocess_exec(
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>        *shlex.split(cmd),
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>        stdout=asyncio.subprocess.PIPE,
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>        stderr=asyncio.subprocess.PIPE)
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>    stdout, stderr = await proc.communicate()
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>    logger.info(f&#39;[{cmd!r} exited with {proc.returncode}]&#39;)
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>    if stdout:
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a>        logger.debug(f&#39;[stdout]\n{stdout.decode()}&#39;)
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a>    if stderr:
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>        logger.debug(f&#39;[stderr]\n{stderr.decode()}&#39;)
+</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>    return host, location, proc.returncode, stdout.decode(), stderr.decode()
+</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>
+</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a>async def main(tasks):
+</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>    logger.debug(f&#39;main {datetime.now().isoformat()}, thread id {threading.current_thread().ident}&#39;)
+</span><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a>    return_values = await asyncio.gather(*tasks)
+</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a>    logger.debug(f&#39;main {datetime.now().isoformat()}, thread id {threading.current_thread().ident}&#39;)
+</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a>    return return_values
+</span><span id="__span-18-33"><a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a>
+</span><span id="__span-18-34"><a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a>def generate_tasks():
+</span><span id="__span-18-35"><a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a>    tasks = list()
+</span><span id="__span-18-36"><a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a>    tasks.append(run(&#39;cat abc&#39;, &#39;pd010&#39;, &#39;r1&#39;))
+</span><span id="__span-18-37"><a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a>    tasks.append(run(&#39;cat abc&#39;, &#39;pd011&#39;, &#39;r2&#39;))
+</span><span id="__span-18-38"><a id="__codelineno-18-38" name="__codelineno-18-38" href="#__codelineno-18-38"></a>
+</span><span id="__span-18-39"><a id="__codelineno-18-39" name="__codelineno-18-39" href="#__codelineno-18-39"></a>if __name__ == &#39;__main__&#39;:
+</span><span id="__span-18-40"><a id="__codelineno-18-40" name="__codelineno-18-40" href="#__codelineno-18-40"></a>    tasks = generate_tasks()
+</span><span id="__span-18-41"><a id="__codelineno-18-41" name="__codelineno-18-41" href="#__codelineno-18-41"></a>    return_values = asyncio.run(main(tasks))
+</span><span id="__span-18-42"><a id="__codelineno-18-42" name="__codelineno-18-42" href="#__codelineno-18-42"></a>    for result in return_values:
+</span><span id="__span-18-43"><a id="__codelineno-18-43" name="__codelineno-18-43" href="#__codelineno-18-43"></a>        logger.debug(f&#39;result =&gt; {result}&#39;)
+</span></code></pre></div>
+<h3 id="secrets">secrets</h3>
+<p>https://docs.python.org/3/library/secrets.html</p>
+<p>```python=</p>
+<h1 id="randomrandint1-1024">random.randint(1, 1024)</h1>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>### urllib.parse
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>https://docs.python.org/3/library/urllib.parse.html
+</span></code></pre></div>
+import secrets
+secrets.choice(list(range(1, 1024)))
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>### ipaddress
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>- [python - Convert an IP string to a number and vice versa - Stack Overflow](https://stackoverflow.com/questions/9590965/convert-an-ip-string-to-a-number-and-vice-versa)
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>### ayncio
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>- [Python asyncio 從不會到上路 | My.APOLLO](https://myapollo.com.tw/zh-tw/begin-to-asyncio/)
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>    - [Asyncio Task Cancellation Best Practices - Super Fast Python](https://superfastpython.com/asyncio-task-cancellation-best-practices/)
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>- [python的asyncio模組(一)：異步執行的好處 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天](https://ithelp.ithome.com.tw/articles/10199385)
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>- [Strategies for Testing Async Code in Python](https://agariinc.medium.com/strategies-for-testing-async-code-in-python-c52163f2deab)
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>- [Testing asynchronous code in Python](https://promity.com/2020/06/03/testing-asynchronous-code-in-python/)
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>- subprocess
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>    - [python 3.x - Using asyncio to wait for results from subprocess - Stack Overflow](https://stackoverflow.com/questions/63782892/using-asyncio-to-wait-for-results-from-subprocess)
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>    - [Subprocesses — Python 3.11.5 documentation](https://docs.python.org/3/library/asyncio-subprocess.html)
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>### sqllite
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>- [Recipes from Python SQLite docs · Redowan&#39;s Reflections](https://rednafi.github.io/reflections/recipes-from-python-sqlite-docs.html)
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>### fcntl
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>- [Python - fcntl.flock(fd, op) 檔案鎖應用範例 - MyApollo](https://myapollo.com.tw/blog/python-fcntl-flock/)
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>    - [Python : Locking text file on NFS - Stack Overflow](https://stackoverflow.com/questions/37633951/python-locking-text-file-on-nfs)
+</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>        - [Barry Warsaw / FLUFL Lock · GitLab](https://gitlab.com/warsaw/flufl.lock)
+</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>
+</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a>
+</span><span id="__span-20-24"><a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a>### xml
+</span><span id="__span-20-25"><a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a>- [xml.etree.ElementTree 筆記 - HackMD](https://hackmd.io/@top30339/rJYlKYpml?type=view)
+</span><span id="__span-20-26"><a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a>- [Updating XML elements and attribute values using Python etree - Stack Overflow](https://stackoverflow.com/questions/9177360/updating-xml-elements-and-attribute-values-using-python-etree)
+</span><span id="__span-20-27"><a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a>- [xml - Python Element Tree Writing to New File - Stack Overflow](https://stackoverflow.com/questions/37713184/python-element-tree-writing-to-new-file)
+</span><span id="__span-20-28"><a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a>- [python - How to write XML declaration using xml.etree.ElementTree - Stack Overflow](https://stackoverflow.com/questions/15356641/how-to-write-xml-declaration-using-xml-etree-elementtree)
+</span><span id="__span-20-29"><a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a>
+</span><span id="__span-20-30"><a id="__codelineno-20-30" name="__codelineno-20-30" href="#__codelineno-20-30"></a>``` python
+</span><span id="__span-20-31"><a id="__codelineno-20-31" name="__codelineno-20-31" href="#__codelineno-20-31"></a>import sys
+</span><span id="__span-20-32"><a id="__codelineno-20-32" name="__codelineno-20-32" href="#__codelineno-20-32"></a>import logging
+</span><span id="__span-20-33"><a id="__codelineno-20-33" name="__codelineno-20-33" href="#__codelineno-20-33"></a>import xml.etree.ElementTree as ET
+</span><span id="__span-20-34"><a id="__codelineno-20-34" name="__codelineno-20-34" href="#__codelineno-20-34"></a>
+</span><span id="__span-20-35"><a id="__codelineno-20-35" name="__codelineno-20-35" href="#__codelineno-20-35"></a>logging.basicConfig(level=logging.DEBUG, format=&#39;%(asctime)s %(levelname)s: %(message)s&#39;)
+</span><span id="__span-20-36"><a id="__codelineno-20-36" name="__codelineno-20-36" href="#__codelineno-20-36"></a>logger = logging.getLogger(__name__)
+</span><span id="__span-20-37"><a id="__codelineno-20-37" name="__codelineno-20-37" href="#__codelineno-20-37"></a>
+</span><span id="__span-20-38"><a id="__codelineno-20-38" name="__codelineno-20-38" href="#__codelineno-20-38"></a>
+</span><span id="__span-20-39"><a id="__codelineno-20-39" name="__codelineno-20-39" href="#__codelineno-20-39"></a>if __name__ == &#39;__main__&#39;:
+</span><span id="__span-20-40"><a id="__codelineno-20-40" name="__codelineno-20-40" href="#__codelineno-20-40"></a>    try:
+</span><span id="__span-20-41"><a id="__codelineno-20-41" name="__codelineno-20-41" href="#__codelineno-20-41"></a>        benchmark_bios_config = sys.argv[1]
+</span><span id="__span-20-42"><a id="__codelineno-20-42" name="__codelineno-20-42" href="#__codelineno-20-42"></a>        logger.info(f&#39;benchmark_bios_config: {benchmark_bios_config}&#39;)
+</span><span id="__span-20-43"><a id="__codelineno-20-43" name="__codelineno-20-43" href="#__codelineno-20-43"></a>        tree = ET.parse(benchmark_bios_config)
+</span><span id="__span-20-44"><a id="__codelineno-20-44" name="__codelineno-20-44" href="#__codelineno-20-44"></a>        root = tree.getroot()
+</span><span id="__span-20-45"><a id="__codelineno-20-45" name="__codelineno-20-45" href="#__codelineno-20-45"></a>
+</span><span id="__span-20-46"><a id="__codelineno-20-46" name="__codelineno-20-46" href="#__codelineno-20-46"></a>        settings = root.findall(&quot;.//Setting&quot;)
+</span><span id="__span-20-47"><a id="__codelineno-20-47" name="__codelineno-20-47" href="#__codelineno-20-47"></a>        for setting in settings:
+</span><span id="__span-20-48"><a id="__codelineno-20-48" name="__codelineno-20-48" href="#__codelineno-20-48"></a>            logger.info(f&quot;{setting.get(&#39;name&#39;)}  {setting.get(&#39;selectedOption&#39;)}&quot;)
+</span><span id="__span-20-49"><a id="__codelineno-20-49" name="__codelineno-20-49" href="#__codelineno-20-49"></a>
+</span><span id="__span-20-50"><a id="__codelineno-20-50" name="__codelineno-20-50" href="#__codelineno-20-50"></a>        default_setting = root.find(f&quot;.//Setting[@name=&#39;foo&#39;]&quot;)
+</span><span id="__span-20-51"><a id="__codelineno-20-51" name="__codelineno-20-51" href="#__codelineno-20-51"></a>        default_setting.set(&#39;selectedOption&#39;, &#39;bar&#39;)
+</span><span id="__span-20-52"><a id="__codelineno-20-52" name="__codelineno-20-52" href="#__codelineno-20-52"></a>        with open(&#39;output_file&#39;, &#39;wb&#39;) as f:
+</span><span id="__span-20-53"><a id="__codelineno-20-53" name="__codelineno-20-53" href="#__codelineno-20-53"></a>            tree.write(f, encoding=&#39;utf-8&#39;)
+</span><span id="__span-20-54"><a id="__codelineno-20-54" name="__codelineno-20-54" href="#__codelineno-20-54"></a>
+</span><span id="__span-20-55"><a id="__codelineno-20-55" name="__codelineno-20-55" href="#__codelineno-20-55"></a>    except IndexError as e:
+</span><span id="__span-20-56"><a id="__codelineno-20-56" name="__codelineno-20-56" href="#__codelineno-20-56"></a>        logger.error(e)
+</span><span id="__span-20-57"><a id="__codelineno-20-57" name="__codelineno-20-57" href="#__codelineno-20-57"></a>    except ET.ParseError as e:
+</span><span id="__span-20-58"><a id="__codelineno-20-58" name="__codelineno-20-58" href="#__codelineno-20-58"></a>        logger.error(e)
+</span></code></pre></div></p>
+<h3 id="difflib">difflib</h3>
+<ul>
+<li><a href="https://clay-atlas.com/blog/2024/08/28/cn-python-difflib/">[Python] 使用 difflib 模組比較序列差異 - Clay-Technology World</a></li>
+</ul>
+<h2 id="nice-tools">nice tools</h2>
+<ul>
+<li><a href="https://martinheinz.dev/blog/96">Python's Missing Batteries: Essential Libraries You're Missing Out On | Martin Heinz | Personal Website &amp; Blog</a></li>
+<li><a href="https://www.pulumi.com/blog/python-for-devops/">Python for DevOps | Pulumi Blog</a></li>
+</ul>
+<h3 id="configparser">configparser</h3>
+<p>CLI彈性輸入</p>
+<h3 id="command-line-argument-parsing-library">command-line argument parsing library</h3>
+<ul>
+<li>configparser</li>
+<li><a href="https://click.palletsprojects.com/">click</a><ul>
+<li><a href="https://frostming.com/2021/11-23/advanced-argparse/">argparse 的高级用法 | Frost's Blog</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/tiangolo/typer">typer</a></li>
+<li><a href="https://github.com/prompt-toolkit/python-prompt-toolkit">prompt-toolkit/python-prompt-toolkit: Library for building powerful interactive command line applications in Python</a><ul>
+<li><a href="https://blog.louie.lu/2021/07/09/using-prompt-toolkit-multi-column-autocompletion-to-make-interactive-command-line-tool/">如何 (濫用) prompt_toolkit 的自動補齊功能做到互動式命令列工具 | louie_lu's blog</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="ssh-tunnel">ssh tunnel</h3>
+<ul>
+<li>https://blog.ruanbekker.com/blog/2018/04/23/setup-a-ssh-tunnel-with-the-sshtunnel-module-in-python/</li>
+</ul>
+<h3 id="streaming-large-json">streaming large json</h3>
+<ul>
+<li>ijson</li>
+<li>bigjson</li>
+</ul>
+<h3 id="logger">logger</h3>
+<ul>
+<li><a href="https://github.com/madzak/python-json-logger">python-json-logger</a></li>
+<li><a href="https://github.com/Preston-Landers/concurrent-log-handler">concurrent-log-handler</a></li>
+</ul>
+<h3 id="face_recognition">face_recognition</h3>
+<ul>
+<li><a href="https://github.com/ageitgey/face_recognition">face_recognition</a></li>
+</ul>
+<h3 id="python-dependency-visualization">Python dependency visualization</h3>
+<ul>
+<li>Import structure<ul>
+<li><a href="https://github.com/thebjorn/pydeps">pydeps</a></li>
+</ul>
+</li>
+<li>Classes hierachy<ul>
+<li><a href="https://pylint.org/">Pyreverse in pylint</a><ul>
+<li>analyses Python code and extracts UML class diagrams and package dependencies</li>
+<li><a href="https://lin-zone.github.io/2019/07/17/graphviz-pyreverse/">使用Graphviz和Pyreverse绘制Python项目结构图 | 夜不能寐</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>visual scripting framework for python<ul>
+<li><a href="https://github.com/wonderworks-software/PyFlow">PyFlow</a></li>
+<li><a href="https://github.com/scottrogowski/code2flow">code2flow: Pretty good call graphs for dynamic languages</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="faker">Faker</h3>
+<ul>
+<li><a href="https://zetcode.com/python/faker/">Python Faker</a></li>
+</ul>
+<h3 id="project-template">project template</h3>
+<ul>
+<li><a href="https://github.com/cookiecutter/cookiecutter">cookiecutter</a></li>
+<li><a href="https://github.com/bpw1621/ordained">ordained</a><ul>
+<li><a href="https://bpw1621.com/archive/ordained-the-python-project-template/">ORDAINED: The Python Project Template</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="change-log">change log</h3>
+<ul>
+<li><a href="https://towardsdatascience.com/automating-version-tags-and-changelogs-for-your-python-projects-6c46b68c7139">Automating Version Tags and Changelogs for your Python Projects</a></li>
+</ul>
+<h3 id="pandas">pandas</h3>
+<ul>
+<li><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html">How do I read and write tabular data? — pandas 2.1.1 documentation</a></li>
+<li><a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_sql.html">Comparison with SQL — pandas 2.1.1 documentation</a></li>
+<li><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.between_time.html">pandas.DataFrame.between_time — pandas 2.1.1 documentation</a></li>
+<li><a href="https://www.delftstack.com/zh-tw/howto/python-pandas/how-to-load-data-from-txt-with-pandas/">Pandas 中如何從文字檔案載入資料 | D棧 - Delft Stack</a></li>
+<li><a href="https://stackoverflow.com/questions/42196337/dataframe-set-index-not-setting">python - Dataframe set_index not setting - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/24088795/python-pandas-select-index-where-index-is-larger-than-x">Python Pandas Select Index where index is larger than x - Stack Overflow</a></li>
+</ul>
+<p>read multiple csv
+https://stackoverflow.com/questions/20906474/import-multiple-csv-files-into-pandas-and-concatenate-into-one-dataframe</p>
+<p>```python=
+import glob</p>
+<p>df = pd.concat(map(pd.read_csv, glob.glob('data/*.csv')))
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>example
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>``` python
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>import os
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>import glob
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>import pandas as pd
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>date = &#39;11-08&#39;
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>begin_time = &#39;07:47&#39;
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>end_time = &#39;08:45&#39;
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>manual_gpu = 6000
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a># single file
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>#df = pd.read_table(&quot;/opt/power_consumption/data/pdu/d23pd015_r9v-l_snmpwalk.txt&quot;, sep=&#39;\s+&#39;)
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a># multiple files
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>path = &#39;/opt/power_consumption/data/pdu&#39;
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>all_files = glob.glob(os.path.join(path, &quot;*.txt&quot;))
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>df = pd.concat((pd.read_table(f,sep=&#39;\s+&#39;) for f in all_files), ignore_index=True)
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>df[&quot;time&quot;] = pd.to_datetime(df[&#39;TimeStamp&#39;],format= &#39;%m%d:%H%M&#39; )
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>df.set_index(&#39;time&#39;, inplace=True)
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>df[&#39;all-w&#39;] = df[&#39;1-w&#39;] + df[&#39;2-w&#39;] + df[&#39;3-w&#39;]
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>print(df)
+</span><span id="__span-21-24"><a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>df.to_csv(&#39;all_pdu.csv&#39;, index=False)
+</span><span id="__span-21-25"><a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>
+</span><span id="__span-21-26"><a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>
+</span><span id="__span-21-27"><a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>#print(df[df.index &gt;= pd.to_datetime(date, format=&#39;%m-%d&#39;)].between_time(begin_time, end_time))
+</span><span id="__span-21-28"><a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a>#print(df[df.index &gt;= pd.to_datetime(date, format=&#39;%m-%d&#39;)].between_time(begin_time, end_time).groupby(&quot;TimeStamp&quot;).agg({&#39;all-w&#39;: &#39;sum&#39;}))
+</span><span id="__span-21-29"><a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a>
+</span><span id="__span-21-30"><a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a>#print(df[(df.index &gt;= pd.to_datetime(date, format=&#39;%m-%d&#39;)) &amp; (df[&#39;TimeStamp&#39;] == &#39;1108:0752&#39; )])
+</span><span id="__span-21-31"><a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a>#pdu_df = df[df.index &gt;= pd.to_datetime(date, format=&#39;%m-%d&#39;)].between_time(begin_time, end_time).groupby([&quot;Host&quot;, &quot;TimeStamp&quot;]).agg({&#39;all-w&#39;: &#39;sum&#39;}).reset_index()
+</span><span id="__span-21-32"><a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a>#print(pdu_df)
+</span><span id="__span-21-33"><a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a>#print(pdu_df[pdu_df[&#39;TimeStamp&#39;] == &#39;1108:0752&#39;])
+</span><span id="__span-21-34"><a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a>
+</span><span id="__span-21-35"><a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a>final_df = df[df.index &gt;= pd.to_datetime(date, format=&#39;%m-%d&#39;)].between_time(begin_time, end_time).groupby(&quot;TimeStamp&quot;).agg({&#39;all-w&#39;: &#39;sum&#39;})
+</span><span id="__span-21-36"><a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a>final_df[&#39;all-w-with-gpu&#39;] = final_df[&#39;all-w&#39;] + manual_gpu
+</span><span id="__span-21-37"><a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a>print(final_df)
+</span><span id="__span-21-38"><a id="__codelineno-21-38" name="__codelineno-21-38" href="#__codelineno-21-38"></a>print(final_df.describe())
+</span></code></pre></div></p>
+<h3 id="mysql">MySQL</h3>
+<ul>
+<li><a href="https://github.com/PyMySQL/PyMySQL/issues/342">What's the difference between PyMySQL and mysqlclient-python</a></li>
+<li><a href="https://stackoverflow.com/questions/43102442/whats-the-difference-between-mysqldb-mysqlclient-and-mysql-connector-python">What's the difference between MySQLdb, mysqlclient and MySQL connector/Python</a></li>
+</ul>
+<h3 id="orm">ORM</h3>
+<ul>
+<li><a href="https://myapollo.com.tw/zh-tw/python-sqlalchemy-orm-1/">Python SQLAlchemy ORM - 1</a></li>
+<li><a href="https://iamswc.space/computer-science/python-sqlalchemy-learning-note/">[python] sqlalchemy 閱讀筆記</a></li>
+<li><a href="https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html#basic-relationship-patterns">Basic Relationship Patterns</a></li>
+<li><a href="https://docs.sqlalchemy.org/en/14/core/reflection.html#reflecting-views">Reflecting Views</a><ul>
+<li><a href="https://github.com/sqlalchemy/sqlalchemy/wiki/Views">This example illustrates one way of embedding CREATE VIEW / DROP VIEW into SQLAlchemy along with a selectable unit that can be used to generate SELECT statements as well as be mapped with the ORM</a></li>
+</ul>
+</li>
+</ul>
+<p>engine
+session
+base</p>
+<h4 id="sqlalchemy">SQLAlchemy</h4>
+<ul>
+<li><a href="https://medium.com/@thinesh12/unlocking-the-power-of-composite-primary-keys-in-sqlalchemy-b378fb975e9b">Unlocking the Power of Composite Primary Keys in SQLAlchemy | by Thinesh Ramanathan | Medium</a></li>
+<li><a href="https://stackoverflow.com/questions/61478145/sqlalchemy-orm-not-working-with-composite-foreign-keys">python - SQLAlchemy ORM not working with composite foreign keys - Stack Overflow</a></li>
+<li><a href="https://hackmd.io/@UTRxSLfpRa6ds1oeI2U7Lw/s9891326">Postgresql + Sqlalchemy ORM CRUD方式 - HackMD</a></li>
+</ul>
+<h3 id="database-migration">database migration</h3>
+<ul>
+<li><a href="https://medium.com/@acer1832a/%E4%BD%BF%E7%94%A8-alembic-%E4%BE%86%E9%80%B2%E8%A1%8C%E8%B3%87%E6%96%99%E5%BA%AB%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86-32d949f7f2c6">使用 Alembic 來進行資料庫版本管理</a></li>
+<li><a href="https://kimsereylam.com/sqlalchemy/2019/10/18/get-started-with-alembic.html">Get Started With Alembic</a></li>
+<li><a href="https://testdriven.io/blog/fastapi-sqlmodel/">FastAPI with Async SQLAlchemy, SQLModel, and Alembic</a></li>
+<li><a href="https://hackmd.io/@UTRxSLfpRa6ds1oeI2U7Lw/Sy8PuXxYi">Sqlalchemy with Flask-Migrate - HackMD</a></li>
+</ul>
+<h3 id="secure">secure</h3>
+<ul>
+<li><a href="https://martinheinz.dev/blog/59">Secure Password Handling in Python</a></li>
+<li><a href="https://medium.com/artefact-engineering-and-data-science/how-to-secure-your-python-software-supply-chain-81490f6e4ff9">How to secure your Python software supply chain</a></li>
+</ul>
+<h4 id="pycryptodome">PyCryptodome</h4>
+<p>signature with PSS
+https://pycryptodome.readthedocs.io/en/latest/src/signature/pkcs1_pss.html
+``` python=
+from Crypto.Signature import pss
+from Crypto.Hash import SHA256
+from Crypto.PublicKey import RSA
+from Crypto import Random
+from base64 import b64encode, b64decode</p>
+<p>message = 'foo'.encode()
+key = RSA.import_key(open('private_key.pem').read())
+h = SHA256.new(message)
+signature = pss.new(key).sign(h)
+sig_base64 = b64encode(signature).decode()
+print(sig_base64)</p>
+<p>key = RSA.import_key(open('public_key.pem').read())
+a = SHA256.new(message)
+verifier = pss.new(key)
+try:
+    verifier.verify(a, b64decode(sig_base64))
+    print("The signature is authentic.")
+except (ValueError, TypeError):
+    print("The signature is not authentic.")
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>### passlib
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>- [How to generate a password hash in Python? - The Security Buddy](https://www.thesecuritybuddy.com/cryptography-and-python/how-to-generate-a-password-hash-in-python/)
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>### requests
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>- [Advanced usage of Python requests - timeouts, retries, hooks](https://findwork.dev/blog/advanced-usage-python-requests-timeouts-retries-hooks/)
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>- [Requests Timeouts](https://docs.python-requests.org/en/master/user/advanced/#timeouts)
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>- [Send HTTP requests using python-requests with timeout, tcp reuse(session) and retry. · GitHub](https://gist.github.com/laixintao/e9eae48a835e741969ae06af3ad45f71)
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>    - https://twitter.com/laixintao/status/1737693034270339406
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>Request hooks and `raise_for_status()`
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>timeouts
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>Retry on failure
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>``` python=
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>from http import HTTPStatus
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>try:
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>    ...
+</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>    r = requests.post()
+</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>    r.raise_for_status()
+</span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>except requests.exceptions.HTTPError as err:
+</span><span id="__span-22-21"><a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>    if r.status_code == HTTPStatus.TOO_MANY_REQUESTS:
+</span><span id="__span-22-22"><a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>        pass
+</span></code></pre></div></p>
+<h3 id="pyppeteer">pyppeteer</h3>
+<ul>
+<li><a href="https://gist.github.com/channprj/184e9e702830c0b4dca93ec6b61b82d7">Read html file and make pdf with pyppeteer · GitHub</a></li>
+<li><a href="https://stackoverflow.com/questions/70714677/is-it-possible-to-get-pdf-page-using-pyppeteer">python - Is it possible to get pdf page using pyppeteer? - Stack Overflow</a></li>
+<li><a href="https://github.com/kiwi0fruit/pyppdf">GitHub - kiwi0fruit/pyppdf: Pyppeteer PDF. Print html sites and files to pdf via pyppeteer (uses patched pyppeteer that by default downloads updated Chromium revision via https with certifi).</a></li>
+</ul>
+<h3 id="ruff">ruff</h3>
+<ul>
+<li><a href="https://github.com/astral-sh/ruff">GitHub - astral-sh/ruff: An extremely fast Python linter and code formatter, written in Rust.</a><ul>
+<li>
+<blockquote>
+<p>Ruff 是由 Rust 編寫的高速 Python 檢查器和程式碼格式化工具，可通過 pip 安裝，支援至 Python 3.12。它具有超過 700 個內建規則，並能替代 Flake8、isort 和 Black 等工具，且執行速度遠超過這些工具。https://twitter.com/daininduyuanma/status/1717141469822386435</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><a href="https://myapollo.com.tw/blog/python-linter-ruff/">新世代的 Python Linter - Ruff - MyApollo</a></li>
+<li><a href="https://blog.kyomind.tw/ruff/">Python 開發：Ruff Linter、Formatter 介紹 + 設定教學 - Code and Me</a></li>
+</ul>
+<h3 id="csvtotable">csvtotable</h3>
+<ul>
+<li><a href="https://pypi.org/project/csvtotable/">csvtotable · PyPI</a></li>
+</ul>
+<h3 id="fingerprint">fingerprint</h3>
+<ul>
+<li><a href="https://github.com/ua-parser/uap-python">uap-python</a></li>
+<li><a href="https://github.com/seatgeek/thefuzz">thefuzz</a></li>
+<li><a href="https://github.com/fingerprintjs/fingerprintjs">fingerprintjs</a><ul>
+<li><a href="https://fingerprintjs.com/blog/what-is-browser-fingerprinting/">The Beginner’s Guide to Browser Fingerprinting for Fraud Detection</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="type-helper">Type helper</h3>
+<ul>
+<li><a href="https://pypi.org/project/dataclasses-json/0.0.12/">dataclasses-json</a></li>
+<li><a href="https://editor.leonh.space/2022/pydantic/">pydantic 小筆記</a></li>
+<li><a href="https://editor.leonh.space/2022/pydantic-model/">pydantic 的愛恨糾葛</a></li>
+</ul>
+<blockquote>
+<p>pydantic 最大的問題是它也有所謂的 model 和 schema，當再把資料庫的概念摻進來就造成語意上的混亂。
+不僅是語意上，程式碼看起來也會相當冗餘，以前面的 User 資源為例，除了有 pydantic model 的定義外，在 ORM 大概也要寫一份極其相似的「model」</p>
+</blockquote>
+<h3 id="web-framework">web framework</h3>
+<ul>
+<li><a href="https://analyticsindiamag.com/django-vs-flask-vs-fastapi-a-comparative-guide-to-python-web-frameworks/">Django vs Flask vs FastAPI – A Comparative Guide to Python Web Frameworks</a></li>
+</ul>
+<h3 id="malware">malware</h3>
+<ul>
+<li><a href="https://github.com/tylabs/quicksand">quicksand</a></li>
+</ul>
+<h3 id="markdown">markdown</h3>
+<ul>
+<li><a href="https://github.com/joeyespo/grip">grip</a></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>grip doc/control-node-install-config-guide.md --export doc/control-node-install-config-guide.html
+</span></code></pre></div>
+<h3 id="sqlite-utils">sqlite utils</h3>
+<ul>
+<li><a href="https://sqlite-utils.datasette.io/en/stable/index.html">sqlite-utils</a><ul>
+<li><a href="https://github.com/simonw/sqlite-utils">simonw/sqlite-utils: Python CLI utility and library for manipulating SQLite databases</a></li>
+<li><a href="https://jvns.ca/blog/2022/05/12/sqlite-utils--a-nice-way-to-import-data-into-sqlite/">sqlite-utils: a nice way to import data into SQLite for analysis</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="iwhat">iwhat</h3>
+<ul>
+<li><a href="https://github.com/yihong0618/iWhat">GitHub - yihong0618/iWhat: What is it? Using AI Inspired by pyWhat</a></li>
+</ul>
+<h3 id="ipmi">ipmi</h3>
+<ul>
+<li><a href="https://github.com/kontron/python-ipmi">GitHub - kontron/python-ipmi: A pure python IPMI library</a><ul>
+<li><a href="https://github.com/kontron/python-ipmi/blob/dbaf735df7736e581a8160b640e969d1d3fcf36d/pyipmi/ipmitool.py#L157">python-ipmi/ipmitool.py at dbaf735df7736e581a8160b640e969d1d3fcf36d · kontron/python-ipmi · GitHub</a></li>
+<li><a href="https://github.com/kontron/python-ipmi/blob/master/examples/dcmi.py">python-ipmi/dcmi.py at master · kontron/python-ipmi · GitHub</a></li>
+<li><a href="https://github.com/kontron/python-ipmi/issues/17">How to get sdr/ sensor · Issue #17 · kontron/python-ipmi · GitHub</a></li>
+</ul>
+</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">print_sdr_list_entry</span><span class="p">(</span><span class="n">record_id</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">id_string</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">states</span><span class="p">):</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    <span class="k">if</span> <span class="n">number</span><span class="p">:</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>        <span class="n">number</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>        <span class="n">number</span> <span class="o">=</span> <span class="s1">&#39;na&#39;</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>    <span class="k">if</span> <span class="n">states</span><span class="p">:</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>        <span class="n">states</span> <span class="o">=</span> <span class="nb">hex</span><span class="p">(</span><span class="n">states</span><span class="p">)</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>        <span class="n">states</span> <span class="o">=</span> <span class="s1">&#39;na&#39;</span>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;0x</span><span class="si">%04x</span><span class="s2"> | </span><span class="si">%3s</span><span class="s2"> | </span><span class="si">%-18s</span><span class="s2"> | </span><span class="si">%9s</span><span class="s2"> | </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">record_id</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>                                               <span class="n">id_string</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">states</span><span class="p">))</span>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="c1"># Example usage</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="n">ip</span> <span class="o">=</span> <span class="s2">&quot;167.222.1.33&quot;</span>
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a><span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;foo&quot;</span>
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>
+</span><span id="__span-24-20"><a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a><span class="n">interface</span> <span class="o">=</span> <span class="n">pyipmi</span><span class="o">.</span><span class="n">interfaces</span><span class="o">.</span><span class="n">create_interface</span><span class="p">(</span><span class="n">interface</span><span class="o">=</span><span class="s1">&#39;rmcp&#39;</span><span class="p">,</span>
+</span><span id="__span-24-21"><a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>                                             <span class="n">slave_address</span><span class="o">=</span><span class="mh">0x81</span><span class="p">,</span>
+</span><span id="__span-24-22"><a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>                                             <span class="n">host_target_address</span><span class="o">=</span><span class="mh">0x20</span><span class="p">,</span>
+</span><span id="__span-24-23"><a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>                                             <span class="n">keep_alive_interval</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-24-24"><a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a><span class="n">ipmi</span> <span class="o">=</span> <span class="n">pyipmi</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span><span class="n">interface</span><span class="p">)</span>
+</span><span id="__span-24-25"><a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a><span class="n">ipmi</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">set_session_type_rmcp</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">623</span><span class="p">)</span>
+</span><span id="__span-24-26"><a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a><span class="n">ipmi</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">set_auth_type_user</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+</span><span id="__span-24-27"><a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a>
+</span><span id="__span-24-28"><a id="__codelineno-24-28" name="__codelineno-24-28" href="#__codelineno-24-28"></a><span class="n">ipmi</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">pyipmi</span><span class="o">.</span><span class="n">Target</span><span class="p">(</span><span class="n">ipmb_address</span><span class="o">=</span><span class="mh">0x20</span><span class="p">)</span>
+</span><span id="__span-24-29"><a id="__codelineno-24-29" name="__codelineno-24-29" href="#__codelineno-24-29"></a>
+</span><span id="__span-24-30"><a id="__codelineno-24-30" name="__codelineno-24-30" href="#__codelineno-24-30"></a><span class="n">ipmi</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">establish</span><span class="p">()</span>
+</span><span id="__span-24-31"><a id="__codelineno-24-31" name="__codelineno-24-31" href="#__codelineno-24-31"></a><span class="n">device_id</span> <span class="o">=</span> <span class="n">ipmi</span><span class="o">.</span><span class="n">get_device_id</span><span class="p">()</span>
+</span><span id="__span-24-32"><a id="__codelineno-24-32" name="__codelineno-24-32" href="#__codelineno-24-32"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+</span><span id="__span-24-33"><a id="__codelineno-24-33" name="__codelineno-24-33" href="#__codelineno-24-33"></a><span class="s1">Device ID:          </span><span class="si">%(device_id)s</span>
+</span><span id="__span-24-34"><a id="__codelineno-24-34" name="__codelineno-24-34" href="#__codelineno-24-34"></a><span class="s1">Device Revision:    </span><span class="si">%(revision)s</span>
+</span><span id="__span-24-35"><a id="__codelineno-24-35" name="__codelineno-24-35" href="#__codelineno-24-35"></a><span class="s1">Firmware Revision:  </span><span class="si">%(fw_revision)s</span>
+</span><span id="__span-24-36"><a id="__codelineno-24-36" name="__codelineno-24-36" href="#__codelineno-24-36"></a><span class="s1">IPMI Version:       </span><span class="si">%(ipmi_version)s</span>
+</span><span id="__span-24-37"><a id="__codelineno-24-37" name="__codelineno-24-37" href="#__codelineno-24-37"></a><span class="s1">Manufacturer ID:    </span><span class="si">%(manufacturer_id)d</span><span class="s1"> (0x</span><span class="si">%(manufacturer_id)04x</span><span class="s1">)</span>
+</span><span id="__span-24-38"><a id="__codelineno-24-38" name="__codelineno-24-38" href="#__codelineno-24-38"></a><span class="s1">Product ID:         </span><span class="si">%(product_id)d</span><span class="s1"> (0x</span><span class="si">%(product_id)04x</span><span class="s1">)</span>
+</span><span id="__span-24-39"><a id="__codelineno-24-39" name="__codelineno-24-39" href="#__codelineno-24-39"></a><span class="s1">Device Available:   </span><span class="si">%(available)d</span>
+</span><span id="__span-24-40"><a id="__codelineno-24-40" name="__codelineno-24-40" href="#__codelineno-24-40"></a><span class="s1">Provides SDRs:      </span><span class="si">%(provides_sdrs)d</span>
+</span><span id="__span-24-41"><a id="__codelineno-24-41" name="__codelineno-24-41" href="#__codelineno-24-41"></a><span class="s1">Additional Device Support:</span>
+</span><span id="__span-24-42"><a id="__codelineno-24-42" name="__codelineno-24-42" href="#__codelineno-24-42"></a><span class="s1">&#39;&#39;&#39;</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="n">device_id</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+</span><span id="__span-24-43"><a id="__codelineno-24-43" name="__codelineno-24-43" href="#__codelineno-24-43"></a><span class="n">functions</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="__span-24-44"><a id="__codelineno-24-44" name="__codelineno-24-44" href="#__codelineno-24-44"></a>        <span class="p">(</span><span class="s1">&#39;SENSOR&#39;</span><span class="p">,</span> <span class="s1">&#39;Sensor Device&#39;</span><span class="p">),</span>
+</span><span id="__span-24-45"><a id="__codelineno-24-45" name="__codelineno-24-45" href="#__codelineno-24-45"></a>        <span class="p">(</span><span class="s1">&#39;SDR_REPOSITORY&#39;</span><span class="p">,</span> <span class="s1">&#39;SDR Repository Device&#39;</span><span class="p">),</span>
+</span><span id="__span-24-46"><a id="__codelineno-24-46" name="__codelineno-24-46" href="#__codelineno-24-46"></a>        <span class="p">(</span><span class="s1">&#39;SEL&#39;</span><span class="p">,</span> <span class="s1">&#39;SEL Device&#39;</span><span class="p">),</span>
+</span><span id="__span-24-47"><a id="__codelineno-24-47" name="__codelineno-24-47" href="#__codelineno-24-47"></a>        <span class="p">(</span><span class="s1">&#39;FRU_INVENTORY&#39;</span><span class="p">,</span> <span class="s1">&#39;FRU Inventory Device&#39;</span><span class="p">),</span>
+</span><span id="__span-24-48"><a id="__codelineno-24-48" name="__codelineno-24-48" href="#__codelineno-24-48"></a>        <span class="p">(</span><span class="s1">&#39;IPMB_EVENT_RECEIVER&#39;</span><span class="p">,</span> <span class="s1">&#39;IPMB Event Receiver&#39;</span><span class="p">),</span>
+</span><span id="__span-24-49"><a id="__codelineno-24-49" name="__codelineno-24-49" href="#__codelineno-24-49"></a>        <span class="p">(</span><span class="s1">&#39;IPMB_EVENT_GENERATOR&#39;</span><span class="p">,</span> <span class="s1">&#39;IPMB Event Generator&#39;</span><span class="p">),</span>
+</span><span id="__span-24-50"><a id="__codelineno-24-50" name="__codelineno-24-50" href="#__codelineno-24-50"></a>        <span class="p">(</span><span class="s1">&#39;BRIDGE&#39;</span><span class="p">,</span> <span class="s1">&#39;Bridge&#39;</span><span class="p">),</span>
+</span><span id="__span-24-51"><a id="__codelineno-24-51" name="__codelineno-24-51" href="#__codelineno-24-51"></a>        <span class="p">(</span><span class="s1">&#39;CHASSIS&#39;</span><span class="p">,</span> <span class="s1">&#39;Chassis Device&#39;</span><span class="p">)</span>
+</span><span id="__span-24-52"><a id="__codelineno-24-52" name="__codelineno-24-52" href="#__codelineno-24-52"></a><span class="p">)</span>
+</span><span id="__span-24-53"><a id="__codelineno-24-53" name="__codelineno-24-53" href="#__codelineno-24-53"></a><span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">functions</span><span class="p">:</span>
+</span><span id="__span-24-54"><a id="__codelineno-24-54" name="__codelineno-24-54" href="#__codelineno-24-54"></a>    <span class="k">if</span> <span class="n">device_id</span><span class="o">.</span><span class="n">supports_function</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span><span id="__span-24-55"><a id="__codelineno-24-55" name="__codelineno-24-55" href="#__codelineno-24-55"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">s</span><span class="p">)</span>
+</span><span id="__span-24-56"><a id="__codelineno-24-56" name="__codelineno-24-56" href="#__codelineno-24-56"></a><span class="k">if</span> <span class="n">device_id</span><span class="o">.</span><span class="n">aux</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-24-57"><a id="__codelineno-24-57" name="__codelineno-24-57" href="#__codelineno-24-57"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Aux Firmware Rev Info:  [</span><span class="si">%s</span><span class="s1">]&#39;</span> <span class="o">%</span> <span class="p">(</span>
+</span><span id="__span-24-58"><a id="__codelineno-24-58" name="__codelineno-24-58" href="#__codelineno-24-58"></a>            <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;0x</span><span class="si">%02x</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">device_id</span><span class="o">.</span><span class="n">aux</span><span class="p">)))</span>
+</span><span id="__span-24-59"><a id="__codelineno-24-59" name="__codelineno-24-59" href="#__codelineno-24-59"></a>
+</span><span id="__span-24-60"><a id="__codelineno-24-60" name="__codelineno-24-60" href="#__codelineno-24-60"></a><span class="k">for</span> <span class="n">selector</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+</span><span id="__span-24-61"><a id="__codelineno-24-61" name="__codelineno-24-61" href="#__codelineno-24-61"></a>    <span class="n">caps</span> <span class="o">=</span> <span class="n">ipmi</span><span class="o">.</span><span class="n">get_dcmi_capabilities</span><span class="p">(</span><span class="n">selector</span><span class="p">)</span>
+</span><span id="__span-24-62"><a id="__codelineno-24-62" name="__codelineno-24-62" href="#__codelineno-24-62"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Selector: </span><span class="si">{}</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">selector</span><span class="p">))</span>
+</span><span id="__span-24-63"><a id="__codelineno-24-63" name="__codelineno-24-63" href="#__codelineno-24-63"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  version:  </span><span class="si">{}</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">caps</span><span class="o">.</span><span class="n">specification_conformence</span><span class="p">))</span>
+</span><span id="__span-24-64"><a id="__codelineno-24-64" name="__codelineno-24-64" href="#__codelineno-24-64"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  revision: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">caps</span><span class="o">.</span><span class="n">parameter_revision</span><span class="p">))</span>
+</span><span id="__span-24-65"><a id="__codelineno-24-65" name="__codelineno-24-65" href="#__codelineno-24-65"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  data:     </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">caps</span><span class="o">.</span><span class="n">parameter_data</span><span class="p">))</span>
+</span><span id="__span-24-66"><a id="__codelineno-24-66" name="__codelineno-24-66" href="#__codelineno-24-66"></a>
+</span><span id="__span-24-67"><a id="__codelineno-24-67" name="__codelineno-24-67" href="#__codelineno-24-67"></a><span class="n">rsp</span> <span class="o">=</span> <span class="n">ipmi</span><span class="o">.</span><span class="n">get_power_reading</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-24-68"><a id="__codelineno-24-68" name="__codelineno-24-68" href="#__codelineno-24-68"></a>
+</span><span id="__span-24-69"><a id="__codelineno-24-69" name="__codelineno-24-69" href="#__codelineno-24-69"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Power Reading&#39;</span><span class="p">)</span>
+</span><span id="__span-24-70"><a id="__codelineno-24-70" name="__codelineno-24-70" href="#__codelineno-24-70"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  current:   </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rsp</span><span class="o">.</span><span class="n">current_power</span><span class="p">))</span>
+</span><span id="__span-24-71"><a id="__codelineno-24-71" name="__codelineno-24-71" href="#__codelineno-24-71"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  minimum:   </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rsp</span><span class="o">.</span><span class="n">minimum_power</span><span class="p">))</span>
+</span><span id="__span-24-72"><a id="__codelineno-24-72" name="__codelineno-24-72" href="#__codelineno-24-72"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  maximum:   </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rsp</span><span class="o">.</span><span class="n">maximum_power</span><span class="p">))</span>
+</span><span id="__span-24-73"><a id="__codelineno-24-73" name="__codelineno-24-73" href="#__codelineno-24-73"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  average:   </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rsp</span><span class="o">.</span><span class="n">average_power</span><span class="p">))</span>
+</span><span id="__span-24-74"><a id="__codelineno-24-74" name="__codelineno-24-74" href="#__codelineno-24-74"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  timestamp: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rsp</span><span class="o">.</span><span class="n">timestamp</span><span class="p">))</span>
+</span><span id="__span-24-75"><a id="__codelineno-24-75" name="__codelineno-24-75" href="#__codelineno-24-75"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  period:    </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rsp</span><span class="o">.</span><span class="n">period</span><span class="p">))</span>
+</span><span id="__span-24-76"><a id="__codelineno-24-76" name="__codelineno-24-76" href="#__codelineno-24-76"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  state:     </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rsp</span><span class="o">.</span><span class="n">reading_state</span><span class="p">))</span>
+</span><span id="__span-24-77"><a id="__codelineno-24-77" name="__codelineno-24-77" href="#__codelineno-24-77"></a>
+</span><span id="__span-24-78"><a id="__codelineno-24-78" name="__codelineno-24-78" href="#__codelineno-24-78"></a><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">ipmi</span><span class="o">.</span><span class="n">device_sdr_entries</span><span class="p">():</span>
+</span><span id="__span-24-79"><a id="__codelineno-24-79" name="__codelineno-24-79" href="#__codelineno-24-79"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-24-80"><a id="__codelineno-24-80" name="__codelineno-24-80" href="#__codelineno-24-80"></a>        <span class="n">number</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-24-81"><a id="__codelineno-24-81" name="__codelineno-24-81" href="#__codelineno-24-81"></a>        <span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-24-82"><a id="__codelineno-24-82" name="__codelineno-24-82" href="#__codelineno-24-82"></a>        <span class="n">states</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-24-83"><a id="__codelineno-24-83" name="__codelineno-24-83" href="#__codelineno-24-83"></a>
+</span><span id="__span-24-84"><a id="__codelineno-24-84" name="__codelineno-24-84" href="#__codelineno-24-84"></a>        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="n">pyipmi</span><span class="o">.</span><span class="n">sdr</span><span class="o">.</span><span class="n">SDR_TYPE_FULL_SENSOR_RECORD</span><span class="p">:</span>
+</span><span id="__span-24-85"><a id="__codelineno-24-85" name="__codelineno-24-85" href="#__codelineno-24-85"></a>            <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">states</span><span class="p">)</span> <span class="o">=</span> <span class="n">ipmi</span><span class="o">.</span><span class="n">get_sensor_reading</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
+</span><span id="__span-24-86"><a id="__codelineno-24-86" name="__codelineno-24-86" href="#__codelineno-24-86"></a>            <span class="n">number</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">number</span>
+</span><span id="__span-24-87"><a id="__codelineno-24-87" name="__codelineno-24-87" href="#__codelineno-24-87"></a>            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-24-88"><a id="__codelineno-24-88" name="__codelineno-24-88" href="#__codelineno-24-88"></a>                <span class="n">value</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">convert_sensor_raw_to_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span><span id="__span-24-89"><a id="__codelineno-24-89" name="__codelineno-24-89" href="#__codelineno-24-89"></a>
+</span><span id="__span-24-90"><a id="__codelineno-24-90" name="__codelineno-24-90" href="#__codelineno-24-90"></a>        <span class="k">elif</span> <span class="n">s</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="n">pyipmi</span><span class="o">.</span><span class="n">sdr</span><span class="o">.</span><span class="n">SDR_TYPE_COMPACT_SENSOR_RECORD</span><span class="p">:</span>
+</span><span id="__span-24-91"><a id="__codelineno-24-91" name="__codelineno-24-91" href="#__codelineno-24-91"></a>            <span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">states</span><span class="p">)</span> <span class="o">=</span> <span class="n">ipmi</span><span class="o">.</span><span class="n">get_sensor_reading</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">number</span><span class="p">)</span>
+</span><span id="__span-24-92"><a id="__codelineno-24-92" name="__codelineno-24-92" href="#__codelineno-24-92"></a>            <span class="n">number</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">number</span>
+</span><span id="__span-24-93"><a id="__codelineno-24-93" name="__codelineno-24-93" href="#__codelineno-24-93"></a>
+</span><span id="__span-24-94"><a id="__codelineno-24-94" name="__codelineno-24-94" href="#__codelineno-24-94"></a>        <span class="n">id_string</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s1">&#39;device_id_string&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span id="__span-24-95"><a id="__codelineno-24-95" name="__codelineno-24-95" href="#__codelineno-24-95"></a>
+</span><span id="__span-24-96"><a id="__codelineno-24-96" name="__codelineno-24-96" href="#__codelineno-24-96"></a>        <span class="n">print_sdr_list_entry</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">id_string</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">states</span><span class="p">)</span>
+</span><span id="__span-24-97"><a id="__codelineno-24-97" name="__codelineno-24-97" href="#__codelineno-24-97"></a>
+</span><span id="__span-24-98"><a id="__codelineno-24-98" name="__codelineno-24-98" href="#__codelineno-24-98"></a>    <span class="k">except</span> <span class="n">pyipmi</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">CompletionCodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-24-99"><a id="__codelineno-24-99" name="__codelineno-24-99" href="#__codelineno-24-99"></a>        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">(</span><span class="n">pyipmi</span><span class="o">.</span><span class="n">sdr</span><span class="o">.</span><span class="n">SDR_TYPE_COMPACT_SENSOR_RECORD</span><span class="p">,</span>
+</span><span id="__span-24-100"><a id="__codelineno-24-100" name="__codelineno-24-100" href="#__codelineno-24-100"></a>                        <span class="n">pyipmi</span><span class="o">.</span><span class="n">sdr</span><span class="o">.</span><span class="n">SDR_TYPE_FULL_SENSOR_RECORD</span><span class="p">):</span>
+</span><span id="__span-24-101"><a id="__codelineno-24-101" name="__codelineno-24-101" href="#__codelineno-24-101"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;0x</span><span class="si">{:04x}</span><span class="s1"> | </span><span class="si">{:3d}</span><span class="s1"> | </span><span class="si">{:18s}</span><span class="s1"> | ERR: CC=0x</span><span class="si">{:02x}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+</span><span id="__span-24-102"><a id="__codelineno-24-102" name="__codelineno-24-102" href="#__codelineno-24-102"></a>                    <span class="n">s</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="__span-24-103"><a id="__codelineno-24-103" name="__codelineno-24-103" href="#__codelineno-24-103"></a>                    <span class="n">s</span><span class="o">.</span><span class="n">number</span><span class="p">,</span>
+</span><span id="__span-24-104"><a id="__codelineno-24-104" name="__codelineno-24-104" href="#__codelineno-24-104"></a>                    <span class="n">s</span><span class="o">.</span><span class="n">device_id_string</span><span class="p">,</span>
+</span><span id="__span-24-105"><a id="__codelineno-24-105" name="__codelineno-24-105" href="#__codelineno-24-105"></a>                    <span class="n">e</span><span class="o">.</span><span class="n">cc</span><span class="p">))</span>
+</span></code></pre></div>
+<h3 id="streamlit">Streamlit</h3>
+<ul>
+<li><a href="https://myapollo.com.tw/post/streamsync/">Streamsync — Streamlit 的挑戰者 - MyApollo</a></li>
+<li><a href="https://blog.jiatool.com/posts/streamlit_2023/">(2023年新版) 使用 Streamlit 簡單又快速建立 Dashboard 網頁 – IT 空間</a></li>
+<li><a href="https://cheat-sheet.streamlit.app/">Streamlit cheat sheet · Streamlit</a></li>
+<li><a href="https://streamlit.io/gallery">App Gallery • Streamlit</a></li>
+</ul>
+<h3 id="celery">Celery</h3>
+<ul>
+<li><a href="https://testdriven.io/blog/fastapi-and-celery/">Asynchronous Tasks with FastAPI and Celery | TestDriven.io</a></li>
+</ul>
+<h3 id="pytest">pytest</h3>
+<ul>
+<li><a href="https://discord.com/blog/pytest-daemon-10x-local-test-iteration-speed">pytest daemon: 10X Local Test Iteration Speed</a></li>
+</ul>
+<h3 id="mkdocs">mkdocs</h3>
+<ul>
+<li><a href="https://github.com/marketplace/actions/deploy-mkdocs">Deploy MkDocs · Actions · GitHub Marketplace · GitHub</a></li>
+<li><a href="https://dev.to/santisbon/document-your-project-with-mkdocs-and-github-pages-1fbf">Document your project with MkDocs and GitHub Pages - DEV Community</a></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>mkdocs build
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>mkdocs serve
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>mkdocs serve -a localhost:8888
+</span></code></pre></div>
+<p>use the system daemon
+/etc/systemd/system/xxx.service
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>[Unit]
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>Description=Job that runs the python SimpleHTTPServer daemon
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>Documentation=man:SimpleHTTPServer(1)
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>[Service]
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>Type=simple
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>WorkingDirectory=/home/supermicro/smci-doc/site
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>ExecStart=/usr/bin/python3 -m http.server 8888
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>ExecStop=/bin/kill `/bin/ps aux | /bin/grep http.server | /bin/grep -v grep | /usr/bin/awk &#39;{ print $2 }&#39;`
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>[Install]
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>WantedBy=multi-user.target
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>site_name: My Docs
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a># plugins:
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>#   - offline
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>markdown_extensions:
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>  - admonition
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>  - pymdownx.details
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>  - pymdownx.highlight:
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>      anchor_linenums: true
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>      line_spans: __span
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>      pygments_lang_class: true
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>  - pymdownx.inlinehilite
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>  - pymdownx.snippets
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>  - pymdownx.superfences
+</span><span id="__span-27-14"><a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>  - pymdownx.tabbed:
+</span><span id="__span-27-15"><a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a>      alternate_style: true
+</span><span id="__span-27-16"><a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>theme:
+</span><span id="__span-27-17"><a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>  name: material
+</span><span id="__span-27-18"><a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a>  features:
+</span><span id="__span-27-19"><a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a>    - navigation.top
+</span><span id="__span-27-20"><a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a>    - navigation.path
+</span><span id="__span-27-21"><a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a>    - search.highlight
+</span><span id="__span-27-22"><a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a>    - search.share
+</span><span id="__span-27-23"><a id="__codelineno-27-23" name="__codelineno-27-23" href="#__codelineno-27-23"></a>    - navigation.footer
+</span><span id="__span-27-24"><a id="__codelineno-27-24" name="__codelineno-27-24" href="#__codelineno-27-24"></a>    - content.code.copy
+</span><span id="__span-27-25"><a id="__codelineno-27-25" name="__codelineno-27-25" href="#__codelineno-27-25"></a>    - content.code.select
+</span><span id="__span-27-26"><a id="__codelineno-27-26" name="__codelineno-27-26" href="#__codelineno-27-26"></a>    - content.code.annotate
+</span><span id="__span-27-27"><a id="__codelineno-27-27" name="__codelineno-27-27" href="#__codelineno-27-27"></a>extra:
+</span><span id="__span-27-28"><a id="__codelineno-27-28" name="__codelineno-27-28" href="#__codelineno-27-28"></a>  social:
+</span><span id="__span-27-29"><a id="__codelineno-27-29" name="__codelineno-27-29" href="#__codelineno-27-29"></a>    - icon: fontawesome/brands/gitlab 
+</span><span id="__span-27-30"><a id="__codelineno-27-30" name="__codelineno-27-30" href="#__codelineno-27-30"></a>      link: https://gitlab.supermicro.com/
+</span><span id="__span-27-31"><a id="__codelineno-27-31" name="__codelineno-27-31" href="#__codelineno-27-31"></a>copyright: Copyright &amp;copy; 2023
+</span></code></pre></div>
+<h3 id="pywifi">pywifi</h3>
+<ul>
+<li><a href="https://foofish.net/python-crack-wifi.html">用 Python 破解隔壁老王家的 Wi-Fi 密码，刺激！ - FooFish</a></li>
+</ul>
+<h3 id="pyee">pyee</h3>
+<ul>
+<li><a href="https://editor.leonh.space/2024/ee/">從 pyee 認識觀察者模式 | 六小編 Editor Leon</a></li>
+</ul>
+<h3 id="diagrams">diagrams</h3>
+<ul>
+<li><a href="https://myapollo.com.tw/post/python-diagrams/">Python 套件介紹 — Diagrams - MyApollo</a></li>
+</ul>
+<h3 id="airflow">airflow</h3>
+<ul>
+<li><a href="https://leemeng.tw/a-story-about-airflow-and-data-engineering-using-how-to-use-python-to-catch-up-with-latest-comics-as-an-example.html">LeeMeng - 一段 Airflow 與資料工程的故事：談如何用 Python 追漫畫連載</a></li>
+</ul>
+<h3 id="ansible-playbook-grapher">ansible-playbook-grapher</h3>
+<ul>
+<li><a href="https://github.com/haidaraM/ansible-playbook-grapher?tab=readme-ov-file">GitHub - haidaraM/ansible-playbook-grapher: A command line tool to create a graph representing your Ansible playbook tasks and roles</a></li>
+</ul>
+<h3 id="glances">glances</h3>
+<ul>
+<li><a href="https://github.com/nicolargo/glances">GitHub - nicolargo/glances: Glances an Eye on your system. A top/htop alternative for GNU/Linux, BSD, Mac OS and Windows operating systems.</a></li>
+</ul>
+<h3 id="tw_stocker">tw_stocker</h3>
+<ul>
+<li><a href="https://github.com/voidful/tw_stocker">voidful/tw_stocker: keep tracking and store taiwan stock information - 每天更新台股歷史資料庫</a><ul>
+<li><a href="https://github.com/s9891326/tw_stocker">s9891326/tw_stocker: keep tracking and store taiwan stock information</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="docling">Docling</h3>
+<ul>
+<li><a href="https://blog.jiatool.com/posts/docling_intro/">透過 Docling 輕鬆解析常見文件，匯出成 JSON、Markdown、HTML 格式 – IT 空間</a></li>
+</ul>
+<p>alternative: <a href="https://github.com/microsoft/markitdown">microsoft/markitdown: Python tool for converting files and office documents to Markdown.</a></p>
+<h3 id="garmin-grafana">garmin-grafana</h3>
+<ul>
+<li><a href="https://github.com/arpanghosh8453/garmin-grafana">GitHub - arpanghosh8453/garmin-grafana: A Dockerized python Script to fetch Garmin health data and populate that in a InfluxDB Database, for visualization long term health trends with Grafana</a></li>
+</ul>
+<h2 id="software-development-tools">software development tools</h2>
+<ul>
+<li><a href="https://hackmd.io/@UTRxSLfpRa6ds1oeI2U7Lw/BJqzTn8tj">Python的一些套件(black、isort、pylint) + pre-commit - HackMD</a></li>
+<li>pre-commit<ul>
+<li><a href="https://www.mropengate.com/2019/08/pre-commit-git-hooks_4.html">提升程式碼品質：使用 Pre-Commit (Git Hooks) | Mr. Opengate</a></li>
+<li><a href="https://blog.kyomind.tw/pre-commit/">pre-commit 設定 Git Hooks 教學：以 Flake8、isort、yapf 為例 - Code and Me</a></li>
+<li><a href="https://pre-commit.com/hooks.html">pre-commit</a></li>
+<li><a href="https://github.com/pre-commit/pre-commit-hooks#hooks-available">GitHub - pre-commit/pre-commit-hooks: Some out-of-the-box hooks for pre-commit</a><ul>
+<li><a href="https://pypi.org/project/commitlint/">commitlint · PyPI</a><ul>
+<li>pre-commit install --hook-type commit-msg</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>git-changelog<ul>
+<li><a href="https://github.com/pawamoy/git-changelog">GitHub - pawamoy/git-changelog: Automatic Changelog generator using Jinja2 templates.</a><ul>
+<li><a href="https://pypi.org/project/git-changelog/">git-changelog · PyPI</a></li>
+<li><a href="https://pawamoy.github.io/git-changelog/usage/#quick-usage">Usage - git-changelog</a></li>
+</ul>
+</li>
+<li><a href="https://www.conventionalcommits.org/en/v1.0.0-beta.4/#summary">Conventional Commits</a></li>
+<li><a href="https://mokkapps.de/blog/how-to-automatically-generate-a-helpful-changelog-from-your-git-commit-messages">How To Automatically Generate A Helpful Changelog From Your Git Commit Messages | Michael Hoffmann</a></li>
+</ul>
+</li>
+</ul>
+<p>.pre-commit-config.yaml
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nt">repos</span><span class="p">:</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/opensource-nepal/commitlint</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1.2.0</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">commitlint</span>
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git-changelog -io CHANGELOG.md -c angular
+</span></code></pre></div>
+<h2 id="cheat-sheet">Cheat Sheet</h2>
+<ul>
+<li><a href="https://perso.limsi.fr/pointal/_media/python:cours:mementopython3-english.pdf">Python 3 Cheat Sheet</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../python%20web/" class="md-footer__link md-footer__link--prev" aria-label="Previous: python web">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                python web
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../shell%20script/" class="md-footer__link md-footer__link--next" aria-label="Next: shell script">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                shell script
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

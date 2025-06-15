@@ -1,0 +1,3838 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Ansible%20Practice/">
+      
+      
+        <link rel="next" href="../Ansys/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Ansible - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ansible" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ansible
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome the docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hackmd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hackmd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google docs api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InfiniBand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Message Passing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nagios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus Repository Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Openstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RedHat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redfish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scrum筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bitwise world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud-init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Influxdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pacemaker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    podman
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shell script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用者體驗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    備份還原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    奇技淫巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    持續整合
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排列組合與機率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    機器學習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    正規表示法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    測試工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    無線網路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向實務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向系統分析與設計
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬體概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    程式本質
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系統的價值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    統計圖表的表達方式以及使用的範圍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    虛擬機器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料庫維運
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資訊安全
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體工程師的專業和通識
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體需求溝通
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ansible">Ansible</h1>
+<ul>
+<li><a href="https://www.redhat.com/en/topics/automation/learning-ansible-tutorial">Learning Ansible basics</a></li>
+<li><a href="https://ithelp.ithome.com.tw/users/20103346/ironman/1473">30 天入門 Ansible 及 Jenkins</a></li>
+<li><a href="https://github.com/geerlingguy/ansible-for-devops">GitHub - geerlingguy/ansible-for-devops: Ansible for DevOps examples.</a></li>
+<li>video<ul>
+<li><a href="https://www.youtube.com/watch?app=desktop&amp;v=1id6ERvfozo&amp;t=0s">What is Ansible | Ansible Playbook explained | Ansible Tutorial for Beginners - YouTube</a></li>
+<li><a href="https://www.youtube.com/watch?v=GROqwFFLl3s">Ansible Full Course | Zero to Hero - YouTube</a></li>
+</ul>
+</li>
+<li>labs<ul>
+<li><a href="https://morioh.com/p/fa458766759f">Ansible Lab environment using Docker</a><ul>
+<li>change the ansible/base/Dockerfile from <strong>ubuntu:17.10</strong> to <strong>ubuntu:20.04</strong></li>
+<li>docker compose build base</li>
+<li>docker compose build master</li>
+<li>docker compose build host</li>
+<li>docker compose up -d</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>workshop<ul>
+<li><a href="https://github.com/ansible/workshops">GitHub - ansible/workshops: Training Course for Ansible Automation Platform</a></li>
+<li><a href="https://github.com/LMtx/ansible-lab-docker">GitHub - LMtx/ansible-lab-docker: Ansible Lab environment using Docker</a></li>
+</ul>
+</li>
+<li>config<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_configuration.html">Configuring Ansible — Ansible Documentation</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/reference_appendices/config.html#ansible-configuration-settings">Ansible Configuration Settings — Ansible Documentation</a></li>
+</ul>
+</li>
+<li><a href="https://docs.ansible.com/ansible/latest/user_guide/index.html">User Guide — Ansible Documentation</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html#">Tips and tricks — Ansible Documentation</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/collections/index.html#list-of-collections">Collection Index — Ansible Documentation</a><ul>
+<li>In Ansible 2.10 and later, most modules are hosted in collections.</li>
+<li><a href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html#collections">Using collections — Ansible Documentation</a></li>
+<li><a href="https://hazel.style/2021/05/28/How-to-contribute-your-first-Ansible-Collection-and-Ansible-Tower-Workflow-Use-Case/">如何貢獻你的第一支 Ansible Collection 以及 Ansible Tower Workflow 應用簡介 | 野生的工程師</a></li>
+</ul>
+</li>
+<li>CLI<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html">ansible-playbook — Ansible Documentation</a></li>
+</ul>
+</li>
+<li>Parallelism<ul>
+<li><a href="https://www.redhat.com/sysadmin/ansible-parallel-serial-keyword">How to implement parallelism and rolling updates in Ansible | Enable Sysadmin</a></li>
+<li><a href="https://www.redhat.com/sysadmin/faster-ansible-playbook-execution">8 ways to speed up your Ansible playbooks | Enable Sysadmin</a></li>
+<li><a href="https://www.sokube.ch/post/how-to-speed-up-ansible-playbooks-drastically-1">How to speed up Ansible playbooks drastically ?</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_delegation.html#rolling-update-batch-size">Controlling where tasks run: delegation and local actions — Ansible Documentation</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_async.html">Asynchronous actions and polling — Ansible Documentation</a></li>
+</ul>
+</li>
+<li>variables<ul>
+<li><a href="https://blog.yowko.com/ansible-vars-default/">Ansible 變數不存在時指定預設值 - Yowko's Notes</a></li>
+<li><a href="https://stackoverflow.com/questions/61078494/ansible-reference-to-a-variable-from-the-same-list">ansible: reference to a variable from the same list - Stack Overflow</a><ul>
+<li><a href="https://github.com/ansible/ansible/issues/50280">Can't reference a dict key inside the same dict · Issue #50280 · ansible/ansible · GitHub</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_advanced_syntax.html">Advanced playbook syntax — Ansible Documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>GUI<ul>
+<li><a href="https://semaphoreui.com/vs/tower">Ansible UI: Semaphore UI vs Tower - Semaphore UI</a></li>
+<li><a href="https://stackoverflow.com/questions/31152102/is-it-a-good-idea-to-make-ansible-and-rundeck-work-together-or-using-either-one">jenkins - Is it a good idea to make Ansible and Rundeck work together, or using either one is enough? - Stack Overflow</a></li>
+<li><a href="https://www.quora.com/Is-there-any-existing-UI-for-Ansible">Is there any existing UI for Ansible? - Quora</a></li>
+<li><a href="https://www.youtube.com/watch?v=83vBAxs9oaw">Intro to RedHat Ansible Automation Platform | NetGru - YouTube</a></li>
+<li><a href="https://www.reddit.com/r/devops/comments/nmvo3p/semaphore_rundeck_and_awx_ansible/">Semaphore, RunDeck and AWX Ansible : r/devops</a></li>
+<li><a href="https://www.reddit.com/r/ansible/comments/1crwcjl/awx_vs_ansible_automation_platform/">AWX vs Ansible Automation Platform : r/ansible</a></li>
+<li><a href="https://www.reddit.com/r/ansible/comments/1bjc68i/ansible_tower_vs_awx_vs_red_hat_ansible/">Ansible Tower vs. AWX vs. Red Hat Ansible Automation Platform : r/ansible</a></li>
+<li><a href="https://www.reddit.com/r/ansible/comments/18ghrj8/integrating_ansible_core_with_rundeck_for/">Integrating Ansible Core with Rundeck for Simplified Automation Is good idea ? : r/ansible</a></li>
+</ul>
+</li>
+<li>Red Hat Enterprise Linux Automation with Ansible (RH294)</li>
+</ul>
+<p><img alt="" src="https://www.dropbox.com/s/wv9ya9et7ns9mo9/ansible_concepts.png?dl=1" /></p>
+<p><img alt="" src="https://docs.ansible.com/ansible/latest/_images/ansible_basic.svg" /></p>
+<ul>
+<li>control node<ul>
+<li>python</li>
+<li>inventory file</li>
+<li>ssh</li>
+</ul>
+</li>
+<li>managed nodes<ul>
+<li>ssh</li>
+</ul>
+</li>
+<li><a href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#intro-inventory">inventory file</a><ul>
+<li>organize managed nodes in centralized files</li>
+<li>static, dynamic</li>
+<li>format<ul>
+<li>YAML</li>
+<li>INI</li>
+</ul>
+</li>
+<li>group, variables<ul>
+<li>Groups can contain child groups, and hosts can be members of multiple groups. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>playbook<ul>
+<li>automation blueprints that Ansible uses to deploy and configure managed nodes.</li>
+<li>format<ul>
+<li>YAML</li>
+</ul>
+</li>
+<li>play, task, module<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/collections/index_module.html">Index of all Modules — Ansible Documentation</a></li>
+<li>A task is the application of a module to perform a specific unit of work.</li>
+<li>A play is a sequence of tasks to be applied, in order, to one or more hosts selected from your inventory.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RH294<ul>
+<li><a href="/PlI2oK5MRWaD-4I2bT4FtA">RH294 Red Hat Enterprise Linux Automation with Ansible - Basic and Variable data</a></li>
+<li><a href="/89CpUCJpQJGgnkwgPiR0Uw">RH294 Red Hat Enterprise Linux Automation with Ansible - Task flow</a></li>
+<li><a href="/o5geTmSgSfat-udR1-DMCA">RH294 Red Hat Enterprise Linux Automation with Ansible - advanced and debug</a></li>
+<li><a href="/LP-smNsUQQqgHmwHicvhWA">RH294 Red Hat Enterprise Linux Automation with Ansible - Automating Linux Administration Tasks</a></li>
+</ul>
+</li>
+</ul>
+<p>idempotent
+In general, tasks in Ansible Playbooks are idempotent, and <strong>it is safe to run a playbook multiple times</strong>. If the targeted managed hosts are already in the correct state, no changes should be made.
+``` yml=</p>
+<h1 id="not-idempotent">not idempotent</h1>
+<h1 id="every-time-the-play-is-run-it-rewrites-etcresolvconf-even-if-it-already-consists-of-the-line-nameserver-192021">Every time the play is run, it rewrites /etc/resolv.conf even if it already consists of the line nameserver 192.0.2.1.</h1>
+<ul>
+<li>name: Non-idempotent approach with shell module
+  shell: echo "nameserver 192.0.2.1" &gt; /etc/resolv.conf</li>
+</ul>
+<h1 id="idempotent">idempotent</h1>
+<h1 id="does-not-rewrite-the-etcresolvconf-file-if-it-already-consists-of-the-correct-content">does not rewrite the /etc/resolv.conf file if it already consists of the correct content</h1>
+<ul>
+<li>name: Idempotent approach with copy module
+  copy:
+    dest: /etc/resolv.conf
+    content: "nameserver 192.0.2.1\n"
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>## inventory
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>- [Passing multiple inventory sources](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html#passing-multiple-inventory-sources)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>- [Using inventory directories and multiple inventory sources](https://docs.ansible.com/ansible/latest/inventory_guide/intro_dynamic_inventory.html#using-inventory-directories-and-multiple-inventory-sources)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>- [Is there any option to list groups in Ansible? - Stack Overflow](https://stackoverflow.com/questions/33363023/is-there-any-option-to-list-groups-in-ansible)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>- Nested Groups
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>- Host Specifications with Ranges
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    - server[01:20].example.com matches all hosts named server01.example.com through server20.example.com.
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>- Dynamic Inventory
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    - For example, a dynamic inventory program could contact your Red Hat Satellite server or Amazon EC2 account, and use information stored there to construct an Ansible inventory
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>``` bash=
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a># ansible {host pattern} --list-hosts
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>ansible canada --list-hosts -v
+</span></code></pre></div></li>
+</ul>
+<p>``` bash=
+ansible-inventory --list
+ansible-inventory --list | jq "keys"
+ansible-inventory --graph
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>### Inline inventory
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>- [Is possible to not have an inventory file and just provide an ip at command line ? : r/ansible](https://www.reddit.com/r/ansible/comments/z7ehm7/is_possible_to_not_have_an_inventory_file_and/)
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    - [ansible.builtin.advanced\_host\_list inventory – Parses a ‘host list’ with ranges — Ansible Community Documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/advanced_host_list_inventory.html)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>``` bash
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>ansible -i 192.0.2.5, all -m ping
+</span></code></pre></div></p>
+<h2 id="config">config</h2>
+<p>``` bash=
+ansible --version
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>- [ansible/ansible.cfg at devel · ansible/ansible · GitHub](https://github.com/ansible/ansible/blob/devel/examples/ansible.cfg)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>- [避免 Ansible 無法存取第一次登入的 Server - Yowko&#39;s Notes](https://blog.yowko.com/ansible-bypass-fingerprint-check/)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>- [ansible.builtin.sh shell – POSIX shell (/bin/sh) — Ansible Documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/sh_shell.html#parameter-remote_tmp)
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>\&gt;=2.12
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>``` bash=
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>ansible-config init --disabled &gt; ansible.cfg
+</span></code></pre></div></p>
+<h2 id="module">module</h2>
+<p>``` bash=</p>
+<h1 id="lists-all-modules-installed-on-a-system">lists all modules installed on a system</h1>
+<p>ansible-doc -l</p>
+<h1 id="display-detailed-documentation-for-a-module">display detailed documentation for a module.</h1>
+<h1 id="ansible-doc-module-name">ansible-doc [module name]</h1>
+<p>ansible-doc ping</p>
+<h1 id="produces-example-output-that-can-serve-as-a-model-for-how-to-use-a-particular-module">produces example output that can serve as a model for how to use a particular module</h1>
+<p>ansible-doc -s ping</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>- [Module Index — Ansible Documentation](https://docs.ansible.com/ansible/2.9/modules/modules_by_category.html)
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    - [Files modules — Ansible Documentation](https://docs.ansible.com/ansible/2.9/modules/list_of_files_modules.html)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>### Files modules
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Ensuring a File Exists on Managed Hosts
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>``` yml
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>- name: Touch a file and set permissions
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  file:
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    path: /path/to/file
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    owner: user1
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    group: group1
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    mode: 0640
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    state: touch
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[user@host ~]$ ls -l file
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>-rw-r-----.  user1 group1 0 Nov 25 08:00 file
+</span></code></pre></div>
+<p>Copying and Editing Files on Managed Hosts
+``` yml=
+- name: Copy a file to managed hosts
+  copy:
+    src: file
+    dest: /path/to/file
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>``` yml=
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>- name: Retrieve SSH key from reference host
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  fetch:
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    src: &quot;/home/{{ user }}/.ssh/id_rsa.pub&quot;
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    dest: &quot;files/keys/{{ user }}.pub&quot;
+</span></code></pre></div></p>
+<p>To ensure a specific single line of text exists in an existing file,
+``` yml=
+- name: Add a line of text to a file
+  lineinfile:
+    path: /path/to/file
+    line: 'Add this line to the file'
+    state: present
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>To add a block of text to an existing file, use the blockinfile module:
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>``` yml=
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>- name: Add additional lines to a file
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  blockinfile:
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    path: /path/to/file
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    block: |
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>      First line in the additional block of text
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>      Second line in the additional block of text
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    state: present
+</span></code></pre></div></p>
+<p>Removing a File from Managed Hosts
+``` yml=
+- name: Make sure a file does not exist on managed hosts
+  file:
+    dest: /path/to/file
+    state: absent
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Retrieving the Status of a File on Managed Hosts
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>``` yml=
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>- name: Verify the checksum of a file
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  stat:
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    path: /path/to/file
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    checksum_algorithm: md5
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>  register: result
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>- debug
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    msg: The checksum of the file is {{ result.stat.checksum }}
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>TASK [Get md5 checksum of a file] *****************************************
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>ok: [hostname]
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>TASK [debug] **************************************************************
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>ok: [hostname] =&gt; {
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    &quot;msg&quot;: &quot;The checksum of the file is 5f76590425303022e933c43a7f2092a3&quot;
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>}
+</span></code></pre></div>
+<p>``` yml=
+- name: Examine all stat output of /etc/passwd
+  hosts: localhost</p>
+<p>tasks:
+    - name: stat /etc/passwd
+      stat:
+        path: /etc/passwd
+      register: results</p>
+<div class="language-text highlight"><pre><span></span><code>- name: Display stat results
+  debug:
+    var: results
+</code></pre></div>
+<p><code>The **synchronize** module is a wrapper around the rsync tool, which simplifies common file management tasks in your playbooks.</code> yml=
+- name: synchronize local file to remote files
+  synchronize:
+    src: file
+    dest: /path/to/file
+```</p>
+<h3 id="apt">apt</h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/36150362/installing-specific-apt-version-with-ansible">Installing specific apt version with ansible - Stack Overflow</a></li>
+</ul>
+<h2 id="ad-hoc-command">ad hoc command</h2>
+<p>a way of executing a single Ansible task quickly
+``` bash=</p>
+<h1 id="ansible-host-pattern-m-module-a-module-arguments-i-inventory">ansible {host-pattern} -m {module} [-a 'module arguments'] [-i inventory]</h1>
+<p>ansible localhost -m ping</p>
+<h1 id="know-the-difference-between-command-and-shell-module">know the difference between 'command' and 'shell' module</h1>
+<p>ansible localhost -m command -a /usr/bin/hostname
+ansible localhost -m shell -a set</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>## variables
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>- [Using Variables — Ansible Documentation](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable)
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>- [Using Variables: Variables discovered from systems: Facts — Ansible Documentation](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_variables.html#variables-discovered-from-systems-facts)
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    - Facts are information derived from speaking with your remote systems. You can find a complete set under the ansible_facts variable, most facts are also ‘injected’ as top level variables preserving the `ansible_` prefix
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>- [Discovering variables: facts and magic variables — Ansible Documentation](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html#information-about-ansible-magic-variables)
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    - access information about Ansible operations, including the python version being used, the hosts and groups in inventory, and the directories for playbooks and roles, using &quot;magic&quot; variables
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>- [Special Variables — Ansible Documentation](https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html#special-variables)
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>- [Using Variables: Accessing information about other hosts with magic variables — Ansible Documentation](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_variables.html#accessing-information-about-other-hosts-with-magic-variables)
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>- [Using Variables: Variable precedence: Where should I put a variable? — Ansible Documentation](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable)
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>- [variables - Ansible - set\_facts Set a boolean value based on register.stdout\_lines containing a string - Stack Overflow](https://stackoverflow.com/questions/75316547/ansible-set-facts-set-a-boolean-value-based-on-register-stdout-lines-containin)
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>- [vars from a JSON or YAML file](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#vars-from-a-json-or-yaml-file)
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>precedence determines which value is used
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>simplified list of ways to define a variable, ordered from lowest precedence to highest:
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>- Group variables defined in the **inventory**.
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>- Group variables defined in files in a **group_vars** subdirectory in the same directory as the inventory or the playbook.
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>- Host variables defined in the **inventory**.
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>- Host variables defined in files in a **host_vars** subdirectory in the same directory as the inventory or the playbook.
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>- **Host facts**, discovered at runtime.
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>- Play variables in the playbook (vars and vars_files).
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>- Task variables.
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>- Extra variables defined on the **command line**.
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>``` bash=
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a># Overriding Variables from the Command Line
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>ansible-playbook main.yml -e &quot;package=apache&quot;
+</span></code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Capturing Command Output with Registered Variables</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nn">---</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Installs a package and prints the result</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install the package</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">      </span><span class="nt">yum</span><span class="p">:</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpd</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">      </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install_result</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">debug</span><span class="p">:</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">        </span><span class="nt">var</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install_result</span>
+</span></code></pre></div>
+<h3 id="secrets">secrets</h3>
+<p>To use Ansible Vault, a command-line tool named <code>ansible-vault</code> is used to create, edit, encrypt, decrypt, and view files.</p>
+<p>Files are protected with symmetric encryption using AES256 with a password as the secret key.</p>
+<p>``` bash=
+ansible-vault create secret.yml</p>
+<h1 id="you-can-use-a-vault-password-file-to-store-the-vault-password">you can use a vault password file to store the vault password</h1>
+<p>ansible-vault create --vault-password-file=vault-pass secret.yml</p>
+<h1 id="viewing-an-encrypted-file">Viewing an Encrypted File</h1>
+<p>ansible-vault view secret1.yml</p>
+<h1 id="editing-an-existing-encrypted-file">Editing an Existing Encrypted File</h1>
+<p>ansible-vault edit secret.yml</p>
+<h1 id="encrypting-an-existing-file">Encrypting an Existing File</h1>
+<p>ansible-vault encrypt secret1.yml secret2.yml</p>
+<h1 id="decrypting-an-existing-file">Decrypting an Existing File</h1>
+<p>ansible-vault decrypt secret1.yml --output=secret1-decrypted.yml</p>
+<h1 id="changing-the-password-of-an-encrypted-file">Changing the Password of an Encrypted File</h1>
+<p>ansible-vault rekey secret.yml</p>
+<h1 id="to-run-a-playbook-that-accesses-files-encrypted-with-ansible-vault">To run a playbook that accesses files encrypted with Ansible Vault,</h1>
+<h2 id="provide-the-vault-password-interactively">provide the vault password interactively</h2>
+<p>ansible-playbook --vault-id @prompt site.yml</p>
+<h2 id="specify-a-file-that-stores-the-encryption-password-in-plain-text">specify a file that stores the encryption password in plain text.</h2>
+<h2 id="you-can-also-use-the-ansible_vault_password_file-environment-variable-to-specify-the-default-location-of-the-password-file">You can also use the ANSIBLE_VAULT_PASSWORD_FILE environment variable to specify the default location of the password file.</h2>
+<p>ansible-playbook --vault-password-file=vault-pw-file site.yml</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>### Recommended Practices for Variable File Management
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>:::success
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>The recommended practice is to define inventory variables using host_vars and group_vars directories, and not to define them directly in the inventory files.
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>:::
+</span></code></pre></div>
+.
+├── ansible.cfg
+├── group_vars
+│   └── webservers
+│       └── vars
+├── host_vars
+│   └── demo.example.com
+│       ├── vars
+│       └── vault
+├── inventory
+└── playbook.yml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>### Facts
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>- [ansible - How to loop through interface facts - Server Fault](https://serverfault.com/questions/762079/how-to-loop-through-interface-facts)
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>- [Ansible combine registered variable from multiple hosts - Stack Overflow](https://stackoverflow.com/questions/74213702/ansible-combine-registered-variable-from-multiple-hosts)
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>- [ansible.utils.update\_fact module – Update currently set facts — Ansible Documentation](https://docs.ansible.com/ansible/latest/collections/ansible/utils/update_fact_module.html)
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>Ansible facts are variables that are automatically discovered by Ansible on a **managed host**.
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>Also, Administrators can create custom facts which are stored locally on each managed host.
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>Some variables are not facts or configured through the setup module, but are also automatically set by Ansible, it&#39;s called **magic variables**
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>``` bash=
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a># test magic variables
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>ansible localhost -m debug -a &#39;var=hostvars[&quot;localhost&quot;]&#39;
+</span></code></pre></div></p>
+<p>Normally, every play runs the <strong>setup</strong> module automatically before the first task in order to gather facts. </p>
+<p>Some of the facts gathered for a managed host might include:
+- The host name
+- The kernel version
+- The network interfaces
+- The IP addresses
+- The version of the operating system
+- Various environment variables
+- The number of CPUs
+- The available or free memory
+- The available disk space</p>
+<p>``` bash=</p>
+<h1 id="facts">檢查facts</h1>
+<p>ansible localhost -m setup
+ansible localhost -m setup &gt; /tmp/localhost_setup_dump</p>
+<h1 id="hostvars">檢查hostvars</h1>
+<p>ansible localhost -m debug -a "var=hostvars[inventory_hostname]"
+ansible localhost -m debug -a "var=ansible_host"
+ansible localhost -m debug -a "var=ansible_version"
+ansible localhost -m debug -a "var=group_names"
+ansible localhost -m debug -a "var=groups"</p>
+<p>ansible -i inventory test001 -m debug -a "var=hostvars[inventory_hostname]"</p>
+<blockquote>
+<p>/tmp/host_vars_test001</p>
+</blockquote>
+<h1 id="same-result">same result</h1>
+<p>ansible localhost -m ansible.builtin.setup
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>result from
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>ansible localhost -m debug -a &quot;var=hostvars[inventory_hostname]&quot;
+</span></code></pre></div>
+localhost | SUCCESS =&gt; {
+    "hostvars[inventory_hostname]": {
+        "ansible_check_mode": false,
+        "ansible_config_file": null,
+        "ansible_connection": "local",
+        "ansible_diff_mode": false,
+        "ansible_facts": {},
+        "ansible_forks": 5,
+        "ansible_inventory_sources": [
+            "/etc/ansible/hosts"
+        ],
+        "ansible_playbook_python": "/home/supermicro/.pyenv/versions/3.10.0/bin/python",
+        "ansible_python_interpreter": "/home/supermicro/.pyenv/versions/3.10.0/bin/python",
+        "ansible_verbosity": 0,
+        "ansible_version": {
+            "full": "2.13.6",
+            "major": 2,
+            "minor": 13,
+            "revision": 6,
+            "string": "2.13.6"
+        },
+        "group_names": [],
+        "groups": {
+            "all": [],
+            "ungrouped": []
+        },
+        "inventory_hostname": "localhost",
+        "inventory_hostname_short": "localhost",
+        "omit": "__omit_place_holder__f658d3d6364c746326fb9b151c3079026761b9e9",
+        "playbook_dir": "/home/supermicro/srccode/customers"
+    }
+}</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>``` yaml=
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>- name: Fact dump
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  hosts: all
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>  tasks:
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    - name: Print all facts
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>      debug:
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>        var: ansible_facts
+</span></code></pre></div>
+<h2 id="yaml">``` yaml=</h2>
+<ul>
+<li>hosts: all
+  tasks:</li>
+<li>name: Prints various Ansible facts
+    debug:
+      msg: &gt;
+        The default IPv4 address of {{ ansible_facts.fqdn }}
+        is {{ ansible_facts.default_ipv4.address }}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>To disable fact gathering for a play
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>``` yaml=
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>---
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>- name: This play gathers no facts automatically
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>  hosts: large_farm
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>  gather_facts: no
+</span></code></pre></div></li>
+</ul>
+<p>you can manually gather facts at any time by running a task that uses the setup module</p>
+<p>``` yaml=
+  tasks:
+    - name: Manually gather facts
+      setup:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>:::info
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Before Ansible 2.5, facts were injected as individual variables prefixed with the string ansible_ instead of being part of the ansible_facts variable. For example, the ansible_facts[&#39;distribution&#39;] fact would have been called ansible_distribution.
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>:::
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>#### Custom Facts
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>These facts are integrated into the list of standard facts gathered by the setup module when it runs on the managed host. 
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>By default, the setup module loads custom facts from files and scripts in each managed host&#39;s ==/etc/ansible/facts.d== directory. 
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>Custom facts can be defined in a static file, formatted as an INI file or using JSON. They can also be executable scripts which generate JSON output.
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>Dynamic custom facts allow the values for these facts, or even which facts are provided, to be determined programmatically when the play is run.
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>The name of each file or script must end in .fact in order to be used. Dynamic custom fact scripts must output JSON-formatted facts and must be executable.
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>an example of a static custom facts file
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>``` ini=
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>[packages]
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>web_package = httpd
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>db_package = mariadb-server
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>[users]
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>user1 = joe
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>user2 = jane
+</span></code></pre></div></p>
+<p>``` json=
+{
+  "packages": {
+    "web_package": "httpd",
+    "db_package": "mariadb-server"
+  },
+  "users": {
+    "user1": "joe",
+    "user2": "jane"
+  }
+}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>For example, assume that the preceding custom facts are produced by a file saved as /etc/ansible/facts.d/custom.fact on the managed host. In that case, the value of ansible_facts[&#39;ansible_local&#39;][&#39;custom&#39;][&#39;users&#39;][&#39;user1&#39;] is joe.
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>##### practice
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>setup_facts.yml
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>``` yaml=
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>---
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>- name: Install remote facts
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>  hosts: webserver
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>  vars:
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>    remote_dir: /etc/ansible/facts.d
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>    facts_file: custom.fact
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>  tasks:
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>    - name: Create the remote directory
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>      file:
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>        state: directory
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>        recurse: yes
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>        path: &quot;{{ remote_dir }}&quot;
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>    - name: Install the new facts
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>      copy:
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>        src: &quot;{{ facts_file }}&quot;
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>        dest: &quot;{{ remote_dir }}&quot;
+</span></code></pre></div></p>
+<p>/home/student/data-facts/custom.fact</p>
+<p>``` INI=
+[general]
+package = httpd
+service = httpd
+state = started
+enabled = true
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>``` bash=
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>ansible-playbook setup_facts.yml
+</span></code></pre></div></p>
+<p>playbook.yml</p>
+<h2 id="yaml_1">``` yaml=</h2>
+<ul>
+<li>name: Install Apache and starts the service
+  hosts: webserver</li>
+</ul>
+<p>tasks:
+    - name: Install the required package
+      yum:
+        name: "{{ ansible_facts['ansible_local']['custom']['general']['package'] }}"
+        state: latest</p>
+<div class="language-text highlight"><pre><span></span><code>- name: Start the service
+  service:
+    name: &quot;{{ ansible_facts[&#39;ansible_local&#39;][&#39;custom&#39;][&#39;general&#39;][&#39;service&#39;] }}&quot;
+    state: &quot;{{ ansible_facts[&#39;ansible_local&#39;][&#39;custom&#39;][&#39;general&#39;][&#39;state&#39;] }}&quot;
+    enabled: &quot;{{ ansible_facts[&#39;ansible_local&#39;][&#39;custom&#39;][&#39;general&#39;][&#39;enabled&#39;] }}&quot;
+</code></pre></div>
+<p><code></code> bash=
+ansible-playbook playbook.yml
+```</p>
+<h2 id="task-control">Task control</h2>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/2.9/user_guide/playbooks_loops.html">Loops — Ansible Documentation</a></li>
+<li><a href="https://docs.ansible.com/ansible/2.9/user_guide/playbooks_conditionals.html">Conditionals — Ansible Documentation</a></li>
+<li><a href="https://docs.ansible.com/ansible/2.9/user_guide/playbooks_intro.html#handlers-running-operations-on-change">Handlers: Running Operations On Change</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html#using-conditionals-in-loops">Using conditionals in loops</a></li>
+</ul>
+<h3 id="loop">loop</h3>
+<p>:::warning
+- <a href="https://docs.ansible.com/ansible/2.9/user_guide/playbooks_loops.html#migrating-from-with-x-to-loop">Migrating from with_X to loop — Ansible Documentation</a>
+- <a href="https://stackoverflow.com/questions/68388949/ansible-register-iterating-with-the-loop">Ansible: Register iterating with the loop - Stack Overflow</a></p>
+<p>Before Ansible 2.5, most playbooks used a different syntax for loops. Multiple loop keywords were provided, which were prefixed with with_, followed by the name of an Ansible look-up plug-in </p>
+<ul>
+<li>with_items</li>
+<li>with_file</li>
+<li>with_sequence</li>
+</ul>
+<p>``` yml=
+  vars:
+    data:
+      - user0
+      - user1
+      - user2
+  tasks:
+    - name: "with_items"
+      debug:
+        msg: "{{ item }}"
+      with_items: "{{ data }}"
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>:::
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>``` yml=
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>- name: Postfix is running
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>  service:
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>    name: postfix
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>    state: started
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>- name: Dovecot is running
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>  service:
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>    name: dovecot
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>    state: started
+</span></code></pre></div></p>
+<p>rewritten by loop</p>
+<p>``` yml=
+- name: Postfix and Dovecot are running
+  service:
+    name: "{{ item }}"
+    state: started
+  loop:
+    - postfix
+    - dovecot
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>The list used by loop can be provided by a variable
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>``` yml=
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>vars:
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>  mail_services:
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    - postfix
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>    - dovecot
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>tasks:
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>  - name: Postfix and Dovecot are running
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>    service:
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>      name: &quot;{{ item }}&quot;
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>      state: started
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>    loop: &quot;{{ mail_services }}&quot;
+</span></code></pre></div></p>
+<p>a List of Hashes or Dictionaries
+``` yml=
+- name: Users exist and are in the correct groups
+  user:
+    name: "{{ item.name }}"
+    state: present
+    groups: "{{ item.groups }}"
+  loop:
+    - name: jane
+      groups: wheel
+    - name: joe
+      groups: root
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Using Register Variables
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>``` yml=
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>---
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>- name: Loop Register Test
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>  gather_facts: no
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>  hosts: localhost
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>  tasks:
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>    - name: Looping Echo Task
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>      shell: &quot;echo This is my item: {{ item }}&quot;
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>      loop:
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>        - one
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>        - two
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>      register: echo_results
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>    - name: Show echo_results variable
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>      debug:
+</span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>        var: echo_results
+</span></code></pre></div></p>
+<h2 id="yml">``` yml=</h2>
+<ul>
+<li>
+<p>name: Loop Register Test
+  gather_facts: no
+  hosts: localhost
+  tasks:</p>
+<ul>
+<li>
+<p>name: Looping Echo Task
+  shell: "echo This is my item: {{ item }}"
+  loop:</p>
+<ul>
+<li>one</li>
+<li>two
+  register: echo_results</li>
+</ul>
+</li>
+<li>
+<p>name: Show stdout from the previous task.
+  debug:
+    msg: "STDOUT from previous task: {{ item.stdout }}"
+  loop: "{{ echo_results['results'] }}"
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>### Conditionally
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>usecase of conditionals in Ansible:
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>- A hard limit can be defined in a variable (for example, min_memory) and compared against the available memory on a managed host.
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>- The output of a command can be captured and evaluated by Ansible to determine whether or not a task completed before taking further action. For example, if a program fails, then a batch is skipped.
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>- Use Ansible facts to determine the managed host network configuration and decide which template file to send (for example, network bonding or trunking).
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>- The number of CPUs can be evaluated to determine how to properly tune a web server.
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>- Compare a registered variable with a predefined variable to determine if a service changed. For example, test the MD5 checksum of a service configuration file to see if the service is changed.
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>conditionals can be combined with either the **and** or **or** keywords, and grouped with parentheses.
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>When a list is provided to the when keyword, all of the conditionals are combined using the and operation. 
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>The expressions used with **when** clauses in Ansible Playbooks are **Jinja2 expressions**.
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>:::info
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>A common convention places any when keyword that might be present after the task&#39;s name and the module (and module arguments).
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>:::
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>``` yml=
+</span><span id="__span-24-20"><a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>---
+</span><span id="__span-24-21"><a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>- name: Simple Boolean Task Demo
+</span><span id="__span-24-22"><a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>  hosts: all
+</span><span id="__span-24-23"><a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>  vars:
+</span><span id="__span-24-24"><a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>    run_my_task: true
+</span><span id="__span-24-25"><a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a>
+</span><span id="__span-24-26"><a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>  tasks:
+</span><span id="__span-24-27"><a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a>    - name: httpd package is installed
+</span><span id="__span-24-28"><a id="__codelineno-24-28" name="__codelineno-24-28" href="#__codelineno-24-28"></a>      yum:
+</span><span id="__span-24-29"><a id="__codelineno-24-29" name="__codelineno-24-29" href="#__codelineno-24-29"></a>        name: httpd
+</span><span id="__span-24-30"><a id="__codelineno-24-30" name="__codelineno-24-30" href="#__codelineno-24-30"></a>      when: run_my_task
+</span></code></pre></div></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="yml_1">``` yml=</h2>
+<ul>
+<li>name: Test Variable is Defined Demo
+  hosts: all
+  vars:
+    my_service: httpd</li>
+</ul>
+<p>tasks:
+    - name: "{{ my_service }} package is installed"
+      yum:
+        name: "{{ my_service }}"
+      when: my_service is defined
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>the ansible_distribution variable is a fact determined during the Gathering Facts task, and identifies the managed host&#39;s operating system distribution. 
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>``` yml=
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>---
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>- name: Demonstrate the &quot;in&quot; keyword
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>  hosts: all
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>  gather_facts: yes
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>  vars:
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>    supported_distros:
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>      - RedHat
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>      - Fedora
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>  tasks:
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>    - name: Install httpd using yum, where supported
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>      yum:
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>        name: http
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>        state: present
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>      when: ansible_distribution in supported_distros
+</span></code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Operation</th>
+<th style="text-align: center;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Equal (value is a string)</td>
+<td style="text-align: center;">ansible_machine == "x86_64"</td>
+</tr>
+<tr>
+<td style="text-align: left;">Equal (value is numeric)</td>
+<td style="text-align: center;">max_memory == 512</td>
+</tr>
+<tr>
+<td style="text-align: left;">Less than</td>
+<td style="text-align: center;">min_memory &lt; 128</td>
+</tr>
+<tr>
+<td style="text-align: left;">Greater than</td>
+<td style="text-align: center;">min_memory &gt; 256</td>
+</tr>
+<tr>
+<td style="text-align: left;">Less than or equal to</td>
+<td style="text-align: center;">min_memory &lt;= 256</td>
+</tr>
+<tr>
+<td style="text-align: left;">Greater than or equal to</td>
+<td style="text-align: center;">min_memory &gt;= 512</td>
+</tr>
+<tr>
+<td style="text-align: left;">Not equal to</td>
+<td style="text-align: center;">min_memory != 512</td>
+</tr>
+<tr>
+<td style="text-align: left;">Variable exists</td>
+<td style="text-align: center;">min_memory is defined</td>
+</tr>
+<tr>
+<td style="text-align: left;">Variable does not exist</td>
+<td style="text-align: center;">min_memory is not defined</td>
+</tr>
+<tr>
+<td style="text-align: left;">Boolean variable is true. The values of 1, True, or yes evaluate to true.</td>
+<td style="text-align: center;">memory_available</td>
+</tr>
+<tr>
+<td style="text-align: left;">Boolean variable is false. The values of 0, False, or no evaluate to false.</td>
+<td style="text-align: center;">not memory_available</td>
+</tr>
+<tr>
+<td style="text-align: left;">First variable's value is present as a value in second variable's list</td>
+<td style="text-align: center;">ansible_distribution in supported_distros</td>
+</tr>
+</tbody>
+</table>
+<p>:::info
+When you use when with loop for a task, the when statement is checked for each item.
+:::</p>
+<p>Combining Loops and Conditional Tasks, the mariadb-server package is installed by the yum module if there is a file system mounted on / with more than 300 MB free.</p>
+<p>``` yml=
+- name: install mariadb-server if enough space on root
+  yum:
+    name: mariadb-server
+    state: latest
+  loop: "{{ ansible_mounts }}"
+  when: item.mount == "/" and item.size_available &gt; 300000000
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Combining register variables and Conditional Tasks, Evaluates the output of the Postfix task. If the exit code of the systemctl command is 0, then Postfix is active and this task restarts the httpd service.
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>``` yml=
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>---
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>- name: Restart HTTPD if Postfix is Running
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>  hosts: all
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>  tasks:
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>    - name: Get Postfix server status
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>      command: /usr/bin/systemctl is-active postfix
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>      ignore_errors: yes
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>      register: result
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>    - name: Restart Apache HTTPD based on Postfix status
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>      service:
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>        name: httpd
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>        state: restarted
+</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>      when: result.rc == 0
+</span></code></pre></div></p>
+<h3 id="handlers">Handlers</h3>
+<p>Handlers are tasks that respond to a notification triggered by other tasks.</p>
+<p>Tasks only notify their handlers when the task changes something on a managed host.</p>
+<p>If a task that includes a notify statement does not report a changed result (for example, a package is already installed and the task reports ok), the handler is not notified. The handler is skipped unless another task notifies it. Ansible notifies handlers only if the task reports the <strong>changed status</strong>.</p>
+<p>When a task makes a change to a managed host, it reports the changed state and notifies handlers. When a task does not need to make a change, it reports ok and does not notify handlers.</p>
+<p>Handlers can be considered as <strong>inactive tasks</strong> that only get triggered when explicitly invoked using a notify statement.</p>
+<p>Handlers always run in the order specified by the handlers section of the play. They do not run in the order in which they are listed by notify statements in a task, or in the order in which tasks notify them.</p>
+<p>If no task notifies the handler by name then the handler will not run.</p>
+<p>If one or more tasks notify the handler, the handler will run exactly once after all other tasks in the play have completed.</p>
+<p>Normally, handlers are used to reboot hosts and restart services.</p>
+<p>the Apache server is only restarted by the restart apache handler when a configuration file is updated and notifies it
+``` yml=
+tasks:
+  - name: copy demo.example.conf configuration template
+    template:
+      src: /var/lib/templates/demo.example.conf.template
+      dest: /etc/httpd/conf.d/demo.example.conf
+    notify:
+      - restart apache</p>
+<p>handlers:
+  - name: restart apache
+    service:
+      name: httpd
+      state: restarted
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>### Task Failure
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>By default, if a task fails, the play is aborted.
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>However, this behavior can be overridden by ignoring failed tasks. You can use the **ignore_errors** keyword in a task to accomplish this.
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>if the notapkg package does not exist then the yum module fails, but having ignore_errors set to yes allows execution to continue.
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>``` yml=
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>- name: Latest version of notapkg is installed
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>  yum:
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>    name: notapkg
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>    state: latest
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>  ignore_errors: yes
+</span></code></pre></div></p>
+<p>Normally when a task fails and the play aborts on that host, any handlers that had been notified by earlier tasks in the play will not run. </p>
+<p>If you set the <strong>force_handlers: yes</strong> keyword on the play, then notified handlers are called even if the play aborted because a later task failed.</p>
+<p>Forcing Execution of Handlers
+``` yml=</p>
+<hr />
+<ul>
+<li>
+<p>hosts: all
+  force_handlers: yes
+  tasks:</p>
+<ul>
+<li>
+<p>name: a task which always notifies its handler
+  command: /bin/true
+  notify: restart the database</p>
+</li>
+<li>
+<p>name: a task which fails because the package doesn't exist
+  yum:
+    name: notapkg
+    state: latest</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>handlers:
+    - name: restart the database
+      service:
+        name: mariadb
+        state: restarted
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>You can use the **failed_when** keyword on a task to specify which conditions indicate that the task has failed. 
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>This is often used with **command** modules that may successfully execute a command, but the command&#39;s output indicates a failure.
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>The **fail** module can also be used to force a task failure.
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>You can use the fail module to provide a clear failure message for the task.
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>``` yml=
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>tasks:
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>  - name: Run user creation script
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>    shell: /usr/local/bin/create_users.sh
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>    register: command_result
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>    failed_when: &quot;&#39;Password missing&#39; in command_result.stdout&quot;
+</span></code></pre></div></p>
+<p>rewrite by fail module
+``` yml=
+tasks:
+  - name: Run user creation script
+    shell: /usr/local/bin/create_users.sh
+    register: command_result
+    ignore_errors: yes</p>
+<ul>
+<li>name: Report script failure
+    fail:
+      msg: "The password is missing in the output"
+    when: "'Password missing' in command_result.stdout"
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>### Task report changed
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>``` yml=
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>tasks:
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>  - shell:
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>      cmd: /usr/local/bin/upgrade-database
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>    register: command_result
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>    changed_when: &quot;&#39;Success&#39; in command_result.stdout&quot;
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>    notify:
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>      - restart_database
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>handlers:
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>  - name: restart_database
+</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>     service:
+</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>       name: mariadb
+</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a>       state: restarted
+</span></code></pre></div></li>
+</ul>
+<h2 id="block">block</h2>
+<p>In playbooks, blocks are clauses that logically group tasks, and can be used to control how tasks are executed. </p>
+<p>Blocks also allow for error handling in combination with the <strong>rescue</strong> and <strong>always</strong> statements.</p>
+<p>If any task in a block fails, tasks in its rescue block are executed in order to recover. After the tasks in the block clause run, as well as the tasks in the rescue clause if there was a failure, then tasks in the always clause run. </p>
+<p>a task block can have a when keyword to apply a conditional to multiple tasks
+``` yml=
+- name: block example
+  hosts: all
+  tasks:
+    - name: installing and configuring Yum versionlock plugin
+      block:
+      - name: package needed by yum
+        yum:
+          name: yum-plugin-versionlock
+          state: present
+      - name: lock version of tzdata
+        lineinfile:
+          dest: /etc/yum/pluginconf.d/versionlock.list
+          line: tzdata-2016j-1
+          state: present
+      when: ansible_distribution == "RedHat"
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>- block: Defines the main tasks to run.
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>- rescue: Defines the tasks to run if the tasks defined in the block clause fail.
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>- always: Defines the tasks that will always run independently of the success or failure of tasks defined in the block and rescue clauses.
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>``` yml=
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>tasks:
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>    - name: Upgrade DB
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>      block:
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>        - name: upgrade the database
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>          shell:
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>            cmd: /usr/local/lib/upgrade-database
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>      rescue:
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>        - name: revert the database upgrade
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>          shell:
+</span><span id="__span-30-14"><a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>            cmd: /usr/local/lib/revert-database
+</span><span id="__span-30-15"><a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>      always:
+</span><span id="__span-30-16"><a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a>        - name: always restart the database
+</span><span id="__span-30-17"><a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a>          service:
+</span><span id="__span-30-18"><a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a>            name: mariadb
+</span><span id="__span-30-19"><a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a>            state: restarted
+</span></code></pre></div></p>
+<h2 id="privilege">privilege</h2>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>ansible-playbook playbook_verify.yml -kK
+</span></code></pre></div>
+在 target node /etc/sudoers 增加ansible ALL=(ALL) NOPASSWD:ALL
+就可以不用打密碼</p>
+<h2 id="template">template</h2>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/2.9/modules/template_module.html">template – Template a file out to a remote server — Ansible Documentation</a></li>
+<li><a href="https://stackoverflow.com/questions/47032223/ansible-template-with-jinja-formatting">Ansible Template with Jinja formatting - Stack Overflow</a></li>
+</ul>
+<p>Ansible uses the Jinja2 templating system for template files. </p>
+<p>Ansible also uses Jinja2 syntax to reference variables in playbooks</p>
+<p>Variables and logic expressions are placed between tags, or delimiters.
+- Jinja2 templates use <strong>{% EXPR %}</strong> for expressions or logic (for example, loops)
+- <strong>{{ EXPR }}</strong> are used for outputting the results of an expression or a variable
+- Use <strong>{# COMMENT #}</strong> syntax to enclose comments that should not appear in the final file.</p>
+<p>The following example shows how to create a template for /etc/ssh/sshd_config with variables and facts retrieved by Ansible from managed hosts. </p>
+<p>When the associated playbook is executed, any facts are replaced by their values in the managed host being configured.</p>
+<p>jinja2 template(/tmp/j2-template.j2)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a># {{ ansible_managed }}
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a># DO NOT MAKE LOCAL MODIFICATIONS TO THIS FILE AS THEY WILL BE LOST
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>Port {{ ssh_port }}
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>ListenAddress {{ ansible_facts[&#39;default_ipv4&#39;][&#39;address&#39;] }}
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>HostKey /etc/ssh/ssh_host_rsa_key
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>HostKey /etc/ssh/ssh_host_ecdsa_key
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>HostKey /etc/ssh/ssh_host_ed25519_key
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>
+</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>SyslogFacility AUTHPRIV
+</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>
+</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>PermitRootLogin {{ root_allowed }}
+</span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>AllowGroups {{ groups_allowed }}
+</span><span id="__span-32-15"><a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a>
+</span><span id="__span-32-16"><a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a>AuthorizedKeysFile /etc/.rht_authorized_keys .ssh/authorized_keys
+</span><span id="__span-32-17"><a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a>
+</span><span id="__span-32-18"><a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a>PasswordAuthentication {{ passwords_allowed }}
+</span><span id="__span-32-19"><a id="__codelineno-32-19" name="__codelineno-32-19" href="#__codelineno-32-19"></a>
+</span><span id="__span-32-20"><a id="__codelineno-32-20" name="__codelineno-32-20" href="#__codelineno-32-20"></a>ChallengeResponseAuthentication no
+</span><span id="__span-32-21"><a id="__codelineno-32-21" name="__codelineno-32-21" href="#__codelineno-32-21"></a>
+</span><span id="__span-32-22"><a id="__codelineno-32-22" name="__codelineno-32-22" href="#__codelineno-32-22"></a>GSSAPIAuthentication yes
+</span><span id="__span-32-23"><a id="__codelineno-32-23" name="__codelineno-32-23" href="#__codelineno-32-23"></a>GSSAPICleanupCredentials no
+</span><span id="__span-32-24"><a id="__codelineno-32-24" name="__codelineno-32-24" href="#__codelineno-32-24"></a>
+</span><span id="__span-32-25"><a id="__codelineno-32-25" name="__codelineno-32-25" href="#__codelineno-32-25"></a>UsePAM yes
+</span><span id="__span-32-26"><a id="__codelineno-32-26" name="__codelineno-32-26" href="#__codelineno-32-26"></a>
+</span><span id="__span-32-27"><a id="__codelineno-32-27" name="__codelineno-32-27" href="#__codelineno-32-27"></a>X11Forwarding yes
+</span><span id="__span-32-28"><a id="__codelineno-32-28" name="__codelineno-32-28" href="#__codelineno-32-28"></a>UsePrivilegeSeparation sandbox
+</span><span id="__span-32-29"><a id="__codelineno-32-29" name="__codelineno-32-29" href="#__codelineno-32-29"></a>
+</span><span id="__span-32-30"><a id="__codelineno-32-30" name="__codelineno-32-30" href="#__codelineno-32-30"></a>AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+</span><span id="__span-32-31"><a id="__codelineno-32-31" name="__codelineno-32-31" href="#__codelineno-32-31"></a>AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+</span><span id="__span-32-32"><a id="__codelineno-32-32" name="__codelineno-32-32" href="#__codelineno-32-32"></a>AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+</span><span id="__span-32-33"><a id="__codelineno-32-33" name="__codelineno-32-33" href="#__codelineno-32-33"></a>AcceptEnv XMODIFIERS
+</span><span id="__span-32-34"><a id="__codelineno-32-34" name="__codelineno-32-34" href="#__codelineno-32-34"></a>
+</span><span id="__span-32-35"><a id="__codelineno-32-35" name="__codelineno-32-35" href="#__codelineno-32-35"></a>Subsystem sftp  /usr/libexec/openssh/sftp-server
+</span></code></pre></div></p>
+<p>When the Jinja2 template for a configuration file has been created, it can be deployed to the managed hosts using the template module, which supports the transfer of a local file on the control node to the managed hosts.</p>
+<p>``` yml=
+tasks:
+  - name: template render
+    template:
+      src: /tmp/j2-template.j2
+      dest: /tmp/dest-config-file.txt
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>The ansible_managed directive is set in the ansible.cfg file
+</span></code></pre></div>
+ansible_managed = Ansible managed
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>Current time
+</span></code></pre></div>
+- name: time
+  debug:
+    msg: "current time: {{ now(fmt='%m-%d-%Y %H:%M:%S') }}"
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>### Control Structures
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>You can use Jinja2 control structures in template files to reduce repetitive typing, to enter entries for each host in a play dynamically, or conditionally insert text into a file.
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>uses a for statement to run through all the values in the users variable
+</span></code></pre></div>
+{# for statement #}
+{% for myuser in users if not myuser == "root" %}
+User number {{ loop.index }} - {{ myuser }}
+{% endfor %}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>assumes a myhosts variable has been defined in the inventory file being used
+</span></code></pre></div>
+{% for myhost in groups['myhosts'] %}
+{{ myhost }}
+{% endfor %}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>you can use this to generate an /etc/hosts file from host facts dynamically.
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>``` yml=
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>- name: /etc/hosts is up to date
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>  hosts: all
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>  gather_facts: yes
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>  tasks:
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>    - name: Deploy /etc/hosts
+</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>      template:
+</span><span id="__span-37-10"><a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>        src: templates/hosts.j2
+</span><span id="__span-37-11"><a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>        dest: /etc/hosts
+</span></code></pre></div></p>
+<p>templates/hosts.j2
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>{% for host in groups[&#39;all&#39;] %}
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>{{ hostvars[host][&#39;ansible_facts&#39;][&#39;default_ipv4&#39;][&#39;address&#39;] }} {{ hostvars[host][&#39;ansible_facts&#39;][&#39;fqdn&#39;] }} {{ hostvars[host][&#39;ansible_facts&#39;][&#39;hostname&#39;] }}
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>{% endfor %}
+</span></code></pre></div></p>
+<p>formats the expression output using JSON/YAML
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>{{ output | to_json }}
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>{{ output | to_yaml }}
+</span></code></pre></div></p>
+<p>formats the expression output using JSON/YAML human readable format
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>{{ output | to_nice_json }}
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>{{ output | to_nice_yaml }}
+</span></code></pre></div></p>
+<p>expect strings in either JSON or YAML format, respectively, to parse them.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>{{ output | from_json }}
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>{{ output | from_yaml }}
+</span></code></pre></div></p>
+<h3 id="ip_addr">ip_addr</h3>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/collections/ansible/utils/docsite/filters_ipaddr.html">Using the ipaddr filter — Ansible Community Documentation</a></li>
+</ul>
+<p>local test
+- <a href="https://github.com/network-automation/ipaddr_filter">GitHub - network-automation/ipaddr_filter: examples with the ipaddr filter</a></p>
+<p>``` bash=
+ansible-playbook ipaddr_test.yml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>playbook
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>ipaddr_test.yml
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>``` yaml=
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>---
+</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>- hosts: localhost
+</span><span id="__span-42-7"><a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a>  connection: local
+</span><span id="__span-42-8"><a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>  gather_facts: false
+</span><span id="__span-42-9"><a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a>  vars:
+</span><span id="__span-42-10"><a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a>    sean_subnet: &quot;192.168.1.0/24&quot;
+</span><span id="__span-42-11"><a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a>  tasks:
+</span><span id="__span-42-12"><a id="__codelineno-42-12" name="__codelineno-42-12" href="#__codelineno-42-12"></a>    - template:
+</span><span id="__span-42-13"><a id="__codelineno-42-13" name="__codelineno-42-13" href="#__codelineno-42-13"></a>        src: ./template.j2
+</span><span id="__span-42-14"><a id="__codelineno-42-14" name="__codelineno-42-14" href="#__codelineno-42-14"></a>        dest: ./rendered
+</span></code></pre></div></p>
+<p>template
+template.j2</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>ipaddr filter examples:
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>The var sean_subnet is: {{ sean_subnet }}
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>
+</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>Jinja2: {% raw %} IP Address: {{sean_subnet | ipaddr }} {% endraw %}
+</span><span id="__span-43-5"><a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>Renders: IP Address: {{ sean_subnet | ipaddr }}
+</span><span id="__span-43-6"><a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>
+</span><span id="__span-43-7"><a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>Jinja2: {% raw %} IP Address: {{sean_subnet | ipaddr(&#39;netmask&#39;) }} {% endraw %}
+</span><span id="__span-43-8"><a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a>Renders: IP Address: {{ sean_subnet | ipaddr(&#39;netmask&#39;) }}
+</span><span id="__span-43-9"><a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a>
+</span><span id="__span-43-10"><a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a>Jinja2: {% raw %} IPv4 Address: {{ sean_subnet | ipv4 }} {% endraw %}
+</span><span id="__span-43-11"><a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a>Renders: IPv4 Address: {{ sean_subnet | ipv4 }}
+</span><span id="__span-43-12"><a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a>
+</span><span id="__span-43-13"><a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a>Jinja2: {% raw %} IPv6 Address: {{ sean_subnet | ipv6 }} {% endraw %}
+</span><span id="__span-43-14"><a id="__codelineno-43-14" name="__codelineno-43-14" href="#__codelineno-43-14"></a>Renders: IPv6 Address: {{ sean_subnet | ipv6 }}
+</span><span id="__span-43-15"><a id="__codelineno-43-15" name="__codelineno-43-15" href="#__codelineno-43-15"></a>
+</span><span id="__span-43-16"><a id="__codelineno-43-16" name="__codelineno-43-16" href="#__codelineno-43-16"></a>Jinja2: {% raw %} Network: {{ sean_subnet | ipaddr(&#39;network&#39;) }} {% endraw %}
+</span><span id="__span-43-17"><a id="__codelineno-43-17" name="__codelineno-43-17" href="#__codelineno-43-17"></a>Renders: Network: {{ sean_subnet | ipaddr(&#39;network&#39;) }}
+</span><span id="__span-43-18"><a id="__codelineno-43-18" name="__codelineno-43-18" href="#__codelineno-43-18"></a>
+</span><span id="__span-43-19"><a id="__codelineno-43-19" name="__codelineno-43-19" href="#__codelineno-43-19"></a>Jinja2: {% raw %} Prefix: {{ sean_subnet | ipaddr(&#39;prefix&#39;) }} {% endraw %}
+</span><span id="__span-43-20"><a id="__codelineno-43-20" name="__codelineno-43-20" href="#__codelineno-43-20"></a>Renders: Prefix: {{ sean_subnet | ipaddr(&#39;prefix&#39;) }}
+</span><span id="__span-43-21"><a id="__codelineno-43-21" name="__codelineno-43-21" href="#__codelineno-43-21"></a>
+</span><span id="__span-43-22"><a id="__codelineno-43-22" name="__codelineno-43-22" href="#__codelineno-43-22"></a>Jinja2: {% raw %} What is the first usable IP on {{sean_subnet}}? {{ sean_subnet | ipaddr(&#39;next_usable&#39;) }} {% endraw %}
+</span><span id="__span-43-23"><a id="__codelineno-43-23" name="__codelineno-43-23" href="#__codelineno-43-23"></a>Renders: What is the first usable IP on {{sean_subnet}}? {{ sean_subnet | ipaddr(&#39;next_usable&#39;) }}
+</span><span id="__span-43-24"><a id="__codelineno-43-24" name="__codelineno-43-24" href="#__codelineno-43-24"></a>
+</span><span id="__span-43-25"><a id="__codelineno-43-25" name="__codelineno-43-25" href="#__codelineno-43-25"></a>Jinja2: {% raw %} What is the range of usable IP address on {{sean_subnet}}? {{ sean_subnet | ipaddr(&#39;range_usable&#39;) }} {% endraw %}
+</span><span id="__span-43-26"><a id="__codelineno-43-26" name="__codelineno-43-26" href="#__codelineno-43-26"></a>Renders:  What is the range of usable IP address on {{sean_subnet}}? {{ sean_subnet | ipaddr(&#39;range_usable&#39;) }}
+</span><span id="__span-43-27"><a id="__codelineno-43-27" name="__codelineno-43-27" href="#__codelineno-43-27"></a>
+</span><span id="__span-43-28"><a id="__codelineno-43-28" name="__codelineno-43-28" href="#__codelineno-43-28"></a>Jinja2: {% raw %} What is the last usable IP address on {{sean_subnet}}? {{ sean_subnet | ipaddr(&#39;last_usable&#39;) }} {% endraw %}
+</span><span id="__span-43-29"><a id="__codelineno-43-29" name="__codelineno-43-29" href="#__codelineno-43-29"></a>Renders: What is the last usable IP address on {{sean_subnet}}? {{ sean_subnet | ipaddr(&#39;last_usable&#39;) }}
+</span><span id="__span-43-30"><a id="__codelineno-43-30" name="__codelineno-43-30" href="#__codelineno-43-30"></a>
+</span><span id="__span-43-31"><a id="__codelineno-43-31" name="__codelineno-43-31" href="#__codelineno-43-31"></a>Jinja2: {% raw %} What is the 2nd usable address on {{sean_subnet}}? {{ sean_subnet | next_nth_usable(2) }} {% endraw %}
+</span><span id="__span-43-32"><a id="__codelineno-43-32" name="__codelineno-43-32" href="#__codelineno-43-32"></a>Renders: What is the 2nd usable address on {{sean_subnet}}? {{ sean_subnet | next_nth_usable(2) }}
+</span><span id="__span-43-33"><a id="__codelineno-43-33" name="__codelineno-43-33" href="#__codelineno-43-33"></a>--------
+</span><span id="__span-43-34"><a id="__codelineno-43-34" name="__codelineno-43-34" href="#__codelineno-43-34"></a>Loop method for providing  multiple IP addresses for use:
+</span><span id="__span-43-35"><a id="__codelineno-43-35" name="__codelineno-43-35" href="#__codelineno-43-35"></a>
+</span><span id="__span-43-36"><a id="__codelineno-43-36" name="__codelineno-43-36" href="#__codelineno-43-36"></a>Jinja: {% raw %}
+</span><span id="__span-43-37"><a id="__codelineno-43-37" name="__codelineno-43-37" href="#__codelineno-43-37"></a>{% for n in range(10) %}
+</span><span id="__span-43-38"><a id="__codelineno-43-38" name="__codelineno-43-38" href="#__codelineno-43-38"></a>  {{ sean_subnet | next_nth_usable(n) }}
+</span><span id="__span-43-39"><a id="__codelineno-43-39" name="__codelineno-43-39" href="#__codelineno-43-39"></a>{% endfor %} {% endraw %}
+</span><span id="__span-43-40"><a id="__codelineno-43-40" name="__codelineno-43-40" href="#__codelineno-43-40"></a>
+</span><span id="__span-43-41"><a id="__codelineno-43-41" name="__codelineno-43-41" href="#__codelineno-43-41"></a>Renders:
+</span><span id="__span-43-42"><a id="__codelineno-43-42" name="__codelineno-43-42" href="#__codelineno-43-42"></a>{% for n in range(10) %}
+</span><span id="__span-43-43"><a id="__codelineno-43-43" name="__codelineno-43-43" href="#__codelineno-43-43"></a>  {{ sean_subnet | next_nth_usable(n) }}
+</span><span id="__span-43-44"><a id="__codelineno-43-44" name="__codelineno-43-44" href="#__codelineno-43-44"></a>{% endfor %}
+</span></code></pre></div>
+<h2 id="advanced-playbook">advanced playbook</h2>
+<ul>
+<li><a href="https://github.com/haidaraM/ansible-playbook-grapher">GitHub - haidaraM/ansible-playbook-grapher: A command line tool to create a graph representing your Ansible playbook tasks and roles</a></li>
+</ul>
+<h3 id="host-patterns">host patterns</h3>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/devel/inventory_guide/intro_patterns.html">Patterns: targeting hosts and groups — Ansible Documentation</a></li>
+</ul>
+<p>It is a recommended practice to enclose host patterns used on the command line in <strong>single quotes</strong> to protect them from unwanted shell expansion.</p>
+<p>sample inventory</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>[student@controlnode ~]$ cat myinventory
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>web.example.com
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>data.example.com
+</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>
+</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>[lab]
+</span><span id="__span-44-6"><a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>labhost1.example.com
+</span><span id="__span-44-7"><a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>labhost2.example.com
+</span><span id="__span-44-8"><a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a>
+</span><span id="__span-44-9"><a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a>[test]
+</span><span id="__span-44-10"><a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a>test1.example.com
+</span><span id="__span-44-11"><a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a>test2.example.com
+</span><span id="__span-44-12"><a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a>
+</span><span id="__span-44-13"><a id="__codelineno-44-13" name="__codelineno-44-13" href="#__codelineno-44-13"></a>[datacenter1]
+</span><span id="__span-44-14"><a id="__codelineno-44-14" name="__codelineno-44-14" href="#__codelineno-44-14"></a>labhost1.example.com
+</span><span id="__span-44-15"><a id="__codelineno-44-15" name="__codelineno-44-15" href="#__codelineno-44-15"></a>test1.example.com
+</span><span id="__span-44-16"><a id="__codelineno-44-16" name="__codelineno-44-16" href="#__codelineno-44-16"></a>
+</span><span id="__span-44-17"><a id="__codelineno-44-17" name="__codelineno-44-17" href="#__codelineno-44-17"></a>[datacenter2]
+</span><span id="__span-44-18"><a id="__codelineno-44-18" name="__codelineno-44-18" href="#__codelineno-44-18"></a>labhost2.example.com
+</span><span id="__span-44-19"><a id="__codelineno-44-19" name="__codelineno-44-19" href="#__codelineno-44-19"></a>test2.example.com
+</span><span id="__span-44-20"><a id="__codelineno-44-20" name="__codelineno-44-20" href="#__codelineno-44-20"></a>
+</span><span id="__span-44-21"><a id="__codelineno-44-21" name="__codelineno-44-21" href="#__codelineno-44-21"></a>[datacenter:children]
+</span><span id="__span-44-22"><a id="__codelineno-44-22" name="__codelineno-44-22" href="#__codelineno-44-22"></a>datacenter1
+</span><span id="__span-44-23"><a id="__codelineno-44-23" name="__codelineno-44-23" href="#__codelineno-44-23"></a>datacenter2
+</span><span id="__span-44-24"><a id="__codelineno-44-24" name="__codelineno-44-24" href="#__codelineno-44-24"></a>
+</span><span id="__span-44-25"><a id="__codelineno-44-25" name="__codelineno-44-25" href="#__codelineno-44-25"></a>[new]
+</span><span id="__span-44-26"><a id="__codelineno-44-26" name="__codelineno-44-26" href="#__codelineno-44-26"></a>192.168.2.1
+</span><span id="__span-44-27"><a id="__codelineno-44-27" name="__codelineno-44-27" href="#__codelineno-44-27"></a>192.168.2.2
+</span></code></pre></div>
+<ul>
+<li>the name for a single managed host listed in the inventory.</li>
+<li>inventory host groups<ul>
+<li>there is a special group named <strong>all</strong> that matches all managed hosts in the inventory</li>
+<li>There is also a special group named <strong>ungrouped</strong>, which includes all managed hosts in the inventory that are not members of any other group</li>
+<li>asterisk (*) wildcard character<ul>
+<li>The wildcard host patterns match all inventory names, hosts, and host groups. They do not distinguish between names that are DNS names, IP addresses, or groups, which can lead to some unexpected matches.</li>
+<li>accomplishing the same thing as the all host pattern<ul>
+<li>'*'</li>
+</ul>
+</li>
+<li>contain a particular substring<ul>
+<li>'*.example.com'<ul>
+<li>matches all inventory names that end in .example.com</li>
+</ul>
+</li>
+<li>'192.168.2.*'<ul>
+<li>match the names of hosts or host groups that start with 192.168.2.</li>
+</ul>
+</li>
+<li>'datacenter*'<ul>
+<li>match the names of hosts or host groups that begin with datacenter</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>comma-separated list<ul>
+<li>labhost1.example.com,test2.example.com,192.168.2.2<ul>
+<li>list of managed hosts</li>
+</ul>
+</li>
+<li>lab,datacenter1<ul>
+<li>list of groups</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>You can also mix managed hosts, host groups, and wildcards<ul>
+<li>lab,data*,192.168.2.2</li>
+</ul>
+</li>
+<li>logical AND, an item in a list starts with an ampersand character (&amp;)<ul>
+<li>lab,&amp;datacenter1<ul>
+<li>machines in the lab group only if they are also in the datacenter1 group</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>logical NOT, a list by using the exclamation point or "bang" character (!) in front of the host pattern<ul>
+<li>datacenter,!test2.example.com<ul>
+<li>datacenter group, except test2.example.com</li>
+</ul>
+</li>
+<li>all,!datacenter1<ul>
+<li>all hosts in the test inventory, except the managed hosts in the datacenter1 group</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>It is possible to point an alias at a particular IP address in your inventory by setting the ==ansible_host== host variable. </p>
+<p>For example, you could have a host in your inventory named ==dummy.example==, and then direct connections using that name to the IP address ==192.168.2.1== by creating a ==host_vars/dummy.example== file containing the following host variable:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>ansible_host: 192.168.2.1
+</span></code></pre></div>
+<p>regular expression and exclude example
+<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>ansible-playbook -i config/inventory.all --limit &#39;~k22is[0-9]{3},~k22il[0-9]{3},!k22is001,!k22is002&#39; -f 50 -kK playbooks/install.yml
+</span></code></pre></div></p>
+<h3 id="includeimport">include/import</h3>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/2.9/user_guide/playbooks_reuse.html">Creating Reusable Playbooks — Ansible Documentation</a></li>
+<li><a href="https://docs.ansible.com/ansible/2.9/user_guide/playbooks_reuse_includes.html">Including and Importing — Ansible Documentation</a></li>
+</ul>
+<p>manage <strong>large playbooks</strong> by importing or including other playbooks or tasks from external files, either unconditionally or based on a conditional test</p>
+<p>There are two operations that Ansible can use to bring content into a playbook. You can include content, or you can import content.</p>
+<p>When you <strong>include</strong> content, it is a <strong>dynamic operation</strong>. Ansible processes included content <strong>during the run of the playbook</strong>, as content is reached.</p>
+<p>When you <strong>import</strong> content, it is a <strong>static</strong> operation. Ansible preprocesses imported content when the playbook is <strong>initially parsed, before the run starts</strong>.</p>
+<p>:star:dynamic include vs a static import</p>
+<p>You can create a dedicated directory for task files, and save all task files in that directory. Then your playbook can simply include or import task files from that directory. </p>
+<p>``` yml=
+- name: Prepare the web server
+  import_playbook: web.yml</p>
+<ul>
+<li>name: Prepare the database server
+  import_playbook: db.yml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>``` yml=
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>- name: Play 1
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>  hosts: localhost
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>  tasks:
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>    - debug:
+</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>        msg: Play 1
+</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a>
+</span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a>- name: Import Playbook
+</span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a>  import_playbook: play2.yml
+</span></code></pre></div></li>
+</ul>
+<h2 id="yml_2">``` yml=</h2>
+<ul>
+<li>name: Install web server
+  hosts: webservers
+  tasks:</li>
+<li>
+<p>import_tasks: webserver_tasks.yml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>- When using the import_tasks feature, conditional statements set on the import, such as **when**, are applied to each of the tasks that are imported.
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>- You **cannot use loops** with the import_tasks feature.
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>- If you use a variable to specify the name of the file to import, then you cannot use a host or group inventory variable.
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>
+</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>### role
+</span><span id="__span-48-6"><a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a>- [Roles — Ansible Documentation](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_reuse_roles.html)
+</span><span id="__span-48-7"><a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a>    - [Roles - using-roles-at-the-play-level — Ansible Documentation](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#using-roles-at-the-play-level)
+</span><span id="__span-48-8"><a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a>        - roles
+</span><span id="__span-48-9"><a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a>    - [Roles - Including roles: dynamic reuse — Ansible Documentation](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html#including-roles-dynamic-reuse)
+</span><span id="__span-48-10"><a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a>        - include_role
+</span><span id="__span-48-11"><a id="__codelineno-48-11" name="__codelineno-48-11" href="#__codelineno-48-11"></a>- [Best way to organize roles/directory structure? : r/ansible](https://www.reddit.com/r/ansible/comments/g2s6wt/best_way_to_organize_rolesdirectory_structure/)
+</span><span id="__span-48-12"><a id="__codelineno-48-12" name="__codelineno-48-12" href="#__codelineno-48-12"></a>
+</span><span id="__span-48-13"><a id="__codelineno-48-13" name="__codelineno-48-13" href="#__codelineno-48-13"></a>Ansible roles provide a way for you to make it easier to **reuse** Ansible code generically. 
+</span><span id="__span-48-14"><a id="__codelineno-48-14" name="__codelineno-48-14" href="#__codelineno-48-14"></a>
+</span><span id="__span-48-15"><a id="__codelineno-48-15" name="__codelineno-48-15" href="#__codelineno-48-15"></a>You can package, in a standardized directory structure, all the tasks, variables, files, templates, and other resources needed to provision infrastructure or deploy applications.
+</span><span id="__span-48-16"><a id="__codelineno-48-16" name="__codelineno-48-16" href="#__codelineno-48-16"></a>
+</span><span id="__span-48-17"><a id="__codelineno-48-17" name="__codelineno-48-17" href="#__codelineno-48-17"></a>A well-written role will allow you to pass variables to the role from the playbook that adjust its behavior, setting all the site-specific hostnames, IP addresses, user names, secrets, or other locally-specific details you need. 
+</span><span id="__span-48-18"><a id="__codelineno-48-18" name="__codelineno-48-18" href="#__codelineno-48-18"></a>
+</span><span id="__span-48-19"><a id="__codelineno-48-19" name="__codelineno-48-19" href="#__codelineno-48-19"></a>In addition to writing, using, reusing, and sharing your own roles, you can get roles from other sources. Some roles are included as part of Red Hat Enterprise Linux, in the rhel-system-roles package. You can also get numerous community-supported roles from the Ansible Galaxy website.
+</span><span id="__span-48-20"><a id="__codelineno-48-20" name="__codelineno-48-20" href="#__codelineno-48-20"></a>
+</span><span id="__span-48-21"><a id="__codelineno-48-21" name="__codelineno-48-21" href="#__codelineno-48-21"></a>The top-level directory defines the name of the role itself. Files are organized into subdirectories that are named according to each file&#39;s purpose in the role, such as **tasks** and **handlers**. The **files** and **templates** subdirectories contain files referenced by tasks in other YAML files.
+</span><span id="__span-48-22"><a id="__codelineno-48-22" name="__codelineno-48-22" href="#__codelineno-48-22"></a>
+</span><span id="__span-48-23"><a id="__codelineno-48-23" name="__codelineno-48-23" href="#__codelineno-48-23"></a>When you use a roles section to import roles into a play, the roles will run first, before any tasks that you define for that play.
+</span><span id="__span-48-24"><a id="__codelineno-48-24" name="__codelineno-48-24" href="#__codelineno-48-24"></a>
+</span><span id="__span-48-25"><a id="__codelineno-48-25" name="__codelineno-48-25" href="#__codelineno-48-25"></a>For each play in a playbook, tasks execute as ordered in the tasks list. After all tasks execute, any notified handlers are executed.
+</span><span id="__span-48-26"><a id="__codelineno-48-26" name="__codelineno-48-26" href="#__codelineno-48-26"></a>
+</span><span id="__span-48-27"><a id="__codelineno-48-27" name="__codelineno-48-27" href="#__codelineno-48-27"></a>When a role is added to a play, role tasks are added to the beginning of the tasks list. If a second role is included in a play, its tasks list is added after the first role.
+</span><span id="__span-48-28"><a id="__codelineno-48-28" name="__codelineno-48-28" href="#__codelineno-48-28"></a>
+</span><span id="__span-48-29"><a id="__codelineno-48-29" name="__codelineno-48-29" href="#__codelineno-48-29"></a>Role handlers are added to plays in the same manner that role tasks are added to plays. Each play defines a handlers list. Role handlers are added to the handlers list first, followed by any handlers defined in the handlers section of the play.
+</span><span id="__span-48-30"><a id="__codelineno-48-30" name="__codelineno-48-30" href="#__codelineno-48-30"></a>
+</span><span id="__span-48-31"><a id="__codelineno-48-31" name="__codelineno-48-31" href="#__codelineno-48-31"></a>If a role is not in the project&#39;s roles directory, the roles_path will be checked to see if the role is installed in one of those directories, first match being used. 
+</span><span id="__span-48-32"><a id="__codelineno-48-32" name="__codelineno-48-32" href="#__codelineno-48-32"></a>
+</span><span id="__span-48-33"><a id="__codelineno-48-33" name="__codelineno-48-33" href="#__codelineno-48-33"></a>
+</span><span id="__span-48-34"><a id="__codelineno-48-34" name="__codelineno-48-34" href="#__codelineno-48-34"></a>``` bash=
+</span><span id="__span-48-35"><a id="__codelineno-48-35" name="__codelineno-48-35" href="#__codelineno-48-35"></a>[user@host roles]$ tree user.example
+</span><span id="__span-48-36"><a id="__codelineno-48-36" name="__codelineno-48-36" href="#__codelineno-48-36"></a>user.example/
+</span><span id="__span-48-37"><a id="__codelineno-48-37" name="__codelineno-48-37" href="#__codelineno-48-37"></a>├── defaults
+</span><span id="__span-48-38"><a id="__codelineno-48-38" name="__codelineno-48-38" href="#__codelineno-48-38"></a>│   └── main.yml
+</span><span id="__span-48-39"><a id="__codelineno-48-39" name="__codelineno-48-39" href="#__codelineno-48-39"></a>├── files
+</span><span id="__span-48-40"><a id="__codelineno-48-40" name="__codelineno-48-40" href="#__codelineno-48-40"></a>├── handlers
+</span><span id="__span-48-41"><a id="__codelineno-48-41" name="__codelineno-48-41" href="#__codelineno-48-41"></a>│   └── main.yml
+</span><span id="__span-48-42"><a id="__codelineno-48-42" name="__codelineno-48-42" href="#__codelineno-48-42"></a>├── meta
+</span><span id="__span-48-43"><a id="__codelineno-48-43" name="__codelineno-48-43" href="#__codelineno-48-43"></a>│   └── main.yml
+</span><span id="__span-48-44"><a id="__codelineno-48-44" name="__codelineno-48-44" href="#__codelineno-48-44"></a>├── README.md
+</span><span id="__span-48-45"><a id="__codelineno-48-45" name="__codelineno-48-45" href="#__codelineno-48-45"></a>├── tasks
+</span><span id="__span-48-46"><a id="__codelineno-48-46" name="__codelineno-48-46" href="#__codelineno-48-46"></a>│   └── main.yml
+</span><span id="__span-48-47"><a id="__codelineno-48-47" name="__codelineno-48-47" href="#__codelineno-48-47"></a>├── templates
+</span><span id="__span-48-48"><a id="__codelineno-48-48" name="__codelineno-48-48" href="#__codelineno-48-48"></a>├── tests
+</span><span id="__span-48-49"><a id="__codelineno-48-49" name="__codelineno-48-49" href="#__codelineno-48-49"></a>│   ├── inventory
+</span><span id="__span-48-50"><a id="__codelineno-48-50" name="__codelineno-48-50" href="#__codelineno-48-50"></a>│   └── test.yml
+</span><span id="__span-48-51"><a id="__codelineno-48-51" name="__codelineno-48-51" href="#__codelineno-48-51"></a>└── vars
+</span><span id="__span-48-52"><a id="__codelineno-48-52" name="__codelineno-48-52" href="#__codelineno-48-52"></a>    └── main.yml
+</span></code></pre></div>
+:::info
+Not every role will have all of these directories.
+:::</p>
+</li>
+<li>
+<p>defaults</p>
+<ul>
+<li>The main.yml file in this directory contains the <strong>default values of role variables that can be overwritten when the role is used</strong>. These variables have low precedence and are intended to be changed and customized in plays.</li>
+</ul>
+</li>
+<li>files<ul>
+<li>This directory contains static files that are referenced by role tasks.</li>
+</ul>
+</li>
+<li>handlers<ul>
+<li>The main.yml file in this directory contains the role's handler definitions.</li>
+</ul>
+</li>
+<li>meta<ul>
+<li>The main.yml file in this directory contains information about the role, including author, license, platforms, and optional role dependencies.</li>
+</ul>
+</li>
+<li>tasks<ul>
+<li>The main.yml file in this directory contains the role's task definitions.</li>
+</ul>
+</li>
+<li>templates<ul>
+<li>This directory contains Jinja2 templates that are referenced by role tasks.</li>
+</ul>
+</li>
+<li>tests<ul>
+<li>This directory can contain an inventory and test.yml playbook that can be used to test the role.</li>
+</ul>
+</li>
+<li>vars<ul>
+<li>The main.yml file in this directory defines the role's variable values. Often these variables are used for <strong>internal purposes within the role</strong>. These variables have high precedence, and are <strong>not intended to be changed when used</strong> in a playbook.   </li>
+</ul>
+</li>
+</ul>
+<p>Define a specific variable in either vars/main.yml or defaults/main.yml, but not in both places. Default variables should be used when it is intended that their values will be overridden.</p>
+<p>:::warning
+Roles should not have site-specific data in them. They definitely should not contain any secrets like passwords or private keys.
+:::</p>
+<p>one way to call Ansible roles.</p>
+<h2 id="yml_3">``` yml=</h2>
+<ul>
+<li>hosts: remote.example.com
+  roles:<ul>
+<li>role1</li>
+<li>role2
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>sets values for two role variables of role2, var1 and var2.
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>``` yml=
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>---
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>- hosts: remote.example.com
+</span><span id="__span-49-5"><a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>  roles:
+</span><span id="__span-49-6"><a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a>    - role: role1
+</span><span id="__span-49-7"><a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a>    - role: role2
+</span><span id="__span-49-8"><a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a>      var1: val1
+</span><span id="__span-49-9"><a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a>      var2: val2
+</span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<p>In certain scenarios, it may be necessary to execute some play tasks before the roles. To support such scenarios, plays can be configured with a pre_tasks section. Any task listed in this section executes before any roles are executed. If any of these tasks notify a handler, those handler tasks execute before the roles or normal tasks.</p>
+<p>Plays also support a post_tasks keyword. These tasks execute after the play's normal tasks, and any handlers they notify, are run.</p>
+<p>``` yml=
+- name: Play to illustrate order of execution
+  hosts: remote.example.com
+  pre_tasks:
+    - debug:
+        msg: 'pre-task'
+      notify: my handler
+  roles:
+    - role1
+  tasks:
+    - debug:
+        msg: 'first task'
+      notify: my handler
+  post_tasks:
+    - debug:
+        msg: 'post-task'
+      notify: my handler
+  handlers:
+    - name: my handler
+      debug:
+        msg: Running my handler
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>Roles can be added to a play using an ordinary task, not just by including them in the roles section of a play. Use the include_role module to dynamically include a role, and use the import_role module to statically import a role.
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>``` yml=
+</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>- name: Execute a role as a task
+</span><span id="__span-50-5"><a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>  hosts: remote.example.com
+</span><span id="__span-50-6"><a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a>  tasks:
+</span><span id="__span-50-7"><a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a>    - name: A normal task
+</span><span id="__span-50-8"><a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a>      debug:
+</span><span id="__span-50-9"><a id="__codelineno-50-9" name="__codelineno-50-9" href="#__codelineno-50-9"></a>        msg: &#39;first task&#39;
+</span><span id="__span-50-10"><a id="__codelineno-50-10" name="__codelineno-50-10" href="#__codelineno-50-10"></a>    - name: A task to include role2 here
+</span><span id="__span-50-11"><a id="__codelineno-50-11" name="__codelineno-50-11" href="#__codelineno-50-11"></a>      include_role: role2
+</span></code></pre></div></p>
+<h3 id="tag">tag</h3>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_tags.html">Tags — Ansible Documentation</a></li>
+<li><a href="https://www.redhat.com/sysadmin/ansible-tags-fast-playbook-runs">Use Ansible tags to save time on playbook runs | Enable Sysadmin</a></li>
+</ul>
+<p>Tags are metadata that you can <strong>attach to the tasks</strong> in an Ansible playbook. They allow you to selectively target certain tasks <strong>at runtime</strong>, telling Ansible to run (or not run) certain tasks.</p>
+<p>When using an import (such as import_tasks), Ansible also applies related tags to all of the imported tasks. </p>
+<p>When a dynamic include_task is used, the tags apply only to the include itself. The tasks within the include do not inherit the tags, so they must also be defined on the included tasks</p>
+<p>``` bash=
+ansible-playbook example.yml --list-tags
+ansible-playbook example.yml --tags "configuration,packages" --list-tasks
+<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>## dubug
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>- [debug – Print statements during execution — Ansible Documentation](https://docs.ansible.com/ansible/2.9/modules/debug_module.html)
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>- [Best Practices — Ansible Documentation](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_best_practices.html)
+</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>- [Check Mode (“Dry Run”) — Ansible Documentation](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_checkmode.html)
+</span><span id="__span-51-5"><a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>- [Testing Strategies — Ansible Documentation](https://docs.ansible.com/ansible/2.9/reference_appendices/test_strategies.html)
+</span><span id="__span-51-6"><a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>- [8 ways to speed up your Ansible playbooks | Enable Sysadmin](https://www.redhat.com/sysadmin/faster-ansible-playbook-execution)
+</span><span id="__span-51-7"><a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a>- [Ansible: No python interpreters found for host - DEV Community](https://dev.to/vidyasagarmsc/ansible-no-python-interpreters-found-for-host-4dpf)
+</span><span id="__span-51-8"><a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>- [How to fix &#39;Permission denied&#39; error in Ansible script module | LabEx](https://labex.io/tutorials/ansible-how-to-fix-permission-denied-error-in-ansible-script-module-415726)
+</span><span id="__span-51-9"><a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a>    - AppArmor on Ubuntu
+</span><span id="__span-51-10"><a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a>
+</span><span id="__span-51-11"><a id="__codelineno-51-11" name="__codelineno-51-11" href="#__codelineno-51-11"></a>
+</span><span id="__span-51-12"><a id="__codelineno-51-12" name="__codelineno-51-12" href="#__codelineno-51-12"></a>-v, -vv
+</span><span id="__span-51-13"><a id="__codelineno-51-13" name="__codelineno-51-13" href="#__codelineno-51-13"></a>``` bash=
+</span><span id="__span-51-14"><a id="__codelineno-51-14" name="__codelineno-51-14" href="#__codelineno-51-14"></a># syntax check
+</span><span id="__span-51-15"><a id="__codelineno-51-15" name="__codelineno-51-15" href="#__codelineno-51-15"></a>ansible-playbook --syntax-check webserver.yml
+</span><span id="__span-51-16"><a id="__codelineno-51-16" name="__codelineno-51-16" href="#__codelineno-51-16"></a>
+</span><span id="__span-51-17"><a id="__codelineno-51-17" name="__codelineno-51-17" href="#__codelineno-51-17"></a># The `ansible-playbook` command also provides a `--diff` option. This option reports the changes made to the template files on managed hosts. If used with the --check option, those changes are displayed in the command&#39;s output but not actually made.
+</span><span id="__span-51-18"><a id="__codelineno-51-18" name="__codelineno-51-18" href="#__codelineno-51-18"></a>ansible-playbook --check --diff webserver.yml
+</span></code></pre></div></p>
+<h4 id="log-files">Log Files</h4>
+<p>By default, Ansible is not configured to log its output to any log file. </p>
+<p>It provides a built-in logging infrastructure that can be configured through the <code>log_path</code> parameter in the <code>default</code> section of the <code>ansible.cfg</code> configuration file, or through the <code>$ANSIBLE_LOG_PATH</code> environment variable.</p>
+<h4 id="debug-module">Debug Module</h4>
+<p>This module can display the value for a certain variable at a certain point in the play. </p>
+<p>displays the value at run time of the ansible_facts['memfree_mb'] fact as part of a message printed to the output of ansible-playbook
+``` yml=
+- name: Display free memory
+  debug:
+    msg: "Free memory for this system is {{ ansible_facts['memfree_mb'] }}"
+<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>displays the value of the output variable.
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>``` yml=
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>- name: Display the &quot;output&quot; variable
+</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>  debug:
+</span><span id="__span-52-5"><a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>    var: output
+</span><span id="__span-52-6"><a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>    verbosity: 2
+</span></code></pre></div></p>
+<h4 id="troubleshooting-ansible-managed-hosts">Troubleshooting Ansible Managed Hosts</h4>
+<p>You can use the <code>ansible-playbook --check</code> command to run smoke tests on a playbook. </p>
+<p>This option executes the playbook without making changes to the managed hosts' configuration. </p>
+<h2 id="collections">collections</h2>
+<h3 id="offiline-installation">offiline installation</h3>
+<ul>
+<li>https://docs.ansible.com/ansible/latest/collections_guide/collections_downloading.html</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>mkdir -p /tmp/ansible-collections-offiline
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>ansible-galaxy collection download -r /tmp/self-requirements.yml -p /tmp/ansible-collections-offiline
+</span></code></pre></div>
+<p>self-requirements.yml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>---
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>collections:
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>  - name: ansible.posix
+</span><span id="__span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a>    version: 1.5.4
+</span><span id="__span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a>  - name: ansible.utils
+</span><span id="__span-54-6"><a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a>    version: 2.10.3
+</span><span id="__span-54-7"><a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a>  - name: community.general
+</span><span id="__span-54-8"><a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a>    version: 7.3.0
+</span><span id="__span-54-9"><a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a>  - name: community.crypto
+</span><span id="__span-54-10"><a id="__codelineno-54-10" name="__codelineno-54-10" href="#__codelineno-54-10"></a>    version: 2.15.1
+</span><span id="__span-54-11"><a id="__codelineno-54-11" name="__codelineno-54-11" href="#__codelineno-54-11"></a>  - name: cisco.nxos
+</span><span id="__span-54-12"><a id="__codelineno-54-12" name="__codelineno-54-12" href="#__codelineno-54-12"></a>    version: 5.1.0
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>cd /tmp/ansible-collections-offiline/
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>ansible-galaxy collection install -r requirements.yml
+</span></code></pre></div>
+<h3 id="ipaddr-filter">ipaddr filter</h3>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/collections/ansible/utils/index.html">Ansible.Utils — Ansible Documentation</a><ul>
+<li><a href="https://docs.ansible.com/ansible/latest/collections/ansible/utils/docsite/filters_ipaddr.html">Using the ipaddr filter — Ansible Documentation</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="report">Report</h2>
+<ul>
+<li><a href="https://github.com/ansible-community/ara">GitHub - ansible-community/ara: ARA Records Ansible and makes it easier to understand and troubleshoot.</a><ul>
+<li><a href="https://demo.recordsansible.org/">Demo site</a></li>
+<li><a href="https://sebiwi.github.io/blog/ara/">Ansible reporting with ARA: Ansible Run Analysis | Sebiwi</a></li>
+<li><a href="https://ansible.cloudns.pro/post/recording-ansible-playbooks-with-ara/">使用 ara 來側錄 Ansible Playbook - Be an Ansible Pro</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="network">Network</h2>
+<ul>
+<li><a href="https://thenetworkstack.com/ansible-vlan-provisioning/">Ansible - VLAN Provisioning</a></li>
+</ul>
+<h2 id="practice">Practice</h2>
+<p><a href="/uuE-4k3LSWajnllz9koIbQ">Ansible Practice</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Ansible%20Practice/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ansible Practice">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Ansible Practice
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Ansys/" class="md-footer__link md-footer__link--next" aria-label="Next: Ansys">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Ansys
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3211 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/">
+      
+      
+        <link rel="next" href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>虛擬機器 - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              虛擬機器
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome the docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hackmd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hackmd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google docs api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InfiniBand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Message Passing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nagios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus Repository Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Openstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RedHat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redfish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scrum筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bitwise world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud-init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Influxdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pacemaker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    podman
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shell script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用者體驗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    備份還原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    奇技淫巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    持續整合
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排列組合與機率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    機器學習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    正規表示法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    測試工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    無線網路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向實務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向系統分析與設計
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬體概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    程式本質
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系統的價值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    統計圖表的表達方式以及使用的範圍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    虛擬機器
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    虛擬機器
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      KVM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virual-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virual Box
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hype-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hype V
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hype V">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rocky-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rocky Linux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      VMware
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VMware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esxi" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESXi
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ESXi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ansible" class="md-nav__link">
+    <span class="md-ellipsis">
+      ansible
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vgpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      vGPU
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pci-passthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      PCI Passthrough
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plug-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plug-in
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vcenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      vCenter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="vCenter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vlcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      vLCM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vibs" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIBs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bulletins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bulletins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base Images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vendor-add-ons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vendor Add-Ons
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料庫維運
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資訊安全
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體工程師的專業和通識
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體需求溝通
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      KVM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virual-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virual Box
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hype-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hype V
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hype V">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rocky-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rocky Linux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vmware" class="md-nav__link">
+    <span class="md-ellipsis">
+      VMware
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VMware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esxi" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESXi
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ESXi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ansible" class="md-nav__link">
+    <span class="md-ellipsis">
+      ansible
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vgpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      vGPU
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pci-passthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      PCI Passthrough
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plug-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plug-in
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vcenter" class="md-nav__link">
+    <span class="md-ellipsis">
+      vCenter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="vCenter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vlcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      vLCM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vibs" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIBs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bulletins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bulletins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Base Images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vendor-add-ons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vendor Add-Ons
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">虛擬機器</h1>
+<ul>
+<li><a href="https://ithelp.ithome.com.tw/users/20111887/ironman/3432">在家機器學習？用虛擬化技術實現個人 AI 環境配置 :: 第 12 屆 iThome 鐵人賽</a>\</li>
+<li><a href="https://hackmd.io/@jasper-cyt/HkG9qdh1s">Vagrant 介紹與基本操作 - HackMD</a></li>
+<li><a href="https://www.ptt.cc/bbs/PC_Shopping/M.1337968893.A.025.html">[閒聊] 要組VM及VT-D, IOMMU功能的麻煩先看一下 - 看板 PC_Shopping - 批踢踢實業坊</a></li>
+<li><a href="https://github.com/boxcutter/kvm">GitHub - boxcutter/kvm: Packer templates for producing KVM images written in HCL</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10220001">開源伺服器虛擬化平台：Proxmox VE (一) - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a><ul>
+<li><a href="https://ithelp.ithome.com.tw/2020-12th-ironman/articles/4678">突破困境：企業開源虛擬化管理平台</a></li>
+</ul>
+</li>
+<li><a href="https://ivonblog.com/posts/utm-app-ios/">iOS版UTM APP的使用方法 \~ iPhone安裝Windows虛擬機 · Ivon的部落格</a><ul>
+<li><a href="https://ivonblog.com/posts/ios-utm-alpine-linux-vm/">iOS跑Docker容器，UTM安裝64位元Alpine Linux虛擬機＆共享資料夾 · Ivon的部落格</a></li>
+</ul>
+</li>
+<li><a href="https://ivonblog.com/posts/linux-fully-virtualized-desktop/">KVM虛擬機當主力機使用，Linux + Windows的虛擬機多開實踐 · Ivon的部落格</a></li>
+</ul>
+<h2 id="kvm">KVM</h2>
+<ul>
+<li><a href="/7Qp02cMXT8im1go6gy-mzA">KVM</a></li>
+</ul>
+<h2 id="virual-box">Virual Box</h2>
+<ul>
+<li><a href="https://technology.amis.nl/platform/virtualization-and-oracle-vm/virtualbox-networking-explained/">VirtualBox networking explained</a></li>
+<li><a href="https://blog.gtwang.org/virtualization/resize-virtualbox-disk-image-manipulate-vdi/">增加 VirtualBox 虛擬硬碟大小（使用 GParted 調整分割區） - G. T. Wang</a></li>
+<li><a href="https://appuals.com/error-no-such-partition-grub-rescue/">[FIX] Error 'No Such Partition - Grub Rescue' - Appuals.com</a></li>
+</ul>
+<h2 id="hype-v">Hype V</h2>
+<ul>
+<li><a href="https://superuser.com/questions/1026190/hyper-v-vm-wont-boot-from-cd-error-unsigned-images-hash-is-not-allowed">windows 10 - Hyper-V VM won't boot from Cd, error: "unsigned image's hash is not allowed" - Super User</a></li>
+<li><a href="https://stackoverflow.com/questions/61868920/connect-hyper-v-vm-from-wsl-ubuntu">windows subsystem for linux - Connect Hyper-V VM from WSL (Ubuntu) - Stack Overflow</a></li>
+</ul>
+<h3 id="network">Network</h3>
+<ul>
+<li><a href="https://blog.miniasp.com/post/2017/12/24/How-to-use-Hyper-V-under-Windows-10-Wi-Fi-and-DHCP">讓 Windows 10 筆電在透過 Wi-Fi 與 DHCP 上網時也可以正常使用 Hyper-V | The Will Will Web</a><ul>
+<li><a href="http://dietrichschroff.blogspot.com/2013/03/hyper-v-on-windows-8-external-virtual.html">Run like Hell: Hyper-V on Windows 8: External virtual switches do not work - Howto connect a virtual host to the internet</a></li>
+<li><a href="http://dietrichschroff.blogspot.com/2013/03/hyper-v-howto-configure-nat-for-virtual.html">Run like Hell: Hyper-V: Howto configure NAT for virtual machines</a></li>
+</ul>
+</li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10128382">Day-07 Hyper-V 3.0實戰之- 虛擬交換器 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a></li>
+<li><a href="https://hackmd.io/@Kaizz/B1Vr5thGT">Hyper-V透過內部網路建立本機與虛擬機之間的連線 - HackMD</a></li>
+</ul>
+<p>eth0 is from <code>internal type hype-v switch</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>root@homelab:~# ip a
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    inet 127.0.0.1/8 scope host lo
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>       valid_lft forever preferred_lft forever
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    inet6 ::1/128 scope host
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>       valid_lft forever preferred_lft forever
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    link/ether 00:15:5d:00:8b:10 brd ff:ff:ff:ff:ff:ff
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    inet 192.168.137.2/24 brd 192.168.137.255 scope global eth0
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>       valid_lft forever preferred_lft forever
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    inet6 fe80::215:5dff:fe00:8b10/64 scope link
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>       valid_lft forever preferred_lft forever
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>root@homelab:~#
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># This is the network config written by &#39;subiquity&#39;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>network:
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  ethernets:
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    eth0:
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>      addresses: [ 192.168.137.2/24 ]
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>      nameservers:
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        addresses: [8.8.8.8, 8.8.4.4]
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>      routes:
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>      - to: default
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        via: 192.168.137.1
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>  version: 2
+</span></code></pre></div>
+<h3 id="rocky-linux">Rocky Linux</h3>
+<ul>
+<li><a href="https://notebook.chaopricha.com/?p=188">Installing Rocky Linux on Windows 10 (Pro) Hyper-V | Patrick's Notebook</a></li>
+<li><a href="https://www.youtube.com/watch?v=vqRfnVgIV6c">Centos-8 EOL and Installation of Rocky Linux 8 on HyperV | in Urdu | - YouTube</a></li>
+</ul>
+<h2 id="vmware">VMware</h2>
+<ul>
+<li><a href="https://ithelp.ithome.com.tw/users/20152414/ironman/5671?page=3">小小新手學習虛擬化之心得 :: 2022 iThome 鐵人賽</a><ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10184288">VMware ESXi 6.5.0 安裝說明 Step-By-Step Installation - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a></li>
+</ul>
+</li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/index.html">VMware Cloud Foundation Documentation</a><ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/5.1/vcf-getting-started/GUID-07411CF9-AD3F-43EA-A348-A89940C2D4A2.html">VMware Cloud Foundation Overview</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/5.1/vcf-getting-started/GUID-C000FB7D-5A4C-4AA7-AEAB-D67F335BCB21.html">Deployment Overview of VMware Cloud Foundation</a><ul>
+<li><a href="https://docs.vmware.com/en/VMware-Cloud-Foundation/5.1/vcf-deploy/GUID-78EEF782-CF21-4228-97E0-37B8D2165B81.html">Deploy VMware Cloud Builder Appliance</a></li>
+<li><a href="https://www.youtube.com/watch?v=JnQ11Yf-6jI">Deploying VMware Cloud Foundation - YouTube</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://vforum.vmware.com/content/dam/digitalmarketing/microsites/en/pdf/vforum/taipei/vmw-t1-3.pdf">vmw-t1-3.pdf</a></li>
+<li><a href="https://github.com/lamw/vcf-automated-lab-deployment">GitHub - lamw/vcf-automated-lab-deployment: Automated VMware Cloud Foundation Lab Deployment</a></li>
+<li><a href="https://eh420.wordpress.com/2020/04/27/vmware-cloud-foundation-4-%e9%83%a8%e7%bd%b2-part-i/">VMware Cloud Foundation 4 部署 Part I – 啟用 Management Domain | EH's Freedom Blog</a></li>
+<li><a href="https://www.youtube.com/watch?v=JBl5H_r6oQw">Mastering VMware Cloud Foundation Architecture: A Beginner's Guide to Building Your Own Cloud - YouTube</a><ul>
+<li><a href="https://www.youtube.com/watch?v=7N7aC69NIzM">What is VMware Cloud Builder? - YouTube</a></li>
+<li><a href="https://www.youtube.com/watch?v=yGFArSYR5qI">VMware Cloud Foundation Deployment Parameters Spreadsheet, DONE RIGHT! - YouTube</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="esxi">ESXi</h3>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-2F0D4696-3681-4C13-9552-5280C6406376.html">Boot the ESXi Installer by Using PXE and TFTP</a><ul>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-91E32FD0-A33C-4302-9FAB-B52B8A5CEFBC.html">Sample DHCP Configurations</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-C3F32E0F-297B-4B75-8B3E-C28BD08680C8.html">About the Default ks.cfg Installation Script</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-A33C4CAB-18EE-4C8C-A55D-8AD7E8042BFA.html#GUID-A33C4CAB-18EE-4C8C-A55D-8AD7E8042BFA">Enter Boot Options to Run an Installation or Upgrade Script</a><ul>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-9040F0B2-31B5-406C-9000-B02E8DA785D4.html">Boot Options</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-147D7509-EFB1-4391-973F-48B015B85C83.html">Boot the ESXi Installer by Using iPXE and HTTP</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-EA4C5A77-2C88-4519-AB94-E56871EE6DF4.html">Boot the ESXi Installer by Using Native UEFI HTTP</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-C03EADEA-A192-4AB4-9B71-9256A9CB1F9C.html">Create an Installer ISO Image with a Custom Installation or Upgrade Script</a></li>
+<li><a href="https://docs.vmware.com/tw/VMware-vSphere/7.0/vsphere-esxi-70-installation-setup-guide.pdf">VMware ESXi 安裝和設定 - VMware vSphere 7.0</a></li>
+<li><a href="https://blog.ty-wu.com/posts/intelnucusingpxeinstallesxi/">Intel NUC 13 使用 PXE 安裝 ESXi 8</a></li>
+<li><a href="https://knowledge.broadcom.com/external/article/323144/using-partedutil-command-line-disk-parti.html">Using partedUtil command line disk partitioning utility on ESXi</a></li>
+<li><a href="https://serverfault.com/questions/1048863/how-to-use-http-boot-for-vmware-vm-uefi-client">How to use HTTP Boot for VMWare VM UEFI client - Server Fault</a><ul>
+<li>VMware 7 UEFI does not support HTTP Boot</li>
+</ul>
+</li>
+<li>kickstart<ul>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.upgrade.doc/GUID-61A14EBB-5CF3-43EE-87EF-DB8EC6D83698.html#firstboot-16">Installation and Upgrade Script Commands</a><ul>
+<li><a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/automatically_installing_rhel/kickstart-commands-and-options-reference_rhel-installer">Appendix B. Kickstart commands and options reference | Red Hat Product Documentation</a><ul>
+<li>--device link which specifies the first interface with its link in the up state</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-esxi-installation/GUID-00224A32-C5C5-4713-969A-C50FF4DED8F8.html">Scripted ESXi Installation</a><ul>
+<li>The installation script must be stored in a location that the host can access by HTTP, HTTPS, FTP, NFS, CDROM, or USB. You can PXE boot the ESXi installer or boot it from a CD/DVD or USB drive.</li>
+</ul>
+</li>
+<li><a href="https://gist.github.com/moondev/2c50d40024e83ca0e0c6dc09cd642c09">esxi kickstart examples · GitHub</a></li>
+<li><a href="https://gist.github.com/bunchc/a926b222e0df48a364d8485c49a58dcb">ESXi Kickstart file · GitHub</a></li>
+<li><a href="https://intersight.com/help/saas/resources/installing_an_operating_system#performing_os_installation_in_cisco_mode">Cisco Intersight Help Center</a><ul>
+<li><a href="https://github.com/CiscoDevNet/intersight-BMaaS/blob/main/os-install/kickstart-samples/Esxi_SecureBoot.txt">intersight-BMaaS/os-install/kickstart-samples/Esxi_SecureBoot.txt at main · CiscoDevNet/intersight-BMaaS · GitHub</a></li>
+</ul>
+</li>
+<li>enable SSH<ul>
+<li><a href="https://williamlam.com/2018/06/using-esxi-kickstart-firstboot-with-secure-boot.html">Using ESXi Kickstart %firstboot with Secure Boot</a></li>
+<li><a href="https://superuser.com/questions/457881/how-to-enable-vmware-esxi-5-ssh-interface">automation - how to enable vmware esxi 5 ssh interface - Super User</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.netadmin.com.tw/netadmin/zh-tw/technology/E48CAA27A0BB440DAB94080193078643">文字介面ESXCLI命令工具　vSphere日常維運如虎添翼 | 網管人</a><ul>
+<li><a href="https://developer.broadcom.com/xapis/esxcli-command-reference/latest/">ESXCLI Reference | ESXCLI Command Reference</a></li>
+</ul>
+</li>
+<li><a href="https://knowledge.broadcom.com/external/article/307780/changing-the-hostname-of-an-esx-or-esxi.html">Changing the hostname of an ESXi host</a></li>
+<li><a href="https://knowledge.broadcom.com/external/article/311213/using-esxi-shell-in-esxi.html">Using ESXi Shell in ESXi</a></li>
+<li><a href="https://cck.tw/esxi-change-password-complexity-policy">取消 ESXi 密碼複雜度政策 » 科一電腦</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-9D0473C3-232B-4280-8F1E-2A99829706F9.html">Configure the VMware Host Client User Interface Session Timeout</a></li>
+<li><a href="https://knowledge.broadcom.com/external/article/318960/changing-an-esxi-host-root-password.html">Changing an ESXi host root password</a></li>
+<li>debug<ul>
+<li><a href="https://community.spiceworks.com/t/tftp-setup-for-esxi-6-7-uefi-deployment-tftp-error-24/728456/2">TFTP setup for ESXi 6.7 UEFI deployment - tftp error 24 - Virtualization - Spiceworks Community</a></li>
+</ul>
+</li>
+<li>hardware<ul>
+<li><a href="https://chatgpt.com/share/03e2c8a6-cf3f-4d19-9307-8b32d1eafeec">esxi lsblk is not working</a></li>
+</ul>
+</li>
+<li>ansible<ul>
+<li><a href="https://stackoverflow.com/questions/59273658/no-module-named-pyvim">python - No module named pyVim - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/63292684/ansible-msg-unable-to-connect-to-vcenter-or-esxi-api-at-ip-on-tcp-443-ssl">Ansible "msg": "Unable to connect to vCenter or ESXi API at IP on TCP/443: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:618)" - Stack Overflow</a></li>
+</ul>
+</li>
+<li><a href="https://lin0204.blogspot.com/2017/07/esxi-esxi-shell-ssh.html">ESXi 的 ESXi Shell 和 SSH 服務差別</a><ul>
+<li>ESXi shell: <code>Ctl + Alt + F2</code></li>
+<li>DCUI: <code>Alt + F2</code><ul>
+<li>exit 'Ctl + C'</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>passwordless<ul>
+<li><a href="https://gprasath.medium.com/establish-passwordless-ssh-between-ubuntu-and-esx-host-3b808901b310">Establish passwordless ssh between ubuntu and ESX host. | by Giridharaprasad | Medium</a></li>
+<li><a href="https://stackoverflow.com/questions/73335617/esxi-keeps-prompting-for-password-after-adding-ssh-public-key-to-authorized-keys">ESXi keeps prompting for password after adding ssh public key to authorized_keys - Stack Overflow</a></li>
+</ul>
+</li>
+<li>log<ul>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-832A2618-6B11-4A28-9672-93296DA931D0.html">ESXi Log File Locations</a></li>
+</ul>
+</li>
+<li>time<ul>
+<li><a href="https://knowledge.broadcom.com/external/article/317537/configuring-network-time-protocol-ntp-on.html">Configure Network Time Protocol (NTP)</a></li>
+</ul>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>bootstate=0
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>title=Loading ESXi installer
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>timeout=5
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>prefix=ESXi-8.0U1a-21813344
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>kernel=b.b00
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>kernelopt=runweasel cdromBoot ks=http://172.19.57.10:8000/ks.cfg
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>modules=jumpstrt.gz --- useropts.gz --- features.gz --- k.b00 --- uc_intel.b00 --- uc_amd.b00 --- uc_hygon.b00 --- procfs.b00 --- vmx.v00 --- vim.v00 --- tpm.v00 --- sb.v00 --- s.v00 --- atlantic.v00 --- bcm_mpi3.v00 --- bnxtnet.v00 --- bnxtroce.v00 --- brcmfcoe.v00 --- cndi_igc.v00 --- dwi2c.v00 --- elxiscsi.v00 --- elxnet.v00 --- i40en.v00 --- iavmd.v00 --- icen.v00 --- igbn.v00 --- intelgpi.v00 --- ionic_en.v00 --- irdman.v00 --- iser.v00 --- ixgben.v00 --- lpfc.v00 --- lpnic.v00 --- lsi_mr3.v00 --- lsi_msgp.v00 --- lsi_msgp.v01 --- lsi_msgp.v02 --- mtip32xx.v00 --- ne1000.v00 --- nenic.v00 --- nfnic.v00 --- nhpsa.v00 --- nmlx5_co.v00 --- nmlx5_rd.v00 --- ntg3.v00 --- nvme_pci.v00 --- nvmerdma.v00 --- nvmetcp.v00 --- nvmxnet3.v00 --- nvmxnet3.v01 --- pvscsi.v00 --- qcnic.v00 --- qedentv.v00 --- qedrntv.v00 --- qfle3.v00 --- qfle3f.v00 --- qfle3i.v00 --- qflge.v00 --- rdmahl.v00 --- rste.v00 --- sfvmk.v00 --- smartpqi.v00 --- vmkata.v00 --- vmksdhci.v00 --- vmkusb.v00 --- vmw_ahci.v00 --- bmcal.v00 --- clusters.v00 --- crx.v00 --- elx_esx_.v00 --- btldr.v00 --- esx_dvfi.v00 --- esx_ui.v00 --- esxupdt.v00 --- tpmesxup.v00 --- weaselin.v00 --- esxio_co.v00 --- loadesx.v00 --- lsuv2_hp.v00 --- lsuv2_in.v00 --- lsuv2_ls.v00 --- lsuv2_nv.v00 --- lsuv2_oe.v00 --- lsuv2_oe.v01 --- lsuv2_sm.v00 --- native_m.v00 --- qlnative.v00 --- trx.v00 --- vdfs.v00 --- vds_vsip.v00 --- vmware_e.v00 --- vsan.v00 --- vsanheal.v00 --- vsanmgmt.v00 --- tools.t00 --- xorg.v00 --- gc.v00 --- imgdb.tgz --- basemisc.tgz --- resvibs.tgz --- esxiodpt.tgz --- imgpayld.tgz
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>build=8.0.1-0.10.21813344
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>updated=0
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Sample ESXi Kickstart Configuration File</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Accept the VMware End User License Agreement</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>vmaccepteula
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># Set the root password</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># rootpw foo@123</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># Set the root password (same as above to ensure it&#39;s set)</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># rootpw --iscrypted &lt;hashed_password_here&gt;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1"># $6$GPVUoEU3hYSLkzZJ$9IuUjJm1L6AbBj3KMeU9gMYbcCObyq.C5fmUMTJMjf1lIbMLfIDVkIWbOD0CkaJYGmgSSzlcvjlDRg8l66x0J1 from openssl passwd -6 &quot;Super123&quot;</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>rootpw<span class="w"> </span>--iscrypted<span class="w"> </span><span class="nv">$6$GPVUoEU3hYSLkzZJ$9</span>IuUjJm1L6AbBj3KMeU9gMYbcCObyq.C5fmUMTJMjf1lIbMLfIDVkIWbOD0CkaJYGmgSSzlcvjlDRg8l66x0J1
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="c1"># Install ESXi on the first local disk (overwrite VMFS partitions)</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>install<span class="w"> </span>--firstdisk<span class="w"> </span>--overwritevmfs
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="c1"># Set the keyboard layout</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="c1"># keyboard &#39;US&#39;</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="c1"># Set the root password (same as above to ensure it&#39;s set)</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="c1"># rootpw --iscrypted &lt;encrypted_password_here&gt;</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="c1"># Network configuration</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="c1"># network --bootproto=static --device=vmnic0 --ip=172.19.57.50 --netmask=255.255.255.0 --gateway=172.19.57.1 --nameserver=8.8.8.8 --hostname=jeffesxi1</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>network<span class="w"> </span>--bootproto<span class="o">=</span>dhcp<span class="w"> </span>--device<span class="o">=</span>vmnic0
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="c1"># Reboot the server after installation</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>reboot
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="c1"># Enable SSH and allow remote SSH access</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>%firstboot<span class="w"> </span>--interpreter<span class="o">=</span>busybox
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="c1"># Enable SSH session for remote access</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>vim-cmd<span class="w"> </span>hostsvc/enable_ssh
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="c1"># Start the SSH service</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>vim-cmd<span class="w"> </span>hostsvc/start_ssh
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="c1"># Enable ESXi Shell</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>vim-cmd<span class="w"> </span>hostsvc/enable_esx_shell
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>vim-cmd<span class="w"> </span>hostsvc/start_esx_shell
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="c1">#Disable firewall</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="c1">#esxcli network firewall set --enabled false</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="c1"># Configure firewall to allow SSH access</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="c1"># esxcli network firewall ruleset set -e true -r sshClient</span>
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="c1"># Enable the SSH server firewall ruleset</span>
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>esxcli<span class="w"> </span>network<span class="w"> </span>firewall<span class="w"> </span>ruleset<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--enabled<span class="o">=</span><span class="nb">true</span><span class="w"> </span>--ruleset-id<span class="o">=</span>sshServer
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a><span class="c1"># Enable the SSH client firewall ruleset</span>
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>esxcli<span class="w"> </span>network<span class="w"> </span>firewall<span class="w"> </span>ruleset<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--enabled<span class="o">=</span><span class="nb">true</span><span class="w"> </span>--ruleset-id<span class="o">=</span>sshClient
+</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a><span class="c1"># End of firstboot commands</span>
+</span></code></pre></div>
+<h4 id="ansible">ansible</h4>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/collections/community/vmware/index.html">Community.Vmware — Ansible Community Documentation</a></li>
+</ul>
+<p>``` yml=
+- name: validate ansible to esxi
+  hosts: all
+  gather_facts: yes
+  vars:
+    - esxi_server: 192.168.1.102
+    - esxi_username: root
+    - esxi_password: myp@ssw0rd
+  tasks:
+    - name: Provide information about a standalone ESXi server
+      community.vmware.vmware_about_info:
+        hostname: '{{ esxi_server }}'
+        username: '{{ esxi_username }}'
+        password: '{{ esxi_password }}'
+        validate_certs: no
+      delegate_to: localhost
+      register: esxi_about_info
+    - name: Gather vmware host facts
+      community.vmware.vmware_host_facts:
+        hostname: "{{ esxi_server }}"
+        username: "{{ esxi_username }}"
+        password: "{{ esxi_password }}"
+        validate_certs: no
+      register: host_facts
+      delegate_to: localhost
+    - name: tset ssh
+      shell:
+        cmd: "esxcli"
+      register: esxcli_result
+        #- name: change host name - method 1 - Update the TCP/IP stack configuration of the default
+        #  community.vmware.vmware_host_tcpip_stacks:
+        #    hostname: "{{ esxi_server }}"
+        #    username: "{{ esxi_username }}"
+        #    password: "{{ esxi_password }}"
+        #    validate_certs: no
+        #    esxi_hostname: "sanfrancisco-a-esxi.example.com"
+        #    default:
+        #      hostname: "abc"
+        #      domain: example.com
+        #      preferred_dns: 8.8.8.8
+        #      search_domains:
+        #        - example.com
+        #  delegate_to: localhost
+    - name: change host name - method 2
+      shell:
+        cmd: "esxcli system hostname set --host=sanfrancisco-a-esxi"
+      register: esxcli_change_hostname_result
+    - name: show info
+      debug:
+        msg:
+          - "{{ esxi_about_info }}"
+          - "{{ host_facts }}"
+          - "{{ esxcli_result }}"
+            #- "{{ esxcli_change_hostname_result }}"
+          - "{{ ansible_facts }}"
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>#### Network
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>- [VMware ESXi 7 : Add VMkernel NIC : Server World](https://www.server-world.info/en/note?os=ESXi_7&amp;p=network&amp;f=4)
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>- [Link state up or down for a vmnic interface on ESXi](https://knowledge.broadcom.com/external/article/324496/link-state-up-or-down-for-a-vmnic-interf.html)
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>- [Configuring vSwitch or vNetwork Distributed Switch from the command line in ESXi/ESX](https://knowledge.broadcom.com/external/article/326175)
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    - [VMware ESXi 7 : Add Uplink : Server World](https://www.server-world.info/en/note?os=ESXi_7&amp;p=network&amp;f=3)
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>- [Restarting the Management agents in ESXi](https://knowledge.broadcom.com/external/article/320280/restarting-the-management-agents-in-esxi.html)
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    - [How to restart the ESXi management network via command-line?](https://williamlam.com/2014/01/how-to-restart-esxi-management-network.html)
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>- [How to enable or disable vmnic on esxi - Hasan Altin](https://www.hasanaltin.com/how-to-enable-or-disable-vmnic-on-esxi/)
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>- [Network Access to Your ESXi Host](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-6219B45D-036F-4D38-B6A2-BF404A3304EC.html)
+</span></code></pre></div>
+esxcli network nic list
+esxcli network nic up -n vmnic1
+esxcli network nic down -n vmnic1
+esxcli network ip interface set -e false -i vmk0; esxcli network ip interface set -e true -i vmk0
+esxcli network vswitch standard uplink add --vswitch-name vSwitch0 --uplink-name vmnic1
+esxcli network vswitch standard uplink remove --vswitch-name vSwitch0 --uplink-name vmnic0
+esxcli network ip interface ipv4 get
+esxcli network vswitch standard list
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>
+</span></code></pre></div>
+esxcli network nic list | awk '{print $1,$5,$8}' | grep vmnic</p>
+<p>esxcli network nic list | awk '{print $1,$5,$8}' | grep vmnic | while read -r interface status mac_address; do
+echo "Interface: $interface"
+    echo "Status: $status"
+    echo "MAC Address: $mac_address"
+    echo ""
+    if [ "$status" = "Down" ]; then
+        echo "Status is Down. Executing command: network vswitch standard uplink remove --vswitch-name vSwitch0 --uplink-name $interface"
+        network vswitch standard uplink remove --vswitch-name vSwitch0 --uplink-name "$interface"
+    fi
+done
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Currently, can not get the ip after the operations
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>the problem maybe the mac address will not be changed successfully after changing uplink
+</span></code></pre></div>
+esxcli network ip interface ipv4 get
+esxcli network ip interface list
+esxcli network vswitch standard list
+esxcli network vswitch standard uplink add --vswitch-name vSwitch0 --uplink-name vmnic3
+esxcli network vswitch standard uplink remove --vswitch-name vSwitch0 --uplink-name vmnic0
+esxcli network vswitch standard list
+esxcli network ip interface set -e false -i vmk0; esxcli network ip interface set -e true -i vmk0
+esxcli network ip interface ipv4 get
+esxcli network ip interface list
+```</p>
+<h4 id="vgpu">vGPU</h4>
+<ul>
+<li>Nvidia doc<ul>
+<li><a href="https://docs.nvidia.com/vgpu/deployment/vmware/latest/index.html">NVIDIA Virtual GPU (vGPU): VMware Deployment Guide (Latest) - NVIDIA Docs</a><ul>
+<li><a href="https://docs.nvidia.com/vgpu/deployment/vmware/latest/manager.html">Installing and configuring the NVIDIA vGPU Manager VIB - NVIDIA Docs</a><ul>
+<li><a href="https://docs.nvidia.com/vgpu/index.html#all-release-branches">NVIDIA Virtual GPU (vGPU) Software - NVIDIA Docs</a><ul>
+<li><a href="https://docs.nvidia.com/vgpu/16.0/product-support-matrix/index.html">Supported Products - NVIDIA Docs</a></li>
+<li><a href="https://www.nvidia.com/en-us/data-center/resources/vgpu-certified-servers/">Virtual GPU Certified Servers | NVIDIA GRID</a></li>
+</ul>
+</li>
+<li><a href="https://docs.nvidia.com/vgpu/deployment/vmware/latest/first-vgpu.html#enabling-the-nvidia-vgpu">Enabling the NVIDIA vGPU</a></li>
+<li><a href="https://docs.nvidia.com/vgpu/deployment/vmware/latest/first-vgpu.html#installing-the-nvidia-vgpu-driver-linux">Installing the NVIDIA vGPU Driver: Linux</a></li>
+<li>Changing the Default Graphics Type in VMWare vSphere 6.5 and Later<ul>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-E0862AED-BF69-4C85-A811-EEE626F63B48.html">Configuring Host Graphics</a></li>
+<li><a href="https://gist.github.com/mb00g/d9862c51eeb693fe9b2cfb6ddaa7a88f">install_nvidia_vgpu_vsphere.md · GitHub</a><ul>
+<li>esxcli graphics host get</li>
+<li>esxcli graphics host set --default-type SharedPassthru</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://knowledge.broadcom.com/external/article/367541/installing-and-configuring-the-nvidia-vi.html">Installing and configuring the NVIDIA VIB on ESXi</a></li>
+<li><a href="https://docs.omniverse.nvidia.com/deployment/latest/installing-vgpu-manager.html">Installing and configuring the NVIDIA vGPU Manager VIB — Omniverse Deployment latest documentation</a></li>
+<li><a href="https://www.dinghui.org/vmware-esxi-nvidia-gpu.html">VMware ESXi安装NVIDIA GPU显卡硬件驱动和配置vGPU（含GRID 驱动下载） – 丁辉博客</a></li>
+<li><a href="https://docs.vmware.com/tw/VMware-Horizon/2306/linux-desktops-setup/GUID-AA333E98-0AA4-419B-8676-8B2C6F89CAF7.html">在 ESXi 主機上安裝適用於 NVIDIA GRID vGPU 圖形卡的 VIB</a><ul>
+<li><a href="https://knowledge.broadcom.com/external/article/318047/xorg-service-is-no-longer-required-for-n.html">Xorg service is no longer required for Nvidia vGPU profiles in vSphere 7.0 U1</a></li>
+<li><a href="https://docs.vmware.com/tw/VMware-Horizon-7/7.13/linux-desktops-setup/GUID-140229DB-D2FE-44F1-A773-A80388036699.html#GUID-140229DB-D2FE-44F1-A773-A80388036699">在 Linux 虛擬機器上針對 vGPU 設定共用 PCI 裝置</a></li>
+<li><a href="https://docs.vmware.com/tw/VMware-Horizon-7/7.13/linux-desktops-setup/GUID-8791F305-469B-4324-BBE3-E65E4294564B.html">安裝 NVIDIA GRID vGPU 顯示驅動程式</a></li>
+</ul>
+</li>
+<li><a href="https://docs.vmware.com/tw/VMware-vSphere/7.0/com.vmware.esxi.upgrade.doc/GUID-1E773360-CB1C-4BC2-B2A4-B73AB5706FAF.html">使用個別 VIB 更新主機</a></li>
+<li><a href="https://docs.vmware.com/tw/VMware-vSphere/7.0/com.vmware.esxi.upgrade.doc/GUID-7FFEBD91-5D82-4E32-93AB-F10D8BFFECAA.html">從主機移除 VIB</a></li>
+<li><a href="https://community.spiceworks.com/t/do-i-need-vcenter-server-for-nvidia-vgpu/945856/18">Do i Need vCenter Server for Nvidia vGPU - Virtualization - Spiceworks Community</a></li>
+<li>debug<ul>
+<li><a href="https://forum.proxmox.com/threads/nvidia-gpu-rtx-a4000-vgpu-service-not-starting.144868/">Nvidia GPU RTX A4000 vgpu service not starting | Proxmox Support Forum</a><ul>
+<li>BIOS Secure Boot</li>
+</ul>
+</li>
+<li><a href="https://support.virtuozzo.com/hc/en-us/articles/19567049617169-VHI-6-0-update-in-case-of-Nvidia-Virtual-GPU-drivers-installed">VHI 6.0 update in case of Nvidia Virtual GPU drivers installed – Virtuozzo Technical Support</a></li>
+<li><a href="https://www.reddit.com/r/virtualization/comments/140lhlg/vmware_esxi_8_update_1_nvidia_152_vgpu_driver_a/">VMWare ESXi 8 Update 1 + nVIDIA 15.2 vGPU Driver = A FAIL : r/virtualization</a><ul>
+<li>BIOS SR-IOV</li>
+<li><a href="https://docs.nvidia.com/networking/display/mlnxofedv497100lts/single+root+io+virtualization+%28sr-iov%29">Single Root IO Virtualization (SR-IOV) - NVIDIA Docs</a></li>
+</ul>
+</li>
+<li><a href="https://www.supermicro.com/support/faqs/faq.cfm?faq=34329">FAQ Entry | Online Support | Support - Super Micro Computer, Inc.</a><ul>
+<li>patch too old</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="pci-passthrough">PCI Passthrough</h4>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Edge-Compute-Stack/3.0/ecs-enterprise-edge-ref-arch/GUID-412AD9B3-6B9B-4BE0-B833-9205ACBCF956.html">GPU Device in PCI Passthrough</a><ul>
+<li><a href="https://knowledge.broadcom.com/external/article/309986/configuring-vmdirectpath-io-passthrough.html">Configuring VMDirectPath I/O pass-through devices on a VMware ESX or VMware ESXi host</a></li>
+<li><a href="https://docs.nvidia.com/ai-enterprise/latest/release-notes/index.html#tesla-p40-large-memory-vms">Release Notes :: NVIDIA AI Enterprise Documentation</a><ul>
+<li>Some GPUs require 64 GB or more of MMIO space. When a vGPU on a GPU that requires 64 GB or more of MMIO space is assigned to a VM with 32 GB or more of memory on ESXi</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.dinghui.org/vmware-esxi-directpath-gpu.html/comment-page-1">VMware ESXi DirectPath I/O 直通GPU卡给虚拟机使用 – 丁辉博客</a></li>
+<li><a href="https://www.ibm.com/docs/zh-tw/mas-cd/continuous-delivery?topic=inspection-enabling-gpu-passthrough">啟用 GPU 透通 - IBM 說明文件</a></li>
+<li>esxcli<ul>
+<li><a href="https://www.server-world.info/en/note?os=ESXi_7&amp;p=vm&amp;f=5">VMware ESXi 7 : GPU Passthrough : Server World</a></li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/watch?v=aFXtUaFjiO4">How to pass through a GPU in VMware ESXi 8 - YouTube</a></li>
+<li><a href="https://github.com/JeffersonQin/esxi-pci-passthrough-auto-enable">GitHub - JeffersonQin/esxi-pci-passthrough-auto-enable: Solve the problem that the PCI passthrough deactivates after reboot, also hard to reset due to UI flickering</a></li>
+</ul>
+<h3 id="plug-in">Plug-in</h3>
+<ul>
+<li><a href="https://calsoftinc.com/blogs/2023/07/enhancing-vcenter-capabilities-with-vmware-vcenter-plugins-a-deep-dive.html?utm_source=chatgpt.com">Enhancing vCenter Capabilities with VMware vCenter Plugins: A Deep Dive - Calsoft Blog</a></li>
+<li><a href="https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/8-0/developing-remote-plug-ins-with-the-vsphere-client-sdk-8-0.html">Developing Remote Plug-ins with the vSphere Client SDK</a><ul>
+<li><a href="https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere-sdks-tools/8-0/developing-remote-plug-ins-with-the-vsphere-client-sdk-8-0/creating-a-remote-plug-in-for-the-vsphere-client/deployment-requirements-for-a-remote-plug-in-for-the-vsphere-client.html?utm_source=chatgpt.com">Deployment Requirements for a vSphere Client Remote Plug-in</a></li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/watch?v=r1omOTMaZn8">Getting Started with Remote Plug-Ins in the vSphere Client (vSphere 7.0) - YouTube</a></li>
+</ul>
+<h3 id="vcenter">vCenter</h3>
+<ul>
+<li><a href="https://developer.broadcom.com/xapis/vsphere-automation-api/v7.0U3/vcenter/api/vcenter/iso/image__action=mount/post/">Mount Iso Image | vSphere Automation API</a><ul>
+<li><a href="https://blogs.vmware.com/vsphere/2020/01/creating-and-using-content-library.html">Creating and Using Content Library - VMware vSphere Blog</a></li>
+<li><a href="https://community.broadcom.com/vmware-cloud-foundation/discussion/is-it-possible-to-move-datastore-iso-files-to-content-library">Is it possible to Move Datastore ISO files to content library ? | VMware vSphere</a></li>
+<li>impossible</li>
+</ul>
+</li>
+<li><a href="https://developer.broadcom.com/xapis/vsphere-automation-api/v7.0U3/vcenter/vm/hardware-cdrom/">Vm Hardware Cdrom APIs | vSphere Automation API</a></li>
+<li><a href="https://developer.broadcom.com/xapis/vsphere-automation-api/v7.0U3/vcenter/vm/hardware-boot/">Vm Hardware Boot APIs | vSphere Automation API</a></li>
+</ul>
+<h4 id="vlcm">vLCM</h4>
+<ul>
+<li><a href="https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/managing-host-and-cluster-lifecycle-7-0/about-vsphere-lifecycle-manager-new.html">About vSphere Lifecycle Manager</a><ul>
+<li><a href="https://www.vmware.com/docs/introducing-vsphere-lifecycle-management-vlcm">Introducing vSphere Lifecycle Management (vLCM) pdf</a><ul>
+<li><a href="https://www.vmware.com/docs/what-is-the-difference-between-vlcm-desired-image-vs-vlcm-baseline">What is the difference between vLCM Desired Image vs vLCM Baseline? pdf</a></li>
+<li><a href="https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/managing-host-and-cluster-lifecycle-8-0/about-vsphere-lifecycle-manager-new/vlcm-baselines-and-images.html">What Is the Difference Between vSphere Lifecycle Manager Images and Baselines</a></li>
+</ul>
+</li>
+<li><a href="https://www.netadmin.com.tw/netadmin/zh-tw/technology/C3CFD0D7504142978DF9E0B11E9C03AE">備份安裝移轉設定照步來　vSphere 7無痛升級(下) | 網管人</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10306626">Day 30 補充 - iT 邦幫忙</a></li>
+<li><a href="https://www.youtube.com/watch?v=-6xfKbxHFsY">Using vSphere Lifecycle Manager (vLCM) image-based updates for vSphere 7.0 Update 2a ESXi updates - YouTube</a></li>
+</ul>
+</li>
+<li>Create<ul>
+<li><a href="https://dmware.nl/2024/05/create-a-custom-esxi-iso-image-through-vsphere-lifecycle-manager/">DMware.nl » Create a custom ESXi ISO Image through vSphere LifeCycle Manager #</a></li>
+<li><a href="https://williamlam.com/2022/11/creating-custom-esxi-images-using-vsphere-lifecycle-manager-vlcm-ui-and-powercli-cmdlets-for-vsphere-8.html">Creating custom ESXi images using vSphere Lifecycle Manager (vLCM) UI and PowerCLI cmdlets for vSphere 8</a></li>
+</ul>
+</li>
+<li><a href="https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/managing-host-and-cluster-lifecycle-7-0/about-vsphere-lifecycle-manager-new/vibs-bulletins-components.html#GUID-32BD1915-01BF-4C10-A6C3-655B35F95F24-en">Bulletins, Components, Add-Ons, and ESXi Base Images</a><ul>
+<li><a href="https://knowledge.broadcom.com/external/article/390121">"A general system error occurred: Failed to download VIB(s): Error: HTTP Error Code: 403", vLCM fails to download the ESXi patches and images from online repositories</a></li>
+</ul>
+</li>
+<li>API<ul>
+<li><a href="https://williamlam.com/2024/02/retrieving-detailed-vsphere-lifecycle-manager-vlcm-image-information-from-vsphere-cluster-using-powercli.html">Retrieving detailed vSphere Lifecycle Manager (vLCM) Image information from vSphere Cluster using PowerCLI</a></li>
+</ul>
+</li>
+<li>Hardware Support Manager (HSM)<ul>
+<li><a href="https://blogs.vmware.com/cloud-foundation/2024/11/07/firmware-lifecycle-made-simple-with-vsphere-lifecycle-manager/">Firmware lifecycle made simple with vSphere Lifecycle Manager - VMware Cloud Foundation (VCF) Blog</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="vibs">VIBs</h4>
+<ul>
+<li><a href="https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/managing-host-and-cluster-lifecycle-7-0/about-vsphere-lifecycle-manager-new/vibs-bulletins-components.html#GUID-32BD1915-01BF-4C10-A6C3-655B35F95F24-en">Bulletins, Components, Add-Ons, and ESXi Base Images</a></li>
+<li><a href="https://knowledge.broadcom.com/external/article?articleId=366685">VMware vSphere downloads, OEM custom images, patches and addons in the Broadcom Support Portal</a><ul>
+<li><a href="https://www.hpe.com/emea_europe/en/servers/hpe-esxi.html">VMware ESXi Images for HPE Servers | HPE EUROPE</a></li>
+<li><a href="https://sp.ts.fujitsu.com/dmsp/Publications/public/facts-fj-vmware-esxi7-customized-image-en.pdf">Readme of Fujitsu Custom Image - facts-fj-vmware-esxi7-customized-image-en.pdf</a></li>
+</ul>
+</li>
+</ul>
+<p>A VIB is a software package that contains metadata and a binary payload, which represents the actual piece of software to be installed on ESXi. </p>
+<blockquote>
+<p>類似deb, rpm</p>
+</blockquote>
+<p>the VIB is the smallest installable software unit that VMware and other software vendors ship.</p>
+<p>vSphere Lifecycle Manager does not consume and work with individual VIBs. VIBs must be further packaged into a higher-level construct.</p>
+<h4 id="bulletins">Bulletins</h4>
+<p>The bulletin is a grouping of one or more VIBs. Bulletins are defined within the metadata of the VIB.</p>
+<p>You use bulletins, and not individual VIBs, to create vSphere Lifecycle Manager baselines, which you attach to inventory objects and use to update and upgrade ESXi hosts.</p>
+<h4 id="components">Components</h4>
+<p>Starting with vSphere 7.0, the component becomes the basic packaging construct for VIBs. VMware, OEMs, and third-party software providers now deliver software in the form of components.</p>
+<p>The component is a bulletin with additional metadata specifying the name and the version of the component. </p>
+<p>Unlike the bulletin, the component is a logical grouping of VIBs that provides you with a complete and visible feature upon installation.</p>
+<p>VMware bundles components together into fully functional and bootable ESXi base images.
+OEMs bundle components together into vendor add-ons.
+Third-party software vendors create and ship software, for example drivers or adapters, as independent components.</p>
+<h4 id="base-images">Base Images</h4>
+<ul>
+<li><a href="https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/managing-host-and-cluster-lifecycle-7-0/working-with-vsphere-lifecycle-manager-depots/online-and-offline-depots.html">Online and Offline Depots</a></li>
+</ul>
+<p>The base image is an ESXi image that VMware provides with every release of ESXi</p>
+<p>The base image is a collection of components that is complete and can boot up a server.</p>
+<h4 id="vendor-add-ons">Vendor Add-Ons</h4>
+<p>OEMs pack one or multiple components into a unit called an add-on.</p>
+<p>You use vendor add-ons to customize an ESXi image with OEM content and drivers.</p>
+<p>The combination of a vendor add-on and an ESXi base image is practically identical to an OEM-provided custom image.</p>
+<p>Starting with vSphere 7.0, in addition to custom ISO images and offline bundles, OEMs can release ZIP files that contain only the vendor add-on, that is, the delta between the custom image and the ESXi base image.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 統計圖表的表達方式以及使用的範圍">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                統計圖表的表達方式以及使用的範圍
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-footer__link md-footer__link--next" aria-label="Next: 資料庫維運">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                資料庫維運
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

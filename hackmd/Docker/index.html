@@ -1,0 +1,3894 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Development/">
+      
+      
+        <link rel="next" href="../DynamoDB%20Deep%20Dive%20Advence%20Design/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Docker - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome the docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hackmd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hackmd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    <span class="md-ellipsis">
+      build
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-stage-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      multi-stage builds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container" class="md-nav__link">
+    <span class="md-ellipsis">
+      container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      容器與訊號
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mknod" class="md-nav__link">
+    <span class="md-ellipsis">
+      mknod
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemd-inside-the-docker-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      systemd inside the docker container
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    <span class="md-ellipsis">
+      image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#save-and-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      save and load
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    <span class="md-ellipsis">
+      network
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#host" class="md-nav__link">
+    <span class="md-ellipsis">
+      host
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    <span class="md-ellipsis">
+      port
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#env-arg" class="md-nav__link">
+    <span class="md-ellipsis">
+      env, arg
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      permission
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      volume
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="docker compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      build
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      networks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-compose-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      multiple compose files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#healthcheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      healthcheck
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      mysql
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awesome-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      awesome image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="awesome image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sameersbnbind-docker-image-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      sameersbn/bind - Docker Image | Docker Hub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sonatypenexus3-docker-image-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      sonatype/nexus3 - Docker Image | Docker Hub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-docker-container-dbeavercloudbeaver-wiki-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Docker Container · dbeaver/cloudbeaver Wiki · GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-mermaid-jsmermaid-live-editor-edit-preview-and-share-mermaid-chartsdiagrams-new-implementation-of-the-live-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub - mermaid-js/mermaid-live-editor: Edit, preview and share mermaid charts/diagrams. New implementation of the live editor.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockermrbs-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker安裝老牌「會議室預約系統(MRBS)」 - 咖啡偶-IT日常
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-aquasecuritytrivy-find-vulnerabilities-misconfigurations-secrets-sbom-in-containers-kubernetes-code-repositories-clouds-and-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub - aquasecurity/trivy: Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tftp-and-dhcp-for-pxe" class="md-nav__link">
+    <span class="md-ellipsis">
+      TFTP and DHCP for PXE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-cturradocker-ntp-chrony-ntp-server-running-in-a-docker-container-without-the-priviledged-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub - cturra/docker-ntp: 🕒 Chrony NTP Server running in a Docker container (without the priviledged flag)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      httpd
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="httpd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      basic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl-enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL enable
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      nginx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="nginx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      basic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      auto index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl-enable_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL enable
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-semaphoreuisemaphore-modern-ui-and-powerful-api-for-ansible-terraform-opentofu-powershell-and-other-devops-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub - semaphoreui/semaphore: Modern UI and powerful API for Ansible, Terraform, OpenTofu, PowerShell and other DevOps tools.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-rundeckrundeck-enable-self-service-operations-give-specific-users-access-to-your-existing-tools-services-and-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub - rundeck/rundeck: Enable Self-Service Operations: Give specific users access to your existing tools, services, and scripts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offiline-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      offiline install
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mtu" class="md-nav__link">
+    <span class="md-ellipsis">
+      MTU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MTU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-docker-default-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      for docker default bridge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      for docker compose
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google docs api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InfiniBand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Message Passing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nagios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus Repository Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Openstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RedHat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redfish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scrum筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bitwise world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud-init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Influxdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pacemaker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    podman
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shell script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用者體驗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    備份還原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    奇技淫巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    持續整合
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排列組合與機率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    機器學習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    正規表示法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    測試工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    無線網路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向實務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向系統分析與設計
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬體概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    程式本質
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系統的價值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    統計圖表的表達方式以及使用的範圍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    虛擬機器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料庫維運
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資訊安全
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體工程師的專業和通識
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體需求溝通
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    <span class="md-ellipsis">
+      build
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-stage-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      multi-stage builds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container" class="md-nav__link">
+    <span class="md-ellipsis">
+      container
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      容器與訊號
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mknod" class="md-nav__link">
+    <span class="md-ellipsis">
+      mknod
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemd-inside-the-docker-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      systemd inside the docker container
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    <span class="md-ellipsis">
+      image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#save-and-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      save and load
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network" class="md-nav__link">
+    <span class="md-ellipsis">
+      network
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#host" class="md-nav__link">
+    <span class="md-ellipsis">
+      host
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    <span class="md-ellipsis">
+      port
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#env-arg" class="md-nav__link">
+    <span class="md-ellipsis">
+      env, arg
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      permission
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      volume
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="docker compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      build
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      networks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-compose-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      multiple compose files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#healthcheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      healthcheck
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      mysql
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#awesome-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      awesome image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="awesome image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sameersbnbind-docker-image-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      sameersbn/bind - Docker Image | Docker Hub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sonatypenexus3-docker-image-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      sonatype/nexus3 - Docker Image | Docker Hub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-docker-container-dbeavercloudbeaver-wiki-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Docker Container · dbeaver/cloudbeaver Wiki · GitHub
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-mermaid-jsmermaid-live-editor-edit-preview-and-share-mermaid-chartsdiagrams-new-implementation-of-the-live-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub - mermaid-js/mermaid-live-editor: Edit, preview and share mermaid charts/diagrams. New implementation of the live editor.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockermrbs-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker安裝老牌「會議室預約系統(MRBS)」 - 咖啡偶-IT日常
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-aquasecuritytrivy-find-vulnerabilities-misconfigurations-secrets-sbom-in-containers-kubernetes-code-repositories-clouds-and-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub - aquasecurity/trivy: Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tftp-and-dhcp-for-pxe" class="md-nav__link">
+    <span class="md-ellipsis">
+      TFTP and DHCP for PXE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-cturradocker-ntp-chrony-ntp-server-running-in-a-docker-container-without-the-priviledged-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub - cturra/docker-ntp: 🕒 Chrony NTP Server running in a Docker container (without the priviledged flag)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      httpd
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="httpd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      basic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl-enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL enable
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      nginx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="nginx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      basic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      auto index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl-enable_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL enable
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-semaphoreuisemaphore-modern-ui-and-powerful-api-for-ansible-terraform-opentofu-powershell-and-other-devops-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub - semaphoreui/semaphore: Modern UI and powerful API for Ansible, Terraform, OpenTofu, PowerShell and other DevOps tools.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github-rundeckrundeck-enable-self-service-operations-give-specific-users-access-to-your-existing-tools-services-and-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      GitHub - rundeck/rundeck: Enable Self-Service Operations: Give specific users access to your existing tools, services, and scripts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offiline-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      offiline install
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mtu" class="md-nav__link">
+    <span class="md-ellipsis">
+      MTU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MTU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-docker-default-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      for docker default bridge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      for docker compose
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="docker">Docker</h1>
+<p><img alt="https://www.cherryservers.com/v3/assets/blog/2022-12-20/02.png" src="https://www.cherryservers.com/v3/assets/blog/2022-12-20/02.png" /></p>
+<ul>
+<li><a href="https://docs.docker.com/engine/reference/commandline/run/">docker run | Docker Documentation</a><ul>
+<li><a href="https://www.docker.com/wp-content/uploads/2022/03/docker-cheat-sheet.pdf">docker cheat sheet</a></li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/watch?v=3c-iBn73dDE">(212) Docker Tutorial for Beginners [FULL COURSE in 3 Hours] - YouTube</a></li>
+<li><a href="http://docker-saigon.github.io/post/Docker-Internals/">Docker Internals -- Docker Saigon</a><ul>
+<li><a href="http://docker-saigon.github.io/img/event_state.png">Lifecycle of Docker Container</a></li>
+</ul>
+</li>
+<li><a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference | Docker Documentation</a><ul>
+<li><a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">Best practices for writing Dockerfiles</a><ul>
+<li><a href="https://rock-it.pl/how-to-write-excellent-dockerfiles/">How to write excellent Dockerfiles</a></li>
+</ul>
+</li>
+<li><a href="https://myapollo.com.tw/zh-tw/docker-cmd-vs-entrypoint/">Docker CMD 與 ENTRYPOINT 說明詳解</a></li>
+<li><a href="https://devtron.ai/blog/cmd-and-entrypoint-differences/">Understand CMD and ENTRYPOINT Differences in Docker</a><ul>
+<li>the executable is defined with ENTRYPOINT, while CMD specifies the default parameter.<ul>
+<li>If you are using both instructions, make sure to keep them in exec form.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://stackoverflow.com/questions/60319669/why-should-i-use-docker-onbuild">dockerfile - Why should I use docker ONBUILD? - Stack Overflow</a></li>
+<li><a href="https://wshs0713.github.io/posts/b8226bad/">[Docker] Health Check and Restart Unhealthy Container | wshs0713's blog</a></li>
+</ul>
+</li>
+<li><a href="https://jessicagreben.medium.com/what-is-the-difference-between-a-process-a-container-and-a-vm-f36ba0f8a8f7">What is the difference between a process, a container, and a VM</a></li>
+<li><a href="https://docs.docker.com/reference/cli/dockerd/#environment-variables">dockerd | Docker Docs</a></li>
+<li><a href="https://ivonblog.com/posts/portainer-installation/">用網頁圖形化界面管理Docker容器 \~ Portainer安裝教學，一鍵啟動docker-compose、管理image · Ivon的部落格</a></li>
+<li><a href="https://www.kawabangga.com/posts/6722">Docker 命令行小技巧：runlike | 卡瓦邦噶！</a></li>
+<li><a href="https://blog.darkthread.net/blog/python-in-docker/">Python 新手筆記 - 用 Docker 跑 Python 網站-黑暗執行緒</a></li>
+<li><a href="https://blog.darkthread.net/blog/nginx-certbot-auto-setup/">HTTPS Nginx Docker 之懶人安裝法-黑暗執行緒</a></li>
+<li>Labs<ul>
+<li>:star:<a href="https://ithelp.ithome.com.tw/users/20151857/ironman/5419">那些關於 docker 你知道與不知道的事 :: 2022 iThome 鐵人賽</a><ul>
+<li><a href="https://www.kawabangga.com/posts/4224">Docker (容器) 的原理 | 卡瓦邦噶！</a></li>
+<li>:star:<a href="https://www.kawabangga.com/posts/4676">Docker 镜像构建的一些技巧 | 卡瓦邦噶！</a><ul>
+<li><a href="https://github.com/wagoodman/dive">GitHub - wagoodman/dive: A tool for exploring each layer in a docker image</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://dockerlabs.collabnix.com/">Welcome to Docker Labs</a></li>
+<li><a href="https://training.play-with-docker.com/">Play with Docker Classroom</a></li>
+<li><a href="https://docker.github.io/get-involved/docs/communityleaders/eventhandbooks/docker201/gettingstarted/labs/">Docker Compose 101 Labs</a></li>
+</ul>
+</li>
+<li>error<ul>
+<li><a href="https://stackoverflow.com/questions/64952238/docker-errors-dockerexception-error-while-fetching-server-api-version">docker.errors.DockerException: Error while fetching server API version</a></li>
+</ul>
+</li>
+<li>registry<ul>
+<li><a href="https://blog.toright.com/posts/7510/harbor-caddy-docker-registry">透過 Harbor 建制自己的 Docker Registry + 永久憑證更新</a></li>
+</ul>
+</li>
+<li><a href="https://stackoverflow.com/questions/25775266/how-to-keep-docker-container-running-after-starting-services">How to keep Docker container running after starting services</a></li>
+<li><a href="https://stackoverflow.com/questions/30209776/docker-container-will-automatically-stop-after-docker-run-d?noredirect=1&amp;lq=1">Docker container will automatically stop after "docker run -d"</a></li>
+<li><a href="https://medium.com/@dreamferus/environment-variables-in-python-docker-49b7b88cc1e4">Environment variables in Python &amp; Docker</a></li>
+<li><a href="https://stackoverflow.com/questions/57865444/how-to-set-up-separate-env-for-development-and-production-using-docker">How to set up separate .env for development and production using Docker</a></li>
+<li><a href="https://stackoverflow.com/questions/56112537/how-to-use-the-same-dockerfile-for-dev-and-prod">How to use the same dockerfile for dev and prod</a></li>
+<li><a href="https://github.com/wsargent/docker-cheat-sheet">GitHub - wsargent/docker-cheat-sheet: Docker Cheat Sheet</a></li>
+<li><a href="https://azole.medium.com/docker-container-%E5%9F%BA%E7%A4%8E%E5%85%A5%E9%96%80%E7%AF%87-1-3cb8876f2b14">Docker Container 基礎入門篇 1. 猴子也會的 Docker，但猴子並不想會。 | by Azole (小賴) | Medium</a></li>
+<li>Distrobox<ul>
+<li><a href="https://ivonblog.com/posts/distrobox-usage/">我全都要！Distrobox使用教學，透過容器安裝其他Linux發行版的套件 · Ivon的部落格</a></li>
+<li><a href="https://www.omegaatt.com/blogs/develop/2024/two_distrobox_use_case/">透過 Distrobox 解決 Linux 環境依賴問題 | omegaatt</a></li>
+<li><a href="https://www.omegaatt.com/blogs/develop/2025/dev_container/">Never Install Locally？試試 Dev Container | omegaatt</a></li>
+</ul>
+</li>
+<li>debug<ul>
+<li><a href="https://medium.com/@pimterry/5-ways-to-debug-an-exploding-docker-container-4f729e2c0aa8">5 ways to debug an exploding Docker container | by Tim Perry | Medium</a></li>
+<li><a href="https://stackoverflow.com/questions/50691770/what-does-docker-container-exit-status-255-mean">What does docker container exit status 255 mean? - Stack Overflow</a></li>
+<li><a href="https://github.com/docker/compose-cli/issues/1537">Running docker compose up -d (strconv.Atoi: parsing "": invalid syntax) · Issue #1537 · docker/compose-cli · GitHub</a></li>
+</ul>
+</li>
+<li>systemctl<ul>
+<li><a href="https://serverfault.com/questions/1053187/systemd-fails-to-run-in-a-docker-container-when-using-cgroupv2-cgroupns-priva">Systemd fails to run in a docker container when using cgroupv2 (--cgroupns=private) - Server Fault</a></li>
+<li><a href="https://developers.redhat.com/blog/2019/04/24/how-to-run-systemd-in-a-container?sc_cid=7013a00000313tHAAQ">How to run systemd in a container | Red Hat Developer</a><ul>
+<li><a href="https://lwn.net/Articles/676831/">Systemd vs. Docker [LWN.net]</a></li>
+</ul>
+</li>
+<li><a href="https://medium.com/swlh/docker-and-systemd-381dfd7e4628">Docker and systemd | The Startup</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/473252130">docker中单容器开启多服务时systemctl引发的血案及破案过程 - 知乎</a></li>
+<li><a href="https://serverfault.com/questions/824975/failed-to-get-d-bus-connection-operation-not-permitted">centos - failed to get D-Bus connection: Operation not permitted - Server Fault</a></li>
+<li><a href="https://github.com/docker-library/docs/tree/master/centos#systemd-integration">Systemd integration</a></li>
+<li><a href="https://ravenonhill.blogspot.com/2018/08/systemd-inside-docker-container.html">渡鴉之丘: 在 docker container 裡面執行 systemd 服務（測試環境用～）</a></li>
+<li><a href="https://plutoacharon.github.io/2020/02/23/Docker%E5%AE%B9%E5%99%A8%E5%87%BA%E7%8E%B0%E4%BD%BF%E7%94%A8systemctl%E9%97%AE%E9%A2%98%EF%BC%9AFailed-to-get-D-Bus-connection-Operation-not-permitted/">Docker容器出现使用systemctl问题：Failed to get D-Bus connection: Operation not permitted · 浩翰Redamancy的博客</a></li>
+<li><a href="https://stackoverflow.com/questions/51979553/is-it-recommended-to-run-systemd-inside-docker-container">Is it recommended to run systemd inside docker container? - Stack Overflow</a></li>
+<li><a href="https://superuser.com/questions/1718835/docker-with-systemd-and-systemctl">linux - Docker with systemd and systemctl - Super User</a></li>
+<li><a href="https://askubuntu.com/questions/1287640/run-systemctl-inside-docker-container">systemd - Run systemctl inside docker container - Ask Ubuntu</a></li>
+<li>https://chatgpt.com/share/6814872e-1b40-8009-9e0f-f75edc8ad2ec</li>
+</ul>
+</li>
+<li>cap_add<ul>
+<li><a href="https://github.com/kylemanna/docker-openvpn/issues/498">mknod: /dev/net/tun: Operation not permitted · Issue #498 · kylemanna/docker-openvpn · GitHub</a></li>
+<li><a href="https://blog.trendmicro.com.tw/?p=62986">為何在 Docker 中執行特權容器不是個好主意? – 資安趨勢部落格</a></li>
+</ul>
+</li>
+<li>High Availability<ul>
+<li><a href="https://medium.com/@yahyasghiouri1998/building-a-high-availability-cluster-with-haproxy-keepalived-and-docker-a-step-by-step-guide-9325f4ac8aa7">Building a High Availability Cluster with HAProxy, Keepalived, and Docker: A Step-by-Step Guide | by Yahya sghiouri | Medium</a></li>
+</ul>
+</li>
+<li>firewall<ul>
+<li><a href="https://docs.docker.com/engine/network/packet-filtering-firewalls/#docker-on-a-router">Packet filtering and firewalls | Docker Docs</a></li>
+<li><a href="https://documentation.ubuntu.com/lxd/en/latest/howto/network_bridge_firewalld/">How to configure your firewall</a><ul>
+<li><a href="https://discuss.linuxcontainers.org/t/lxd-and-docker-firewall-redux-how-to-deal-with-forward-policy-set-to-drop/9953/18">LXD and Docker Firewall Redux - How to deal with FORWARD policy set to drop - LXD - Linux Containers Forum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="build">build</h2>
+<ul>
+<li><a href="https://forums.docker.com/t/capture-ouput-of-docker-build-into-a-log-file/123178">Capture ouput of docker build into a log file? - General Discussions - Docker Community Forums</a></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker build --no-cache --progress=plain . 2&gt;&amp;1 | tee build.log
+</span></code></pre></div>
+<h2 id="multi-stage-builds">multi-stage builds</h2>
+<ul>
+<li><a href="https://myapollo.com.tw/blog/docker-multistage-builds/">Docker multi-stage builds 教學 - MyApollo</a></li>
+<li><a href="https://jiepeng.me/2018/06/09/use-docker-multiple-stage-builds">透過 Multiple Stage Builds 編譯出最小的 Docker Image</a></li>
+<li><a href="https://tachingchen.com/tw/blog/docker-multi-stage-builds/">透過 Multi-Stage Builds 改善持續交付流程</a></li>
+</ul>
+<h2 id="container">container</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker container prune
+</span></code></pre></div>
+<h3 id="_1">容器與訊號</h3>
+<ul>
+<li><a href="https://blog.miniasp.com/post/2021/07/09/Use-dumb-init-in-Docker-Container">執行 Docker 容器可使用 dumb-init 或 tini 改善程序優雅結束的問題 | The Will Will Web</a></li>
+</ul>
+<p>當你在執行 Docker 容器時，主要執行程序(Process)的 PID 將會是 1，只要這個程序停止，容器就會跟著停止。</p>
+<p>以 docker stop 為例，這個命令實質上是對容器中的 PID 1 送出一個 SIGTERM 訊號，如果程序本身並沒有處理 Signal 的機制，就會直接忽略這類訊號，這就會導致 docker stop 等了 10 秒之後還不結束，然後 Docker Engine 又會對 PID 1 送出另一個 SIGKILL 訊號，試圖強迫砍掉這個程序，這才會讓容器徹底停下來。</p>
+<h3 id="mknod">mknod</h3>
+<ul>
+<li><a href="https://serverfault.com/questions/1008343/error-running-mknod-within-buildah">linux - Error running mknod within buildah - Server Fault</a></li>
+</ul>
+<h3 id="systemd-inside-the-docker-container">systemd inside the docker container</h3>
+<blockquote>
+<p>That being said, there are also lots of reasons not to run systemd in containers. The main one is that systemd/journald controls the output of containers, whereas tools like Kubernetes and OpenShift expect the containers to log directly to stdout and stderr. So, if you are going to manage your containers via Orchestrator like these, then you should think twice about using systemd-based containers. Additionally, the upstream community of Docker and Moby were often hostile to the use of systemd in a container. 
+<a href="https://developers.redhat.com/blog/2019/04/24/how-to-run-systemd-in-a-container?sc_cid=7013a00000313tHAAQ">How to run systemd in a container | Red Hat Developer</a></p>
+<p>It is generally recommended that you separate areas of concern by using one service per container. 
+ That service may fork into multiple processes (for example, Apache web server starts multiple worker processes). 
+ It’s ok to have multiple processes
+- <a href="https://docs.docker.com/config/containers/multi-service_container/">Run multiple services in a container | Docker Documentation</a></p>
+<p>If your process falls into this category, you can use the --init option when you run the container. The --init flag inserts a tiny init-process into the container as the main process, and handles reaping of all processes when the container exits. 
+Handling such processes this way is superior to using a full-fledged init process such as sysvinit, upstart, or systemd to handle process lifecycle within your container.</p>
+</blockquote>
+<p>for example nginx</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>root@2b8cf1261323:/# ps aux
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>root           1  0.0  0.0   8932  5708 ?        Ss   08:55   0:00 nginx: master process nginx -g daemon off;
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>nginx         29  0.0  0.0   9320  2668 ?        S    08:55   0:00 nginx: worker process
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>nginx         30  0.0  0.0   9320  2668 ?        S    08:55   0:00 nginx: worker process
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>nginx         31  0.0  0.0   9320  2668 ?        S    08:55   0:00 nginx: worker process
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>nginx         32  0.0  0.0   9320  2668 ?        S    08:55   0:00 nginx: worker process
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>root          33  0.0  0.0   4164  3580 pts/0    Ss   08:56   0:00 bash
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>root         383  0.0  0.0   6760  3076 pts/0    R+   08:58   0:00 ps aux
+</span></code></pre></div>
+<p>for example ubuntu</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>upermicro@supermicro-Virtual-Machine:~/srccode/dockerize-xcat$ docker run ubuntu bash -c &#39;ps aux&#39;
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>root           1  0.0  0.0   7060  1548 ?        Rs   09:03   0:00 ps aux
+</span></code></pre></div>
+<p>for example redis</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>root@dc49d0761c3f:/data# ps aux
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>redis          1  0.1  0.1  53676 13532 ?        Ssl  09:05   0:00 redis-server *:6379
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>root          34  0.0  0.0   4156  3484 pts/0    Ss   09:05   0:00 bash
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>root         855  0.0  0.0   6760  3008 pts/0    R+   09:10   0:00 ps aux
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>root@dc49d0761c3f:/data# cat /etc/issue
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Debian GNU/Linux 11 \n \l
+</span></code></pre></div>
+<h2 id="image">image</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker image prune
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker image ls | awk &#39;NR&gt;1 {print $1&quot;:&quot;$2}&#39; | xargs -I {} sh -c &#39;echo &quot;Inspecting image: {}&quot;; docker image inspect {}
+</span></code></pre></div>
+<h3 id="save-and-load">save and load</h3>
+<ul>
+<li><a href="https://docs.docker.com/reference/cli/docker/image/save/">docker image save | Docker Docs</a></li>
+<li><a href="https://docs.docker.com/reference/cli/docker/image/load/">docker image load | Docker Docs</a></li>
+<li><a href="https://peihsinsu.gitbooks.io/docker-note-book/content/docker-save-image.html">把image另外儲存成檔案 · Docker學習筆記</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10249573">使用 save / export 分享 image - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a></li>
+</ul>
+<h2 id="network">network</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach/24326540#24326540">From inside of a Docker container, how do I connect to the localhost of the machine?</a></li>
+<li><a href="https://azole.medium.com/docker-container-%E5%9F%BA%E7%A4%8E%E5%85%A5%E9%96%80%E7%AF%87-2-c14d8f852ae4">Docker Container 基礎入門篇 2. 不當邊緣人的 container | by Azole (小賴) | Medium</a></li>
+<li><a href="https://www.youtube.com/watch?v=bKFMS5C4CG0&amp;t=1s">Docker networking is CRAZY!! (you NEED to learn it) - YouTube</a></li>
+<li>under the hood<ul>
+<li><a href="https://www.hwchiu.com/docker-network-model.html">Docker Network - 網路模型 | Hwchiu Learning Note</a></li>
+<li><a href="https://www.hwchiu.com/docker-network-model-lab.html">Docker 網路入門篇(二) - Bridge 網路模型 | Hwchiu Learning Note</a></li>
+<li><a href="https://www.hwchiu.com/docker-network-model-snat.html">Docker 網路入門篇(三) - 網路存取分析 | Hwchiu Learning Note</a></li>
+<li><a href="https://www.hwchiu.com/docker-network-model-lab-dnat.html">Docker 網路入門篇(四) - 外界主動存取 | Hwchiu Learning Note</a></li>
+</ul>
+</li>
+<li>Ubuntu<ul>
+<li><a href="https://askubuntu.com/questions/1445229/no-network-access-from-within-docker-container">networking - No network access from within Docker container - Ask Ubuntu</a><ul>
+<li><a href="https://github.com/moby/libnetwork/issues/2331">Favoring "iptables-legacy" on Debian Sid causes iptables rules inconsistency · Issue #2331 · moby/libnetwork</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="host">host</h3>
+<ul>
+<li><a href="https://docs.docker.com/network/host/">Use host networking | Docker Documentation</a></li>
+<li><a href="https://docs.docker.com/network/network-tutorial-host/">Networking using the host network | Docker Documentation</a>
+if you use the host network mode for a container, that container’s network stack is not isolated from the Docker host (the container shares the host’s networking namespace), and the container does not get its own IP-address allocated. </li>
+</ul>
+<h3 id="port">port</h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/22111060/what-is-the-difference-between-expose-and-publish-in-docker">port - What is the difference between "expose" and "publish" in Docker? - Stack Overflow</a></li>
+</ul>
+<h2 id="env-arg">env, arg</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/57865444/how-to-set-up-separate-env-for-development-and-production-using-docker">How to set up separate .env for development and production using Docker</a></li>
+<li><a href="https://stackoverflow.com/questions/43544328/pass-argument-to-docker-compose">Pass argument to docker compose</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10251549">活用 ENV 與 ARG</a></li>
+<li><a href="https://stackoverflow.com/questions/50734271/how-to-define-build-args-in-docker-compose">How to define build-args in docker-compose?</a></li>
+</ul>
+<h2 id="permission">permission</h2>
+<ul>
+<li><a href="https://aschmelyun.com/blog/fixing-permissions-issues-with-docker-compose-and-php/">Fixing permissions issues with Docker Compose and PHP</a></li>
+</ul>
+<h2 id="volume">volume</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/46166304/docker-compose-volumes-without-colon">Docker Compose: volumes without colon (:) - Stack Overflow</a><ul>
+<li>anonymous volume</li>
+</ul>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>/var/lib/docker/volumes
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker volume ls
+</span></code></pre></div>
+<p>volume propagation behavior
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>sudo<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/var/lib/docker/volumes/ng-vol/_data
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># run a container which creates a new volume</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>docker<span class="w"> </span>volume<span class="w"> </span>rm<span class="w"> </span>ng-vol
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>nginx1<span class="w"> </span>--mount<span class="w"> </span><span class="nv">source</span><span class="o">=</span>ng-vol,target<span class="o">=</span>/usr/share/nginx/html<span class="w"> </span>nginx
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx1<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/usr/share/nginx/html
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx1<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/app
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx1<span class="w"> </span>touch<span class="w"> </span>/usr/share/nginx/html/abc.html
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>sudo<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/var/lib/docker/volumes/ng-vol/_data
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="c1"># /app not exist</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>nginx2<span class="w"> </span>--mount<span class="w"> </span><span class="nv">source</span><span class="o">=</span>ng-vol,target<span class="o">=</span>/app<span class="w"> </span>nginx
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx2<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/app
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>sudo<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/var/lib/docker/volumes/ng-vol/_data
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="c1"># mount a non-empty volume into a directory in the container in which some files or directories exist, </span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="c1"># these files or directories are obscured by the mount</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>nginx3<span class="w"> </span>--mount<span class="w"> </span><span class="nv">source</span><span class="o">=</span>ng-vol,target<span class="o">=</span>/usr/share/nginx/html<span class="w"> </span>nginx
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx3<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/usr/share/nginx/html
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>sudo<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/var/lib/docker/volumes/ng-vol/_data
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="c1"># A given volume can be mounted into multiple containers simultaneously</span>
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>
+</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="c1"># create file in a container and show in another container</span>
+</span><span id="__span-9-33"><a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx3<span class="w"> </span>touch<span class="w"> </span>/usr/share/nginx/html/ng3-abc.html
+</span><span id="__span-9-34"><a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nginx2<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/app
+</span><span id="__span-9-35"><a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a>sudo<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/var/lib/docker/volumes/ng-vol/_data
+</span><span id="__span-9-36"><a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a>
+</span><span id="__span-9-37"><a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a>
+</span><span id="__span-9-38"><a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a>docker<span class="w"> </span>stop<span class="w"> </span>nginx1<span class="w"> </span>nginx2<span class="w"> </span>nginx3
+</span><span id="__span-9-39"><a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a>docker<span class="w"> </span>rm<span class="w"> </span>nginx1<span class="w"> </span>nginx2<span class="w"> </span>nginx3
+</span><span id="__span-9-40"><a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a>docker<span class="w"> </span>volume<span class="w"> </span>rm<span class="w"> </span>ng-vol
+</span></code></pre></div></p>
+<h2 id="docker-compose">docker compose</h2>
+<ul>
+<li><a href="https://docs.docker.com/compose/compose-file/">Compose specification | Docker Documentation</a></li>
+<li><a href="https://docs.docker.com/compose/compose-v2/">Compose V2 Overview | Docker Documentation</a><ul>
+<li><a href="https://www.docker.com/blog/announcing-compose-v2-general-availability/">Announcing Compose V2 General Availability | Docker</a><ul>
+<li>&gt;=  v20.10.13</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://stackoverflow.com/questions/50019948/reuse-image-built-by-one-service-in-another-service">Reuse image built by one service in another service</a></li>
+<li><a href="https://stackoverflow.com/questions/37195222/how-to-view-log-output-using-docker-compose-run">How to view log output using docker-compose run?</a></li>
+<li><a href="https://docs.docker.com/compose/environment-variables/">Environment variables in Compose</a></li>
+<li><a href="https://stackoverflow.com/questions/33816456/how-to-tag-docker-image-with-docker-compose">How to tag docker image with docker-compose</a></li>
+<li><a href="https://stackoverflow.com/questions/30233105/docker-compose-up-for-only-certain-containers">docker-compose up for only certain containers</a></li>
+<li><a href="https://stackoverflow.com/questions/50848797/docker-compose-exclude-service-by-default">Docker-compose exclude service by default - Stack Overflow</a></li>
+<li><a href="https://vim0.com/post/docker-compose-dev/">使用 Docker Compose 建立你自己的开发环境 - 咸糖 - 自律者自由</a></li>
+<li><a href="https://myapollo.com.tw/blog/3-must-know-docker-compose-commands/">3 個使用 docker compose 的必備指令 - MyApollo</a></li>
+<li><a href="https://myapollo.com.tw/blog/docker-compose-depends-on/">談 docker compose 的 depends_on 設定怎麼使用 - MyApollo</a></li>
+<li><a href="https://stackoverflow.com/questions/65799945/why-docker-compose-down-deletes-my-volume-how-to-avoid-this-action-done-by-dow">Why docker-compose down deletes my volume? how to avoid this action done by 'down'. (Postgresql) - Stack Overflow</a></li>
+</ul>
+<p>``` docker=
+version: "3"
+services:
+  redis:
+    container_name: "project-name-redis"
+    image: "redis:3.2.4-alpine"
+    ports:
+      - "6379:6379"
+  mariadb:
+    container_name: "project-name-config-db"
+    image: "mariadb:10.4"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: project_name_alpha_0706
+      MYSQL_USER: project
+      MYSQL_PASSWORD: project
+    volumes:
+      - ./mariadb:/docker-entrypoint-initdb.d
+    command: ['mysqld', '--character-set-server=utf8', '--collation-server=utf8_general_ci']
+  elasticsearch:
+    container_name: "project-name-es"
+    image: "docker.elastic.co/elasticsearch/elasticsearch:6.8.18"
+    ports:
+      - "127.0.0.1:9200:9200"
+      - "127.0.0.1:9300:9300"
+    environment:
+      discovery.type: single-node
+  kibana:
+    image: "docker.elastic.co/kibana/kibana:6.8.18"
+    container_name: "project-name-kibana"
+    environment:
+      SERVER_NAME: kibana-server
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+    ports:
+      - "127.0.0.1:5601:5601"
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>There is a file such as init.sql in mariadb directory
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>``` sql=
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>GRANT ALL PRIVILEGES ON *.* TO &#39;project&#39;@&#39;%&#39;;
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>CREATE DATABASE  IF NOT EXISTS `project_name_alpha_0706`;
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>USE `project_name_alpha_0706`;
+</span></code></pre></div></p>
+<h3 id="build_1">build</h3>
+<blockquote>
+<p><strong>Build</strong> subsection is present for a service, it is valid for a Compose file to miss an <strong>Image</strong> attribute for corresponding service, as Compose implementation can build image from source.
+<a href="https://docs.docker.com/compose/compose-file/build/#definitions">Compose file build reference | Docker Documentation</a></p>
+</blockquote>
+<h3 id="networks">networks</h3>
+<ul>
+<li><a href="https://medium.com/hjorus-sharing/docker-compose-network%E7%B0%A1%E4%BB%8B%E5%92%8C%E8%A8%AD%E5%AE%9A%E5%9B%BA%E5%AE%9Aip-c7a284224758">docker compose network簡介和設定固定ip - Hjoru's sharing - Medium</a></li>
+</ul>
+<h3 id="multiple-compose-files">multiple compose files</h3>
+<ul>
+<li><a href="https://docs.docker.com/compose/how-tos/multiple-compose-files/">Use multiple Compose files | Docker Docs</a><ul>
+<li><a href="https://docs.docker.com/compose/how-tos/multiple-compose-files/extends/#multiple-compose-files">Extend | Docker Docs</a></li>
+<li><a href="https://docs.docker.com/compose/how-tos/multiple-compose-files/include/">Include | Docker Docs</a></li>
+</ul>
+</li>
+<li><a href="https://www.docker.com/blog/improve-docker-compose-modularity-with-include/">Docker Compose Modularity with `include` | Docker</a></li>
+</ul>
+<h3 id="healthcheck">healthcheck</h3>
+<ul>
+<li><a href="https://www.warp.dev/terminus/docker-compose-health-check">How To Perform A Health Check In Docker Compose | Warp</a></li>
+<li><a href="https://wfhu.github.io/docker/2017/09/08/Docker-healthcheck.html">Docker HEALTHCHECK健康检查及注意事项 | 胡文峰的博客</a></li>
+</ul>
+<h2 id="mysql">mysql</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/46536361/file-in-docker-entrypoint-initdb-d-never-get-executed-when-using-docker-compose">File in docker-entrypoint-initdb.d never get executed when using docker compose</a><ul>
+<li><a href="https://docs.docker.com/compose/reference/rm/">docker-compose rm</a></li>
+</ul>
+</li>
+<li><a href="https://blog.marsen.me/2025/01/21/2025/fast_lunach_mysql/">[實作筆記] 使用 Docker 一鍵生成 Sample 資料庫 | Marsen's Blog</a></li>
+</ul>
+<h2 id="awesome-image">awesome image</h2>
+<h3 id="sameersbnbind-docker-image-docker-hub"><a href="https://hub.docker.com/r/sameersbn/bind">sameersbn/bind - Docker Image | Docker Hub</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>version: &#39;3.5&#39;
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>services:
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>  bind9:
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    image: sameersbn/bind:latest
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    ports:
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    - &quot;53:53/udp&quot;
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    - &quot;53:53/tcp&quot;
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    - &quot;10000:10000&quot;
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    volumes:
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    - ./docker_data:/data
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    restart: always
+</span></code></pre></div>
+<h3 id="sonatypenexus3-docker-image-docker-hub"><a href="https://hub.docker.com/r/sonatype/nexus3/">sonatype/nexus3 - Docker Image | Docker Hub</a></h3>
+<ul>
+<li><a href="https://blog.yowko.com/nexus-docker-image-rergistry/">使用 Docker 建立 Nexus3 的 Image Registry - Yowko's Notes</a></li>
+</ul>
+<p>Use a docker volume
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>services:
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  nexus:
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    image: sonatype/nexus3
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    container_name: nexus
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    ports:
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>      - &quot;8081:8081&quot;
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>      # https://blog.yowko.com/nexus-docker-image-rergistry/
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>      - &quot;8082:8082&quot;
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    volumes:
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>      - nexus-data:/nexus-data
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>volumes:
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>  nexus-data:
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>    name: nexus-data
+</span></code></pre></div></p>
+<p>Mount a host directory as the volume.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>version: &quot;3.9&quot;
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>services:
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  nexus:
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    image: sonatype/nexus3
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    ports:
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    - &quot;8081:8081&quot;
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    # https://blog.yowko.com/nexus-docker-image-rergistry/
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    - &quot;8082:8082&quot;
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    volumes:
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>    - ./host-nexus-data:/nexus-data
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    restart: always
+</span></code></pre></div></p>
+<h3 id="run-docker-container-dbeavercloudbeaver-wiki-github"><a href="https://github.com/dbeaver/cloudbeaver/wiki/Run-Docker-Container">Run Docker Container · dbeaver/cloudbeaver Wiki · GitHub</a></h3>
+<p>for quick test and the volume will be removed after stop
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker run --name cloudbeaver --rm -ti -p 9090:8978 -v /opt/cloudbeaver/workspace dbeaver/cloudbeaver:latest
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>version: &quot;3.9&quot;
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>services:
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>  cloudbeaver:
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    image: dbeaver/cloudbeaver:latest
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    ports:
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    - &quot;9527:8978&quot;
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    volumes:
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    - cloudbeaver-data:/opt/cloudbeaver/workspace
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    restart: always
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>volumes:
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>  cloudbeaver-data:
+</span></code></pre></div>
+<h3 id="github-mermaid-jsmermaid-live-editor-edit-preview-and-share-mermaid-chartsdiagrams-new-implementation-of-the-live-editor"><a href="https://github.com/mermaid-js/mermaid-live-editor">GitHub - mermaid-js/mermaid-live-editor: Edit, preview and share mermaid charts/diagrams. New implementation of the live editor.</a></h3>
+<p>quick test
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker run --name mermaid-live-editor --platform linux/amd64 -d --rm --publish 3000:8080 ghcr.io/mermaid-js/mermaid-live-editor
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git clone https://github.com/mermaid-js/mermaid-live-editor.git
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>cd mermaid-live-editor
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>docker compose up -d
+</span></code></pre></div>
+<h3 id="dockermrbs-it"><a href="https://kafeiou.pw/2024/09/10/6303/docker%e5%ae%89%e8%a3%9d%e8%80%81%e7%89%8c%e3%80%8c%e6%9c%83%e8%ad%b0%e5%ae%a4%e9%a0%90%e7%b4%84%e7%b3%bb%e7%b5%b1mrbs%e3%80%8d/">docker安裝老牌「會議室預約系統(MRBS)」 - 咖啡偶-IT日常</a></h3>
+<h3 id="github-aquasecuritytrivy-find-vulnerabilities-misconfigurations-secrets-sbom-in-containers-kubernetes-code-repositories-clouds-and-more"><a href="https://github.com/aquasecurity/trivy#how-to-pronounce-the-name-trivy">GitHub - aquasecurity/trivy: Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker run aquasec/trivy image 3x3cut0r/tftpd-hpa
+</span></code></pre></div>
+<h3 id="tftp-and-dhcp-for-pxe">TFTP and DHCP for PXE</h3>
+<div class="language-text highlight"><pre><span></span><code>- [3x3cut0r/isc-dhcp-server - Docker Image | Docker Hub](https://hub.docker.com/r/3x3cut0r/isc-dhcp-server)
+- [3x3cut0r/tftpd-hpa - Docker Image | Docker Hub](https://hub.docker.com/r/3x3cut0r/tftpd-hpa)
+</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>version: &#39;3.9&#39;
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>services:
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  tftpd-hpa:
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    image: 3x3cut0r/tftpd-hpa
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    environment:
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>        CREATE: 1
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>        VERBOSE: 1
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>    volumes:
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>      - /tftpboot:/tftpboot
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>    ports:
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>      - 69:69/udp
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>  isc-dhcp-server:
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>    image: 3x3cut0r/isc-dhcp-server:latest
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>    environment:
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>        IFACE: &quot;ens160 ens256&quot;
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>        PROTOCOL: 4
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>    volumes:
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>        - /etc/dhcp/dhcpd.conf:/etc/dhcp/dhcpd.conf
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>    network_mode: host
+</span></code></pre></div>
+<h3 id="github-cturradocker-ntp-chrony-ntp-server-running-in-a-docker-container-without-the-priviledged-flag"><a href="https://github.com/cturra/docker-ntp">GitHub - cturra/docker-ntp: 🕒 Chrony NTP Server running in a Docker container (without the priviledged flag)</a></h3>
+<h3 id="httpd">httpd</h3>
+<ul>
+<li>https://hub.docker.com/_/httpd</li>
+<li><a href="https://www.cyberciti.biz/faq/apache-403-forbidden-error-and-solution/">Apache 403 Forbidden Error and Solution - nixCraft</a><ul>
+<li>permission<ul>
+<li>directory: 755</li>
+<li>file: 644</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="basic">basic</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker run -dit --name my-apache-app -p 8080:80 -v &quot;$PWD&quot;:/usr/local/apache2/htdocs/ httpd:2.4
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a># alpine
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>docker run -dit --name my-apache-app -p 8080:80 -v &quot;$PWD&quot;:/usr/local/apache2/htdocs/ httpd:alpine
+</span></code></pre></div>
+<h4 id="ssl-enable">SSL enable</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout server.key -out server.crt -days 30
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>docker run --rm httpd:2.4 cat /usr/local/apache2/conf/httpd.conf &gt; my-httpd.conf
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>sed -i \
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>        -e &#39;s/^#\(Include .*httpd-ssl.conf\)/\1/&#39; \
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>        -e &#39;s/^#\(LoadModule .*mod_ssl.so\)/\1/&#39; \
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>        -e &#39;s/^#\(LoadModule .*mod_socache_shmcb.so\)/\1/&#39; \
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>        conf/my-httpd.conf
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>docker run -dit --name my-apache-app \
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>-p 8080:80 -p 443:443 \
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>-v &quot;$PWD&quot;:/usr/local/apache2/htdocs/ \
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>-v &quot;$PWD&quot;/config/server.key:/usr/local/apache2/conf/server.key \
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>-v &quot;$PWD&quot;/config/server.crt:/usr/local/apache2/conf/server.crt \
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>-v &quot;$PWD&quot;/config/my-httpd.conf:/usr/local/apache2/conf/httpd.conf \
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>httpd:alpine
+</span></code></pre></div>
+<h3 id="nginx">nginx</h3>
+<ul>
+<li><a href="https://blog.yowko.com/nginx-docker-static-html/">使用 Docker 版 Nginx 建立靜態頁面網站 - Yowko's Notes</a></li>
+<li><a href="https://medium.com/hong-kong-tech/docker-%E4%B8%80%E5%88%86%E9%90%98%E5%AE%8C%E6%88%90%E8%87%AA%E5%8B%95%E6%9B%B4%E6%96%B0-ssl-%E8%A8%BC%E6%9B%B8%E7%9A%84-nginx-proxy-%E8%A8%AD%E7%BD%AE-43d6ae48a15e">Docker 一分鐘完成自動更新 SSL 証書的 nginx-proxy 設置 | by Edmond Y. | HKIT DOG | Medium</a></li>
+</ul>
+<h4 id="basic_1">basic</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>docker run --name some-nginx -p 8088:80 -v &quot;$PWD&quot;/test_html:/usr/share/nginx/html:ro -d nginx
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a># alpine
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>docker run --name some-nginx -p 8088:80 -v &quot;$PWD&quot;/test_html:/usr/share/nginx/html:ro -d nginx:stable-alpine-slim
+</span></code></pre></div>
+<h4 id="auto-index">auto index</h4>
+<ul>
+<li><a href="https://serverfault.com/questions/847418/apache-like-directory-listing-fallback-in-nginx">Apache-like directory listing fallback in Nginx - Server Fault</a></li>
+</ul>
+<p>:::info
+autoindex on;
+:::</p>
+<p>nginx_auto_index.conf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>server {
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    listen       80;
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    listen  [::]:80;
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    server_name  localhost;
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    #access_log  /var/log/nginx/host.access.log  main;
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>    location / {
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>        root   /usr/share/nginx/html;
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>        index  index.html index.htm;
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>        autoindex on;
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>    }
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>    #error_page  404              /404.html;
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>    # redirect server error pages to the static page /50x.html
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>    #
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>    error_page   500 502 503 504  /50x.html;
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>    location = /50x.html {
+</span><span id="__span-24-20"><a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>        root   /usr/share/nginx/html;
+</span><span id="__span-24-21"><a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>    }
+</span><span id="__span-24-22"><a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>
+</span><span id="__span-24-23"><a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+</span><span id="__span-24-24"><a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>    #
+</span><span id="__span-24-25"><a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a>    #location ~ \.php$ {
+</span><span id="__span-24-26"><a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>    #    proxy_pass   http://127.0.0.1;
+</span><span id="__span-24-27"><a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a>    #}
+</span><span id="__span-24-28"><a id="__codelineno-24-28" name="__codelineno-24-28" href="#__codelineno-24-28"></a>
+</span><span id="__span-24-29"><a id="__codelineno-24-29" name="__codelineno-24-29" href="#__codelineno-24-29"></a>    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+</span><span id="__span-24-30"><a id="__codelineno-24-30" name="__codelineno-24-30" href="#__codelineno-24-30"></a>    #
+</span><span id="__span-24-31"><a id="__codelineno-24-31" name="__codelineno-24-31" href="#__codelineno-24-31"></a>    #location ~ \.php$ {
+</span><span id="__span-24-32"><a id="__codelineno-24-32" name="__codelineno-24-32" href="#__codelineno-24-32"></a>    #    root           html;
+</span><span id="__span-24-33"><a id="__codelineno-24-33" name="__codelineno-24-33" href="#__codelineno-24-33"></a>    #    fastcgi_pass   127.0.0.1:9000;
+</span><span id="__span-24-34"><a id="__codelineno-24-34" name="__codelineno-24-34" href="#__codelineno-24-34"></a>    #    fastcgi_index  index.php;
+</span><span id="__span-24-35"><a id="__codelineno-24-35" name="__codelineno-24-35" href="#__codelineno-24-35"></a>    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+</span><span id="__span-24-36"><a id="__codelineno-24-36" name="__codelineno-24-36" href="#__codelineno-24-36"></a>    #    include        fastcgi_params;
+</span><span id="__span-24-37"><a id="__codelineno-24-37" name="__codelineno-24-37" href="#__codelineno-24-37"></a>    #}
+</span><span id="__span-24-38"><a id="__codelineno-24-38" name="__codelineno-24-38" href="#__codelineno-24-38"></a>
+</span><span id="__span-24-39"><a id="__codelineno-24-39" name="__codelineno-24-39" href="#__codelineno-24-39"></a>    # deny access to .htaccess files, if Apache&#39;s document root
+</span><span id="__span-24-40"><a id="__codelineno-24-40" name="__codelineno-24-40" href="#__codelineno-24-40"></a>    # concurs with nginx&#39;s one
+</span><span id="__span-24-41"><a id="__codelineno-24-41" name="__codelineno-24-41" href="#__codelineno-24-41"></a>    #
+</span><span id="__span-24-42"><a id="__codelineno-24-42" name="__codelineno-24-42" href="#__codelineno-24-42"></a>    #location ~ /\.ht {
+</span><span id="__span-24-43"><a id="__codelineno-24-43" name="__codelineno-24-43" href="#__codelineno-24-43"></a>    #    deny  all;
+</span><span id="__span-24-44"><a id="__codelineno-24-44" name="__codelineno-24-44" href="#__codelineno-24-44"></a>    #}
+</span><span id="__span-24-45"><a id="__codelineno-24-45" name="__codelineno-24-45" href="#__codelineno-24-45"></a>}
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker run --name some-nginx -p 8088:80 -v &quot;$PWD&quot;/test_html/config/nginx_auto_index.conf:/etc/nginx/conf.d/default.conf:ro -v &quot;$PWD&quot;/test_html:/usr/share/nginx/html:ro -d nginx:stable-alpine-slim
+</span></code></pre></div>
+<h4 id="ssl-enable_1">SSL enable</h4>
+<ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10272393">Day 11 利用 docker 安裝 nginx 並配置 https - iT 邦幫忙</a></li>
+<li><a href="https://blog.darkthread.net/blog/nginx-certbot-auto-setup/">HTTPS Nginx Docker 之懶人安裝法-黑暗執行緒</a></li>
+<li><a href="https://hackmd.io/@warrenpig/create-self-signed-https-nginx-app">用Nginx架設local端https應用 - HackMD</a></li>
+</ul>
+<p>:::info
+listen 443 ssl;
+:::</p>
+<p>:::info
+ssl_certificate cert/server.crt;
+ssl_certificate_key cert/server.key;
+ssl_session_timeout 5m;
+ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+ssl_prefer_server_ciphers on;
+:::</p>
+<p>nginx_ssl_enable.conf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>server {
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    listen       80;
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>    listen  [::]:80;
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>    listen 443 ssl;
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>    ssl_certificate cert/server.crt;
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>    ssl_certificate_key cert/server.key;
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>    ssl_session_timeout 5m;
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>    ssl_prefer_server_ciphers on;
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>    server_name  localhost;
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>    #access_log  /var/log/nginx/host.access.log  main;
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>
+</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>    location / {
+</span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>        root   /usr/share/nginx/html;
+</span><span id="__span-26-19"><a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>        index  index.html index.htm;
+</span><span id="__span-26-20"><a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>        autoindex on;
+</span><span id="__span-26-21"><a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>    }
+</span><span id="__span-26-22"><a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a>
+</span><span id="__span-26-23"><a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a>    #error_page  404              /404.html;
+</span><span id="__span-26-24"><a id="__codelineno-26-24" name="__codelineno-26-24" href="#__codelineno-26-24"></a>
+</span><span id="__span-26-25"><a id="__codelineno-26-25" name="__codelineno-26-25" href="#__codelineno-26-25"></a>    # redirect server error pages to the static page /50x.html
+</span><span id="__span-26-26"><a id="__codelineno-26-26" name="__codelineno-26-26" href="#__codelineno-26-26"></a>    #
+</span><span id="__span-26-27"><a id="__codelineno-26-27" name="__codelineno-26-27" href="#__codelineno-26-27"></a>    error_page   500 502 503 504  /50x.html;
+</span><span id="__span-26-28"><a id="__codelineno-26-28" name="__codelineno-26-28" href="#__codelineno-26-28"></a>    location = /50x.html {
+</span><span id="__span-26-29"><a id="__codelineno-26-29" name="__codelineno-26-29" href="#__codelineno-26-29"></a>        root   /usr/share/nginx/html;
+</span><span id="__span-26-30"><a id="__codelineno-26-30" name="__codelineno-26-30" href="#__codelineno-26-30"></a>    }
+</span><span id="__span-26-31"><a id="__codelineno-26-31" name="__codelineno-26-31" href="#__codelineno-26-31"></a>
+</span><span id="__span-26-32"><a id="__codelineno-26-32" name="__codelineno-26-32" href="#__codelineno-26-32"></a>    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+</span><span id="__span-26-33"><a id="__codelineno-26-33" name="__codelineno-26-33" href="#__codelineno-26-33"></a>    #
+</span><span id="__span-26-34"><a id="__codelineno-26-34" name="__codelineno-26-34" href="#__codelineno-26-34"></a>    #location ~ \.php$ {
+</span><span id="__span-26-35"><a id="__codelineno-26-35" name="__codelineno-26-35" href="#__codelineno-26-35"></a>    #    proxy_pass   http://127.0.0.1;
+</span><span id="__span-26-36"><a id="__codelineno-26-36" name="__codelineno-26-36" href="#__codelineno-26-36"></a>    #}
+</span><span id="__span-26-37"><a id="__codelineno-26-37" name="__codelineno-26-37" href="#__codelineno-26-37"></a>
+</span><span id="__span-26-38"><a id="__codelineno-26-38" name="__codelineno-26-38" href="#__codelineno-26-38"></a>    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+</span><span id="__span-26-39"><a id="__codelineno-26-39" name="__codelineno-26-39" href="#__codelineno-26-39"></a>    #
+</span><span id="__span-26-40"><a id="__codelineno-26-40" name="__codelineno-26-40" href="#__codelineno-26-40"></a>    #location ~ \.php$ {
+</span><span id="__span-26-41"><a id="__codelineno-26-41" name="__codelineno-26-41" href="#__codelineno-26-41"></a>    #    root           html;
+</span><span id="__span-26-42"><a id="__codelineno-26-42" name="__codelineno-26-42" href="#__codelineno-26-42"></a>    #    fastcgi_pass   127.0.0.1:9000;
+</span><span id="__span-26-43"><a id="__codelineno-26-43" name="__codelineno-26-43" href="#__codelineno-26-43"></a>    #    fastcgi_index  index.php;
+</span><span id="__span-26-44"><a id="__codelineno-26-44" name="__codelineno-26-44" href="#__codelineno-26-44"></a>    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+</span><span id="__span-26-45"><a id="__codelineno-26-45" name="__codelineno-26-45" href="#__codelineno-26-45"></a>    #    include        fastcgi_params;
+</span><span id="__span-26-46"><a id="__codelineno-26-46" name="__codelineno-26-46" href="#__codelineno-26-46"></a>    #}
+</span><span id="__span-26-47"><a id="__codelineno-26-47" name="__codelineno-26-47" href="#__codelineno-26-47"></a>
+</span><span id="__span-26-48"><a id="__codelineno-26-48" name="__codelineno-26-48" href="#__codelineno-26-48"></a>    # deny access to .htaccess files, if Apache&#39;s document root
+</span><span id="__span-26-49"><a id="__codelineno-26-49" name="__codelineno-26-49" href="#__codelineno-26-49"></a>    # concurs with nginx&#39;s one
+</span><span id="__span-26-50"><a id="__codelineno-26-50" name="__codelineno-26-50" href="#__codelineno-26-50"></a>    #
+</span><span id="__span-26-51"><a id="__codelineno-26-51" name="__codelineno-26-51" href="#__codelineno-26-51"></a>    #location ~ /\.ht {
+</span><span id="__span-26-52"><a id="__codelineno-26-52" name="__codelineno-26-52" href="#__codelineno-26-52"></a>    #    deny  all;
+</span><span id="__span-26-53"><a id="__codelineno-26-53" name="__codelineno-26-53" href="#__codelineno-26-53"></a>    #}
+</span><span id="__span-26-54"><a id="__codelineno-26-54" name="__codelineno-26-54" href="#__codelineno-26-54"></a>}
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>docker run --name some-nginx -p 8088:80 -p 443:443 -v &quot;$PWD&quot;/test_html/config/nginx_ssl_enable.conf:/etc/nginx/conf.d/default.conf:ro -v &quot;$PWD&quot;/cert:/etc/nginx/cert:ro -v &quot;$PWD&quot;/test_html:/usr/share/nginx/html:ro -d nginx:stable-alpine-slim
+</span></code></pre></div>
+<h3 id="github-semaphoreuisemaphore-modern-ui-and-powerful-api-for-ansible-terraform-opentofu-powershell-and-other-devops-tools"><a href="https://github.com/semaphoreui/semaphore">GitHub - semaphoreui/semaphore: Modern UI and powerful API for Ansible, Terraform, OpenTofu, PowerShell and other DevOps tools.</a></h3>
+<h3 id="github-rundeckrundeck-enable-self-service-operations-give-specific-users-access-to-your-existing-tools-services-and-scripts"><a href="https://github.com/rundeck/rundeck">GitHub - rundeck/rundeck: Enable Self-Service Operations: Give specific users access to your existing tools, services, and scripts</a></h3>
+<p>install
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>rundeck-demo<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">4440</span>:4440<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">  </span>-v<span class="w"> </span>rundeck-data:/home/rundeck/server/data<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">RUNDECK_GRAILS_URL</span><span class="o">=</span>http://172.19.57.10:4440<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">  </span>rundeck/rundeck:5.11.1
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="c1"># access http://172.19.57.10:4440/ with admin/admin</span>
+</span></code></pre></div></p>
+<p>install with Welcom project
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>wget<span class="w"> </span>https://github.com/rundeck/welcome-project-community/archive/refs/heads/main.zip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>unzip<span class="w"> </span>main.zip
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="nb">cd</span><span class="w"> </span>welcome-project-community-main/
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="c1"># modify RUNDECK_GRAILS_URL and ciao port if 3000 is used</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="c1"># RUNDECK_GRAILS_URL: http://172.19.57.10:4440</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="c1"># ciao:</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="c1">#         container_name: ciao</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="c1">#         image: brotandgames/ciao</span>
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="c1">#         ports:</span>
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="c1">#           - &#39;3001:3000&#39;</span>
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div></p>
+<h2 id="offiline-install">offiline install</h2>
+<ul>
+<li><a href="https://docs.cyberwatch.fr/help/en/deploy/offline/swarm/install_docker/">Install Docker offline | Cyberwatch Documentation</a><ul>
+<li>`<a href="https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/">Index of linux/ubuntu/dists/jammy/pool/stable/amd64/</a></li>
+</ul>
+</li>
+<li><a href="https://medium.com/@WilsonLeee/%E5%A6%82%E4%BD%95%E5%9C%A8ubuntu%E9%9B%A2%E7%B7%9A%E5%AE%89%E8%A3%9Ddocker-8fde0b5c9d30">Linux Ubuntu離線安裝Docker. 步驟1–1：準備Docker離線安裝包。 | by Wilson Lee | Medium</a><ul>
+<li><a href="https://download.docker.com/linux/static/stable/x86_64/">Index of linux/static/stable/x86_64/</a>`</li>
+</ul>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a># Ubuntu 22 offiline docker installation
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>wget https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/docker-ce_26.1.1-1~ubuntu.22.04~jammy_amd64.deb
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>wget https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/containerd.io_1.6.31-1_amd64.deb
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>wget https://download.docker.com/linux/ubuntu/dists/jammy/pool/stable/amd64/docker-ce-cli_26.1.1-1~ubuntu.22.04~jammy_amd64.deb
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>sudo dpkg -i *.deb
+</span></code></pre></div>
+<h2 id="mtu">MTU</h2>
+<ul>
+<li><a href="https://mlohr.com/docker-mtu/">Docker MTU issues and solutions - Matthias Lohr</a></li>
+<li><a href="https://www.civo.com/learn/fixing-networking-for-docker">Fixing Docker's MTU Issues on Ubuntu - Civo.com</a></li>
+<li><a href="https://sylwit.medium.com/how-we-spent-a-full-day-figuring-out-a-mtu-issue-with-docker-4d81fdfe2caf">How we spent a full day figuring out a MTU issue with docker | by Sylvain Witmeyer | Medium</a></li>
+<li><a href="https://www.zeng.dev/post/2022-the-docker-mtu-problem/">虚拟网络环境中 Docker MTU 问题及解决方式 - ZengXu's BLOG</a></li>
+<li><a href="https://chen.do/docker-in-docker-dind-mtu-fix-for-docker-compose/">Docker in Docker (DIND) MTU fix for docker-compose</a></li>
+</ul>
+<h3 id="for-docker-default-bridge">for docker default bridge</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>/lib/systemd/system/docker.service
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>/etc/docker/daemon.json
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>sudo systemctl daemon-reload
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>sudo systemctl restart docker.service
+</span></code></pre></div>
+<p>/etc/docker/daemon.json
+<div class="language-json highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">&quot;mtu&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1400</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="for-docker-compose">for docker compose</h3>
+<p>docker-compose.yml</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>networks:
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>  default:
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>    driver: bridge
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>    driver_opts:
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>      com.docker.network.driver.mtu: 1400
+</span></code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Development/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Development">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Development
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-footer__link md-footer__link--next" aria-label="Next: DynamoDB Deep Dive Advence Design">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                DynamoDB Deep Dive Advence Design
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

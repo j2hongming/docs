@@ -1,0 +1,2764 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/">
+      
+      
+        <link rel="next" href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>資料模型(Data Modeling) - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-modeling" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              資料模型(Data Modeling)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome the docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hackmd
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hackmd
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Practice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Computer Networking
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DynamoDB Deep Dive Advence Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRUB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google docs api
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HYCOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    InfiniBand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux技巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux觀念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Makefile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Message Passing Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nagios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nexus Repository Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenShift
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Openstack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RedHat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redfish
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SVN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scrum筆記
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Singularity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ubuntu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    bitwise world
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cloud-init
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ffmpeg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Influxdb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    pacemaker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    podman
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    shell script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    使用者體驗
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    備份還原
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    單元測試的藝術
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    奇技淫巧
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    持續整合
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    排列組合與機率
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    效能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    機器學習
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    正規表示法
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    測試工具
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    無線網路
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向實務
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    物件導向系統分析與設計
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    硬體概念
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    程式本質
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    系統的價值
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    統計圖表的表達方式以及使用的範圍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    虛擬機器
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料庫維運
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    資料模型(Data Modeling)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      設計
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設計">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keyword-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyword search
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch" class="md-nav__link">
+    <span class="md-ellipsis">
+      ElasticSearch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hadoop-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hadoop ecosystem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbeaver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dbeaver
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    資訊安全
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體工程師的專業和通識
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    軟體需求溝通
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      設計
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設計">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keyword-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keyword search
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearch" class="md-nav__link">
+    <span class="md-ellipsis">
+      ElasticSearch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hadoop-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hadoop ecosystem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbeaver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dbeaver
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="data-modeling">資料模型(Data Modeling)</h1>
+<p>設計 =&gt; ER models, 正規化, Primary Key, 時區, Index
+一致性 =&gt; ACID, Race condition, isolation level
+Backup
+Migration</p>
+<ul>
+<li>Query<ul>
+<li><a href="https://jvns.ca/blog/2019/10/03/sql-queries-don-t-start-with-select/">SQL queries don't start with SELECT</a></li>
+<li><a href="https://twitter.com/ThougthsAsmbly/status/1179456440009986048/photo/1">Most memorable graphic Figure 4-3. SELECT phases from @Apress "The Definitive Guide to SQLite"</a><ul>
+<li><img alt="The Definitive Guide to SQLite" src="https://www.dropbox.com/s/0wdb796snvd9f52/The%20Definitive%20Guide%20to%20SQLite%20Figure%204-3%20SELECT%20phases.png?dl=1" /></li>
+</ul>
+</li>
+<li><a href="https://sqlbolt.com/lesson/select_queries_order_of_execution">SQL Lesson 12: Order of execution of a Query</a></li>
+<li><a href="https://notes.andywu.tw/2021/mysql-mariadb-%e5%84%aa%e5%8c%96%e6%9f%a5%e8%a9%a2%e8%aa%9e%e5%8f%a5offset%e8%b6%8a%e5%a4%a7%e6%99%82%e9%96%93%e8%b6%8a%e4%b9%85%e7%9a%84%e5%95%8f%e9%a1%8c/">[MySQL / MariaDB] 優化查詢語句OFFSET越大時間越久的問題</a></li>
+<li><a href="https://yuanchieh.page/posts/2021/2021-11-14-effective-sql%E8%AE%80%E5%BE%8C%E5%88%86%E4%BA%AB/">《Effective SQL》讀後分享 | Yuanchieh's Blog</a></li>
+<li><a href="https://learnsql.com/blog/difference-between-two-rows-in-sql/">How to Calculate the Difference Between Two Rows in SQL</a></li>
+<li>:star:<a href="https://quip.com/2gwZArKuWk7W">The Best Medium-Hard Data Analyst SQL Interview Questions</a></li>
+<li><a href="https://stackoverflow.com/questions/205190/select-from-same-table-as-an-insert-or-update">mysql - Select from same table as an Insert or Update - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/34003036/mysql-inconsistent-number-of-rows-count-vs-table-table-rows-in-information-sc">Mysql inconsistent number of rows count(*) vs table.table_rows in information_schema - Stack Overflow</a><ul>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-restrictions-limitations.html">MySQL :: MySQL 8.0 Reference Manual :: 15.23 InnoDB Restrictions and Limitations</a><ul>
+<li>
+<blockquote>
+<p>SHOW TABLE STATUS does not provide accurate statistics for InnoDB tables except for the physical size reserved by the table. The row count is only a rough estimate used in SQL optimization.</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>InnoDB does not keep an internal count of rows in a table because concurrent transactions might “see” different numbers of rows at the same time. Consequently, SELECT COUNT(*) statements only count rows visible to the current transaction.</p>
+</blockquote>
+</li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/aggregate-functions.html#function_count">MySQL :: MySQL 8.0 Reference Manual :: 12.20.1 Aggregate Function Descriptions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://uxdesign.cc/why-facebook-says-cursor-pagination-is-the-greatest-d6b98d86b6c0">Is offset pagination dead? Why cursor pagination is taking over | by Megan C. | UX Collective</a></li>
+</ul>
+</li>
+<li>Query(Advence)<ul>
+<li><a href="https://haosquare.com/sql-window-function-intro/">SQL 窗口函數 Window Function：三大應用快速教學 • 好豪筆記</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10335150">Transformation layer: SQL 進階語法 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a></li>
+</ul>
+</li>
+<li>ACID<ul>
+<li>:star:<a href="https://ithelp.ithome.com.tw/articles/10228238">資料庫層的難題 - 單機『 故障 』一致性難題</a><ul>
+<li>天災人禍(故障與併發)的生存之道</li>
+<li>ADI =&gt; C</li>
+</ul>
+</li>
+<li>:star:<a href="https://notes.andywu.tw/2021/select-for-update%E5%86%8Dinsert%E9%80%A0%E6%88%90deadlock%E7%9A%84%E9%99%B7%E9%98%B1/">select...for update再insert造成deadlock的陷阱</a></li>
+<li><a href="https://www.zhihu.com/question/31346392">如何理解資料庫中一致性的概念</a></li>
+<li><a href="https://kkc.github.io/2017/10/08/transaction-note/">Transaction 筆記</a></li>
+<li><a href="https://medium.com/johnliu-%E7%9A%84%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E6%80%9D%E7%B6%AD/%E8%B3%87%E6%96%99%E5%BA%AB%E9%AB%98%E4%BD%B5%E7%99%BC%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5-%E4%BA%8B%E5%8B%99%E9%9A%94%E9%9B%A2-717f61b8254a">資料庫高併發的第一步 — 事務隔離</a></li>
+<li>Lock<ul>
+<li>:star: <a href="https://notes.andywu.tw/2022/%e6%b7%ba%e8%ab%87mysql%e8%88%87postgresql%e6%98%af%e5%a6%82%e4%bd%95%e8%99%95%e7%90%86%e4%bd%b5%e7%99%bc%e6%af%94%e8%bc%83/">淺談MySQL與PostgreSQL是如何處理併發比較 - AndyWu's Notes</a></li>
+<li><a href="https://yuanchieh.page/posts/2022/2022-04-25-mysqllock-%E8%88%87-index-%E9%97%9C%E4%BF%82%E5%92%8C-deadlock-%E5%88%86%E6%9E%90/">【MySQL】Lock 與 Index 關係和 Deadlock 分析 | Yuanchieh's Blog</a></li>
+<li><a href="https://blog.twjoin.com/%E9%8E%96-lock-%E7%9A%84%E4%BB%8B%E7%B4%B9%E8%88%87%E6%AD%BB%E9%8E%96%E5%88%86%E6%9E%90-19833c18baab">鎖( Lock )的介紹與死鎖分析. 討論 mysql 隔離級別實現時，常以鎖的類型 （ 讀鎖/寫鎖 ）| by Team PHP Laravel | TWJOIN 哲煜科技</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Design(Practice)<ul>
+<li>:star:<a href="https://amazon-dynamodb-labs.com/game-player-data.html">Modeling Game Player Data with Amazon DynamoDB</a></li>
+<li>:star:<a href="https://www.vertabelo.com/blog/example_models/">Database Design in Practical Examples</a></li>
+<li>:star:<a href="https://drawsql.app/templates">Database schema templates</a></li>
+<li>:star:<a href="https://redis.com/redis-best-practices/introduction/">Redis Best Practices – Introduction and patterns</a></li>
+<li><a href="https://dev.to/lontchi12/database-design-of-a-restaurant-management-system-from-user-story-to-relational-model-2jp1">Database Design of a Restaurant Management System from user story to relational Model</a></li>
+<li><a href="https://www.oreilly.com/library/view/learning-mysql/0596008643/ch04s04.html">Entity Relationship Modeling Examples</a></li>
+</ul>
+</li>
+<li>Design(Basic)<ul>
+<li>:star:<a href="https://www.lucidchart.com/pages/database-diagram/database-design">Database Structure and Design Tutorial</a></li>
+<li><a href="https://www.codeproject.com/Articles/359654/11-important-database-designing-rules-which-I-fo-2">11 important database designing rules which I follow</a></li>
+<li><a href="https://www.oreilly.com/content/get-started-with-sql-plan-and-design-a-database/">Get started with SQL: Plan and design a database</a></li>
+<li><a href="https://www.ntu.edu.sg/home/ehchua/programming/sql/Relational_Database_Design.html">A Quick-Start Tutorial on Relational Database Design</a></li>
+<li><a href="http://www.agiledata.org/essays/dataModeling101.html">Data Modeling 101</a></li>
+<li><a href="https://medium.com/@kimtnguyen/relational-database-schema-design-overview-70e447ff66f9">Relational Database Schema Design Overview</a></li>
+<li><a href="https://morpheusdata.com/blog/2015-02-17-pros-cons-db-normalization">Pros and Cons of Database Normalization</a></li>
+<li><a href="http://www.agiledata.org/essays/databaseRefactoring.html">The Process of Database Refactoring: Strategies for Improving Database Quality</a></li>
+<li><a href="https://www.holistics.io/books/setup-analytics/start-here-introduction/">Introduction | The Analytics Setup Guidebook</a></li>
+<li>:star:<a href="https://medium.someone.tw/entity-relationship-diagram-bb2bbd777b6e">【產品】使用 ER 圖編寫清晰的軟體規格｜someone.tw | blog.someone.tw</a><ul>
+<li><a href="https://www.kaggle.com/datasets/stackoverflow/stackoverflow">Stack Overflow Data | Kaggle</a></li>
+</ul>
+</li>
+<li><a href="https://medium.com/hjorus-sharing/payment-service-%E4%B8%80-%E4%BB%98%E6%AC%BE%E6%B5%81%E7%A8%8B-f8a57d6a5393">Payment Service(一): 付款流程 - Hjoru's sharing - Medium</a></li>
+<li>正規化<ul>
+<li>:star:<a href="https://notes.andywu.tw/2018/%e6%b7%ba%e8%ab%87%e8%b3%87%e6%96%99%e5%ba%ab%e6%ad%a3%e8%a6%8f%e5%8c%96/">淺談資料庫正規化</a><ul>
+<li>例子舉得很棒!</li>
+</ul>
+</li>
+<li>:star:<a href="https://tigercosmos.xyz/post/2018/10/let-build-dbms/16">Good RDB Design with the Concept of Normal Forms</a><ul>
+<li>誰是老大, 拆團</li>
+</ul>
+</li>
+<li><a href="https://mark-lin.com/posts/20160917/">30-17之MongoDB的設計---正規與反正規化的戰爭</a></li>
+</ul>
+</li>
+<li>MySQL<ul>
+<li>:star:<a href="https://docs.google.com/presentation/d/1OzMzlh5hw2w7hzYAAbdncn6dWNxuvbhkxC9FG7t5Uog/edit#slide=id.g458f537d78_3_50">MySQL開發實戰</a><ul>
+<li><a href="https://medium.com/@justinlee_78563/%E9%97%9C%E6%96%BC%E6%99%82%E5%8D%80-4bfada7bd23d">關於時區(一)</a></li>
+<li><a href="https://medium.com/@justinlee_78563/%E9%97%9C%E6%96%BC%E6%99%82%E5%8D%80-%E4%BA%8C-c29b879117fa">關於時區(二)</a></li>
+</ul>
+</li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10222452">資料庫層的優化 - 表的設計</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/32382274">淺談MySQL表結構設計</a></li>
+<li><a href="https://blog.johnsonlu.org/mysql-db-schema-%e8%a8%ad%e8%a8%88%e5%8e%9f%e5%89%87/">MySQL DB Schema 設計原則</a></li>
+</ul>
+</li>
+<li>Guide<ul>
+<li><a href="https://www.sqlstyle.guide/zh-tw/">SQL樣式指南 · SQL Style Guide</a></li>
+<li><a href="http://www.databaseanswers.org/data_models/index.htm">Enterprise Data Models</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Design(Advance)<ul>
+<li><a href="https://www.slideshare.net/yftzeng/mysql-modern-web-2016">恰如其分的 MySQL 設計技巧 - Modern Web 2016</a></li>
+<li><a href="https://www.slideshare.net/yftzeng/btreepart-1">資料庫索引數據結構及主鍵設計</a></li>
+<li><a href="https://wiki.postgresql.org/wiki/Don%27t_Do_This">Don't Do This - PostgreSQL wiki</a></li>
+<li>fulltext search<ul>
+<li><a href="https://changhengliou.medium.com/%E7%94%A8mysql-fulltext-search%E5%BB%BA%E7%AB%8B%E7%B0%A1%E6%98%93%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E-80659c28ec19">用mysql fulltext search建立簡易搜尋引擎</a></li>
+<li><a href="https://stackoverflow.com/questions/11418932/performance-of-like-queries-on-multmillion-row-tables-mysql">Performance of LIKE queries on multmillion row tables, MySQL</a></li>
+<li><a href="https://stackoverflow.com/questions/224714/what-is-full-text-search-vs-like">What is Full Text Search vs LIKE</a></li>
+<li><a href="https://stackoverflow.com/questions/49029656/mysql-fulltext-query-issue">MySQL FULLTEXT query issue</a></li>
+<li><a href="https://stackoverflow.com/questions/41892179/elastic-search-full-text-vs-mysql-full-text">Elastic search full text vs mysql full text?</a></li>
+</ul>
+</li>
+<li>partition<ul>
+<li><a href="https://medium.com/17live-tech/mysql-partitioning-%E5%84%AA%E5%8C%96%E4%B9%8B%E8%B7%AF-fd8e8480789b">MySQL Partitioning 優化之路. 17 APP 上線至今已經好幾年了，隨著時間過去 DB… | by Jiazhen | 17LIVE Tech Insight | Medium</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10276151">Day.24 提升大數據資料管理 - 資料表分區 ( MYSQL Partition) - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a></li>
+<li><a href="https://peterli.website/%E9%82%A3%E4%BA%9B%E5%9C%A8mysql%E4%B8%8A%E7%9A%84%E5%88%86%E5%8D%80%E6%96%B9%E5%BC%8F/">那些在MySQL上的分區方式 – Peter 工程日誌</a></li>
+<li><a href="http://blog.kenyang.net/2017/06/11/whats-mysql-partition">What's MySQL partition</a></li>
+</ul>
+</li>
+<li>statistics<ul>
+<li><a href="https://stackoverflow.com/questions/34332362/database-table-structure-for-storing-statistics-data">mysql - Database table structure for storing statistics data - Stack Overflow</a></li>
+</ul>
+</li>
+<li>bit mask relational database <ul>
+<li><a href="https://stackoverflow.com/questions/31502363/storing-combinatorial-values-in-a-mysql-database-bit-masking-foreign-keys-ju">sql - Storing Combinatorial Values in a MySQL database - Bit masking, foreign keys, junction tables, or what? - Stack Overflow</a></li>
+<li><a href="https://softwareengineering.stackexchange.com/questions/322271/advantages-and-disadvantages-of-using-bit-masks-in-database">patterns and practices - Advantages and disadvantages of using bit masks in database - Software Engineering Stack Exchange</a></li>
+<li><a href="https://stackoverflow.com/questions/12270461/any-disadvantages-to-bit-flags-in-database-columns">sql - Any disadvantages to bit flags in database columns? - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/5352263/optimize-mysql-query-to-use-index-on-a-bitwise-where-clause">sql - Optimize mysql query to use index on a Bitwise where clause - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/3560514/mysql-doesnt-use-indexes-when-query-over-bit-field-using-bitwise-functions">sql - MySQL doesn't use indexes when query over BIT field using bitwise functions - Stack Overflow</a></li>
+</ul>
+</li>
+<li>how to store tags in mysql<ul>
+<li><a href="https://dba.stackexchange.com/questions/176231/storing-multiple-tags-on-analytics-database">performance - Storing multiple tags on analytics database - Database Administrators Stack Exchange</a></li>
+<li><a href="https://dba.stackexchange.com/questions/120787/set-or-varchar-for-list-of-tags-in-a-mysql-photos-table">database design - SET or VARCHAR for list of tags in a MySQL photos table? - Database Administrators Stack Exchange</a></li>
+<li><a href="https://dba.stackexchange.com/questions/226670/select-items-that-has-one-or-more-specific-tags">mysql - SELECT items that has one or more specific TAGS - Database Administrators Stack Exchange</a></li>
+</ul>
+</li>
+<li>json field<ul>
+<li><a href="https://stackoverflow.com/questions/36249828/how-to-search-json-array-in-mysql">How to search JSON array in MySQL? - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/63478276/mysql-how-to-index-a-json-array">sql - MySQL How to Index a JSON array? - Stack Overflow</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/create-index.html#create-index-multi-valued">MySQL :: MySQL 8.0 Reference Manual :: 13.1.15 CREATE INDEX Statement - Multi-Valued Indexes</a></li>
+<li><a href="https://stackoverflow.com/questions/56958056/mysql-8-split-string-by-comma-and-convert-it-into-json-array">MySQL 8 split string by comma and convert it into JSON ARRAY - Stack Overflow</a></li>
+</ul>
+</li>
+<li>others<ul>
+<li><a href="https://stackoverflow.com/questions/4548757/sql-database-schema-design-for-large-3-billion-relationship-database">performance - SQL Database Schema Design For Large 3 Billion Relationship Database - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/51316492/database-table-with-million-of-rows">mysql - Database table with million of rows - Stack Overflow</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10230026">MySQL 中的 temporary table (臨時表) 觀念 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a></li>
+<li><a href="https://transactional.blog/blog/2025-decomposing-transactional-systems">Decomposing Transactional Systems</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Migration<ul>
+<li><a href="https://blog.niclin.tw/2019/08/10/migration-without-zero-downtime/">不停機 migration 避免鎖表的幾種操作</a></li>
+<li><a href="https://www.martinfowler.com/articles/evodb.html">Evolutionary Database Design</a></li>
+<li><a href="https://medium.com/building-the-system/breaking-free-from-the-orm-decoupling-database-migrations-e6e53d144cab">Breaking Free From the ORM: Decoupling Database Migrations</a></li>
+<li><a href="https://pythonspeed.com/articles/schema-migrations-server-startup/">Decoupling database migrations from server startup: why and how</a></li>
+<li><a href="https://ithelp.ithome.com.tw/users/20116987/ironman/5873">資料庫也有版本控制 :: 2022 iThome 鐵人賽</a></li>
+<li><a href="https://exfast.me/2020/07/pt-online-schema-change-is-good-tool-for-mysql-data-table-schema-migration/">[MySQL] 資料表結構遷移的好幫手 pt-online-schema-change | 從入門到放棄</a></li>
+<li><a href="https://blog.gslin.org/archives/2016/08/07/6716/github-%E7%99%BC%E5%B1%95%E5%87%BA%E4%BE%86%E7%9A%84-alter-table-%E6%96%B9%E5%BC%8F/">GitHub 發展出來的 ALTER TABLE 方式 – Gea-Suan Lin's BLOG</a></li>
+<li><a href="https://blog.gslin.org/archives/2021/01/28/9940/eventbrite-%e7%9a%84-mysql-%e5%8d%87%e7%b4%9a%e8%a8%88%e7%95%ab/">Eventbrite 的 MySQL 升級計畫 – Gea-Suan Lin's BLOG</a></li>
+<li><a href="https://blog.gslin.org/archives/2022/06/29/10767/postgresql-%e4%b8%8a%e5%b0%8d%e6%87%89-pt-online-schema-change-%e7%9a%84%e5%b7%a5%e5%85%b7-pg-osc/">PostgreSQL 上對應 pt-online-schema-change 的工具 pg-osc – Gea-Suan Lin's BLOG</a></li>
+<li><a href="https://stackoverflow.com/questions/463677/alter-table-without-locking-the-table">sql - ALTER TABLE without locking the table? - Stack Overflow</a></li>
+<li><a href="https://mermer.com.tw/en/knowledge-management/20250514001">Squashing Migrations</a></li>
+</ul>
+</li>
+<li>Error<ul>
+<li><a href="https://dba.stackexchange.com/questions/287030/temporary-table-is-full">mysql - Temporary table is full - Database Administrators Stack Exchange</a></li>
+</ul>
+</li>
+<li>Microsoft 資料架構指南<ul>
+<li><a href="https://docs.microsoft.com/zh-tw/azure/architecture/data-guide/relational-data/online-transaction-processing#oltp-in-azure">線上交易處理 OLTP</a></li>
+<li><a href="https://docs.microsoft.com/zh-tw/azure/architecture/data-guide/relational-data/online-analytical-processing">線上分析處理 OLAP</a></li>
+<li><a href="https://docs.microsoft.com/zh-tw/azure/architecture/data-guide/big-data/non-relational-data">非關聯式資料和 NoSQL</a></li>
+</ul>
+</li>
+<li>Race Condition<ul>
+<li>Real world<ul>
+<li><a href="https://chadscira.com/post/5fa269d46142ac544e013d6e/DISCLOSURE-Unlimited-Chase-Ultimate-Rewards-Points">JPMorgan Chase</a></li>
+<li><a href="http://sakurity.com/blog/2015/05/21/starbucks.html">Starbucks</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/search?p=3&amp;q=race+condition+demo&amp;type=Repositories">github-race condition demo</a><ul>
+<li><a href="https://github.com/kkent030315/race-condition-demonstrate">kkent030315/race-condition-demonstrate</a></li>
+<li><a href="https://github.com/CyCTW/Database-Race-Condition-Testing-Demo">CyCTW/Database Race Condition Testing Demo</a></li>
+<li><a href="https://github.com/nsf/sqlrace">nsf/sqlrace</a></li>
+</ul>
+</li>
+<li><a href="https://medium.com/@chester.yw.chu/%E8%A4%87%E7%BF%92%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84-isolation-level-%E8%88%87%E5%B8%B8%E8%A6%8B%E7%9A%84%E4%BA%94%E5%80%8B-race-conditions-%E5%9C%96%E8%A7%A3-16e8d472a25c">複習資料庫的 Isolation Level 與圖解五個常見的 Race Conditions</a></li>
+<li><a href="https://notes.andywu.tw/2022/%e6%b7%ba%e8%ab%87mysql%e9%9a%94%e9%9b%a2%e5%b1%a4%e7%b4%9a%e7%82%ba%e5%8f%af%e9%87%8d%e5%be%a9%e8%ae%80%e6%99%82%e4%b8%8d%e8%83%bd%e9%81%bf%e5%85%8d%e5%b9%bb%e8%ae%80/">淺談MySQL隔離層級為RR(可重復讀)時不能避免Phantom Read(幻讀)</a></li>
+<li><a href="https://medium.com/@chester.yw.chu/%E5%B0%8D%E6%96%BC-mysql-repeatable-read-isolation-%E5%B8%B8%E8%A6%8B%E7%9A%84%E4%B8%89%E5%80%8B%E8%AA%A4%E8%A7%A3-7a9afbac65af">對於 MySQL Repeatable Read Isolation 常見的三個誤解</a></li>
+<li><a href="https://medium.com/getamis/database-transaction-isolation-a1e448a7736e">資料庫交易的 Isolation</a></li>
+<li><a href="https://yuanchieh.page/posts/2020/2020-12-26_mysql-deadlock-%E5%95%8F%E9%A1%8C%E6%8E%92%E6%9F%A5%E8%88%87%E8%99%95%E7%90%86/">MySQL Deadlock 問題排查與處理</a></li>
+<li><a href="https://iorilan.medium.com/all-you-need-to-know-about-database-transaction-concurrency-control-locks-isolation-level-mvcc-ed1bacd9d1d2">All you need to know about Database transaction concurrency control — locks, Isolation level, MVCC | by LORY | Sep, 2023 | Medium</a></li>
+<li><a href="https://hackmd.io/@UTRxSLfpRa6ds1oeI2U7Lw/H1SFq3CFs">好像要鎖一下ㄟ(悲觀鎖、樂觀鎖) - HackMD</a></li>
+<li><a href="https://hackmd.io/@UTRxSLfpRa6ds1oeI2U7Lw/HyMSe5Tco">使用Redis來進行分散式鎖 - HackMD</a></li>
+</ul>
+</li>
+<li>安全<ul>
+<li><a href="https://blog.guilatrova.dev/how-sql-injection-attack-works-with-examples/">How SQL Injection attack works</a></li>
+</ul>
+</li>
+<li>交換<ul>
+<li><a href="https://www.upsolver.com/blog/apache-parquet-why-use">What is the Parquet File Format and Why You Should Use It</a></li>
+</ul>
+</li>
+<li>工具<ul>
+<li><a href="https://hackmd.io/@Kevin-Yang/SyYeiB5kt">dbdiagram 筆記 - HackMD</a></li>
+</ul>
+</li>
+<li>High Availability<ul>
+<li><a href="https://blog.wu-boy.com/2013/03/galera-cluster-for-mysql-multi-master-replication/">Galera Cluster for MySQL Multi-master Replication - 小惡魔 - AppleBOY</a></li>
+<li><a href="https://gary840227.medium.com/mariadb-cluster-f7220e9eaac8">如何建置 MariaDb Galera Cluster. mariadb galera cluster 建置教學 | by Gary Ng | Medium</a></li>
+<li><a href="https://www.sre-devops.info/galera-cluster-sync/">Galera Cluster真的沒有同步延遲嗎?- 進擊的網管Jay</a></li>
+</ul>
+</li>
+<li>其他<ul>
+<li><a href="https://tachunwu.github.io/posts/db-history/"><Database 一代代的演化和傳承> - Tachunn Publication</a></li>
+<li><a href="https://medium.com/17live-tech/17live-next-gen-database-%E9%81%B8%E5%9E%8B%E5%88%86%E6%9E%90-7a72b976cd2b">17LIVE Next-Gen Database選型分析. 宏觀上來看，各時期的資料庫並沒有強弱之分，都是為了滿足當前時代需求而演進的型態，… | by Pink Yu | 17LIVE Tech Insight | Medium</a></li>
+<li><a href="https://pingcap.com/blog/how-to-efficiently-choose-the-right-database-for-your-applications">How to Efficiently Choose the Right Database for Your Applications</a></li>
+<li><a href="https://docs.rackspace.com/support/how-to/choosing-between-rdbms-and-nosql/">Choosing between a relational database and a NoSQL database</a></li>
+<li><a href="https://hevodata.com/learn/relational-database-vs-nosql-a-deep-analysis/">Relational Database Vs NoSQL: A Comprehensive Analysis</a></li>
+<li><a href="https://www.facebook.com/groups/616369245163622/permalink/2354908371309692/">RDBMS收費課程用的教材 - Triton Ho</a></li>
+<li><a href="https://hackmd.io/80QqlRd1SLeIzCEvt-383A">JSON in PostgreSQL，建議跟不建議 - Rubin</a><ul>
+<li>https://www.youtube.com/watch?v=l5Z_cE6jGxA</li>
+</ul>
+</li>
+<li><a href="https://tw.alphacamp.co/blog/mysql-and-mongodb-comparison">該用 MySQL 或 MongoDB？選擇資料庫前你該了解的事</a></li>
+<li><a href="https://stackoverflow.com/questions/31340234/mysql-add-foreign-key-constraint-referencing-a-view">mysql add foreign key constraint referencing a view</a></li>
+<li><a href="https://stackoverflow.com/questions/621884/database-development-mistakes-made-by-application-developers/621891#621891">Database development mistakes made by application developers - Stack Overflow</a></li>
+<li><a href="https://vicxu.medium.com/%E6%B7%BA%E5%85%A5%E6%B7%BA%E5%87%BA-mysql-ep2-%E6%88%91%E7%9A%84-sql-%E6%80%8E%E9%BA%BC%E5%9F%B7%E8%A1%8C%E6%88%91%E7%9A%84%E6%9F%A5%E8%A9%A2-b59906529f37">淺入淺出 MySQL Ep2 : 我的 SQL 怎麼執行我的查詢 | by vic | Medium</a></li>
+<li><a href="https://yuanchieh.page/posts/2018/2018-07-30_mysql-explain/">MySQL Explain分析與Index設定查詢優化 | Yuanchieh's Blog</a></li>
+<li><a href="https://www.zhihu.com/question/28385400">MySQL有什么推荐的学习书籍？ - 知乎</a></li>
+<li><a href="https://www.dropbox.com/s/t8tsii7efbrl6k2/10%20-%20MDB%20Day%20Taipei%20-%20_%E8%BD%89%E5%9E%8B%E7%AD%96%E7%95%A5%EF%BC%9A%E5%A6%82%E4%BD%95%E5%BE%9E%E9%97%9C%E8%81%AF%E5%BC%8F%E8%B3%87%E6%96%99%E5%BA%AB%E8%BD%89%E5%9E%8B_%20-%20Tony.pdf?dl=0">如何從關聯式資料庫轉型</a></li>
+<li><a href="https://blog.yowko.com/docker-compose-elasticsearch-kibana-x-pack/">使用 Docker Compose 建立啟用 X-Pack 的 Elasticsearch 與 Kibana - Yowko's Notes</a></li>
+<li><a href="https://iorilan.medium.com/a-5-years-tech-lead-said-they-shard-a-database-to-scale-but-then-he-failed-to-answer-this-question-8be39115dcb0">A 5 years+ tech lead said they shard a database to scale but then he failed to answer this question | by LORY | Medium</a></li>
+<li><a href="https://tachunwu.github.io/posts/notion/"><Notion 的 Data Model & Sharding Postgres> - Tachunn Publication</a></li>
+<li><a href="https://tachunwu.github.io/posts/olep/"><OLEP：Online Event Processing 系統設計> - Tachunn Publication</a></li>
+<li><a href="https://tachunwu.github.io/posts/schemaless/"><Uber Schema-less 的系統起源> - Tachunn Publication</a></li>
+<li><a href="https://ddia.qtmuniao.com/#/">DDIA 逐章精读</a></li>
+<li><a href="https://ithelp.ithome.com.tw/users/20161869/ironman/6057?page=2">當代資料工程與資料分析 :: 2023 iThome 鐵人賽</a></li>
+<li><a href="https://notes.andywu.tw/2024/%e8%83%bd%e5%a4%a0%e5%81%9a%e5%88%b0%e5%b9%b3%e8%a1%8c%e9%81%8b%e7%ae%97%e7%9a%84-clickhouse-distributed-table-engine/">能夠做到平行運算的 ClickHouse Distributed Table Engine - AndyWu's Notes</a></li>
+<li>gitlab<ul>
+<li><a href="https://blog.gslin.org/archives/2024/02/19/11671/%e9%97%9c%e6%96%bc-gitlab-%e7%9a%84-sql-%e8%a8%ad%e8%a8%88/">關於 GitLab 的 SQL 設計 – Gea-Suan Lin's BLOG</a></li>
+<li><a href="https://shekhargulati.com/2022/07/08/my-notes-on-gitlabs-postgres-schema-design/">My Notes on GitLab Postgres Schema Design – Shekhar Gulati</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_1">設計</h2>
+<p>需求
+- 商業
+- 資料量級
+- 安全</p>
+<p>收集與梳理資訊
+- 現場使用的人
+- 現有表單(invoices, timesheets, surveys)
+- 現有資料系統</p>
+<p>what kinds of data the database will include
+where that data comes from
+how it will be used</p>
+<p>ERD
+Primary Key
+Cardinality</p>
+<p>Index
+B+ Tree =&gt; 只有最下面的節點有資料，其它上面的節點只存索引</p>
+<p>Clustered Index =&gt; 在innodb中, 它就是這份資料實際上儲存的結構(B+ Tree)</p>
+<p>Secondary Index =&gt; 可以自行建立的索引, 最基本使用 secondary Index 的步驟, 至 secondary Index 尋找 PK, 再至 clustered Index 取得完整資料</p>
+<p>看看候選欄位的基數大小, 基數就是指這個欄位的值的可能性</p>
+<p><div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="err">{</span><span class="n">field</span><span class="err">}</span><span class="o">/</span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">))</span>
+</span></code></pre></div>
+一般索引(覆蓋索引)
+連合索引 : 常常需要與其它欄位一起查詢，適合建立。但是要注意先後順序，基本最常查詢的與基數高的適合放最左邊
+前綴索引 : 這種大致上用在如果要針對某段文字進行前綴搜尋的情況</p>
+<h3 id="keyword-search">Keyword search</h3>
+<ul>
+<li><a href="https://medium.com/@changhengliou/%E7%94%A8mysql-fulltext-search%E5%BB%BA%E7%AB%8B%E7%B0%A1%E6%98%93%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E-80659c28ec19">用mysql fulltext search建立簡易搜尋引擎</a></li>
+<li><a href="https://www.percona.com/blog/2018/04/04/pattern-matching-queries-vs-fulltext-indexes/">Pattern Matching Queries vs. Full-Text Indexes</a></li>
+<li><a href="https://stackoverflow.com/questions/224714/what-is-full-text-search-vs-like">What is Full Text Search vs LIKE</a></li>
+<li><a href="https://makandracards.com/makandra/12813-performance-analysis-of-mysql-s-fulltext-indexes-and-like-queries-for-full-text-search">Performance analysis of MySQL's FULLTEXT indexes and LIKE queries for full text search</a></li>
+</ul>
+<h2 id="redis">Redis</h2>
+<ul>
+<li><a href="https://clhjoe.github.io/post/redis-fundamental/">Redis Fundamental</a></li>
+<li><a href="https://developer.redis.com/howtos">Redis Developer</a></li>
+<li><a href="https://redis.com/redis-best-practices/introduction/">Redis Best Practices</a></li>
+<li><a href="https://yuanchieh.page/posts/2020/2020-10-18-%E4%BD%BF%E7%94%A8-redis-%E7%95%B6%E4%BD%9C-api-rate-limit-%E7%9A%84%E4%B8%89%E7%A8%AE%E6%96%B9%E6%B3%95/">使用 Redis 當作 API Rate limit 的三種方法</a></li>
+<li><a href="https://developer.redis.com/howtos/ratelimiting/">How to build a Rate Limiter using Redis</a></li>
+<li><a href="https://yuanchieh.page/posts/2020/2020-01-14_redis-lock-redlock-%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E8%88%87%E5%AF%A6%E4%BD%9C/">Redis Lock (Redlock) 分散式 lock 原理分析與實作</a></li>
+<li><a href="https://stackoverflow.com/questions/9817951/finding-non-expiring-keys-in-redis">Finding non-expiring keys in Redis - Stack Overflow</a></li>
+<li><a href="https://architecturenotes.co/redis/">Redis Explained</a></li>
+<li><a href="https://blog.brachiosoft.com/posts/redis/">Redis 與作者 antirez 的故事 | 軟體考古學家</a></li>
+</ul>
+<h2 id="elasticsearch">ElasticSearch</h2>
+<ul>
+<li><a href="https://yuanchieh.page/posts/2020/2020-07-08_elasticsearch-%E4%BB%8B%E7%B4%B9%E8%88%87%E8%A9%95%E4%BC%B0/">Elasticsearch 系統介紹與評估 | Yuanchieh's Blog</a></li>
+</ul>
+<h2 id="hadoop-ecosystem">Hadoop ecosystem</h2>
+<ul>
+<li><a href="https://ithelp.ithome.com.tw/users/20107349/ironman/1309?page=1">Hadoop ecosystem 工具簡介, 安裝教學與各種情境使用 :: 2018 iT 邦幫忙鐵人賽</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10192132">Day 15-HBase SQL工具介紹 - iT 邦幫忙::一起幫忙解決難題，拯救 IT 人的一天</a></li>
+<li><a href="https://learn.microsoft.com/zh-tw/azure/hdinsight/hbase/apache-hbase-query-with-phoenix">快速入門：Apache HBase 與 Apache Phoenix - Azure HDInsight | Microsoft Learn</a></li>
+<li><a href="https://www.finereport.com/tw/company/sql-2.html">6大主流開源SQL引擎總結，遙遙領先的是誰？ | 帆軟軟體</a></li>
+</ul>
+<h2 id="dbeaver">Dbeaver</h2>
+<ul>
+<li><a href="https://dbeaver.com/2024/03/07/how-to-create-a-connection-from-a-template-in-cloudbeaver/">How to create a connection from a template in CloudBeaver</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 資料庫維運">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                資料庫維運
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-footer__link md-footer__link--next" aria-label="Next: 資訊安全">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                資訊安全
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
