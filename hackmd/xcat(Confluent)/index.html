@@ -1,0 +1,4787 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../shell%20script/">
+      
+      
+        <link rel="next" href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>xcat(Confluent) - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#xcatconfluent" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              xcat(Confluent)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome the docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hackmd
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hackmd
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ansible Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ansys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CKA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CKA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data%20Center%20Network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Center Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DynamoDB Deep Dive Advence Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GRUB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google docs api
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HYCOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InfiniBand
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM%20to%20Agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM to Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux技巧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux觀念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Makefile
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Message Passing Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NVIDIA%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NVIDIA Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NVIDIA%20UFM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NVIDIA UFM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nagios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nexus Repository Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift%20RDMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenShift RDMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenShift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenVPN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenVPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Openstack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proxmox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxmox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QEMU-KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QEMU-KVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RedHat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redfish
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SUSE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SVN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scrum筆記
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Singularity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slurm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ubuntu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    bitwise world
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cloud-init
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    container
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ffmpeg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Influxdb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    javascript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../n8n/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    n8n
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pacemaker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    podman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    prometheus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    python web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    shell script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    xcat(Confluent)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    xcat(Confluent)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#confluent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confluent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Confluent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        discovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xcat
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="xcat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        basic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#travesal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        travesal
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="travesal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mtms-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mtms discovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="mtms discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        internal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmc-discovery-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bmc discovery issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-gensis-image-on-rhel-93" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        build gensis image on rhel 9.3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialize-after-docker-container-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        initialize after docker container start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="initialize after docker container start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        basic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-existed-node-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        use existed node info
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        networks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rest-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rest api
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        httpd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remote console
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        customized
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="customized">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        partition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        package list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log rotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#makehosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        makehosts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makedns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        makedns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makedhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        makedhcp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copycds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        copycds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rinstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rinstall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noderange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noderange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        group
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diskless" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diskless
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diskless">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-rootfs-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the rootfs size
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offline-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Offline installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        support ubuntu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="support ubuntu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#package-issue-when-provision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        package issue when provision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-issue-after-provision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ssh issue after provision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrying-flag-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrying flag update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-xcat-in-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        install xcat in docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pxe-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pxe boot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        debug
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用者體驗
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    備份還原
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    單元測試的藝術
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    奇技淫巧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    持續整合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    排列組合與機率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    效能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    機器學習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    正規表示法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    測試工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    無線網路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物件導向實務
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物件導向系統分析與設計
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    硬體概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    程式本質
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    系統的價值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    統計圖表的表達方式以及使用的範圍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    虛擬機器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    資料庫維運
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    資料模型(Data Modeling)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    資訊安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    軟體工程師的專業和通識
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    軟體需求溝通
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#confluent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confluent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Confluent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        discovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xcat
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="xcat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        basic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#travesal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        travesal
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="travesal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mtms-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mtms discovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="mtms discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        internal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bmc-discovery-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bmc discovery issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-gensis-image-on-rhel-93" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        build gensis image on rhel 9.3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialize-after-docker-container-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        initialize after docker container start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="initialize after docker container start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        basic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-existed-node-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        use existed node info
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        networks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rest-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rest api
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        httpd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remote console
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        customized
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="customized">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#partition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        partition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        package list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log rotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#makehosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        makehosts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makedns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        makedns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makedhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        makedhcp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copycds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        copycds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rinstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rinstall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noderange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noderange
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        group
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diskless" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diskless
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diskless">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-rootfs-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change the rootfs size
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offline-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Offline installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        support ubuntu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="support ubuntu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#package-issue-when-provision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        package issue when provision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-issue-after-provision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ssh issue after provision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrying-flag-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrying flag update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-xcat-in-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        install xcat in docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pxe-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pxe boot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        debug
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Welcome the docs
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../API/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Hackmd
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="xcatconfluent">xcat(Confluent)</h1>
+<h2 id="confluent">Confluent</h2>
+<ul>
+<li><a href="https://xcat2.github.io/confluent-docs/manuals/nodeattrib/?h=trusted.subnets#attributes">nodeattrib</a></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>apt<span class="w"> </span>list<span class="w"> </span>--installed<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>lenovo-confluent
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>osdeploy<span class="w"> </span>import<span class="w"> </span>ubuntu-24.04.3-live-server-amd64.iso
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># after editing the /var/lib/confluent/public/os/ubuntu-24.04.3-x86_64-default/profile.yaml</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>osdeploy<span class="w"> </span>list
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>osdeploy<span class="w"> </span>updateboot<span class="w"> </span>ubuntu-24.04.3-x86_64-default
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>nodedeploy<span class="w"> </span>node76<span class="w"> </span>-n<span class="w"> </span>ubuntu-24.04.3-x86_64-default
+</span></code></pre></div>
+<p>profile.yaml
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>kernelargs: console=ttyS1,115200n8 earlycon=uart8250,io,0x2f8,115200n8 console=tty0 debug osprofile=ubuntu-24.04.3-x86_64-default ip=dhcp BOOTIF=01-${net0/mac:hexhyp} DEVICE=bootif confluent=172.19.45.250 break=premount
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>kernelargs: console=ttyS1,115200n8 earlycon=uart8250,io,0x2f8,115200n8 console=tty0 debug osprofile=ubuntu-24.04.3-x86_64-default ip=enp5s5f0:dhcp confluent=172.19.45.250 break=premount
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>kernelargs: console=ttyS1,115200n8 earlycon=uart8250,io,0x2f8,115200n8 console=tty0 debug osprofile=ubuntu-24.04.3-x86_64-default ip=192.168.120.200::192.168.210.79:255.255.255.0:node-name:enp5s5f0:none confluent=172.19.45.250 break=premount
+</span></code></pre></div></p>
+<p>CLI
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>nodedefine<span class="w"> </span>node76
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>nodeattrib<span class="w"> </span>node76
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>nodeattrib<span class="w"> </span>node76<span class="w"> </span>net.ipv4_gateway<span class="o">=</span><span class="m">192</span>.168.210.79
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>nodeattrib<span class="w"> </span>node76<span class="w"> </span>net.ipv4_gateway<span class="o">=</span><span class="s2">""</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>nodeattrib<span class="w"> </span>node76<span class="w"> </span>net.ipv4_method<span class="o">=</span>firmwaredhcp
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>nodegroupattrib<span class="w"> </span>everything<span class="w"> </span>net.ipv4_gateway<span class="o">=</span><span class="m">192</span>.168.210.79
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>confluent_selfcheck<span class="w"> </span>-n<span class="w"> </span>node76
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>nodedeploy<span class="w"> </span>node76<span class="w"> </span>-n<span class="w"> </span>genesis-x86_64
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>noderemove<span class="w"> </span>node76
+</span></code></pre></div></p>
+<p>Important files
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>/opt/confluent/lib/python/confluent/osimage.py
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>/var/log/confluent/events
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>/var/lib/confluent/public/os
+</span></code></pre></div></p>
+<p>Debug
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>wget<span class="w"> </span>http://172.19.45.250/confluent-api/boot/by-mac/7c-c2-55-25-44-ac/ipxe
+</span></code></pre></div></p>
+<p>Web console
+- https://172.19.45.250/lenovo-confluent/</p>
+<h3 id="discovery">discovery</h3>
+<ul>
+<li>https://xcat2.github.io/confluent-docs/advanced_topics/confluentosdeploy/?h=genesis+x86_64#having-a-genesis-network-boot-environment-optional</li>
+<li>https://xcat2.github.io/confluent-docs/miscellaneous/confluentpxedisco/?h=</li>
+<li>https://xcat2.github.io/confluent-docs/user_reference/confluentdiscovery/</li>
+<li>https://xcat2.github.io/confluent-docs/advanced_topics/confluentnodeassign/?h=discovery</li>
+<li>https://xcat2.github.io/confluent-docs/miscellaneous/manageconfluent/</li>
+</ul>
+<p>dhcp config for gensis image
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dhcp-option-force=tag:net45,tag:is_ipxe,67,http://172.19.45.250/confluent-public/os/genesis-x86_64/boot.ipxe
+</span></code></pre></div>
+actula file path: /var/lib/confluent/public/os/genesis-x86_64/</p>
+<h2 id="xcat">xcat</h2>
+<ul>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/references/man8/">man8 — xCAT 2.16.4 documentation</a></li>
+<li>debug<ul>
+<li><a href="https://github.com/xcat2/xcat-core/issues/5488#issuecomment-414638906">cluster.log no content</a></li>
+<li><a href="https://github.com/xcat2/xcat-core/issues/7109">Adding an additional network driver to the genesis image for x86_64 architecture · Issue #7109 · xcat2/xcat-core · GitHub</a><ul>
+<li><a href="https://github.com/xcat2/xcat-core/issues/7401">genesis boot failing on Intel E810 NIC cards using xCAT 2.16.4 version · Issue #7401 · xcat2/xcat-core · GitHub</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/xcat2/xcat-core/issues/6947">CentOS 8.3 xCAT 3.0 copycds can't recognize cumulus image · Issue #6947 · xcat2/xcat-core · GitHub</a></li>
+<li><a href="https://sourceforge.net/p/xcat/mailman/message/35626819/">Re: [xcat-user] missing entries in /tftpboot/xcat/xnba/nets | xCAT</a><ul>
+<li>mknb x86_64</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="basic">basic</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>lsdef
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>lsdef<span class="w"> </span>-t<span class="w"> </span>node
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>lsdef<span class="w"> </span>-t<span class="w"> </span>node<span class="w"> </span>cn1
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>nodels
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>man<span class="w"> </span>node
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>tabdump
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>tabdump<span class="w"> </span><span class="o">{</span>table<span class="o">}</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>tabdump<span class="w"> </span>-d<span class="w"> </span><span class="o">{</span>table<span class="o">}</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>man<span class="w"> </span><span class="o">{</span>table<span class="o">}</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>man<span class="w"> </span>xcatdb
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>chdef<span class="w"> </span>-t<span class="w"> </span>site<span class="w"> </span><span class="nv">master</span><span class="o">=</span><span class="s2">"xcat_master_ip"</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>chtab<span class="w"> </span><span class="nv">key</span><span class="o">=</span>system<span class="w"> </span>passwd.username<span class="o">=</span>root<span class="w"> </span>passwd.password<span class="o">=</span><span class="sb">`</span>openssl<span class="w"> </span>passwd<span class="w"> </span>-1<span class="w"> </span>abc123<span class="sb">`</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>chtab<span class="w"> </span><span class="nv">key</span><span class="o">=</span>xcat<span class="w"> </span>passwd.username<span class="o">=</span>xcatws<span class="w"> </span>passwd.password<span class="o">=</span><span class="sb">`</span>openssl<span class="w"> </span>passwd<span class="w"> </span>-1<span class="w"> </span>abc123<span class="sb">`</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>chdef<span class="w"> </span>-t<span class="w"> </span>node<span class="w"> </span>-o<span class="w"> </span>cn1<span class="w"> </span><span class="nv">ip</span><span class="o">=</span><span class="s2">"192.168.89.30"</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>chdef<span class="w"> </span>-t<span class="w"> </span>network<span class="w"> </span>10_0_0_0-255_255_0_0<span class="w"> </span><span class="nv">dynamicrange</span><span class="o">=</span><span class="s2">"10.0.100.1-10.0.100.100"</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>mkdef<span class="w"> </span>-t<span class="w"> </span>node<span class="w"> </span>cn1<span class="w"> </span>--template<span class="w"> </span>x86_64-template<span class="w"> </span><span class="nv">ip</span><span class="o">=</span><span class="m">192</span>.168.89.29<span class="w"> </span><span class="nv">mac</span><span class="o">=</span>3C:EC:EF:6E:FD:F2<span class="w"> </span><span class="nv">bmc</span><span class="o">=</span><span class="m">172</span>.17.43.236<span class="w"> </span><span class="nv">bmcusername</span><span class="o">=</span>aaa<span class="w"> </span><span class="nv">bmcpassword</span><span class="o">=</span>vvv
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>xcatprobe<span class="w"> </span>xcatmn<span class="w"> </span>-i<span class="w"> </span>ens160
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>copycds<span class="w"> </span>rhel-8.5-x86_64-dvd.iso
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>xcatprobe<span class="w"> </span>osdeploy<span class="w"> </span>-n<span class="w"> </span>cn1
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>makenetworks
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>chdef<span class="w"> </span>-t<span class="w"> </span>osimage<span class="w"> </span>rhels8.8.0-x86_64-netboot-compute<span class="w"> </span><span class="nv">pkglist</span><span class="o">=</span>/install/custom/package/rh8/compute.rhels8.x86_64.pkglist
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>rmimage<span class="w"> </span>rhels8.8.0-custom-statelite
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>rm<span class="w"> </span>/install/netboot/rhels8.8.0/x86_64/compute/rootimg-statelite.gz
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>mkdef<span class="w"> </span>-t<span class="w"> </span>osimage<span class="w"> </span>-o<span class="w"> </span>rhels8.8.0-x86_64-netboot-compute-ted<span class="w"> </span>--template<span class="w"> </span>rhels8.8.0-x86_64-netboot-compute
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>chdef<span class="w"> </span>-t<span class="w"> </span>osimage<span class="w"> </span>-o<span class="w"> </span>rhels8.8.0-x86_64-netboot-compute-ted<span class="w"> </span><span class="nv">rootimgdir</span><span class="o">=</span>/install/netboot/rhels8.8.0/x86_64/compute/ted
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>chdef<span class="w"> </span>-t<span class="w"> </span>osimage<span class="w"> </span>-o<span class="w"> </span>rhels8.8.0-x86_64-netboot-compute-ted<span class="w"> </span>-p<span class="w"> </span><span class="nv">postbootscripts</span><span class="o">=</span>customzied_setup_node
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>chdef<span class="w"> </span>-t<span class="w"> </span>node<span class="w"> </span>-o<span class="w"> </span>p2an002<span class="w"> </span>-p<span class="w"> </span><span class="nv">postbootscripts</span><span class="o">=</span>customzied_setup_node
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>
+</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a><span class="c1"># ntp</span>
+</span><span id="__span-6-44"><a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>chdef<span class="w"> </span>-t<span class="w"> </span>site<span class="w"> </span><span class="nv">extntpservers</span><span class="o">=</span><span class="s2">"0.pool.ntp.org,1.pool.ntp.org"</span>
+</span><span id="__span-6-45"><a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a>makentp
+</span><span id="__span-6-46"><a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a>
+</span><span id="__span-6-47"><a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a><span class="c1"># backup</span>
+</span><span id="__span-6-48"><a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a>lsdef<span class="w"> </span>-z<span class="w"> </span>node12<span class="w"> </span>&gt;<span class="w"> </span>predefined.stanzas.node12
+</span><span id="__span-6-49"><a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a><span class="c1"># remove xcat node info</span>
+</span><span id="__span-6-50"><a id="__codelineno-6-50" name="__codelineno-6-50" href="#__codelineno-6-50"></a>nodepurge<span class="w"> </span>node12
+</span><span id="__span-6-51"><a id="__codelineno-6-51" name="__codelineno-6-51" href="#__codelineno-6-51"></a>
+</span><span id="__span-6-52"><a id="__codelineno-6-52" name="__codelineno-6-52" href="#__codelineno-6-52"></a><span class="c1"># restore</span>
+</span><span id="__span-6-53"><a id="__codelineno-6-53" name="__codelineno-6-53" href="#__codelineno-6-53"></a>cat<span class="w"> </span>predefined.stanzas.node12<span class="w"> </span><span class="p">|</span><span class="w"> </span>mkdef<span class="w"> </span>-z
+</span></code></pre></div>
+<p>/install/postscripts/customzied_setup_node
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>#!/bin/bash
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>echo "mypostbootscript begin"
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>df -hT
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>useradd -m foo 
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>echo 'foo:bar' | chpasswd
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>echo "mypostbootscript end"
+</span></code></pre></div></p>
+<h3 id="travesal">travesal</h3>
+<p><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/ppc64le/discovery/mtms/discovery_using_defined.html">Set static BMC IP using different IP address (recommended) — xCAT 2.16.4 documentation</a></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>bmcdiscover<span class="w"> </span>--range<span class="w"> </span><span class="m">172</span>.17.30.124<span class="w"> </span>-u<span class="w"> </span><span class="o">{</span>bmc_id<span class="o">}</span><span class="w"> </span>-p<span class="w"> </span><span class="o">{</span>bmc_pwd<span class="o">}</span><span class="w"> </span>-z<span class="w"> </span>&gt;<span class="w"> </span>predefined.stanzas
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>cat<span class="w"> </span>predefined.stanzas<span class="w"> </span><span class="p">|</span><span class="w"> </span>mkdef<span class="w"> </span>-z
+</span></code></pre></div>
+<h4 id="mtms-discovery">mtms discovery</h4>
+<ul>
+<li><a href="https://www.mail-archive.com/xcat-user@lists.sourceforge.net/msg07844.html">Re: [xcat-user] [External] XCAT 2.16 Discovery Mode - Genesis</a><ul>
+<li>You can enter multiple macs for a node and specify NOIP for macs you don't want it to boot from (mac table entry: node,,"1:2:3:4|5:6:7:8!NOIP"). Make sure to run makedhcp after doing this.</li>
+</ul>
+</li>
+</ul>
+<p>xcat 2.16.5
+need to change the code <code>/opt/xcat/lib/perl/xCAT_plugin/bmcdiscover.pm</code>
+Line 1205 to 1221
+<div class="language-perl highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">#if (($fru_output =~ /Chassis Part Number\s*:\s*(\S*).*Chassis Serial\s*:\s*(\S*)/)) {</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1">#    $mtm    = $1;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1">#    $serial = $2;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1">#    last;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1">#}</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1">#if (($fru_output =~ /Product Part Number   :\s*(\S*).*Product Serial        :\s*(\S*)/)) {</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1">#    $mtm    = $1;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1">#    $serial = $2;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1">#    last;</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1">#}</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="nv">$fru_output</span><span class="w"> </span><span class="o">=~</span><span class="sr"> /Product Manufacturer\s+:\s+(.*?)\s+Product Part Number\s+:\s+(.*?)\s+P.*?roduct Serial\s+:\s+(\S+)/</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="nv">$mtm</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="nv">$1</span><span class="o">.</span><span class="s">":"</span><span class="o">.</span><span class="nv">$2</span><span class="p">;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="nv">$serial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$3</span><span class="p">;</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="k">last</span><span class="p">;</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p>root cause is from https://github.com/xcat2/xcat-core/blob/1534231ae7b7e0b4136ffef16374c0a870710a75/xCAT-genesis-scripts/usr/bin/dodiscovery#L93</p>
+<p>follow <a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/ppc64le/discovery/mtms/index.html">MTMS-based Discovery — xCAT 2.16.5 documentation</a></p>
+<h5 id="internal">internal</h5>
+<p>https://github.com/xcat2/xcat-core/blob/f7e389a0c03fb18f8f1236cb4ad3fe8605765c51/xCAT-server/lib/xcat/plugins/bmcdiscover.pm#L619
+scan_process
+nmap to get live_ip
+ipmitool-xcat to get mc info</p>
+<h5 id="bmc-discovery-issues">bmc discovery issues</h5>
+<ul>
+<li><a href="https://stackoverflow.com/questions/51948745/error-unable-to-establish-ipmi-v2-rmcp-session">ipmitool - Error: Unable to establish IPMI v2 / RMCP+ session - Stack Overflow</a></li>
+<li><a href="https://www.supermicro.com/support/faqs/faq.cfm?faq=3240">FAQ Entry | Online Support | Support - Super Micro Computer, Inc.</a></li>
+</ul>
+<h5 id="build-gensis-image-on-rhel-93">build gensis image on rhel 9.3</h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>/tmp
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>master<span class="w"> </span>https://github.com/xcat2/xcat-core.git
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">cd</span><span class="w"> </span>/tmp/xcat-core/xCAT-genesis-builder
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># chnage the xcat-cmdline.sh, add all drivers</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># before:</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># for line in `cat /lib/modules/$KERVER/modules.dep |grep -vE 'tunnel|ieee|ifb|bond|dummy|fjes|hv_netvsc|ntb_netdev|xen-netfront|hdlc_fr|dlci'| awk -F: '{print \$1}' | sed -e "s/\(.*\)\.ko.*/\1/"`; do</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># after:</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1"># for line in `cat /lib/modules/$KERVER/modules.dep | awk -F: '{print \$1}' | sed -e "s/\(.*\)\.ko.*/\1/"`; do</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>rm<span class="w"> </span>-rf<span class="w"> </span>/root/rpmbuild
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>./buildrpm
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>rpm<span class="w"> </span>-qa<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'xCAT-genesis-base-x86_64'</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>rpm<span class="w"> </span>-e<span class="w"> </span>--nodeps<span class="w"> </span><span class="k">$(</span>rpm<span class="w"> </span>-qa<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'xCAT-genesis-base-x86_64'</span><span class="k">)</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="nb">cd</span><span class="w"> </span>/root/rpmbuild/RPMS/noarch
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>rpm<span class="w"> </span>-ivh<span class="w"> </span>xCAT-genesis-base*.rpm
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="c1"># for missing packages</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>dnf<span class="w"> </span>install<span class="w"> </span>dhclient<span class="w"> </span>rng-tools<span class="w"> </span>device-mapper
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>grep<span class="w"> </span>-irn<span class="w"> </span><span class="s1">'/lib/udev/rules.d/69-dm-lvm*'</span><span class="w"> </span>/tmp/xcat-core/xCAT-genesis-builder/install
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="c1"># replace /lib/udev/rules.d/69-dm-lvm-metad.rules into /lib/udev/rules.d/69-dm-lvm.rules in the /tmp/xcat-core/xCAT-genesis-builder/install</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>mknb<span class="w"> </span>x86_64
+</span></code></pre></div>
+<h3 id="initialize-after-docker-container-start">initialize after docker container start</h3>
+<ul>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/get-started/quick_start.html">Quick Start Guide — xCAT 2.16.4 documentation</a></li>
+</ul>
+<h4 id="basic_1">basic</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># xcat_master_ip is 192.168.89.10</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>chdef<span class="w"> </span>-t<span class="w"> </span>site<span class="w"> </span><span class="nv">domain</span><span class="o">=</span><span class="s2">"polab"</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>chdef<span class="w"> </span>-t<span class="w"> </span>site<span class="w"> </span><span class="nv">master</span><span class="o">=</span><span class="s2">"{xcat_master_ip}"</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>chdef<span class="w"> </span>-t<span class="w"> </span>site<span class="w"> </span><span class="nv">dhcpinterfaces</span><span class="o">=</span><span class="s2">"ens192"</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>chtab<span class="w"> </span><span class="nv">key</span><span class="o">=</span>system<span class="w"> </span>passwd.username<span class="o">=</span>root<span class="w"> </span>passwd.password<span class="o">=</span><span class="sb">`</span>openssl<span class="w"> </span>passwd<span class="w"> </span>-1<span class="w"> </span>abc123<span class="sb">`</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"192.168.89.10 xcatmn xcatmn.polab"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/hosts
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># networks</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>mkdef<span class="w"> </span>-t<span class="w"> </span>network<span class="w"> </span>-o<span class="w"> </span>provision_net<span class="w"> </span><span class="nv">net</span><span class="o">=</span><span class="m">192</span>.168.89.0<span class="w"> </span><span class="nv">mask</span><span class="o">=</span><span class="m">255</span>.255.255.0<span class="w"> </span><span class="nv">gateway</span><span class="o">=</span><span class="m">192</span>.168.89.254<span class="w"> </span><span class="nv">mgtifname</span><span class="o">=</span>ens192<span class="w"> </span><span class="nv">dhcpserver</span><span class="o">=</span><span class="m">192</span>.168.89.10<span class="w"> </span><span class="nv">tftpserver</span><span class="o">=</span><span class="m">192</span>.168.89.10<span class="w"> </span><span class="nv">nameservers</span><span class="o">=</span><span class="m">192</span>.168.89.10<span class="w"> </span><span class="nv">dynamicrange</span><span class="o">=</span><span class="m">192</span>.168.89.30-192.168.89.40<span class="w"> </span><span class="nv">staticrange</span><span class="o">=</span><span class="m">192</span>.168.89.29-192.168.89.29<span class="w"> </span><span class="nv">mtu</span><span class="o">=</span><span class="m">1500</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>tabch<span class="w"> </span>-d<span class="w"> </span><span class="nv">netname</span><span class="o">=</span>172_18_0_0-255_255_0_0<span class="w"> </span>networks<span class="w"> </span><span class="c1"># remove docker related net</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="c1"># node</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>mkdef<span class="w"> </span>-t<span class="w"> </span>node<span class="w"> </span>cn1<span class="w"> </span>--template<span class="w"> </span>x86_64-template<span class="w"> </span><span class="nv">ip</span><span class="o">=</span><span class="m">192</span>.168.89.29<span class="w"> </span><span class="nv">mac</span><span class="o">=</span>3C:EC:EF:6E:FD:F2<span class="w"> </span><span class="nv">bmc</span><span class="o">=</span><span class="m">172</span>.17.43.236<span class="w"> </span><span class="nv">bmcusername</span><span class="o">=</span>aaa<span class="w"> </span><span class="nv">bmcpassword</span><span class="o">=</span>vvv
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="c1"># dns</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>makehosts<span class="w"> </span>cn1<span class="w"> </span><span class="c1"># check the /etc/hosts</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>makedns<span class="w"> </span>-n<span class="w"> </span><span class="c1"># systemctl status named</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="c1"># dhcp</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>makedhcp<span class="w"> </span>-n<span class="w"> </span><span class="c1"># check the /etc/dhcp/dhcpd.conf</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>makedhcp<span class="w"> </span>-a<span class="w"> </span><span class="c1"># check the /var/lib/dhcpd/dhcpd.leases in redhat; /var/lib/dhcp/dhcpd.leases in ubuntu</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="c1"># verity environment is ok for deploying os</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>xcatprobe<span class="w"> </span>xcatmn<span class="w"> </span>-i<span class="w"> </span>ens192
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="c1"># deploy os</span>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>copycds<span class="w"> </span>CentOS-7-x86_64-DVD-2009.iso
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>lsdef<span class="w"> </span>-t<span class="w"> </span>osimage
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>rinstall<span class="w"> </span>cn1<span class="w"> </span><span class="nv">osimage</span><span class="o">=</span>centos-stream8-x86_64-install-compute
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="c1"># check the deploy status</span>
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>xcatprobe<span class="w"> </span>osdeploy<span class="w"> </span>-n<span class="w"> </span>cn1
+</span></code></pre></div>
+<h4 id="use-existed-node-info">use existed node info</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>lsdef -z node22 &gt; predefined.stanzas
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>cat predefined.stanzas | mkdef -z
+</span></code></pre></div>
+<h3 id="networks">networks</h3>
+<ul>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/ppc64le/configure/networks.html?highlight=static%20dhcp">Set attributes in the networks table — xCAT 2.16.4 documentation</a></li>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/common/deployment/network/cfg_network_custom_scripts.html?highlight=staticrange">Use Customized Scripts To Configure NIC — xCAT 2.16.4 documentation</a></li>
+</ul>
+<h4 id="rest-api">rest api</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># run the xcat command xcatconfig to generate a new server certificate based on the correct hostname</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>xcatconfig<span class="w"> </span>-c
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># change the ssl config file</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">sslcfgfile</span><span class="o">=</span>/etc/httpd/conf.d/ssl.conf
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'s/^\(\s*\)SSLCertificateFile.*$/\1SSLCertificateFile \/etc\/xcat\/cert\/server-cred.pem/'</span><span class="w"> </span><span class="nv">$sslcfgfile</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'s/^\(\s*SSLCertificateKeyFile.*\)$/#\1/'</span><span class="w"> </span><span class="nv">$sslcfgfile</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>httpd
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># create the user who can access rest api</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>tabch<span class="w"> </span><span class="nv">key</span><span class="o">=</span>xcat,username<span class="o">=</span>root<span class="w"> </span>passwd.password<span class="o">=</span><span class="sb">`</span>openssl<span class="w"> </span>passwd<span class="w"> </span>-1<span class="w"> </span><span class="m">123456</span><span class="sb">`</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1"># download the xCAT certificate CA from the xCAT http server to authenticate the certificate of the server. </span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="nb">cd</span><span class="w"> </span>/root<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>wget<span class="w"> </span>http://xcatmn.polab/install/postscripts/ca/ca-cert.pem
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="c1"># test</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>--cacert<span class="w"> </span>/root/ca-cert.pem<span class="w"> </span><span class="s1">'https://xcatmn.polab/xcatws/nodes?userName=root&amp;userPW=123456'</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="c1"># token</span>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>--cacert<span class="w"> </span>/etc/pki/tls/certs/localhost.crt<span class="w"> </span>-H<span class="w"> </span>Content-Type:application/json<span class="w"> </span>--data<span class="w"> </span><span class="s1">'{"userName":"root","userPW":"123456"}'</span><span class="w"> </span><span class="s1">'https://xcatmn.polab/xcatws/tokens?pretty=1'</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>--cacert<span class="w"> </span>/etc/pki/tls/certs/localhost.crt<span class="w"> </span>-H<span class="w"> </span>X-Auth-Token:9b4481fd-9eab-4c7d-81fc-064af4420efe<span class="w"> </span><span class="s1">'https://xcatmn.polab/xcatws/nodes'</span>
+</span></code></pre></div>
+<h4 id="httpd">httpd</h4>
+<p>check the <strong>/etc/httpd/conf.d/xcat.conf</strong></p>
+<p>if redhat, it means that local repo 
+- <a href="http://&lt;ip&gt;/install/rhels8.5.0/x86_64/BaseOS/">BaseOS</a>
+- <a href="http://&lt;ip&gt;/install/rhels8.5.0/x86_64/AppStream/">AppStream</a></p>
+<h4 id="remote-console">remote console</h4>
+<ul>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/ppc64le/management/basic/rcons.html">rcons - Remote Console — xCAT 2.16.5 documentation</a></li>
+</ul>
+<h3 id="customized">customized</h3>
+<h4 id="partition">partition</h4>
+<ul>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/ppc64le/diskful/customize_image/cfg_partition.html">Configure Disk Partition — xCAT 2.16.4 documentation</a></li>
+</ul>
+<h4 id="package-list">package list</h4>
+<ul>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/ppc64le/diskless/customize_image/additional_pkg.html">Add Additional Software Packages — xCAT 2.16.5 documentation</a><ul>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/common/deployment/additionalpkg/nonubuntu_os_pkg.html">Install Additional OS Packages for RHEL and SLES — xCAT 2.16.5 documentation</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="log-rotation">log rotation</h4>
+<ul>
+<li><a href="https://www.mail-archive.com/xcat-user@lists.sourceforge.net/msg06758.html">Re: [xcat-user] Change rolling mechanism for xcat logs</a></li>
+</ul>
+<p>/etc/logrotate.d/xcat
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>/var/log/xcat/*.log {
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    daily
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    rotate 3
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    size 1G
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    missingok
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    sharedscripts
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    copytruncate
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>    compress
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    delaycompress
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    postrotate
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>        test -f /var/run/rsyslogd.pid &amp;&amp; kill -HUP `cat /var/run/rsyslogd.pid 2&gt; /dev/null` 2&gt; /dev/null || true
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>        test -f /var/run/syslogd.pid &amp;&amp; kill -HUP `cat /var/run/syslogd.pid 2&gt; /dev/null` 2&gt; /dev/null || true
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>        test -f /var/run/xcat/cmdlogservice.pid &amp;&amp; kill -HUP `cat /var/run/xcat/cmdlogservice.pid 2&gt; /dev/null` 2&gt; /dev/null || true
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>    endscript
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>}
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo logrotate -d /etc/logrotate.d/xcat
+</span></code></pre></div>
+<h3 id="cli">CLI</h3>
+<h4 id="makehosts">makehosts</h4>
+<p>sets up /etc/hosts from the xCAT hosts table.
+<a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/references/man8/makehosts.8.html?highlight=makehosts">makehosts.8 — xCAT 2.16.4 documentation</a></p>
+<h4 id="makedns">makedns</h4>
+<p>By default, makedns sets up the named service and updates the DNS records on the local system (management node).</p>
+<p><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/references/man8/makedns.8.html">makedns.8 — xCAT 2.16.4 documentation</a></p>
+<h4 id="makedhcp">makedhcp</h4>
+<ul>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/ppc64le/discovery/switch_discovery.html#setup-dhcp">Switch-based Discovery — xCAT 2.16.4 documentation</a></li>
+<li>Under the hood<ul>
+<li><a href="https://github.com/xcat2/xcat-core/blob/6c2480fb5ec0b6542ce623b7b8dff672cdacb14e/xCAT-server/lib/xcat/plugins/dhcp.pm#L473">xcat source code about makedhcp node</a><ul>
+<li><a href="https://github.com/xcat2/xcat-core/blob/6c2480fb5ec0b6542ce623b7b8dff672cdacb14e/xCAT-server/lib/xcat/plugins/dhcp.pm#L815">The ip address $ip of node $node overlaps with the DHCP dynamic range specified in networks table, will not add this ip address into dhcpd.leases file.</a></li>
+<li>https://github.com/copilot/share/823b1202-0860-84c2-a143-a00b604e6857</li>
+</ul>
+</li>
+<li><a href="https://github.com/xcat2/xcat-core/issues/6386#issuecomment-518379697">omshell for dhcp</a></li>
+<li><a href="https://mlwmlw.org/2012/03/dhcp-omapi/">DHCP OMAPI – 阿喵就像家</a></li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>cat<span class="w"> </span>/var/lib/dhcpd/dhcpd.leases
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>netstat<span class="w"> </span>-tulpn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">7911</span>
+</span></code></pre></div>
+<h4 id="copycds">copycds</h4>
+<p><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/ppc64le/diskful/copy_image.html">Select or Create an osimage Definition — xCAT 2.16.4 documentation</a>
+copy all contents of Distribution DVDs/ISOs or Service Pack DVDs/ISOs to a destination directory, and create several relevant osimage definitions by default.</p>
+<ul>
+<li><code>&lt;os&gt;-&lt;arch&gt;-install-compute</code> is the default osimage definition used for diskful installation</li>
+<li><code>&lt;os&gt;-&lt;arch&gt;-netboot-compute</code> is the default osimage definition used for diskless installation</li>
+<li><code>&lt;os&gt;-&lt;arch&gt;-install-service</code> is the default osimage definition used for service node deployment which shall be used in hierarchical environment</li>
+</ul>
+<h4 id="rinstall">rinstall</h4>
+<p><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/references/man8/rinstall.8.html?highlight=rinstall">rinstall.8 — xCAT 2.16.4 documentation</a></p>
+<h4 id="noderange">noderange</h4>
+<p><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/references/man3/noderange.3.html?highlight=noderange">noderange.3 — xCAT 2.16.4 documentation</a></p>
+<h4 id="group">group</h4>
+<p><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/basic_concepts/xcat_object/group.html?highlight=group">group — xCAT 2.16.4 documentation</a>
+- static
+    - contain a specific set of cluster nodes.
+- dynamic
+    - determined by specifying a selection criteria for node attributes.
+    - The selection criteria is a list of <strong>attr\&lt;operator&gt;val</strong> pairs that can be used to determine the members of a group</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>lsdef -t group
+</span></code></pre></div>
+<p>:::info
+In a large cluster environment it is recommended to focus on group definitions as much as possible and avoid setting the attribute values in the individual node definition.
+:::</p>
+<p>There are two basic ways to create xCAT static node groups. 
+1. You can either set the groups attribute of the node definition
+2. you can create a group definition directly.</p>
+<p>These two options will result in exactly the same definitions and attribute values being created in the xCAT database.</p>
+<h3 id="diskless">Diskless</h3>
+<ul>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/ppc64le/diskless/index.html">Diskless Installation — xCAT 2.16.5 documentation</a><ul>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/ppc64le/diskless/gen_image.html">Generate Diskless Image — xCAT 2.16.5 documentation</a></li>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/manage_clusters/ppc64le/diskless/deploy_os.html">Initialize the Compute for Deployment — xCAT 2.16.5 documentation</a><ul>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/guides/admin-guides/references/man1/rsetboot.1.html?highlight=rsetboot">rsetboot.1 — xCAT 2.16.5 documentation</a></li>
+<li><a href="https://xcat-docs.readthedocs.io/en/latest/guides/admin-guides/references/man1/genimage.1.html?highlight=rootlimit">genimage.1 — xCAT 2.16.6 documentation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># prepare rhel latest iso and copycds</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>copycds<span class="w"> </span>/tmp/rhel-8.8-x86_64-dvd.iso
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># [optional]customized some behavior for example</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>lsdef<span class="w"> </span>-t<span class="w"> </span>osimage<span class="w"> </span>-o<span class="w"> </span>rhels8.8.0-x86_64-netboot-compute<span class="w"> </span>-i<span class="w"> </span>postinstall
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>chdef<span class="w"> </span>-t<span class="w"> </span>osimage<span class="w"> </span>-o<span class="w"> </span>rhels8.8.0-x86_64-netboot-compute<span class="w"> </span>-p<span class="w"> </span><span class="nv">postinstall</span><span class="o">=</span>/install/custom/postinstall/rh8/mypostscript
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="c1"># [optional]custimized package list</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>lsdef<span class="w"> </span>-t<span class="w"> </span>osimage<span class="w"> </span>-o<span class="w"> </span>rhels8.8.0-x86_64-netboot-compute<span class="w"> </span>-i<span class="w"> </span>pkglist
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>chdef<span class="w"> </span>-t<span class="w"> </span>osimage<span class="w"> </span>rhels8.8.0-x86_64-netboot-compute<span class="w"> </span><span class="nv">pkglist</span><span class="o">=</span>/install/custom/package/rh8/compute.rhels8.x86_64.pkglist
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="c1"># generate a diskless image</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>genimage<span class="w"> </span>rhels8.8.0-x86_64-netboot-compute
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="c1"># After running genimage to create the image, run packimage to create the ramdisk</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>packimage<span class="w"> </span>rhels8.8.0-x86_64-netboot-compute
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="c1"># associate a specific image to a node</span>
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>nodeset<span class="w"> </span>&lt;nodename&gt;<span class="w"> </span><span class="nv">osimage</span><span class="o">=</span>rhels8.8.0-x86_64-netboot-compute
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a><span class="c1"># Start the OS Deployment</span>
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>rsetboot<span class="w"> </span>&lt;nodename&gt;<span class="w"> </span>net<span class="w"> </span>-u
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>rpower<span class="w"> </span>&lt;nodename&gt;<span class="w"> </span>reset
+</span></code></pre></div>
+<p>/install/custom/postinstall/rh8/mypostscript
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>#!/bin/sh
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>installroot=$1
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>osver=$2
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>arch=$3
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>profile=$4
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>workdir=$5
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>echo "167.22.10.1:/opt_shared /opt_shared nfs defaults,x-systemd.automount,x-systemd.requires=network-online.target,x-systemd.mount-timeout=30 0 0" &gt;&gt; $installroot/etc/fstab
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>test -d "$installroot/opt_shared"  &amp;&amp; echo "$installroot/opt_shared exist" ||  mkdir $installroot/opt_shared
+</span></code></pre></div></p>
+<p>default
+/opt/xcat/share/xcat/netboot/rh/compute.rhels8.x86_64.pkglist
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>@minimal-environment
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>chrony
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>kernel
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>net-tools
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>nfs-utils
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>openssh-server
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>rsync
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>tar
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>util-linux
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>wget
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>python3
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>tar
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>bzip2
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>bc
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>dracut
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>dracut-network
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>rsyslog
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>hostname
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>e2fsprogs
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>ethtool
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>parted
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>openssl
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>dhclient
+</span><span id="__span-21-24"><a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>openssh-clients
+</span><span id="__span-21-25"><a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>bash
+</span><span id="__span-21-26"><a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>vim-minimal
+</span><span id="__span-21-27"><a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>rpm
+</span><span id="__span-21-28"><a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a>iputils
+</span><span id="__span-21-29"><a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a>perl-interpreter
+</span></code></pre></div></p>
+<p>customized
+/install/custom/package/rh8/compute.rhels8.x86_64.pkglist
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>@Server with GUI
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>@development
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>@infiniband
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>@performance
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>@scientific
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>@system-tools
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>chrony
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>net-tools
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>nfs-utils
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>openssh-server
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>rsync
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>util-linux
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>wget
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>python3
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>tar
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>bzip2
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>perl-interpreter
+</span></code></pre></div></p>
+<p>/install/custom/compute.rhels8.x86_64.exlist
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>./boot*
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>./usr/lib/locale*
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>./usr/lib64/perl5/Encode/CN*
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>./usr/lib64/perl5/Encode/JP*
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>./usr/lib64/perl5/Encode/TW*
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>./usr/lib64/perl5/Encode/KR*
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>./lib/kbd/keymaps/i386*
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>./lib/kbd/keymaps/mac*
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>./lib/kdb/keymaps/include*
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>./usr/local/include*
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>./usr/local/share/man*
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>./usr/share/man*
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>./usr/share/cracklib*
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>./usr/share/doc*
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>./usr/share/gnome*
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>./usr/share/i18n*
+</span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>+./usr/share/i18n/en_US*
+</span><span id="__span-23-18"><a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a>./usr/share/info*
+</span><span id="__span-23-19"><a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a>./usr/share/locale/*
+</span><span id="__span-23-20"><a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a>+./usr/share/locale/en_US*
+</span><span id="__span-23-21"><a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a>+./usr/share/locale/C*
+</span><span id="__span-23-22"><a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a>+./usr/share/locale/locale.alias
+</span><span id="__span-23-23"><a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a>+./usr/lib/locale/locale-archive
+</span><span id="__span-23-24"><a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a>+./usr/lib/locale/en*
+</span><span id="__span-23-25"><a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a>+./usr/lib/locale/C*
+</span><span id="__span-23-26"><a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a>./usr/share/man*
+</span><span id="__span-23-27"><a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a>./usr/share/omf*
+</span><span id="__span-23-28"><a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a>./usr/share/vim/site/doc*
+</span><span id="__span-23-29"><a id="__codelineno-23-29" name="__codelineno-23-29" href="#__codelineno-23-29"></a>./usr/share/vim/vim74/doc*
+</span><span id="__span-23-30"><a id="__codelineno-23-30" name="__codelineno-23-30" href="#__codelineno-23-30"></a>./var/cache/man*
+</span><span id="__span-23-31"><a id="__codelineno-23-31" name="__codelineno-23-31" href="#__codelineno-23-31"></a>./var/lib/yum*
+</span><span id="__span-23-32"><a id="__codelineno-23-32" name="__codelineno-23-32" href="#__codelineno-23-32"></a>./tmp*
+</span></code></pre></div></p>
+<h4 id="change-the-rootfs-size">Change the rootfs size</h4>
+<ul>
+<li><a href="https://unix.stackexchange.com/questions/205174/what-sets-the-size-of-tmpfs-what-happens-when-its-full">linux - What sets the size of tmpfs? What happens when its full? - Unix &amp; Linux Stack Exchange</a><ul>
+<li>The default is half of your physical RAM without swap</li>
+</ul>
+</li>
+<li><a href="https://xcat-docs.readthedocs.io/en/latest/guides/admin-guides/references/man1/genimage.1.html?highlight=rootlimit">genimage.1 — xCAT 2.16.6 documentation</a></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>genimage rhels8.8.0-x86_64-netboot-compute -l 8g
+</span></code></pre></div>
+<h3 id="offline-installation">Offline installation</h3>
+<p>for redhat 8
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>wget<span class="w"> </span>https://raw.githubusercontent.com/xcat2/xcat-core/master/xCAT-server/share/xcat/tools/go-xcat
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>go-xcat
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>wget<span class="w"> </span>https://xcat.org/files/xcat/xcat-core/2.16.x_Linux/xcat-core/xcat-core-2.16.5-linux.tar.bz2
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>wget<span class="w"> </span>https://xcat.org/files/xcat/xcat-dep/2.x_Linux/xcat-dep-2.16.5-linux.tar.bz2
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>./go-xcat<span class="w"> </span>--yes<span class="w"> </span>--xcat-core<span class="o">=</span>/tmp/xcat-core-2.16.5-linux.tar.bz2<span class="w"> </span>--xcat-dep<span class="o">=</span>/tmp/xcat-dep-2.16.5-linux.tar.bz2<span class="w"> </span>install
+</span></code></pre></div></p>
+<p>for rhel 9.3
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1"># build the CRB and epel offline for rhel 9</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>subscription-manager<span class="w"> </span>identity
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>subscription-manager<span class="w"> </span>unregister
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>subscription-manager<span class="w"> </span>register<span class="w"> </span>--username<span class="w"> </span>foo@bar.com
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>dnf<span class="w"> </span>install<span class="w"> </span>https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm<span class="w"> </span>-y
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/yum.repos.d/crb.repo<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="s">[CRB]</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="s">name=Centos Stream \$releasever - CRB</span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="s">baseurl=https://mirror.stream.centos.org/9-stream/CRB/x86_64/os</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="s">gpgcheck=1</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="s">repo_gpgcheck=0</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="s">metadata_expire=6h</span>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="s">countme=1</span>
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="s">enabled=1</span>
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="s">EOF</span>
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>mkdir<span class="w"> </span>/tmp/xcat-2.17.0_offline_redhat-9
+</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>dnf<span class="w"> </span>download<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/xcat-2.17.0_offline_redhat-9<span class="w"> </span>--resolve<span class="w"> </span>perl-Crypt-CBC
+</span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>dnf<span class="w"> </span>download<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/xcat-2.17.0_offline_redhat-9<span class="w"> </span>--resolve<span class="w"> </span>perl-IO-Tty
+</span><span id="__span-26-19"><a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>dnf<span class="w"> </span>download<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/xcat-2.17.0_offline_redhat-9<span class="w"> </span>--resolve<span class="w"> </span>perl-Expect
+</span><span id="__span-26-20"><a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>dnf<span class="w"> </span>download<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/xcat-2.17.0_offline_redhat-9<span class="w"> </span>--resolve<span class="w"> </span>perl-Crypt-Rijndael
+</span><span id="__span-26-21"><a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>dnf<span class="w"> </span>download<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/xcat-2.17.0_offline_redhat-9<span class="w"> </span>--resolve<span class="w"> </span>perl-Sys-Virt
+</span><span id="__span-26-22"><a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a>dnf<span class="w"> </span>download<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/xcat-2.17.0_offline_redhat-9<span class="w"> </span>--resolve<span class="w"> </span>perl-Crypt-SSLeay
+</span><span id="__span-26-23"><a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a><span class="nb">cd</span><span class="w"> </span>/tmp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>tar<span class="w"> </span>zcvf<span class="w"> </span>xcat-2.17.0_offline_redhat-9.tar.gz<span class="w"> </span>xcat-2.17.0_offline_redhat-9
+</span><span id="__span-26-24"><a id="__codelineno-26-24" name="__codelineno-26-24" href="#__codelineno-26-24"></a>
+</span><span id="__span-26-25"><a id="__codelineno-26-25" name="__codelineno-26-25" href="#__codelineno-26-25"></a>
+</span><span id="__span-26-26"><a id="__codelineno-26-26" name="__codelineno-26-26" href="#__codelineno-26-26"></a><span class="c1"># CRB and epel offline</span>
+</span><span id="__span-26-27"><a id="__codelineno-26-27" name="__codelineno-26-27" href="#__codelineno-26-27"></a>tar<span class="w"> </span>zxvf<span class="w"> </span>xcat-2.17.0_offline_redhat-9.tar.gz
+</span><span id="__span-26-28"><a id="__codelineno-26-28" name="__codelineno-26-28" href="#__codelineno-26-28"></a><span class="c1"># rpm -ivh xcat-2.17.0_offline_redhat-9/*.rpm</span>
+</span><span id="__span-26-29"><a id="__codelineno-26-29" name="__codelineno-26-29" href="#__codelineno-26-29"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>xcat-2.17.0_offline_redhat-9/*.rpm<span class="w"> </span>--allowerasing
+</span><span id="__span-26-30"><a id="__codelineno-26-30" name="__codelineno-26-30" href="#__codelineno-26-30"></a>
+</span><span id="__span-26-31"><a id="__codelineno-26-31" name="__codelineno-26-31" href="#__codelineno-26-31"></a><span class="c1"># rhel 9.3 BaseOS and AppStream offline</span>
+</span><span id="__span-26-32"><a id="__codelineno-26-32" name="__codelineno-26-32" href="#__codelineno-26-32"></a>wget<span class="w"> </span>http://172.19.30.2/ISO/rh/rhel-9.3-x86_64-dvd.iso
+</span><span id="__span-26-33"><a id="__codelineno-26-33" name="__codelineno-26-33" href="#__codelineno-26-33"></a>sudo<span class="w"> </span>mount<span class="w"> </span>-o<span class="w"> </span>loop<span class="w"> </span>rhel-9.3-x86_64-dvd.iso<span class="w"> </span>/mnt
+</span><span id="__span-26-34"><a id="__codelineno-26-34" name="__codelineno-26-34" href="#__codelineno-26-34"></a><span class="nb">shopt</span><span class="w"> </span>-s<span class="w"> </span>dotglob
+</span><span id="__span-26-35"><a id="__codelineno-26-35" name="__codelineno-26-35" href="#__codelineno-26-35"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>/install/rhel-9.3
+</span><span id="__span-26-36"><a id="__codelineno-26-36" name="__codelineno-26-36" href="#__codelineno-26-36"></a>cp<span class="w"> </span>-avRpf<span class="w"> </span>/mnt/*<span class="w"> </span>/install/rhel-9.3/
+</span><span id="__span-26-37"><a id="__codelineno-26-37" name="__codelineno-26-37" href="#__codelineno-26-37"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/yum.repos.d/LocalRhel.repo<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+</span><span id="__span-26-38"><a id="__codelineno-26-38" name="__codelineno-26-38" href="#__codelineno-26-38"></a><span class="s">[BaseOS]</span>
+</span><span id="__span-26-39"><a id="__codelineno-26-39" name="__codelineno-26-39" href="#__codelineno-26-39"></a><span class="s">name=Red Hat Enterprise Linux 9.3 BaseOS</span>
+</span><span id="__span-26-40"><a id="__codelineno-26-40" name="__codelineno-26-40" href="#__codelineno-26-40"></a><span class="s">enabled=1</span>
+</span><span id="__span-26-41"><a id="__codelineno-26-41" name="__codelineno-26-41" href="#__codelineno-26-41"></a><span class="s">gpgcheck=0</span>
+</span><span id="__span-26-42"><a id="__codelineno-26-42" name="__codelineno-26-42" href="#__codelineno-26-42"></a><span class="s">baseurl=file:///install/rhel-9.3/BaseOS</span>
+</span><span id="__span-26-43"><a id="__codelineno-26-43" name="__codelineno-26-43" href="#__codelineno-26-43"></a>
+</span><span id="__span-26-44"><a id="__codelineno-26-44" name="__codelineno-26-44" href="#__codelineno-26-44"></a><span class="s">[AppStream]</span>
+</span><span id="__span-26-45"><a id="__codelineno-26-45" name="__codelineno-26-45" href="#__codelineno-26-45"></a><span class="s">name=Red Hat Enterprise Linux 9.3 AppStream</span>
+</span><span id="__span-26-46"><a id="__codelineno-26-46" name="__codelineno-26-46" href="#__codelineno-26-46"></a><span class="s">enabled=1</span>
+</span><span id="__span-26-47"><a id="__codelineno-26-47" name="__codelineno-26-47" href="#__codelineno-26-47"></a><span class="s">gpgcheck=0</span>
+</span><span id="__span-26-48"><a id="__codelineno-26-48" name="__codelineno-26-48" href="#__codelineno-26-48"></a><span class="s">baseurl=file:///install/rhel-9.3/AppStream</span>
+</span><span id="__span-26-49"><a id="__codelineno-26-49" name="__codelineno-26-49" href="#__codelineno-26-49"></a><span class="s">EOF</span>
+</span><span id="__span-26-50"><a id="__codelineno-26-50" name="__codelineno-26-50" href="#__codelineno-26-50"></a>dnf<span class="w"> </span>clean<span class="w"> </span>all
+</span><span id="__span-26-51"><a id="__codelineno-26-51" name="__codelineno-26-51" href="#__codelineno-26-51"></a>dnf<span class="w"> </span>makecache
+</span><span id="__span-26-52"><a id="__codelineno-26-52" name="__codelineno-26-52" href="#__codelineno-26-52"></a>dnf<span class="w"> </span>repolist
+</span><span id="__span-26-53"><a id="__codelineno-26-53" name="__codelineno-26-53" href="#__codelineno-26-53"></a>dnf<span class="w"> </span>repolist<span class="w"> </span>all
+</span><span id="__span-26-54"><a id="__codelineno-26-54" name="__codelineno-26-54" href="#__codelineno-26-54"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--disable<span class="w"> </span><span class="se">\*</span>
+</span><span id="__span-26-55"><a id="__codelineno-26-55" name="__codelineno-26-55" href="#__codelineno-26-55"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--enable<span class="w"> </span>BaseOS,AppStream
+</span><span id="__span-26-56"><a id="__codelineno-26-56" name="__codelineno-26-56" href="#__codelineno-26-56"></a><span class="c1"># sudo dnf config-manager --disable rhel-9-for-x86_64-baseos-rpms,rhel-9-for-x86_64-appstream-rpms,epel,epel-cisco-openh264,CRB,docker-ce-stable</span>
+</span><span id="__span-26-57"><a id="__codelineno-26-57" name="__codelineno-26-57" href="#__codelineno-26-57"></a>
+</span><span id="__span-26-58"><a id="__codelineno-26-58" name="__codelineno-26-58" href="#__codelineno-26-58"></a>
+</span><span id="__span-26-59"><a id="__codelineno-26-59" name="__codelineno-26-59" href="#__codelineno-26-59"></a><span class="c1"># install</span>
+</span><span id="__span-26-60"><a id="__codelineno-26-60" name="__codelineno-26-60" href="#__codelineno-26-60"></a>wget<span class="w"> </span>https://raw.githubusercontent.com/xcat2/xcat-core/master/xCAT-server/share/xcat/tools/go-xcat<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>go-xcat
+</span><span id="__span-26-61"><a id="__codelineno-26-61" name="__codelineno-26-61" href="#__codelineno-26-61"></a>wget<span class="w"> </span>http://172.19.30.2/archive/xcat/xcat-core-2.17.0-linux.tar.bz2
+</span><span id="__span-26-62"><a id="__codelineno-26-62" name="__codelineno-26-62" href="#__codelineno-26-62"></a>wget<span class="w"> </span>http://172.19.30.2/archive/xcat/xcat-dep-2.17.0-linux.tar.bz2
+</span><span id="__span-26-63"><a id="__codelineno-26-63" name="__codelineno-26-63" href="#__codelineno-26-63"></a>ip<span class="w"> </span>route<span class="w"> </span>del<span class="w"> </span>default
+</span><span id="__span-26-64"><a id="__codelineno-26-64" name="__codelineno-26-64" href="#__codelineno-26-64"></a>ip<span class="w"> </span>route<span class="w"> </span>del<span class="w"> </span>default
+</span><span id="__span-26-65"><a id="__codelineno-26-65" name="__codelineno-26-65" href="#__codelineno-26-65"></a>./go-xcat<span class="w"> </span>-y<span class="w"> </span>--xcat-core<span class="o">=</span>/tmp/xcat-core-2.17.0-linux.tar.bz2<span class="w"> </span>--xcat-dep<span class="o">=</span>/tmp/xcat-dep-2.17.0-linux.tar.bz2<span class="w"> </span>install
+</span></code></pre></div></p>
+<p>for ubuntu
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>wget<span class="w"> </span>https://raw.githubusercontent.com/xcat2/xcat-core/master/xCAT-server/share/xcat/tools/go-xcat
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>go-xcat
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>wget<span class="w"> </span>https://xcat.org/files/xcat/xcat-core/2.16.x_Ubuntu/xcat-core/xcat-core-2.16.5-ubuntu.tar.bz2
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>wget<span class="w"> </span>https://xcat.org/files/xcat/xcat-dep/2.x_Ubuntu/xcat-dep-2.16.5-ubuntu.tar.bz2
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>./go-xcat<span class="w"> </span>--yes<span class="w"> </span>--xcat-core<span class="o">=</span>xcat-core-2.16.5-ubuntu.tar.bz2<span class="w"> </span>--xcat-dep<span class="o">=</span>xcat-dep-2.16.5-ubuntu.tar.bz2<span class="w"> </span>install
+</span></code></pre></div></p>
+<h3 id="support-ubuntu">support ubuntu</h3>
+<ul>
+<li><a href="https://github.com/xcat2/xcat-core/issues/6681#issuecomment-1574655538">Ubuntu 20.04 support · Issue #6681 · xcat2/xcat-core · GitHub</a><ul>
+<li><a href="https://gist.github.com/sjjf/5dfa794b7eb8d8712620c86d2c881518">Sample xCAT Subiquity template · GitHub</a></li>
+<li>https://github.com/xcat2/xcat-core/pull/6975#issuecomment-948732489</li>
+<li>https://github.com/xcat2/xcat-core/pull/6975#issuecomment-996069563</li>
+</ul>
+</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>nodeset<span class="w"> </span>node21<span class="w"> </span><span class="nv">osimage</span><span class="o">=</span>ubuntu22.04.4-x86_64-install-compute
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>rsetboot<span class="w"> </span>node21<span class="w"> </span>net<span class="w"> </span>-u
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>rpower<span class="w"> </span>node21<span class="w"> </span>reset
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>xcatprobe<span class="w"> </span>osdeploy<span class="w"> </span>-n<span class="w">  </span>node21
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>/install/autoinst/node21.pre &gt;&gt; storage
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>/install/autoinst/node21/user-data &gt;&gt; autoinstall
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>/opt/xcat/share/xcat/install/scripts/pre.ubuntu.subiquity
+</span></code></pre></div>
+<h4 id="package-issue-when-provision">package issue when provision</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30806]: INFO  Running in chroot, ignoring command 'start'
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>Apr 18 00:56:18 node21 subiquity_event.2571[2571]: INFO      subiquity/Install/install/configure_apt/cmd-in-target: curtin command in-target
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Get:1 file:/cdrom jammy InRelease
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Ign:1 file:/cdrom jammy InRelease
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Get:2 file:/cdrom jammy Release [1072 B]
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Get:2 file:/cdrom jammy Release [1072 B]
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Get:3 file:/cdrom jammy Release.gpg [833 B]
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Get:3 file:/cdrom jammy Release.gpg [833 B]
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Get:4 file:/cdrom jammy/main amd64 Packages [34.5 kB]
+</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Ign:4 file:/cdrom jammy/main amd64 Packages
+</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Get:5 file:/cdrom jammy/restricted amd64 Packages [648 B]
+</span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Ign:5 file:/cdrom jammy/restricted amd64 Packages
+</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Get:4 file:/cdrom jammy/main amd64 Packages [34.5 kB]
+</span><span id="__span-31-14"><a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Get:5 file:/cdrom jammy/restricted amd64 Packages [648 B]
+</span><span id="__span-31-15"><a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Err:5 file:/cdrom jammy/restricted amd64 Packages
+</span><span id="__span-31-16"><a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO    Hash Sum mismatch
+</span><span id="__span-31-17"><a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO    Hashes of expected file:
+</span><span id="__span-31-18"><a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO     - Filesize:1009 [weak]
+</span><span id="__span-31-19"><a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO     - SHA256:886da05863935c3df41454d5cf3b5c6a54735d16e5b0ac3393803f279501c3df
+</span><span id="__span-31-20"><a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO    Hashes of received file:
+</span><span id="__span-31-21"><a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO     - SHA256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+</span><span id="__span-31-22"><a id="__codelineno-31-22" name="__codelineno-31-22" href="#__codelineno-31-22"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO     - Filesize:0 [weak]
+</span><span id="__span-31-23"><a id="__codelineno-31-23" name="__codelineno-31-23" href="#__codelineno-31-23"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO    Last modification reported: Thu, 18 Apr 2024 02:36:12 +0000
+</span><span id="__span-31-24"><a id="__codelineno-31-24" name="__codelineno-31-24" href="#__codelineno-31-24"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO    Release file created at: Thu, 21 Apr 2022 17:16:08 +0000
+</span><span id="__span-31-25"><a id="__codelineno-31-25" name="__codelineno-31-25" href="#__codelineno-31-25"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Get:6 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+</span><span id="__span-31-26"><a id="__codelineno-31-26" name="__codelineno-31-26" href="#__codelineno-31-26"></a>Apr 18 00:56:18 node21 subiquity_log.2571[30324]: INFO  Hit:7 http://au.archive.ubuntu.com/ubuntu jammy InRelease
+</span><span id="__span-31-27"><a id="__codelineno-31-27" name="__codelineno-31-27" href="#__codelineno-31-27"></a>Apr 18 00:56:19 node21 subiquity_log.2571[30324]: INFO  Get:8 http://au.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+</span><span id="__span-31-28"><a id="__codelineno-31-28" name="__codelineno-31-28" href="#__codelineno-31-28"></a>Apr 18 00:56:19 node21 subiquity_log.2571[30324]: INFO  Get:9 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [1346 kB]
+</span><span id="__span-31-29"><a id="__codelineno-31-29" name="__codelineno-31-29" href="#__codelineno-31-29"></a>Apr 18 00:56:19 node21 systemd-timesyncd[1415]: INFO  Timed out waiting for reply from 172.19.44.245:123 (172.19.44.245).
+</span><span id="__span-31-30"><a id="__codelineno-31-30" name="__codelineno-31-30" href="#__codelineno-31-30"></a>...
+</span><span id="__span-31-31"><a id="__codelineno-31-31" name="__codelineno-31-31" href="#__codelineno-31-31"></a>...
+</span><span id="__span-31-32"><a id="__codelineno-31-32" name="__codelineno-31-32" href="#__codelineno-31-32"></a>...
+</span><span id="__span-31-33"><a id="__codelineno-31-33" name="__codelineno-31-33" href="#__codelineno-31-33"></a>Apr 18 00:56:35 node21 subiquity_log.2571[30324]: INFO  Get:43 http://au.archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [16.2 kB]
+</span><span id="__span-31-34"><a id="__codelineno-31-34" name="__codelineno-31-34" href="#__codelineno-31-34"></a>Apr 18 00:56:35 node21 subiquity_log.2571[30324]: INFO  Get:44 http://au.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [644 B]
+</span><span id="__span-31-35"><a id="__codelineno-31-35" name="__codelineno-31-35" href="#__codelineno-31-35"></a>Apr 18 00:56:35 node21 subiquity_log.2571[30324]: INFO  Get:45 http://au.archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+</span><span id="__span-31-36"><a id="__codelineno-31-36" name="__codelineno-31-36" href="#__codelineno-31-36"></a>Apr 18 00:56:38 node21 subiquity_log.2571[30324]: INFO  Fetched 10.7 MB in 16s (654 kB/s)
+</span><span id="__span-31-37"><a id="__codelineno-31-37" name="__codelineno-31-37" href="#__codelineno-31-37"></a>Apr 18 00:56:38 node21 subiquity_log.2571[30324]: INFO  Reading package lists...
+</span><span id="__span-31-38"><a id="__codelineno-31-38" name="__codelineno-31-38" href="#__codelineno-31-38"></a>Apr 18 00:56:38 node21 subiquity_log.2571[30324]: INFO  E: Failed to fetch store:/cdrom/dists/jammy/restricted/binary-amd64/Packages  Hash Sum mismatch
+</span><span id="__span-31-39"><a id="__codelineno-31-39" name="__codelineno-31-39" href="#__codelineno-31-39"></a>Apr 18 00:56:38 node21 subiquity_log.2571[30324]: INFO     Hashes of expected file:
+</span><span id="__span-31-40"><a id="__codelineno-31-40" name="__codelineno-31-40" href="#__codelineno-31-40"></a>Apr 18 00:56:38 node21 subiquity_log.2571[30324]: INFO      - Filesize:1009 [weak]
+</span><span id="__span-31-41"><a id="__codelineno-31-41" name="__codelineno-31-41" href="#__codelineno-31-41"></a>Apr 18 00:56:38 node21 subiquity_log.2571[30324]: INFO      - SHA256:886da05863935c3df41454d5cf3b5c6a54735d16e5b0ac3393803f279501c3df
+</span><span id="__span-31-42"><a id="__codelineno-31-42" name="__codelineno-31-42" href="#__codelineno-31-42"></a>Apr 18 00:56:38 node21 subiquity_log.2571[30324]: INFO     Hashes of received file:
+</span><span id="__span-31-43"><a id="__codelineno-31-43" name="__codelineno-31-43" href="#__codelineno-31-43"></a>Apr 18 00:56:38 node21 subiquity_log.2571[30324]: INFO      - SHA256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+</span><span id="__span-31-44"><a id="__codelineno-31-44" name="__codelineno-31-44" href="#__codelineno-31-44"></a>Apr 18 00:56:38 node21 subiquity_log.2571[30324]: INFO      - Filesize:0 [weak]
+</span><span id="__span-31-45"><a id="__codelineno-31-45" name="__codelineno-31-45" href="#__codelineno-31-45"></a>Apr 18 00:56:38 node21 subiquity_log.2571[30324]: INFO     Last modification reported: Thu, 18 Apr 2024 02:36:12 +0000
+</span><span id="__span-31-46"><a id="__codelineno-31-46" name="__codelineno-31-46" href="#__codelineno-31-46"></a>Apr 18 00:56:38 node21 subiquity_log.2571[30324]: INFO     Release file created at: Thu, 21 Apr 2022 17:16:08 +0000
+</span><span id="__span-31-47"><a id="__codelineno-31-47" name="__codelineno-31-47" href="#__codelineno-31-47"></a>Apr 18 00:56:38 node21 subiquity_log.2571[30324]: INFO  E: Some index files failed to download. They have been ignored, or old ones used instead.
+</span><span id="__span-31-48"><a id="__codelineno-31-48" name="__codelineno-31-48" href="#__codelineno-31-48"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  Running command ['udevadm', 'settle'] with allowed return codes [0] (capture=False)
+</span><span id="__span-31-49"><a id="__codelineno-31-49" name="__codelineno-31-49" href="#__codelineno-31-49"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  TIMED subp(['udevadm', 'settle']): 0.016
+</span><span id="__span-31-50"><a id="__codelineno-31-50" name="__codelineno-31-50" href="#__codelineno-31-50"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  Running command ['mount', '--make-private', '/tmp/tmp5nkye71l/mount/sys/firmware/efi/efivars'] with allowed return codes [0] (capture=False)
+</span><span id="__span-31-51"><a id="__codelineno-31-51" name="__codelineno-31-51" href="#__codelineno-31-51"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  Running command ['umount', '/tmp/tmp5nkye71l/mount/sys/firmware/efi/efivars'] with allowed return codes [0] (capture=False)
+</span><span id="__span-31-52"><a id="__codelineno-31-52" name="__codelineno-31-52" href="#__codelineno-31-52"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  Running command ['mount', '--make-private', '/tmp/tmp5nkye71l/mount/sys'] with allowed return codes [0] (capture=False)
+</span><span id="__span-31-53"><a id="__codelineno-31-53" name="__codelineno-31-53" href="#__codelineno-31-53"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  Running command ['umount', '/tmp/tmp5nkye71l/mount/sys'] with allowed return codes [0] (capture=False)
+</span><span id="__span-31-54"><a id="__codelineno-31-54" name="__codelineno-31-54" href="#__codelineno-31-54"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  Running command ['mount', '--make-private', '/tmp/tmp5nkye71l/mount/run'] with allowed return codes [0] (capture=False)
+</span><span id="__span-31-55"><a id="__codelineno-31-55" name="__codelineno-31-55" href="#__codelineno-31-55"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  Running command ['umount', '/tmp/tmp5nkye71l/mount/run'] with allowed return codes [0] (capture=False)
+</span><span id="__span-31-56"><a id="__codelineno-31-56" name="__codelineno-31-56" href="#__codelineno-31-56"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  Running command ['mount', '--make-private', '/tmp/tmp5nkye71l/mount/proc'] with allowed return codes [0] (capture=False)
+</span><span id="__span-31-57"><a id="__codelineno-31-57" name="__codelineno-31-57" href="#__codelineno-31-57"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  Running command ['umount', '/tmp/tmp5nkye71l/mount/proc'] with allowed return codes [0] (capture=False)
+</span><span id="__span-31-58"><a id="__codelineno-31-58" name="__codelineno-31-58" href="#__codelineno-31-58"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  Running command ['mount', '--make-private', '/tmp/tmp5nkye71l/mount/dev'] with allowed return codes [0] (capture=False)
+</span><span id="__span-31-59"><a id="__codelineno-31-59" name="__codelineno-31-59" href="#__codelineno-31-59"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  Running command ['umount', '/tmp/tmp5nkye71l/mount/dev'] with allowed return codes [0] (capture=False)
+</span><span id="__span-31-60"><a id="__codelineno-31-60" name="__codelineno-31-60" href="#__codelineno-31-60"></a>Apr 18 00:56:38 node21 subiquity_log.2571[29699]: INFO  finish: cmd-in-target: FAIL: curtin command in-target
+</span><span id="__span-31-61"><a id="__codelineno-31-61" name="__codelineno-31-61" href="#__codelineno-31-61"></a>Apr 18 00:56:38 node21 curtin_event.2571.3[29699]: DEBUG  finish: cmd-in-target: FAIL: curtin command in-target
+</span><span id="__span-31-62"><a id="__codelineno-31-62" name="__codelineno-31-62" href="#__codelineno-31-62"></a>Apr 18 00:56:38 node21 systemd[1]: NOTICE  run-u34.service: Main process exited, code=exited, status=100/n/a
+</span><span id="__span-31-63"><a id="__codelineno-31-63" name="__codelineno-31-63" href="#__codelineno-31-63"></a>Apr 18 00:56:38 node21 systemd[1]: WARNING  run-u34.service: Failed with result 'exit-code'.
+</span><span id="__span-31-64"><a id="__codelineno-31-64" name="__codelineno-31-64" href="#__codelineno-31-64"></a>Apr 18 00:56:38 node21 systemd[1]: INFO  run-u34.service: Consumed 6.250s CPU time.
+</span><span id="__span-31-65"><a id="__codelineno-31-65" name="__codelineno-31-65" href="#__codelineno-31-65"></a>Apr 18 00:56:38 node21 subiquity_event.2571[2571]: INFO    subiquity/Install/install/configure_apt: Command '['systemd-run', '--wait', '--same-dir', '--property', 'SyslogIdentifier=subiquity_log.2571', '--property', 'PrivateMounts=yes', '--setenv', 'PATH=/snap/subiquity/5495/bin:/snap/subiquity/5495/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/subiquity/5495/bin:/snap/subiquity/5495/sbin', '--setenv', 'PYTHONPATH=:/snap/subiquity/5495/lib/python3.10/site-packages', '--setenv', 'PYTHON=/snap/subiquity/5495/usr/bin/python3.10', '--setenv', 'SNAP=/snap/subiquity/5495', '--', '/snap/subiquity/5495/usr/bin/python3.10', '-m', 'curtin', '--showtrace', '-vvv', '--set', 'json:reporting={"subiquity": {"type": "journald", "identifier": "curtin_event.2571.3"}}', 'in-target', '-t', '/tmp/tmp5nkye71l/mount', '--', 'apt-get', 'update']' returned non-zero exit status 100.
+</span><span id="__span-31-66"><a id="__codelineno-31-66" name="__codelineno-31-66" href="#__codelineno-31-66"></a>Apr 18 00:56:38 node21 subiquity_event.2571[2571]: INFO  subiquity/Install/install: Command '['systemd-run', '--wait', '--same-dir', '--property', 'SyslogIdentifier=subiquity_log.2571', '--property', 'PrivateMounts=yes', '--setenv', 'PATH=/snap/subiquity/5495/bin:/snap/subiquity/5495/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/subiquity/5495/bin:/snap/subiquity/5495/sbin', '--setenv', 'PYTHONPATH=:/snap/subiquity/5495/lib/python3.10/site-packages', '--setenv', 'PYTHON=/snap/subiquity/5495/usr/bin/python3.10', '--setenv', 'SNAP=/snap/subiquity/5495', '--', '/snap/subiquity/5495/usr/bin/python3.10', '-m', 'curtin', '--showtrace', '-vvv', '--set', 'json:reporting={"subiquity": {"type": "journald", "identifier": "curtin_event.2571.3"}}', 'in-target', '-t', '/tmp/tmp5nkye71l/mount', '--', 'apt-get', 'update']' returned non-zero exit status 100.
+</span><span id="__span-31-67"><a id="__codelineno-31-67" name="__codelineno-31-67" href="#__codelineno-31-67"></a>Apr 18 00:56:38 node21 subiquity_event.2571[2571]: INFO    subiquity/ErrorReporter/1713426998.094931126.install_fail/add_info
+</span><span id="__span-31-68"><a id="__codelineno-31-68" name="__codelineno-31-68" href="#__codelineno-31-68"></a>Apr 18 00:56:39 node21 subiquity_event.2571[2571]: INFO      subiquity/Install/install/configure_apt/cmd-in-target: curtin command in-target
+</span><span id="__span-31-69"><a id="__codelineno-31-69" name="__codelineno-31-69" href="#__codelineno-31-69"></a>Apr 18 00:56:39 node21 subiquity_event.2571[2571]: INFO    subiquity/ErrorReporter/1713426998.094931126.install_fail/add_info: written to /var/crash/1713426998.094931126.install_fail.crash
+</span><span id="__span-31-70"><a id="__codelineno-31-70" name="__codelineno-31-70" href="#__codelineno-31-70"></a>Apr 18 00:56:39 node21 subiquity_event.2571[2571]: INFO  subiquity/Error/run
+</span><span id="__span-31-71"><a id="__codelineno-31-71" name="__codelineno-31-71" href="#__codelineno-31-71"></a>Apr 18 00:56:39 node21 subiquity_event.2571[2571]: INFO    subiquity/Error/run/run
+</span><span id="__span-31-72"><a id="__codelineno-31-72" name="__codelineno-31-72" href="#__codelineno-31-72"></a>Apr 18 00:56:39 node21 subiquity_event.2571[2571]: INFO      subiquity/Error/run/run/command_0: tar -c --transform='s/^/node21-logs\//' /var/crash /var/logs/installer |nc -l 8080
+</span><span id="__span-31-73"><a id="__codelineno-31-73" name="__codelineno-31-73" href="#__codelineno-31-73"></a>Apr 18 00:56:39 node21 subiquity_echo.2571[2571]: INFO    running tar -c --transform='s/^/node21-logs\//' /var/crash /var/logs/installer |nc -l 8080
+</span><span id="__span-31-74"><a id="__codelineno-31-74" name="__codelineno-31-74" href="#__codelineno-31-74"></a>Apr 18 00:56:39 node21 subiquity_echo.2571[56000]: INFO  tar: Removing leading `/' from member names
+</span><span id="__span-31-75"><a id="__codelineno-31-75" name="__codelineno-31-75" href="#__codelineno-31-75"></a>Apr 18 00:56:39 node21 subiquity_echo.2571[56000]: INFO  tar: Removing leading `/' from hard link targets
+</span></code></pre></div>
+<p>failure provision
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>[root@orch-xcat ubuntu22.04.4]# ls -la /install/ubuntu22.04.4/x86_64/dists/jammy/restricted/binary-amd64/
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>total 4
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>dr-xr-xr-x 2 root root  41 Apr 17 19:36 .
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>dr-xr-xr-x 5 root root  59 Feb 16 15:51 ..
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>-rw-r--r-- 1 root root   0 Apr 17 19:36 Packages
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>-r--r--r-- 1 root root 648 Feb 16 15:52 Packages.gz
+</span></code></pre></div></p>
+<p>success provision
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>[root@orch-xcat ubuntu22.04.4]# ls -la /install/ubuntu22.04.4/x86_64/dists/jammy/restricted/binary-amd64/
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>total 8
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>dr-xr-xr-x 2 root root   41 Apr 18 02:52 .
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>dr-xr-xr-x 5 root root   59 Feb 16 15:51 ..
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>-r--r--r-- 1 root root 1009 Apr 18 02:52 Packages
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>-r--r--r-- 1 root root  648 Feb 16 15:52 Packages.gz
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>[root@orch-xcat ~]# chdef -t node -o node22 kcmdline="modprobe.blacklist=nvidiafb"
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>[root@orch-xcat ~]# chdef -t node -o node22 installnic="mac"
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>[root@orch-xcat ~]# lsdef -t node node21
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>Object name: node21
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>    arch=x86_64
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>    bmc=172.19.47.21
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>    bmcpassword=Super123
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>    bmcusername=SMCI
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>    cons=ipmi
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>    currchain=boot
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>    currstate=install ubuntu22.04.4-x86_64-compute
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>    getmac=ipmi
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>    groups=all
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>    installnic=mac
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>    ip=172.19.48.21
+</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>    kcmdline=modprobe.blacklist=nvidiafb
+</span><span id="__span-35-15"><a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>    mac=3c:ec:ef:6e:ff:42
+</span><span id="__span-35-16"><a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a>    mgt=ipmi
+</span><span id="__span-35-17"><a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a>    netboot=xnba
+</span><span id="__span-35-18"><a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a>    os=ubuntu22.04.4
+</span><span id="__span-35-19"><a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a>    postbootscripts=otherpkgs
+</span><span id="__span-35-20"><a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a>    postscripts=syslog,remoteshell,syncfiles
+</span><span id="__span-35-21"><a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a>    profile=compute
+</span><span id="__span-35-22"><a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a>    provmethod=ubuntu22.04.4-x86_64-install-compute
+</span><span id="__span-35-23"><a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a>    serialport=0
+</span><span id="__span-35-24"><a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a>    serialspeed=115200
+</span><span id="__span-35-25"><a id="__codelineno-35-25" name="__codelineno-35-25" href="#__codelineno-35-25"></a>    status=booting
+</span><span id="__span-35-26"><a id="__codelineno-35-26" name="__codelineno-35-26" href="#__codelineno-35-26"></a>    statustime=04-18-2024 03:01:45
+</span><span id="__span-35-27"><a id="__codelineno-35-27" name="__codelineno-35-27" href="#__codelineno-35-27"></a>    usercomment=the system X node definition
+</span><span id="__span-35-28"><a id="__codelineno-35-28" name="__codelineno-35-28" href="#__codelineno-35-28"></a>    xcatmaster=172.19.48.10
+</span></code></pre></div>
+<h4 id="ssh-issue-after-provision">ssh issue after provision</h4>
+<ul>
+<li><a href="https://repost.aws/zh-Hant/questions/QUIjxmROq0RayKohCYjn_MCw/unable-to-connect-after-ubuntu-upgrade">Unable to connect after Ubuntu upgrade | AWS re:Post</a><ul>
+<li><a href="https://bugzilla.mindrot.org/show_bug.cgi?id=3410">3410 – Since 8.9p1 MaxStartups &gt;=1024, in sshd_config, causes "error: ppoll: Invalid argument"</a>
+comment the <code>MaxStartups 1024</code> in /etc/ssh/sshd_config</li>
+</ul>
+</li>
+</ul>
+<h4 id="retrying-flag-update">Retrying flag update</h4>
+<ul>
+<li>https://github.com/xcat2/xcat-core/issues/7147#issuecomment-1107274460</li>
+</ul>
+<h3 id="install-xcat-in-docker">install xcat in docker</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>docker run --rm -it -v /sys/fs/cgroup:/sys/fs/cgroup:rw --tmpfs /run --tmpfs /run/lock --name xcat-on-ubuntu xcat-on-docker-ubuntu /lib/systemd/systemd
+</span></code></pre></div>
+<p>https://serverfault.com/questions/1053187/systemd-fails-to-run-in-a-docker-container-when-using-cgroupv2-cgroupns-priva
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>docker run --rm -it --tmpfs /run --tmpfs /run/lock --privileged --name xcat-on-ubuntu xcat-on-docker-ubuntu /lib/systemd/systemd
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>docker run --rm -it --privileged --name xcat-on-ubuntu xcat-on-docker-ubuntu /lib/systemd/systemd
+</span></code></pre></div></p>
+<h3 id="pxe-boot">pxe boot</h3>
+<p>-<a href="https://chatgpt.com/share/a734bf5b-4a85-4ca9-b22c-41ce36764fcd">/tftpboot/xcat/xnba/nets/172.19.50.0_24.uefi</a>
+- <a href="https://tobygao.github.io/Learning-Lounge/2019/05/05/tftp-server.html">TFTP - Learning Lounge</a>
+- <a href="https://github.com/xcat2/xcat-core/blob/c8cb1d6a38f9dc204313ff7b12b055f03ca233e6/xCAT-server/lib/xcat/plugins/AAsn.pm#L1467C31-L1467C39">start command</a>
+    - <a href="https://linux.die.net/man/8/in.tftpd">in.tftpd(8) - Linux man page</a></p>
+<p>ps aux |grep tftp
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>root        1406  0.0  0.0   4940   640 ?        Ss   Jul24   0:00 /usr/sbin/in.tftpd -v -l -s /tftpboot -m /etc/tftpmapfile4xcat.conf
+</span></code></pre></div></p>
+<h3 id="debug">debug</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a># bypass the certificate check
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>XCATBYPASS=1 lsdef -t node
+</span></code></pre></div>
+<h4 id="ssl">SSL</h4>
+<ul>
+<li><a href="https://xcat-docs.readthedocs.io/en/latest/advanced/security/certs.html">The SSL Certificates in xCAT — xCAT 2.17.0 documentation</a></li>
+<li><a href="https://xcat-docs.readthedocs.io/en/stable/advanced/security/ssl_config.html">OpenSSL Configuration — xCAT 2.17.0 documentation</a></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>Unable to open socket connection to xcatd daemon on localhost:3001.
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>Verify that the xcatd daemon is running and that your SSL setup is correct.
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>Connection failure:  at /opt/xcat/lib/perl/xCAT/Client.pm line 282.
+</span></code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../shell%20script/" class="md-footer__link md-footer__link--prev" aria-label="Previous: shell script">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                shell script
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-footer__link md-footer__link--next" aria-label="Next: 使用者體驗">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                使用者體驗
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

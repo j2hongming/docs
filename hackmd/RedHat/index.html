@@ -1,0 +1,4676 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../QEMU-KVM/">
+      
+      
+        <link rel="next" href="../Redfish/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>RedHat - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#redhat" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RedHat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome the docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hackmd
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hackmd
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ansible Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ansys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CKA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CKA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data%20Center%20Network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Center Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DynamoDB Deep Dive Advence Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GRUB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google docs api
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HYCOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InfiniBand
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM%20to%20Agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM to Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux技巧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux觀念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Makefile
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Message Passing Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NVIDIA%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NVIDIA Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NVIDIA%20UFM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NVIDIA UFM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nagios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nexus Repository Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift%20RDMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenShift RDMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenShift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenVPN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenVPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Openstack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proxmox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxmox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QEMU-KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QEMU-KVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RedHat
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RedHat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Training
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ebook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#red-hat-api-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Red Hat API Tokens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-an-iso-image-using-curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Downloading an ISO image using curl
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#red-hat-subscription-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Red Hat Subscription Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rpm-software-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPM Software Packages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RPM Software Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manage-software-packages-with-dnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manage Software Packages with DNF
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manage Software Packages with DNF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#groups-of-software-with-dnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Groups of Software with DNF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baseos-and-application-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BaseOS and Application Stream
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dnf-software-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNF Software Repositories
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kickstart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kickstart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kickstart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raid-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAID + LVM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RAID + LVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sample 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sample 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        yum
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="yum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#offline-install-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        offline install package
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="offline install package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ISO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-the-local-repo-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on the local repo node
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-the-target-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on the target node
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reposync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reposync
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="reposync">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-the-node-which-can-access-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on the node which can access internet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-the-target-node_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on the target node
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specific-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        specific package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infiniband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infiniband
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chrome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        chrome
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chrome">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        with internet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#without-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        without internet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rescue-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rescue mode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="rescue mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customized-case-var-partition-are-exploded-due-to-keycloak-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        customized case - /var partition are exploded due to keycloak log
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="customized case - /var partition are exploded due to keycloak log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xfs_repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xfs_repair
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-modified-red-hat-enterprise-linux-iso-with-kickstart-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a modified Red Hat Enterprise Linux ISO with kickstart file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redhat-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redhat Certificate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#red-hat-enterprise-linux-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Red Hat Enterprise Linux AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redfish
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SUSE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SVN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scrum筆記
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Singularity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slurm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ubuntu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    bitwise world
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cloud-init
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    container
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ffmpeg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Influxdb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    javascript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../n8n/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    n8n
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pacemaker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    podman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    prometheus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    python web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    shell script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat%28Confluent%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    xcat(Confluent)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用者體驗
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    備份還原
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    單元測試的藝術
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    奇技淫巧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    持續整合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    排列組合與機率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    效能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    機器學習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    正規表示法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    測試工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    無線網路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物件導向實務
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物件導向系統分析與設計
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    硬體概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    程式本質
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    系統的價值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    統計圖表的表達方式以及使用的範圍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    虛擬機器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    資料庫維運
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    資料模型(Data Modeling)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    資訊安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    軟體工程師的專業和通識
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    軟體需求溝通
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Training
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ebook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#red-hat-api-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Red Hat API Tokens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#downloading-an-iso-image-using-curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Downloading an ISO image using curl
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#red-hat-subscription-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Red Hat Subscription Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rpm-software-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPM Software Packages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RPM Software Packages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manage-software-packages-with-dnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manage Software Packages with DNF
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manage Software Packages with DNF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#groups-of-software-with-dnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Groups of Software with DNF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baseos-and-application-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BaseOS and Application Stream
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dnf-software-repositories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DNF Software Repositories
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kickstart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kickstart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kickstart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raid-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RAID + LVM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RAID + LVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sample 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sample 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        yum
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="yum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#offline-install-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        offline install package
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="offline install package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ISO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-the-local-repo-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on the local repo node
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-the-target-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on the target node
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reposync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reposync
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="reposync">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-the-node-which-can-access-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on the node which can access internet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-the-target-node_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        on the target node
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specific-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        specific package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infiniband" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infiniband
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chrome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        chrome
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chrome">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        with internet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#without-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        without internet
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rescue-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rescue mode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="rescue mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customized-case-var-partition-are-exploded-due-to-keycloak-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        customized case - /var partition are exploded due to keycloak log
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="customized case - /var partition are exploded due to keycloak log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xfs_repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        xfs_repair
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-modified-red-hat-enterprise-linux-iso-with-kickstart-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a modified Red Hat Enterprise Linux ISO with kickstart file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redhat-certificate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redhat Certificate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#red-hat-enterprise-linux-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Red Hat Enterprise Linux AI
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Welcome the docs
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../API/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Hackmd
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="redhat">RedHat</h1>
+<ul>
+<li><a href="https://developers.redhat.com/blog/2020/03/24/red-hat-universal-base-images-for-docker-users#introducing_red_hat_universal_base_images">Red Hat Universal Base Images for Docker users | Red Hat Developer</a></li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_8_installation/downloading-beta-installation-images_installing-rhel#downloading-an-iso-image-with-curl_downloading-beta-installation-images">Chapter 3. Downloading a RHEL installation ISO image Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204">Product Life Cycles | Red Hat Customer Portal</a><ul>
+<li><a href="https://access.redhat.com/solutions/104063">Understanding the various RHEL .iso files - Red Hat Customer Portal</a></li>
+</ul>
+</li>
+<li><a href="https://developers.redhat.com/products/rhel/getting-started">Red Hat Enterprise Linux Getting Started | Red Hat Developer</a></li>
+<li><a href="https://developers.redhat.com/articles/2022/03/10/modular-perl-red-hat-enterprise-linux-8#">Modular Perl in Red Hat Enterprise Linux 8 | Red Hat Developer</a></li>
+<li>desktop gui<ul>
+<li><a href="https://access.redhat.com/solutions/4479561">How to Install GUI on RHEL 8? - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/discussions/5625271">RHEL 8 not booting into GUI mode - Red Hat Customer Portal</a></li>
+</ul>
+</li>
+<li>os start<ul>
+<li><a href="https://access.redhat.com/solutions/3919831">Failed to start Switch Root in RHEL 8 - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/5542661">System fails to boot printing "systemd[1]: Freezing execution" after applying security patches on RHEL 8.2 or upgrading to RHEL 8.3 - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/discussions/5090081">RHEL 8.2 Boot Failing - Red Hat Customer Portal</a><ul>
+<li>Using rescue mode<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_8_installation/troubleshooting-after-installation_installing-rhel#using-rescue-mode_troubleshooting-after-installation">Appendix G. Troubleshooting Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/770703">How to boot a system into rescue mode - Red Hat Customer Portal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>partition<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/system_design_guide/partitioning-reference_system-design-guide#doc-wrapper">Appendix E. Partitioning reference Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/3996201">Can /boot/efi be formatted using a filesystem type other than VFAT? - Red Hat Customer Portal</a></li>
+</ul>
+</li>
+<li>htop<ul>
+<li><a href="https://linuxconfig.org/redhat-8-epel-install-guide">How To enable the EPEL Repository on RHEL 8 / CentOS 8 Linux - Linux Tutorials - Learn Linux Configuration</a></li>
+<li>sudo yum install htop</li>
+</ul>
+</li>
+<li><a href="https://access.redhat.com/sites/default/files/attachments/20150325_network_performance_tuning.pdf">20150325_network_performance_tuning.pdf</a></li>
+<li>subscriptions<ul>
+<li><a href="https://developers.redhat.com/blog/2021/02/10/how-to-activate-your-no-cost-red-hat-enterprise-linux-subscription#about_your_no_cost_rhel_subscription">Free Red Hat Enterprise Linux subscription | Red Hat Developer</a></li>
+<li><a href="https://access.redhat.com/articles/simple-content-access">Simple Content Access - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/253273">How to register and subscribe a RHEL system to the Red Hat Customer Portal using Red Hat Subscription-Manager? - Red Hat Customer Portal</a></li>
+<li><a href="https://blog.clarence.tw/2022/01/30/red-hat-update-failed-this-system-is-registered-to-red-hat-subscription-management-but-is-not-receiving-updates-you-can-use-subscription-manager-to-assign-subscriptions-solution/">Red Hat 更新出現 This system is registered to Red Hat Subscription Management, but is not receiving updates. You can use subscription-manager to assign subscriptions. 解決方法 - Clarence</a></li>
+<li><a href="https://access.redhat.com/sites/default/files/attachments/rh_sm_command_cheatsheet_1214_jcs_print.pdf">SUBSCRIPTION-MANAGER COMMAND CHEAT SHEET</a></li>
+<li><a href="https://access.redhat.com/solutions/3121571">How to register and subscribe a system offline to the Red Hat Customer Portal? - Red Hat Customer Portal</a></li>
+<li>renew<ul>
+<li><a href="https://access.redhat.com/discussions/4957691">Red Hat Developer Subscription : Renewal - Best Practice - Red Hat Customer Portal</a><ul>
+<li><a href="https://access.redhat.com/management/subscriptions">Subscription page</a></li>
+</ul>
+</li>
+<li><a href="https://developers.redhat.com/articles/renew-your-red-hat-developer-program-subscription#how_to_renew_your_red_hat_developer_for_individual_subscription">How to renew your Red Hat Developer Subscription for Individuals | Red Hat Developer</a></li>
+<li><a href="https://developers.redhat.com/articles/faqs-no-cost-red-hat-enterprise-linux?extIdCarryOver=true&amp;sc_cid=701f2000001Css5AAC#general">No-cost Red Hat Enterprise Linux Individual Developer Subscription: FAQs | Red Hat Developer</a><ul>
+<li>login into https://developers.redhat.com/ if renew is not allowed</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>auto upgrade kernel<ul>
+<li><a href="https://access.redhat.com/articles/3078">Red Hat Enterprise Linux Release Dates - Red Hat Customer Portal</a></li>
+<li><a href="https://www.redhat.com/en/blog/how-update-red-hat-enterprise-linux-tvia-minor-releases-and-extended-update-support">How to update Red Hat Enterprise Linux via minor releases and Extended Update Support</a></li>
+<li><a href="https://access.redhat.com/solutions/10185">How do I exclude kernel or other packages from getting updated in Red Hat Enterprise Linux while updating system via yum? - Red Hat Customer Portal</a><ul>
+<li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1891603">1891603 – dnf system upgrade error: kernel-srpm-macros-1.0-3.fc33 not allowing redhat-rpm-config install</a></li>
+</ul>
+</li>
+<li><a href="https://access.redhat.com/discussions/6535851#comment-2243441">Prevent Kernel Upgrades - Red Hat Customer Portal</a><ul>
+<li><a href="https://access.redhat.com/solutions/98873">Restricting a Package to a Fixed Version Number with yum - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/238533?band=se&amp;seSessionId=c7bb0e36-b6de-44fc-af47-8b1e837cc2bc&amp;seSource=Recommendation%20Aside&amp;seResourceOriginID=">How to tie a system to a specific update of Red Hat Enterprise Linux? - Red Hat Customer Portal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>downgrade kernel<ul>
+<li><a href="https://access.redhat.com/solutions/29617">How to use yum/dnf to downgrade or rollback some package updates? - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-software-packages_configuring-basic-system-settings#handling-package-management-history_managing-software-packages">Chapter 7. Managing software packages Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></li>
+</ul>
+</li>
+<li>GRUB<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/assembly_making-persistent-changes-to-the-grub-boot-loader_managing-monitoring-and-updating-the-kernel">Chapter 7. Making persistent changes to the GRUB boot loader Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></li>
+</ul>
+</li>
+<li>Rescue mode<ul>
+<li><a href="https://access.redhat.com/solutions/770703">How to boot a system into rescue mode - Red Hat Customer Portal</a></li>
+<li><a href="https://www.thegeekdiary.com/how-to-boot-into-rescue-mode-or-emergency-mode-through-systemd-in-centos-rhel-7-and-8/">How to Boot into Rescue Mode or Emergency Mode Through Systemd in CentOS/RHEL 7 and 8 – The Geek Diary</a></li>
+</ul>
+</li>
+<li>NFS<ul>
+<li><a href="https://access.redhat.com/solutions/6992928">nfsd: too many open connections, consider increasing the number of threads - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/2216">How to increase the number of threads created by the NFS daemon in RHEL 4, 5, 6, 7 and 8? - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/33108">When nfs server is stopped how long does the client retry ? - Red Hat Customer Portal</a></li>
+<li>firewall<ul>
+<li><a href="https://access.redhat.com/documentation/zh-tw/red_hat_enterprise_linux/8/html/deploying_different_types_of_servers/exporting-nfs-shares_deploying-different-types-of-servers#assembly_configuring-the-nfs-server-to-run-behind-a-firewall_exporting-nfs-shares">Configuring the NFS server to run behind a firewall</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>High Availablity<ul>
+<li><a href="https://access.redhat.com/documentation/zh-tw/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/assembly_getting-started-with-pacemaker-configuring-and-managing-high-availability-clusters#doc-wrapper">Chapter 2. Getting started with Pacemaker Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></li>
+<li><a href="https://learn.microsoft.com/zh-tw/azure/sap/workloads/high-availability-guide-rhel-pacemaker?tabs=msi">在 Azure 中的 RHEL 上設定 Pacemaker | Microsoft Learn</a></li>
+</ul>
+</li>
+<li>hostname<ul>
+<li><a href="https://www.redhat.com/sysadmin/configure-hostname-linux">How to configure a hostname on a Linux system | Enable Sysadmin</a></li>
+</ul>
+</li>
+<li>perl<ul>
+<li><a href="https://developers.redhat.com/articles/2022/03/10/modular-perl-red-hat-enterprise-linux-8#">Modular Perl in Red Hat Enterprise Linux 8 | Red Hat Developer</a></li>
+</ul>
+</li>
+<li>password<ul>
+<li><a href="https://access.redhat.com/articles/1519843">bcrypt support for passwords in /etc/shadow - Red Hat Customer Portal</a></li>
+</ul>
+</li>
+<li>log<ul>
+<li><a href="https://access.redhat.com/solutions/696893">How to enable persistent logging for the systemd journal - Red Hat Customer Portal</a></li>
+<li><a href="https://www.redhat.com/sysadmin/store-linux-system-journals">How to configure your system to preserve system logs after a reboot | Enable Sysadmin</a></li>
+</ul>
+</li>
+<li>UBI<ul>
+<li><a href="https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image">Introducing the Red Hat Universal Base Image</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="training">Training</h2>
+<ul>
+<li><a href="/jjwU7H86RTC6GFxf0OApgQ">Red Hat System Administration 1 (RH124) v9</a></li>
+<li><a href="/HuppWIm6TuWZrgnviW_fKg">Red Hat System Administration 2-1 (RH124) v9</a></li>
+<li><a href="/pVwl1c8SS-2pUjGehv4QJA">Red Hat System Administration 2-2 (RH124) v9</a></li>
+</ul>
+<h2 id="ebook">Ebook</h2>
+<ul>
+<li><a href="https://developers.redhat.com/e-books">Red Hat Developer e-books | Red Hat Developer</a><ul>
+<li><a href="https://developers.redhat.com/e-books/ansible-study-guide">Red Hat Certified Engineer (RHCE) Ansible Automation Study Guide | Red Hat Developer</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="red-hat-api-tokens">Red Hat API Tokens</h2>
+<p>https://access.redhat.com/management/api
+eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhZDUyMjdhMy1iY2ZkLTRjZjAtYTdiNi0zOTk4MzVhMDg1NjYifQ.eyJpYXQiOjE2ODExODQxNjcsImp0aSI6IjliODk0MGE4LWY5MTItNGEwOC1hYzJjLTZkNGQyN2YzNWJiMSIsImlzcyI6Imh0dHBzOi8vc3NvLnJlZGhhdC5jb20vYXV0aC9yZWFsbXMvcmVkaGF0LWV4dGVybmFsIiwiYXVkIjoiaHR0cHM6Ly9zc28ucmVkaGF0LmNvbS9hdXRoL3JlYWxtcy9yZWRoYXQtZXh0ZXJuYWwiLCJzdWIiOiJmOjUyOGQ3NmZmLWY3MDgtNDNlZC04Y2Q1LWZlMTZmNGZlMGNlNjp0ZWRjaGFuZ2NoaWVuQHN1cGVybWljcm8uY29tLnR3IiwidHlwIjoiT2ZmbGluZSIsImF6cCI6InJoc20tYXBpIiwic2Vzc2lvbl9zdGF0ZSI6ImI3MGNhMjMxLThhZjctNDg2Yi1hNzczLWI4MTYwYzIwZThiMyIsInNjb3BlIjoib2ZmbGluZV9hY2Nlc3MiLCJzaWQiOiJiNzBjYTIzMS04YWY3LTQ4NmItYTc3My1iODE2MGMyMGU4YjMifQ.t55UUlk1dIzEZ8I6fFqBuLJxpQH3iNwv1oPpH6k8BHA</p>
+<h2 id="downloading-an-iso-image-using-curl">Downloading an ISO image using curl</h2>
+<ul>
+<li>https://web.archive.org/web/20240422004454/https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_8_installation/downloading-beta-installation-images_installing-rhel#downloading-an-iso-image-with-curl_downloading-beta-installation-images<ul>
+<li>You have an offline token generated from <a href="https://access.redhat.com/management/api">Red Hat API Tokens</a>.</li>
+<li>You have a checksum of the file you want to download from <a href="https://access.redhat.com/downloads/">Product Downloads</a>. 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># set the offline token and checksum parameters</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">offline_token</span><span class="o">=</span><span class="s2">"&lt;offline_token&gt;"</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nv">checksum</span><span class="o">=</span>&lt;checksum&gt;
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># get an access token</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nv">access_token</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token<span class="w"> </span>-d<span class="w"> </span><span class="nv">grant_type</span><span class="o">=</span>refresh_token<span class="w"> </span>-d<span class="w"> </span><span class="nv">client_id</span><span class="o">=</span>rhsm-api<span class="w"> </span>-d<span class="w"> </span><span class="nv">refresh_token</span><span class="o">=</span><span class="nv">$offline_token</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.access_token'</span><span class="k">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># get the filename and download url</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nv">image</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$access_token</span><span class="s2">"</span><span class="w"> </span><span class="s2">"https://api.access.redhat.com/management/v1/images/</span><span class="nv">$checksum</span><span class="s2">/download"</span><span class="k">)</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">filename</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$image</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span>.body.filename<span class="k">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nv">url</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$image</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span>.body.href<span class="k">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># download the file</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>curl<span class="w"> </span><span class="nv">$url</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$filename</span>
+</span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="red-hat-subscription-management">Red Hat Subscription Management</h2>
+<ul>
+<li><a href="https://access.redhat.com/solutions/3121571">How to register and subscribe a system offline to the Red Hat Customer Portal? - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/7080864">Why subscription-manager is showing Overall Status: Disabled? - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/articles/simple-content-access">Simple Content Access - Red Hat Customer Portal</a><ul>
+<li><a href="https://access.redhat.com/solutions/7065718">How to register and subscribe a system offline to the Red Hat Customer Portal? - Red Hat Customer Portal</a></li>
+</ul>
+</li>
+</ul>
+<p>Register a system by using the credentials of the Red Hat Customer Portal as the root user
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[root@host ~]# subscription-manager register --username &lt;yourusername&gt;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Registering to: subscription.rhsm.redhat.com:443/subscription
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Password: yourpassword
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>The system has been registered with ID: 1457f7e9-f37e-4e93-960a-c94fe08e1b4f
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>The registered system name is: host.example.com
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[root@host ~]# subscription-manager register --username foo@bar.com --password foobar --auto-attach
+</span></code></pre></div>
+<p>View available subscriptions for your Red Hat account
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[root@host ~]# subscription-manager list --available
+</span></code></pre></div></p>
+<p>Auto-attach a subscription
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[root@host ~]# subscription-manager attach --auto
+</span></code></pre></div></p>
+<p>Alternatively, attach a subscription from a specific pool from the list of available subscriptions
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[root@host ~]# subscription-manager attach --pool=poolID
+</span></code></pre></div></p>
+<p>View consumed subscriptions
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[root@host ~]# subscription-manager list --consumed
+</span></code></pre></div></p>
+<p>did this system get properly registered?
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>subscription-manager identity
+</span></code></pre></div></p>
+<p>Unregister a system
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[root@host ~]# subscription-manager unregister
+</span></code></pre></div></p>
+<h2 id="rpm-software-packages">RPM Software Packages</h2>
+<p>RPM package file names consist of four elements (plus the .rpm suffix): name-version-release.architecture</p>
+<p>ARCH is the processor architecture that the package is compiled to run on. The x86_64 value indicates that this package is built for the 64-bit version of the x86 instruction set (as opposed to aarch64 for 64-bit ARM, and so on).</p>
+<p>RPM packages are often downloaded from repositories. 
+- A repository is a central location for storing and maintaining RPM software packages.</p>
+<p>Each RPM package is an archive with the following components
+- The files that the package installs in your system.
+- Information about the package (metadata), such as the name, version, release, and architecture; a summary and description of the package; whether it requires other packages to be installed; licensing; a package change log; and other details.
+- Scripts that might run when you install, update, or remove the package. These scripts might also run when you install, update, or remove other packages.</p>
+<p>Typically, software providers digitally sign RPM packages with GPG (GNU Privacy Guard) keys. (Red Hat digitally signs all packages that it releases.) 
+- The RPM system verifies package integrity by confirming that the package is signed with the appropriate GPG key. 
+- The RPM system fails to install a package if the GPG signature does not match.</p>
+<p>Typically, only one version of a package is installed at a time. 
+If a package is built with non-conflicting file names, then you might install multiple versions. 
+- The kernel package is a an example of installing multiple package versions.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># List all installed packages</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>rpm<span class="w"> </span>-qa
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># Determine which package provides FILENAME</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>rpm<span class="w"> </span>-qf<span class="w"> </span>/etc/yum.repos.d
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># List the currently installed package version</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>rpm<span class="w"> </span>-q<span class="w"> </span>dnf
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># Get detailed package information</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>rpm<span class="w"> </span>-qi<span class="w"> </span>wget
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1">#  List the files that the package installs</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>rpm<span class="w"> </span>-ql<span class="w"> </span>wget
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="c1"># List only the configuration files that the package installs</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>rpm<span class="w"> </span>-qc<span class="w"> </span>wget
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="c1"># List only the documentation files that the package installs.</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>rpm<span class="w"> </span>-qd<span class="w"> </span>openssh-clients
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="c1"># List the shell scripts that run before or after you install or remove the package.</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>rpm<span class="w"> </span>-q<span class="w"> </span>--scripts<span class="w"> </span>openssh-server
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="c1"># List the change log information for the package</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>rpm<span class="w"> </span>-q<span class="w"> </span>--changelog<span class="w"> </span>openssh-server
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="c1"># install an RPM package that you downloaded to your local directory</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>rpm<span class="w"> </span>-ivh<span class="w"> </span>podman-4.0.0-6.el9.x86_64.rpm
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="c1"># Use the rpm2cpio command to extract files from an RPM package file without installing the package.</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="c1"># The rpm2cpio command converts an RPM package to a cpio archive. After the RPM package is converted to a cpio archive, the cpio command can extract a list of files.</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="o">[</span>user@host<span class="w"> </span>tmp-extract<span class="o">]</span>$<span class="w"> </span>rpm2cpio<span class="w"> </span>httpd-2.4.51-7.el9_0.x86_64.rpm<span class="w"> </span><span class="p">|</span><span class="w"> </span>cpio<span class="w"> </span>-idv
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a>
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="c1"># Extract individual files by specifying the path of the file</span>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a>rpm2cpio<span class="w"> </span>httpd-2.4.51-7.el9_0.x86_64.rpm<span class="w"> </span><span class="p">|</span><span class="w"> </span>cpio<span class="w"> </span>-id<span class="w"> </span><span class="s2">"*/etc/httpd/conf/httpd.conf"</span>
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a>
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="c1"># list the files in an RPM package</span>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a>rpm2cpio<span class="w"> </span>httpd-2.4.51-7.el9_0.x86_64.rpm<span class="w"> </span><span class="p">|</span><span class="w"> </span>cpio<span class="w"> </span>-tv
+</span></code></pre></div>
+<h3 id="manage-software-packages-with-dnf">Manage Software Packages with DNF</h3>
+<p>The low-level rpm command can be used to install packages, but it is not designed to work with package repositories or to resolve dependencies from multiple sources automatically.</p>
+<p>DNF improves RPM-based software installation and updates. With the dnf command, you can install, update, remove, and get information about software packages and their dependencies. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># displays installed packages from which repo name</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w"> </span>dnf<span class="w"> </span>list<span class="w"> </span>installed<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>fping
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w"> </span>dnf<span class="w"> </span>list<span class="w"> </span>installed<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>perl-Net-SNMP
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># displays installed and available packages</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>dnf<span class="w"> </span>list<span class="w"> </span><span class="s1">'http*'</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1"># lists packages by keywords that are in the name and summary fields only</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>dnf<span class="w"> </span>search<span class="w"> </span><span class="s1">'web server'</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c1"># lists packages by keywords that are in the name, summary, and description fields</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>dnf<span class="w"> </span>search<span class="w"> </span>all<span class="w"> </span><span class="s1">'web server'</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="c1"># detailed information about a package</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>dnf<span class="w"> </span>info<span class="w"> </span>httpd
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="c1"># displays packages that match the specified path name</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>dnf<span class="w"> </span>provides<span class="w"> </span>/var/www/html
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="c1"># obtains and installs a software package, including any dependencies</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>dnf<span class="w"> </span>install<span class="w"> </span>httpd
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="c1"># obtains and installs a later version of the specified package, including any dependencies.</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="c1"># Generally, the process tries to preserve configuration files in place, but in some cases, those files might be renamed if the packager considers that the earlier name will not work after the update.</span>
+</span></code></pre></div>
+<p>:::danger
+The dnf remove command removes the listed packages and any package that requires the packages to be removed (and packages which require those packages, and so on). This command can lead to unexpected removal of packages
+:::</p>
+<p>Because a new kernel can be tested only by booting to that kernel, the package specifically supports the installation of multiple versions at once. If the new kernel fails to boot, then the earlier kernel is still available. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># list all installed and available kernels</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>dnf<span class="w"> </span>list<span class="w"> </span>kernel
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># view the currently running kernel</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>uname<span class="w"> </span>-r
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>uname<span class="w"> </span>-a
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># installs the new kernel</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>dnf<span class="w"> </span>update<span class="w"> </span>kernel
+</span></code></pre></div>
+<h4 id="groups-of-software-with-dnf">Groups of Software with DNF</h4>
+<p>concept of groups, which are collections of related software that are installed together</p>
+<p>two kinds of package groups. 
+- Regular groups are collections of packages.
+- Environment groups are collections of regular groups. </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># shows the names of installed and available groups</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>dnf<span class="w"> </span>group<span class="w"> </span>list
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Some groups are normally installed through environment groups and are hidden by default.</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1">#  List these hidden groups</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>dnf<span class="w"> </span>group<span class="w"> </span>list<span class="w"> </span>hidden
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1"># displays information about a group. It includes a list of mandatory, default, and optional package names.</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>dnf<span class="w"> </span>group<span class="w"> </span>info<span class="w"> </span><span class="s2">"RPM Development Tools"</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c1"># installs a group that installs its mandatory and default packages and their dependent packages.</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>dnf<span class="w"> </span>group<span class="w"> </span>install<span class="w"> </span><span class="s2">"RPM Development Tools"</span>
+</span></code></pre></div>
+<p>All installation and removal transactions are logged in the /var/log/dnf.rpm.log file.</p>
+<p>The <code>dnf history</code> command displays a summary of installation and removal transactions.</p>
+<p>The <code>dnf history undo</code> command reverses a transaction.</p>
+<h4 id="baseos-and-application-stream">BaseOS and Application Stream</h4>
+<p>For developers who wanted the latest version of an application and administrators who wanted the most stable version of the application, the resulting situation was tedious to manage.</p>
+<p>With modularity, a single repository can host multiple versions of an application's package and its dependencies.</p>
+<p>Red Hat Enterprise Linux 9 distributes the content through two main software repositories: BaseOS and Application Stream (AppStream).
+- The BaseOS repository provides the core operating system content for Red Hat Enterprise Linux as RPM packages. 
+- The Application Stream repository provides content with varying lifecycles as both modules and traditional packages.
+    - The Application Stream repository contains two types of content: modules and traditional RPM packages. 
+        - A module describes a set of RPM packages that belong together. 
+        - Modules can contain several streams to make multiple versions of applications available for installation. </p>
+<p>Red Hat Enterprise Linux 9 supports modular features of Application Stream. </p>
+<p>Each module has one or more module streams, which hold different versions of the content
+Each module can have one or more profiles. 
+- A profile is a list of packages that you can install together for a particular use case, such as for a server, client, development, minimal installation, or other.</p>
+<h3 id="dnf-software-repositories">DNF Software Repositories</h3>
+<p>Systems often have access to many Red Hat repositories.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># lists all available repositories and their statuses</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>dnf<span class="w"> </span>repolist<span class="w"> </span>all
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># enable and disable repositories</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>dnf<span class="w"> </span>config-manager<span class="w"> </span>--enable<span class="w"> </span>rhel-9-server-debug-rpms
+</span></code></pre></div>
+<p>Non-Red Hat sources provide software through third-party repositories. 
+For example, Adobe provides some of its software for Linux through DNF repositories.</p>
+<p>The dnf command can access repositories from a website, an FTP server, or the local file system.</p>
+<p>You can add a third-party repository in one of two ways. 
+- create a .repo file in the /etc/yum.repos.d/ directory
+- add a [repository] section to the /etc/dnf/dnf.conf file</p>
+<p>Red Hat recommends using .repo files, and reserving the dnf.conf file for additional repository configurations. </p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># add repositories to the machine</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="o">[</span>user@host<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>--add-repo<span class="o">=</span><span class="s2">"https://dl.fedoraproject.org/pub/epel/9/Everything/x86_64/"</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># imports the RPM-GPG-KEY-EPEL-9 (EPEL) GPG public key and installs the RHEL9 Extra Packages for Enterprise Linux (EPEL) repository RPM</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="o">[</span>user@host<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>rpm<span class="w"> </span>--import<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="o">[</span>user@host<span class="w"> </span>~<span class="o">]</span>$<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>dnf config-manager --add-repo=https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+</span></code></pre></div></p>
+<h2 id="gui">GUI</h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>dnf<span class="w"> </span>groupinstall<span class="w"> </span><span class="s2">"Server with GUI"</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>dnf<span class="w"> </span>group<span class="w"> </span>list<span class="w"> </span>hidden
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>systemctl<span class="w"> </span>set-default<span class="w"> </span>graphical.target
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>systemctl<span class="w"> </span>isolate<span class="w"> </span>graphical.target
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>gdm.service
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>gdm.service
+</span></code></pre></div>
+<h2 id="kickstart">Kickstart</h2>
+<ul>
+<li><a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/automatically_installing_rhel/kickstart-commands-and-options-reference_rhel-installer">Appendix B. Kickstart commands and options reference | Red Hat Product Documentation</a></li>
+<li><a href="https://access.redhat.com/documentation/zh-tw/red_hat_enterprise_linux/7/html/installation_guide/sect-kickstart-syntax#doc-wrapper">23.3. Kickstart 語法參照 Red Hat Enterprise Linux 7 | Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/documentation/zh-tw/red_hat_enterprise_linux/7/html/installation_guide/sect-kickstart-examples">23.4. Kickstart 配置的範例 Red Hat Enterprise Linux 7 | Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/performing_an_advanced_rhel_8_installation/index#creating-kickstart-files_installing-rhel-as-an-experienced-user">Performing an advanced RHEL 8 installation Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_an_advanced_rhel_8_installation/creating-kickstart-files_installing-rhel-as-an-experienced-user#creating-a-kickstart-file-with-the-kickstart-configuration-tool_creating-kickstart-files">Chapter 4. Creating Kickstart files Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a><ul>
+<li>/root/anaconda-ks.cfg</li>
+</ul>
+</li>
+<li>tool<ul>
+<li><a href="https://access.redhat.com/labs/kickstartconfig/">Kickstart Generator | Red Hat Customer Portal Labs</a></li>
+</ul>
+</li>
+<li>partition<ul>
+<li><a href="https://unix.stackexchange.com/questions/410288/how-do-i-calculate-linux-physical-volume-and-volume-group-metadata-overhead">centos - How do I calculate Linux physical volume and volume group metadata overhead? - Unix &amp; Linux Stack Exchange</a></li>
+<li><a href="https://unix.stackexchange.com/questions/393898/how-is-the-size-of-an-lvm-volume-calculated">linux - How is the size of an LVM volume calculated? - Unix &amp; Linux Stack Exchange</a></li>
+<li><a href="https://serverfault.com/questions/843773/use-a-dynamic-value-in-a-kickstart-file">linux - Use a dynamic value in a kickstart file - Server Fault</a></li>
+<li><a href="https://access.redhat.com/discussions/737553">how size of partition is defined for kickstart installation - Red Hat Customer Portal</a></li>
+<li><a href="https://serverfault.com/questions/826006/centos-rhel-7-lvm-partitioning-in-kickstart">linux - CentOS/RHEL 7 LVM Partitioning in Kickstart? - Server Fault</a></li>
+</ul>
+</li>
+<li><a href="https://access.redhat.com/solutions/44662">How do I set the root password in a kickstart file? - Red Hat Customer Portal</a><ul>
+<li><a href="https://access.redhat.com/solutions/221403">How to generate a SHA-2 (sha256 or sha512) hashed password compatible with /etc/shadow - Red Hat Customer Portal</a><ul>
+<li>openssl passwd -6 "your passphrase"</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="raid-lvm">RAID + LVM</h3>
+<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_8_installation/graphical-installation_graphical-installation#configuring-lvm-logical-volume_manual-partitioning">Configuring an LVM logical volume by Install GUI</a></li>
+</ul>
+<h4 id="sample-1">sample 1</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>bootloader --append="crashkernel=auto" --location=mbr --boot-drive=sda
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>part raid.2025 --fstype="mdmember" --ondisk=sdb --size=3813822
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>part /boot --fstype="xfs" --size=1024
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>part /boot/efi --fstype="efi" --size=600 --fsoptions="umask=0077,shortname=winnt"
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>part raid.2018 --fstype="mdmember" --ondisk=sda --size=3813822
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>raid pv.2032 --device=pv00 --fstype="lvmpv" --level=RAID0 --chunksize=512 raid.2018 raid.2025
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>volgroup rhel --pesize=4096 pv.2032
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>logvol / --fstype="xfs" --grow --size=1024 --name=root --vgname=rhel
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>logvol /home --fstype="xfs" --size=7551608 --name=home --vgname=rhel
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>logvol swap --fstype="swap" --size=4096 --name=swap --vgname=rhel
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>[anaconda root@s8is001 ~]# lsblk
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>NAME            MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>loop0             7:0    0 674.5M  1 loop
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>loop1             7:1    0     3G  1 loop
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>|-live-rw       253:0    0     3G  0 dm    /
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>`-live-base     253:1    0     3G  1 dm
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>loop2             7:2    0    32G  0 loop
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>`-live-rw       253:0    0     3G  0 dm    /
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>sda               8:0    1   3.7T  0 disk
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>|-sda1            8:1    1   600M  0 part  /mnt/sysroot/boot/efi
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>|-sda2            8:2    1     1G  0 part  /mnt/sysroot/boot
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>`-sda3            8:3    1   3.7T  0 part
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>  `-md127         9:127  0   7.3T  0 raid0
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>    |-rhel-swap 253:2    0     4G  0 lvm   [SWAP]
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>    |-rhel-home 253:3    0   7.2T  0 lvm   /mnt/sysroot/home
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>    `-rhel-root 253:4    0    70G  0 lvm   /mnt/sysroot
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>sdb               8:16   1   3.7T  0 disk
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>`-sdb1            8:17   1   3.7T  0 part
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a>  `-md127         9:127  0   7.3T  0 raid0
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>    |-rhel-swap 253:2    0     4G  0 lvm   [SWAP]
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a>    |-rhel-home 253:3    0   7.2T  0 lvm   /mnt/sysroot/home
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>    `-rhel-root 253:4    0    70G  0 lvm   /mnt/sysroot
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a>sdc               8:32   1   3.7T  0 disk
+</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a>nvme0n1         259:0    0 894.3G  0 disk
+</span></code></pre></div>
+<h4 id="sample-2">sample 2</h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>ignoredisk --only-use=nvme0n1,nvme1n1
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a># Partition clearing information
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>clearpart --none --initlabel
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a># Disk partitioning information
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>part raid.1186 --fstype="mdmember" --ondisk=nvme1n1 --size=1026
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>part raid.3290 --fstype="mdmember" --ondisk=nvme1n1 --size=12816
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>part raid.2703 --fstype="mdmember" --ondisk=nvme0n1 --size=10256
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>part raid.1658 --fstype="mdmember" --ondisk=nvme1n1 --size=12816
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>part raid.389 --fstype="mdmember" --ondisk=nvme0n1 --size=5128
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>part raid.4558 --fstype="mdmember" --ondisk=nvme1n1 --size=1625420
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>part raid.1179 --fstype="mdmember" --ondisk=nvme0n1 --size=1026
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>part raid.3283 --fstype="mdmember" --ondisk=nvme0n1 --size=12816
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>part raid.4551 --fstype="mdmember" --ondisk=nvme0n1 --size=1625420
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>part /boot/efi --fstype="efi" --size=2048 --fsoptions="umask=0077,shortname=winnt"
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>part raid.2159 --fstype="mdmember" --ondisk=nvme0n1 --size=131200
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>part raid.1651 --fstype="mdmember" --ondisk=nvme0n1 --size=12816
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>part raid.3899 --fstype="mdmember" --ondisk=nvme0n1 --size=12816
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>part raid.3906 --fstype="mdmember" --ondisk=nvme1n1 --size=12816
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>part /boot --fstype="xfs" --size=2048
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>part raid.2166 --fstype="mdmember" --ondisk=nvme1n1 --size=131200
+</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>part raid.396 --fstype="mdmember" --ondisk=nvme1n1 --size=5128
+</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>part raid.2710 --fstype="mdmember" --ondisk=nvme1n1 --size=10256
+</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a>raid swap --device=swap --fstype="swap" --level=RAID0 --chunksize=512 raid.2159 raid.2166
+</span><span id="__span-20-24"><a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a>raid /home --device=home --fstype="xfs" --level=RAID0 --chunksize=512 raid.1179 raid.1186
+</span><span id="__span-20-25"><a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a>raid /var/log/audit --device=var_log_audit --fstype="xfs" --level=RAID0 --chunksize=512 raid.3899 raid.3906
+</span><span id="__span-20-26"><a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a>raid /usr --device=usr --fstype="xfs" --level=RAID0 --chunksize=512 raid.2703 raid.2710
+</span><span id="__span-20-27"><a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a>raid /tmp --device=tmp --fstype="xfs" --level=RAID0 --chunksize=512 raid.4551 raid.4558
+</span><span id="__span-20-28"><a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a>raid /var/log --device=var_log --fstype="xfs" --level=RAID0 --chunksize=512 raid.3283 raid.3290
+</span><span id="__span-20-29"><a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a>raid /var --device=var --fstype="xfs" --level=RAID0 --chunksize=512 raid.1651 raid.1658
+</span><span id="__span-20-30"><a id="__codelineno-20-30" name="__codelineno-20-30" href="#__codelineno-20-30"></a>raid / --device=root --fstype="xfs" --level=RAID0 --chunksize=512 raid.389 raid.396
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>nvme1n1      259:0    0   1.8T  0 disk
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>├─nvme1n1p1  259:2    0 128.1G  0 part
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>│ └─md127      9:127  0   256G  0 raid0 [SWAP]
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>├─nvme1n1p2  259:3    0  12.5G  0 part
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>│ └─md123      9:123  0    25G  0 raid0 /var
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>├─nvme1n1p3  259:4    0  12.5G  0 part
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>│ └─md120      9:120  0    25G  0 raid0 /var/log
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>├─nvme1n1p4  259:5    0  12.5G  0 part
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>│ └─md121      9:121  0    25G  0 raid0 /var/log/audit
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>├─nvme1n1p5  259:7    0    10G  0 part
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>│ └─md126      9:126  0    20G  0 raid0 /usr
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>├─nvme1n1p6  259:8    0     5G  0 part
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>│ └─md125      9:125  0    10G  0 raid0 /
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>├─nvme1n1p7  259:11   0     1G  0 part
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>│ └─md122      9:122  0     2G  0 raid0 /home
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>└─nvme1n1p8  259:13   0   1.6T  0 part
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>  └─md124      9:124  0   3.1T  0 raid0 /tmp
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>nvme0n1      259:1    0   1.8T  0 disk
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>├─nvme0n1p1  259:6    0     2G  0 part  /boot/efi
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>├─nvme0n1p2  259:9    0     2G  0 part  /boot
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>├─nvme0n1p3  259:10   0 128.1G  0 part
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>│ └─md127      9:127  0   256G  0 raid0 [SWAP]
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>├─nvme0n1p4  259:12   0  12.5G  0 part
+</span><span id="__span-21-24"><a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>│ └─md123      9:123  0    25G  0 raid0 /var
+</span><span id="__span-21-25"><a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>├─nvme0n1p5  259:14   0  12.5G  0 part
+</span><span id="__span-21-26"><a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>│ └─md120      9:120  0    25G  0 raid0 /var/log
+</span><span id="__span-21-27"><a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>├─nvme0n1p6  259:15   0  12.5G  0 part
+</span><span id="__span-21-28"><a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a>│ └─md121      9:121  0    25G  0 raid0 /var/log/audit
+</span><span id="__span-21-29"><a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a>├─nvme0n1p7  259:16   0    10G  0 part
+</span><span id="__span-21-30"><a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a>│ └─md126      9:126  0    20G  0 raid0 /usr
+</span><span id="__span-21-31"><a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a>├─nvme0n1p8  259:17   0     5G  0 part
+</span><span id="__span-21-32"><a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a>│ └─md125      9:125  0    10G  0 raid0 /
+</span><span id="__span-21-33"><a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a>├─nvme0n1p9  259:18   0     1G  0 part
+</span><span id="__span-21-34"><a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a>│ └─md122      9:122  0     2G  0 raid0 /home
+</span><span id="__span-21-35"><a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a>└─nvme0n1p10 259:19   0   1.6T  0 part
+</span><span id="__span-21-36"><a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a>  └─md124      9:124  0   3.1T  0 raid0 /tmp
+</span></code></pre></div>
+<p>if re-install the disk which has configured with raid
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1">########################################################################</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="c1"># create the partition scheme file /tmp/partitionfile</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1">########################################################################</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="c1"># disabling md RAID resync during installation</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="c1"># this speeds up the installation process significantly</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"[</span><span class="nv">$0</span><span class="s2">] disabling md RAID resync during installation"</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/proc/sys/dev/raid/speed_limit_max
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>&gt;<span class="w"> </span>/proc/sys/dev/raid/speed_limit_min
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="c1"># get all disks md raid</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="nv">mdraid</span><span class="o">=</span><span class="k">$(</span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">"^md[0-9]+"</span><span class="w"> </span>/proc/mdstat<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $1}'</span><span class="k">)</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="c1"># erase all existing md RAIDs</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>mdadm<span class="w"> </span>--stop<span class="w"> </span>/dev/<span class="si">${</span><span class="nv">mdraid</span><span class="si">}</span>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="c1"># Remove the Superblocks from the disks</span>
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>mdadm<span class="w"> </span>--zero-superblock<span class="w"> </span>/dev/nvme0n1
+</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>mdadm<span class="w"> </span>--zero-superblock<span class="w"> </span>/dev/nvme1n1
+</span><span id="__span-22-17"><a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>
+</span><span id="__span-22-18"><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="c1"># ignoredisk --only-use=nvme1n1,nvme0n1</span>
+</span><span id="__span-22-19"><a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="c1"># System bootloader configuration</span>
+</span><span id="__span-22-20"><a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'bootloader --append="crashkernel=auto" --location=mbr --boot-drive=nvme0n1'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-21"><a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="c1"># Partition clearing information</span>
+</span><span id="__span-22-22"><a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>clearpart<span class="w"> </span>--none<span class="w"> </span>--initlabel
+</span><span id="__span-22-23"><a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="c1"># Disk partitioning information</span>
+</span><span id="__span-22-24"><a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'part raid.2203 --fstype="mdmember" --ondisk=nvme1n1 --size=2050'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-25"><a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'part raid.995 --fstype="mdmember" --ondisk=nvme1n1 --size=1827319'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-26"><a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'part raid.1581 --fstype="mdmember" --ondisk=nvme1n1 --size=2050'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-27"><a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'part raid.2196 --fstype="mdmember" --ondisk=nvme0n1 --size=2050'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-28"><a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'part raid.988 --fstype="mdmember" --ondisk=nvme0n1 --size=1827319'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-29"><a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'part raid.1574 --fstype="mdmember" --ondisk=nvme0n1 --size=2050'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-30"><a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'raid /boot --device=boot --fstype="xfs" --level=RAID1 raid.1574 raid.1581'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-31"><a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'raid pv.1002 --device=pv00 --fstype="lvmpv" --level=RAID0 --chunksize=512 raid.988 raid.995'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-32"><a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'raid /boot/efi --device=boot_efi --fstype="efi" --level=RAID1 --fsoptions="umask=0077,shortname=winnt" raid.2196 raid.2203'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-33"><a id="__codelineno-22-33" name="__codelineno-22-33" href="#__codelineno-22-33"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'volgroup rhel --pesize=4096 pv.1002'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-34"><a id="__codelineno-22-34" name="__codelineno-22-34" href="#__codelineno-22-34"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'logvol /tmp --fstype="xfs" --size=3282664 --name=tmp --vgname=rhel'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-35"><a id="__codelineno-22-35" name="__codelineno-22-35" href="#__codelineno-22-35"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'logvol /var/log/audit --fstype="xfs" --size=25600 --name=var_log_audit --vgname=rhel'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-36"><a id="__codelineno-22-36" name="__codelineno-22-36" href="#__codelineno-22-36"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'logvol /var --fstype="xfs" --size=25600 --name=var --vgname=rhel'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-37"><a id="__codelineno-22-37" name="__codelineno-22-37" href="#__codelineno-22-37"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'logvol /usr --fstype="xfs" --size=20480 --name=usr --vgname=rhel'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-38"><a id="__codelineno-22-38" name="__codelineno-22-38" href="#__codelineno-22-38"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'logvol /var/log --fstype="xfs" --size=25600 --name=var_log --vgname=rhel'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-39"><a id="__codelineno-22-39" name="__codelineno-22-39" href="#__codelineno-22-39"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'logvol swap --fstype="swap" --size=262144 --name=swap --vgname=rhel'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-40"><a id="__codelineno-22-40" name="__codelineno-22-40" href="#__codelineno-22-40"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'logvol / --fstype="xfs" --size=10240 --name=root --vgname=rhel'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span><span id="__span-22-41"><a id="__codelineno-22-41" name="__codelineno-22-41" href="#__codelineno-22-41"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'logvol /home --fstype="xfs" --size=2048 --name=home --vgname=rhel'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/tmp/partitionfile
+</span></code></pre></div></p>
+<h2 id="yum">yum</h2>
+<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-software-packages_configuring-basic-system-settings#listing-package-groups-with-yum_searching-for-software-packages">Chapter 12. Managing software packages Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></li>
+<li><a href="https://serverfault.com/questions/62026/how-to-know-from-which-yum-repository-a-package-has-been-installed">linux - How to know from which yum repository a package has been installed? - Server Fault</a></li>
+<li><a href="https://stackoverflow.com/questions/51963751/how-to-instruct-yum-to-install-a-specific-package-rpm-from-a-specific-repo">How to instruct yum to install a specific package (rpm) from a specific repo - Stack Overflow</a></li>
+<li><a href="https://access.redhat.com/solutions/10549">How do I get a list of package groups used by kickstart and the anaconda installer? - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/4500251">yum or dnf fails with "Error: Unable to find a match" when a package is missing - Red Hat Customer Portal</a></li>
+<li>gpg<ul>
+<li><a href="https://www.redhat.com/sysadmin/rpm-gpg-verify-packages">RPM and GPG: How to verify Linux packages before installing them | Enable Sysadmin</a>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>yum repolist
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>yum info --installed
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>yum group list --hidden
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>yum grouplist hidden
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>yum groupinstall '&lt;group name&gt;'
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a># install from file
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>yum -y install $(cat package_list)
+</span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h3 id="offline-install-package">offline install package</h3>
+<ul>
+<li><a href="https://access.redhat.com/solutions/23016#rhel89">How to create a local mirror of the latest update for Red Hat Enterprise Linux 5, 6, 7, 8 and 9 without using Satellite server? - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/3176811">Creating a Local Repository and Sharing With Disconnected/Offline/Air-gapped Systems - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/7227">How to create local repository distributed through apache of Red Hat Enterprise Linux 5/6/7/8/9 using DVD iso for update or installation? - Red Hat Customer Portal</a></li>
+<li><a href="https://access.redhat.com/solutions/3189232">Share a local repository using NFS - Red Hat Customer Portal</a></li>
+<li><a href="https://stackoverflow.com/questions/40382412/install-packages-without-internet-red-hat">linux - Install packages without internet Red Hat - Stack Overflow</a></li>
+<li><a href="https://www.clevernetsystems.com/installing-rhel-packages-without-network-connection/">Installing RHEL packages without network connection - Clever Net Systems</a></li>
+</ul>
+<h4 id="iso">ISO</h4>
+<h5 id="on-the-local-repo-node">on the local repo node</h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sudo<span class="w"> </span>mount<span class="w"> </span>-o<span class="w"> </span>loop<span class="w">  </span>ISO/rhel-8.5-x86_64-dvd.iso<span class="w"> </span>/mnt
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nb">shopt</span><span class="w"> </span>-s<span class="w"> </span>dotglob
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>cp<span class="w"> </span>-avRpf<span class="w"> </span>/mnt/*<span class="w"> </span>/var/www/html/8.5
+</span></code></pre></div>
+<h5 id="on-the-target-node">on the target node</h5>
+<p>/etc/yum.repos.d/BaseOS.repo
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>[BaseOS]
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>name=Red Hat Enterprise Linux 8.5 BaseOS
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>enabled=1
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>gpgcheck=1
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>baseurl=http://192.168.89.29/8.5/BaseOS/
+</span></code></pre></div></p>
+<p>/etc/yum.repos.d/AppStream.repo
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>[AppStream]
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>name=Red Hat Enterprise Linux 8.5 AppStream
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>enabled=1
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>gpgcheck=1
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>baseurl=http://192.168.89.29/8.5/AppStream/
+</span></code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>yum<span class="w"> </span>clean<span class="w"> </span>all
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>/var/cache/yum/*
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>yum<span class="w"> </span>makecache
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>yum<span class="w"> </span>repolist
+</span></code></pre></div>
+<h4 id="reposync">reposync</h4>
+<h5 id="on-the-node-which-can-access-internet">on the node which can access internet</h5>
+<ol>
+<li>use reposync to /var/www/html/8.5</li>
+<li>dump the /var/www/html/8.5 to the another local repo server which has no internet access</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>subscription-manager<span class="w"> </span>release<span class="w"> </span>--set<span class="o">=</span><span class="m">8</span>.5<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/cache/dnf
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="c1"># check the repo id, this example is rhel-8-for-x86_64-baseos-rpms and rhel-8-for-x86_64-appstream-rpms</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>subscription-manager<span class="w"> </span>repos<span class="w"> </span>--list-enabled
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>reposync<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </span>/var/www/html/8.5<span class="w"> </span>--download-metadata<span class="w"> </span>--repo<span class="o">=</span>rhel-8-for-x86_64-baseos-rpms
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>reposync<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </span>/var/www/html/8.5<span class="w"> </span>--download-metadata<span class="w"> </span>--repo<span class="o">=</span>rhel-8-for-x86_64-appstream-rpms
+</span></code></pre></div>
+<h5 id="on-the-target-node_1">on the target node</h5>
+<p>/etc/yum.repos.d/BaseOS.repo
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>[BaseOS]
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>name=Red Hat Enterprise Linux 8.5 BaseOS
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>enabled=1
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>gpgcheck=1
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>baseurl=http://192.168.89.29/8.5/rhel-8-for-x86_64-baseos-rpms/
+</span></code></pre></div></p>
+<p>/etc/yum.repos.d/AppStream.repo
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>[AppStream]
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>name=Red Hat Enterprise Linux 8.5 AppStream
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>enabled=1
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>gpgcheck=1
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>baseurl=http://192.168.89.29/8.5/rhel-8-for-x86_64-appstream-rpms/
+</span></code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>yum<span class="w"> </span>clean<span class="w"> </span>all
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>/var/cache/yum/*
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>yum<span class="w"> </span>makecache
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>yum<span class="w"> </span>repolist
+</span></code></pre></div>
+<h4 id="specific-package">specific package</h4>
+<ul>
+<li><a href="https://nts.strzibny.name/download-rpm-packages-locally-with-dnf/">Download RPM packages locally with DNF</a></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>dnf<span class="w"> </span>download<span class="w"> </span>--resolve<span class="w"> </span>podman
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>dnf<span class="w"> </span>--disablerepo<span class="o">=</span><span class="se">\*</span><span class="w"> </span>install<span class="w"> </span>*.rpm
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c1"># prepare docker command in rhel system</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>/tmp/rhel/docker
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>dnf<span class="w"> </span>download<span class="w"> </span>--downloaddir<span class="o">=</span>/tmp/rhel/docker<span class="w"> </span>--resolve<span class="w"> </span>podman-5.4.0<span class="w"> </span>podman-docker<span class="w"> </span>docker-compose-plugin
+</span></code></pre></div>
+<h2 id="infiniband">Infiniband</h2>
+<ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_infiniband_and_rdma_networks/index">Configuring InfiniBand and RDMA networks Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a><ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/configuring_infiniband_and_rdma_networks/index#configuring-ipoib_configuring-infiniband-and-rdma-networks">Configuring InfiniBand and RDMA networks Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="chrome">chrome</h2>
+<ul>
+<li><a href="https://access.redhat.com/discussions/4406201">Google Chrome installation RHEL 8 - Red Hat Customer Portal</a></li>
+<li><a href="https://ivonblog.com/posts/install-google-chrome-on-linux/">Linux系統安裝Google Chrome瀏覽器的方法 · Ivon的部落格</a></li>
+</ul>
+<h3 id="with-internet">with internet</h3>
+<p>/etc/yum.repos.d/google-chrome.repo
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>[google-chrome]
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>name=google-chrome
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>baseurl=https://dl.google.com/linux/chrome/rpm/stable/x86_64
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>enabled=1
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>gpgcheck=1
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub  
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>sudo dnf upgrade
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>sudo dnf install google-chrome-stable
+</span></code></pre></div>
+<h3 id="without-internet">without internet</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>sudo dnf install liberation-fonts vulkan
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>sudo rpm -ivh google-chrome-stable-119.0.6045.159-1.x86_64.rpm
+</span></code></pre></div>
+<h2 id="rescue-mode">rescue mode</h2>
+<ol>
+<li>Boot the system from the relevant <code>Binary DVD</code> or <code>boot disc</code> of the same major release as the system. </li>
+<li>Select <code>Troubleshooting/Rescue a Red Hat Enterprise Linux system</code> at the install menu</li>
+</ol>
+<p>After entering rescue mode
+- This shell exists in the installation/rescue environment, with the installed system optionally mounted under <code>/mnt/sysimage</code>. 
+- This shell has a number of tools available for rescuing a system, such as all common file system, disk, LVM, and networking tools.</p>
+<p>At the shell prompt, run df to see if the dev, sys, proc filesystems are mounted under /mnt/sysimage
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a># df
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>mount -o bind /dev /mnt/sysimage/dev
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>mount -o bind /sys /mnt/sysimage/sys
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>mount -t proc /proc /mnt/sysimage/proc
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>mount -o bind /dev/shm /mnt/sysimage/dev/shm
+</span></code></pre></div></p>
+<p>To chroot to the existing system root</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a># chroot /mnt/sysimage
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a># chroot /mnt/sysroot
+</span></code></pre></div>
+<h3 id="customized-case-var-partition-are-exploded-due-to-keycloak-log">customized case - /var partition are exploded due to keycloak log</h3>
+<p>chroot to the existing system root, and check <code>df -h</code> and found /var directories are not mounted. tried to mount /var and it failed till do </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a># xfs_repair -L /dev/mapper/rhel-var
+</span></code></pre></div>
+<p>one of the log continue to grow  pass 25G  which is the max partition for /var.
+finally, remove it</p>
+<h4 id="xfs_repair">xfs_repair</h4>
+<ul>
+<li><a href="https://access.redhat.com/documentation/zh-tw/red_hat_enterprise_linux/8/html/managing_file_systems/checking-and-repairing-a-file-system__managing-file-systems">Chapter 14. Checking and repairing a file system Red Hat Enterprise Linux 8 | Red Hat Customer Portal</a></li>
+</ul>
+<h2 id="create-a-modified-red-hat-enterprise-linux-iso-with-kickstart-file">Create a modified Red Hat Enterprise Linux ISO with kickstart file</h2>
+<ul>
+<li><a href="https://access.redhat.com/solutions/60959">How to create a modified Red Hat Enterprise Linux ISO with kickstart file or modified installation media? - Red Hat Customer Portal</a></li>
+<li><a href="https://developers.redhat.com/learning/learn:rhel:rhel-image-mode-kickstart/resource/resources:prerequisites-and-step-step-process-0?source=sso">Prerequisites and step-by-step process | Install image mode for Red Hat Enterprise Linux using kickstart | Red Hat Developer</a></li>
+<li><a href="https://medium.com/@maros.kukan/automating-red-hat-enterprise-linux-installation-93bbd7eba946">Automate RHEL Installation: Red Hat Enterprise Linux | Medium</a></li>
+<li><a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/customizing_anaconda/customizing-the-boot-menu_customizing-anaconda#systems-with-uefi-firmware_customizing-the-boot-menu">Chapter 3. Customizing the boot menu | Red Hat Product Documentation</a></li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>mkksiso --ks /home/foo/files/ISO/rhel-9.3-x86_64-dvd-ks.cfg /home/foo/files/ISO/rhel-9.3-x86_64-dvd.iso /home/foo/files/ISO/rhel-9.3-x86_64-dvd-embedded-ks.iso
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a># enable text mode
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>text
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>repo --name="AppStream" --baseurl=file:///run/install/sources/mount-0000-cdrom/AppStream
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>
+</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>%packages
+</span><span id="__span-42-7"><a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a>@^server-product-environment
+</span><span id="__span-42-8"><a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>
+</span><span id="__span-42-9"><a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a>%end
+</span><span id="__span-42-10"><a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a>
+</span><span id="__span-42-11"><a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a># network configuration
+</span><span id="__span-42-12"><a id="__codelineno-42-12" name="__codelineno-42-12" href="#__codelineno-42-12"></a>network --bootproto=dhcp --device=link --activate
+</span><span id="__span-42-13"><a id="__codelineno-42-13" name="__codelineno-42-13" href="#__codelineno-42-13"></a>
+</span><span id="__span-42-14"><a id="__codelineno-42-14" name="__codelineno-42-14" href="#__codelineno-42-14"></a># Use CDROM installation media
+</span><span id="__span-42-15"><a id="__codelineno-42-15" name="__codelineno-42-15" href="#__codelineno-42-15"></a>cdrom
+</span><span id="__span-42-16"><a id="__codelineno-42-16" name="__codelineno-42-16" href="#__codelineno-42-16"></a>
+</span><span id="__span-42-17"><a id="__codelineno-42-17" name="__codelineno-42-17" href="#__codelineno-42-17"></a>ignoredisk --only-use=sda
+</span><span id="__span-42-18"><a id="__codelineno-42-18" name="__codelineno-42-18" href="#__codelineno-42-18"></a>clearpart --drives=sda --initlabel
+</span><span id="__span-42-19"><a id="__codelineno-42-19" name="__codelineno-42-19" href="#__codelineno-42-19"></a>autopart
+</span><span id="__span-42-20"><a id="__codelineno-42-20" name="__codelineno-42-20" href="#__codelineno-42-20"></a>
+</span><span id="__span-42-21"><a id="__codelineno-42-21" name="__codelineno-42-21" href="#__codelineno-42-21"></a># Root password
+</span><span id="__span-42-22"><a id="__codelineno-42-22" name="__codelineno-42-22" href="#__codelineno-42-22"></a>rootpw --iscrypted $6$CJwHTZEau9/0iTFS$euGWh8wHxW.Kt1Fflk7VpRhZG/Icy3Si8Qfput1ekjxl.jwn8qSUJ1.OXEPRzvzjaGpN7HnateJ2pY7XceEOF1
+</span><span id="__span-42-23"><a id="__codelineno-42-23" name="__codelineno-42-23" href="#__codelineno-42-23"></a>user --groups=wheel --name=foo --password=$6$w.cf4rujMhOUTq9n$Hi3.xqgWZcBC6TnwJwIqC8IKCbnTBlAPHN040bNLX9bjd7TJubPSUEz5Gm2eA0UsGcw2UpGDL/TW6uP5IiHwk. --iscrypte
+</span></code></pre></div>
+<h2 id="redhat-certificate">Redhat Certificate</h2>
+<ul>
+<li><a href="https://www.redhat.com/en/services/training/red-hat-certified-openshift-administrator-exam">Red Hat Certified OpenShift Administrator exam | EX280</a></li>
+<li><a href="https://github.com/mgonzalezo/RedHat_ex280">GitHub - mgonzalezo/RedHat_ex280: Red Hat Certified OpenShift Administrator exam (EX280) Overview and Preparation</a></li>
+</ul>
+<h2 id="red-hat-enterprise-linux-ai">Red Hat Enterprise Linux AI</h2>
+<ul>
+<li><a href="https://developers.redhat.com/learn/rhel-ai-try-llms-easy-way">RHEL AI: Try LLMs the easy way | Red Hat Developer</a></li>
+<li><a href="https://www.redhat.com/en/blog/what-rhel-ai-guide-open-source-way-doing-ai">What is RHEL AI? A guide to the open source way for doing AI</a><ul>
+<li>comprised of four distinct foundational components<ul>
+<li>Open Granite models</li>
+<li>InstructLab model alignment</li>
+<li>Optimized bootable Red Hat Enterprise Linux for Granite models and InstructLab</li>
+<li>Enterprise support, lifecycle &amp; indemnification</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://developers.redhat.com/articles/2024/05/07/image-mode-rhel-quick-start-ai-inference#set_up_a_subscription_for_rhel">Image mode for Red Hat Enterprise Linux quick start: AI inference | Red Hat Developer</a><ul>
+<li><a href="https://claude.ai/share/ce591ddb-d7ac-4dd1-bfed-084d454e5dc5">bootc</a></li>
+</ul>
+</li>
+<li><a href="https://developers.redhat.com/articles/2024/08/01/open-source-ai-coding-assistance-granite-models">Open source AI coding assistance with the Granite models | Red Hat Developer</a><ul>
+<li>model servers<ul>
+<li>Ollama</li>
+<li>InstructLab</li>
+<li>Both Ollama and InstructLab use the same <strong>llama.cpp</strong> project as a backend, and work as model servers.</li>
+</ul>
+</li>
+<li><a href="https://www.continue.dev/">Continue</a>:  an open source VS Code and JetBrains extension that connects your editor with language models to provide IDE-native AI assistance.</li>
+</ul>
+</li>
+<li><a href="https://claude.ai/share/3cf8e623-a9c4-44e2-8d6d-61d58e72a443">what is the difference between "Red Hat OpenShift AI" and "Red Hat Enterprise Linux AI"</a><ul>
+<li>
+<blockquote>
+<p>RHEL AI is specialized for generative AI/LLM use cases on Linux systems, while OpenShift AI is a more comprehensive ML platform for diverse AI workloads in containerized environments.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../QEMU-KVM/" class="md-footer__link md-footer__link--prev" aria-label="Previous: QEMU-KVM">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                QEMU-KVM
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Redfish/" class="md-footer__link md-footer__link--next" aria-label="Next: Redfish">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Redfish
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
