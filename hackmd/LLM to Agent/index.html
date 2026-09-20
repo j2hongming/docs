@@ -1,0 +1,4595 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../LDAP/">
+      
+      
+        <link rel="next" href="../Linux%E6%8A%80%E5%B7%A7/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>LLM to Agent - j2hongming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#llm" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="j2hongming Docs" class="md-header__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            j2hongming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM to Agent
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="j2hongming Docs" class="md-nav__button md-logo" aria-label="j2hongming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    j2hongming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome the docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hackmd
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hackmd
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible%20Practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ansible Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ansys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ansys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CKA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CKA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Computer%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data%20Center%20Network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Center Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DynamoDB%20Deep%20Dive%20Advence%20Design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DynamoDB Deep Dive Advence Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GRUB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GRUB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Google%20docs%20api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google docs api
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HTTP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HYCOM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HYCOM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../InfiniBand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    InfiniBand
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM to Agent
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM to Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2025個人認為還做不到的事
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推特AI 取暖會
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ihower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ihower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        李宏毅
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實際動手好用案例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentic-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agentic AI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agentic AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#langchainlanggraph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LangChain/LangGraph
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LangChain/LangGraph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deepagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deepagent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-agent-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Agent SDK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openai-agent-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI Agent SDK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nemoclaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NemoClaw
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NemoClaw">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenShell
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        機器學習
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        應用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="應用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#computer-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Computer Use
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browser-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Browser Use
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cursor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cursor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-llmagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local LLM/Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inference-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inference engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inference engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vllm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vLLM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="vLLM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux技巧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%E8%A7%80%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux觀念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Makefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Makefile
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Message%20Passing%20Interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Message Passing Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NVIDIA%20Networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NVIDIA Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NVIDIA%20UFM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NVIDIA UFM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nagios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nagios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nexus%20Repository%20Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nexus Repository Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift%20RDMA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenShift RDMA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenShift/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenShift
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenVPN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenVPN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Openstack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Openstack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Proxmox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxmox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QEMU-KVM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QEMU-KVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RedHat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RedHat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Redfish/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redfish
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SEO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SEO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SUSE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SVN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SVN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scrum%E7%AD%86%E8%A8%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scrum筆記
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Singularity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Singularity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slurm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Spack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UI%20Framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ubuntu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Web%20Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwise%20world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    bitwise world
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-init/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cloud-init
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../container/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    container
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ffmpeg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../influxdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Influxdb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    javascript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../n8n/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    n8n
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacemaker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pacemaker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../podman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    podman
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    prometheus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python%20web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    python web
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell%20script/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    shell script
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcat%28Confluent%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    xcat(Confluent)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BD%BF%E7%94%A8%E8%80%85%E9%AB%94%E9%A9%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用者體驗
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%82%99%E4%BB%BD%E9%82%84%E5%8E%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    備份還原
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6%E7%9A%84%E8%97%9D%E8%A1%93/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    單元測試的藝術
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    奇技淫巧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    持續整合
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%8E%92%E5%88%97%E7%B5%84%E5%90%88%E8%88%87%E6%A9%9F%E7%8E%87/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    排列組合與機率
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%88%E8%83%BD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    效能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    機器學習
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    正規表示法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%B8%AC%E8%A9%A6%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    測試工具
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%84%A1%E7%B7%9A%E7%B6%B2%E8%B7%AF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    無線網路
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E5%AF%A6%E5%8B%99/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物件導向實務
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E7%B3%BB%E7%B5%B1%E5%88%86%E6%9E%90%E8%88%87%E8%A8%AD%E8%A8%88/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物件導向系統分析與設計
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A1%AC%E9%AB%94%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    硬體概念
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%8B%E5%BC%8F%E6%9C%AC%E8%B3%AA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    程式本質
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B3%BB%E7%B5%B1%E7%9A%84%E5%83%B9%E5%80%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    系統的價值
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%B5%B1%E8%A8%88%E5%9C%96%E8%A1%A8%E7%9A%84%E8%A1%A8%E9%81%94%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AF%84%E5%9C%8D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    統計圖表的表達方式以及使用的範圍
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    虛擬機器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E5%BA%AB%E7%B6%AD%E9%81%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    資料庫維運
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E6%96%99%E6%A8%A1%E5%9E%8B%28Data%20Modeling%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    資料模型(Data Modeling)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B3%87%E8%A8%8A%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    資訊安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B0%88%E6%A5%AD%E5%92%8C%E9%80%9A%E8%AD%98/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    軟體工程師的專業和通識
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%BB%9F%E9%AB%94%E9%9C%80%E6%B1%82%E6%BA%9D%E9%80%9A/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    軟體需求溝通
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2025個人認為還做不到的事
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推特AI 取暖會
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ihower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ihower
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        李宏毅
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prompt
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        實際動手好用案例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentic-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agentic AI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agentic AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#langchainlanggraph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LangChain/LangGraph
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LangChain/LangGraph">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deepagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deepagent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-agent-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Agent SDK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openai-agent-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAI Agent SDK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nemoclaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NemoClaw
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="NemoClaw">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openshell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenShell
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        機器學習
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        應用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="應用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#computer-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Computer Use
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browser-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Browser Use
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cursor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cursor
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gemini
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-llmagent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local LLM/Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inference-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inference engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inference engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vllm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vLLM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="vLLM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Welcome the docs
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../API/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Hackmd
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="llm">LLM</h1>
+<ul>
+<li><a href="https://chatgpt.com/share/6862018d-8644-8009-93c6-caa27376a8c1">生成式AI不能做到什麼與訓練資料的影響</a><ul>
+<li><a href="https://dq.yam.com/post/16832">說好的溫泉呢？澳洲旅遊網站AI文章介紹「不存在的溫泉」，吸引大批遊客前往 | DQ 地球圖輯隊</a></li>
+</ul>
+</li>
+<li>:star: <a href="https://iximiuz.com/en/posts/grounded-take-on-agentic-coding/">A grounded take on agentic coding for production environments</a></li>
+<li><a href="https://blog.kalan.dev/software-development/dancing-with-ai/">與 AI 共舞 | 愷開的部落格</a></li>
+<li>:star: <a href="https://israynotarray.com/ai/20260412/1749382056/">想自己跑 LLM？搞懂模型參數與量化讓你不再選錯模型 | 是 Ray 不是 Array</a></li>
+<li><a href="https://www.cythilya.tw/2026/06/20/efficient-sdd-workflow-with-opencode-and-openspec.md/">用 OpenCode ＋ OpenSpec 落實省時省力的規格驅動開發 (SDD) | Summer。桑莫。夏天</a></li>
+<li><a href="https://ithelp.ithome.com.tw/users/20178166/ironman/8368">LLM 學習筆記 - 從 LLM 輸入問題，按下 Enter 後會發生什麼事？ :: 2025 iThome 鐵人賽</a></li>
+<li><a href="https://ithelp.ithome.com.tw/users/20121763/ironman/6145">LLM 學習筆記 :: 2023 iThome 鐵人賽</a><ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10337024">LLM Note Day 28 - 資料集 Datasets</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10337399">LLM Note Day 29 - 授權條款 License</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/microsoft/generative-ai-for-beginners">microsoft/generative-ai-for-beginners: 21 Lessons, Get Started Building with Generative AI 🔗 https://microsoft.github.io/generative-ai-for-beginners/</a></li>
+<li><a href="https://github.com/microsoft/ai-agents-for-beginners/tree/main">GitHub - microsoft/ai-agents-for-beginners: 10 Lessons to Get Started Building AI Agents</a></li>
+<li><a href="https://blog.caesar-chi.com/2024/11/rag-prompt-ai.html">RAG 和 Prompt 原理超簡單解說！想知道 AI 怎麼找答案看這篇</a><ul>
+<li><a href="https://ywctech.net/ml-ai/beyond-naive-rag-summary-intro/">進階 RAG 技巧 - 到底 RAG 是什麼？ · YWC 科技筆記</a></li>
+</ul>
+</li>
+<li><a href="https://platform.openai.com/docs/guides/gpt-best-practices">GPT best practices - OpenAI API</a></li>
+<li><a href="https://t-t.cool/blog/ai-notes-and-perspection/">對 AI 的粗淺認識與個人見解 | Thinking Today</a></li>
+<li><a href="https://twitter.com/wupingju/status/1626240644074311680">ChatGPT 跟 new Bing一些使用技巧與參考範例/ Twitter</a></li>
+<li><a href="https://pinchlime.com/blog/tried-to-build-a-muse-mate-with-chatgpt-api/?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=starrocket&amp;utm_term=2023-06-07">嘗試透過 ChatGPT API 打造了一個「靈感夥伴」 - Pin 起來！</a></li>
+<li><a href="https://www.playpcesor.com/2023/07/google-bard-ai-6.html">Google Bard 開放支援 AI 中文問答，6種製作中文試算表與報告案例</a></li>
+<li><a href="https://www.playpcesor.com/2023/03/chatgpt-quiz-wizard-ai.html">ChatGPT 與 Quiz Wizard 幫老師家長 AI 生成選擇題、抽認卡教學</a></li>
+<li><a href="https://www.playpcesor.com/2023/04/chatgpt-9-ai.html">ChatGPT 提示語說明書：通用三層結構與 9 個技巧提高 AI 生產力</a></li>
+<li><a href="https://gamma.app/docs/AI-phh7i67cg4hx4qu?mode=doc">如何問出更好的問題？AI世代師生都必須面對的挑戰 | Gamma</a></li>
+<li><a href="https://www.playpcesor.com/2023/05/chatgpt-espanso.html">快速輸入 ChatGPT 常用提示語，減少重複打字，附實戰範例下載</a></li>
+<li><a href="https://www.playpcesor.com/2023/12/chatgpt-simple-effective-prompt.html">一般人最好上手且有效的 ChatGPT 提問法，以生成英文練習題為例</a></li>
+<li><a href="https://www.bmpi.dev/dev/chatgpt-development-notes/pair-programming/">我与ChatGPT结对编程的体验 · BMPI</a></li>
+<li><a href="https://newtoypia.blogspot.com/2023/06/chatgpt.html">玩具烏托邦: ChatGPT： 正確與錯誤的使用示範</a></li>
+<li><a href="https://ihower.tw/blog/archives/11596">大語言模型 LLM 應用開發 投影片 - ihower { blogging }</a></li>
+<li><a href="https://ephrain.net/chatgpt-%e4%bd%bf%e7%94%a8-chatgpt-%e5%bb%ba%e7%ab%8b%e4%b8%80%e5%80%8b%e4%b8%ad%e8%8b%b1%e5%96%ae%e5%ad%97%e7%bf%bb%e8%ad%af%e5%99%a8%ef%bc%8c%e5%90%8c%e6%99%82%e6%8f%90%e4%be%9b%e9%9f%b3%e6%a8%99/">[ChatGPT] 使用 ChatGPT 建立一個中英單字翻譯器，同時提供音標與例句 | EPH 的程式日記</a></li>
+<li><a href="https://blog.darkthread.net/blog/line-gpt-trans-bot/">大砲打小鳥之 ChatGPT 翻譯鳳梨酥 LINE Bot-黑暗執行緒</a></li>
+<li><a href="https://blog.miniasp.com/post/2023/10/26/Learn-Git-by-ChatGPT">使用 ChatGPT 學習 Git 版本控管 | The Will Will Web</a></li>
+<li><a href="https://blog.miniasp.com/post/2023/12/05/Useful-tool-CodeGPT">介紹好用工具：CodeGPT (使用 GPT 自動化產生 Git 的 Commit Log 訊息) | The Will Will Web</a></li>
+<li><a href="https://studyhost.blogspot.com/2023/12/line-botopenai-apiai.html">.NET Walker: 使用LINE Bot搭配OpenAI API建立出新一代的AI機器人</a></li>
+<li><a href="https://www.ebaqdesign.com/blog/midjourney-web-design">How To Use Midjourney for Web Design</a></li>
+<li><a href="https://columns.chicken-house.net/2024/02/10/archview-int-app/">替你的應用程式加上智慧! 談 LLM 的應用程式開發 — 安德魯的部落格</a></li>
+<li><a href="https://blog.gaiconf.com/">生成式 AI 年會大禮包</a></li>
+<li><a href="https://myapollo.com.tw/post/perplexica/">Perplexity AI 搜尋服務的開源替代品 — Perplexica - MyApollo</a></li>
+<li><a href="https://www.promptingguide.ai/zh">提示工程指南 | Prompt Engineering Guide</a></li>
+<li><a href="https://ithelp.ithome.com.tw/users/20168885/ironman/7699">Python 新手的 AI 之旅：從零開始打造屬於你的 AI / LLM 應用 :: 2024 iThome 鐵人賽</a></li>
+<li><a href="https://haosquare.com/coursera-introduction-to-generative-ai-for-software-development/">學習用生成式 AI 寫程式 — Coursera 課程心得 • 好豪筆記</a></li>
+<li><a href="https://www.playpcesor.com/2024/12/tldraw-computer-ai.html">無需程式碼！用 tldraw computer 畫張流程圖輕鬆打造 AI 自動化系統</a></li>
+<li><a href="https://myapollo.com.tw/post/my-llm-codegen-workflow-atm/">好文推薦 — My LLM codegen workflow atm - MyApollo</a></li>
+<li><a href="https://knowlet3389.blogspot.com/2025/07/notebooklm-podcast-ep573.html">NotebookLM 教學，以知名財經 Podcast 為例（持續更新資料集）</a></li>
+<li><a href="https://blog.gslin.org/archives/2025/08/01/12549/%e9%99%b6%e5%93%b2%e8%bb%92%e5%b0%8d%e4%bd%bf%e7%94%a8-ai-%e7%9a%84%e7%9c%8b%e6%b3%95/">陶哲軒對使用 AI 的看法 – Gea-Suan Lin's BLOG</a></li>
+<li><a href="https://alexhsu.com/zh/stand-out">當每個人都能做出 App 時，你要怎麼脫穎而出？ | Alex Hsu 徐小翔</a></li>
+<li><a href="https://kaochenlong.com/vibe-coding-vs-software-engineering">AI 時代寫程式，你是在學習還是在偷懶？ | 高見龍</a></li>
+<li><a href="https://medium.com/heptabase/the-best-way-to-use-ai-for-learning-762c3467bdf1#5d05">The Best Way to Use AI for Learning | by 詹雨安 Alan Chan | Heptabase | Sep, 2025 | Medium</a></li>
+<li><a href="https://www.pseudoyu.com/posts/weekly_review_102">周报 #102 - 我是如何使用 AI 的</a><ul>
+<li><a href="https://labs.davidbauer.ch/how-i-use-ai/">How I Use AI</a></li>
+</ul>
+</li>
+<li><a href="https://www.zhaohuabing.com/post/2025-01-18-ai-coding/">AI 编程真的靠谱吗？ | 赵化冰的博客 | Zhaohuabing Blog</a></li>
+<li><a href="https://blog.darkthread.net/blog/openclaw-w-local-llm/">OpenClaw 龍蝦佐本地 AI 模型：從評估到放棄？-黑暗執行緒</a></li>
+<li><a href="https://israynotarray.com/learnexp/20241231/998165636/">AI 當道，為什麼我還是推薦寫部落格？ | 是 Ray 不是 Array</a></li>
+<li><a href="https://blog.kyomind.tw/bbc-6-minute-english/">BBC 6 Minute English：提升英文聽力的好夥伴 - Code and Me</a></li>
+<li><a href="https://most.tw/posts/youtubenotes/cursor-ai-development-guide/">400小時Cursor經驗分享：AI輔助開發的終極指南 | 技術視野洞察 - Dennis的專業視角</a></li>
+<li><a href="https://steipete.me/posts/2025/shipping-at-inference-speed">Shipping at Inference-Speed | Peter Steinberger</a><ul>
+<li>Workflow - 2025/12</li>
+<li><a href="https://steipete.me/posts/just-talk-to-it">Just Talk To It - the no-bs Way of Agentic Engineering | Peter Steinberger</a><ul>
+<li>Workflow - 2025/10</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.ernestchiang.com/zh/posts/2025/2025-year-in-review-slow-down-to-go-fast/">2025 年度回顧：慢下來，才能更快 | Ernest Chiang</a><ul>
+<li>討論與AI的關係</li>
+</ul>
+</li>
+<li><a href="https://zhangtielei.com/posts/blog-ai-summary.html">过年了，聊聊AI和人文 - 铁蕾的个人博客</a></li>
+<li><a href="https://geo1995.com/tactiq/">Tactiq 線上會議轉錄工具：AI摘要、逐字稿生成、重點標示、螢幕截圖 - George的私房筆記</a></li>
+<li><a href="https://blog.darkthread.net/blog/ai-kills-tech-blogs/">閒聊 - AI 讓 StackOverflow 熱度爆跌，技術部落格也要涼了嗎？-黑暗執行緒</a></li>
+<li><a href="https://www.pseudoyu.com/posts/weekly_review_102">周报 #102 - 我是如何使用 AI 的</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLJV_el3uVTsPz6CTopeRp2L2t4aL_KgiI">【生成式AI導論 2024】 - YouTube</a></li>
+<li><a href="https://knowlet3389.blogspot.com/2026/03/clawdbot-openclaw.html">從 ClawdBot 到 OpenClaw：三個月「小龍蝦」重度玩家實測心得與省錢攻略</a></li>
+<li><a href="https://blog.aotoki.me/posts/2026/03/18/from-agent-to-agentic-ai/">從 Agent 到 Agentic AI | 弦而時習之</a></li>
+<li><a href="https://www.playpcesor.com/2026/03/ai.html">不同 AI 工具如何分工、接力完成專案，分享我做一個象棋教學遊戲的流程</a></li>
+<li><a href="https://israynotarray.com/ai/20260303/3167917304/">Gemini Gems 教學：輕鬆打造你的專屬 AI 助手 | 是 Ray 不是 Array</a></li>
+<li><a href="https://blog.aotoki.me/posts/2026/05/27/ai-development-hits-old-challenges/">用 AI 開發終究會翻車？ | 弦而時習之</a></li>
+<li><a href="https://crossoverjie.top/2026/05/26/clipshelf/clipshelf-introduce/">[送码] 用 AI Coding 做了一个 App，谈谈 AI Coding 的真实体验 - crossoverJie's Blog</a></li>
+<li><a href="https://columns.chicken-house.net/2026/07/08/devopsdays-aiera-architect-showcase/#4-%E6%88%91%E7%9A%84%E8%A7%80%E5%AF%9F%E8%88%87%E5%BF%83%E5%BE%97">AI Era, 架構師的注意力該用在哪裡? — 安德魯的部落格</a></li>
+</ul>
+<p><img alt="" src="https://i.imgur.com/cWFt8Hr.png" /></p>
+<p><img alt="" src="https://i.imgur.com/yONlNYA.png" /></p>
+<h2 id="2025">2025個人認為還做不到的事</h2>
+<ul>
+<li><a href="https://www.zenwen.tw/from-mce-error-to-iommu-kernel-panic-1yr-investigation/">從 MCE Error 到 IOMMU: 追查 Kernel panic 一年的真相 - Zen's Blog</a></li>
+<li><a href="https://leafwind.substack.com/p/2025-hakuba?utm_source=post-email-title&amp;publication_id=30221&amp;post_id=171427200&amp;utm_campaign=email-post-title&amp;isFreemail=true&amp;r=7y7p3&amp;triedRedirect=true&amp;utm_medium=email">在白馬的那一週 - 🍃 leafwind.tw</a><ul>
+<li>真人寫的文章和使用LLM生成類似模仿風格的文章，後者永遠無法取代前者，因為會變成欺騙，因為後者是算出來的並無實際的經歷</li>
+</ul>
+</li>
+</ul>
+<h2 id="ai">推特AI 取暖會</h2>
+<ul>
+<li>:star: - <a href="https://gist.github.com/coodoo/6b36342f825e2eb77acfc0a40588e897">「第一屆 AI 取暖會」講義文字稿 - ai agent 原理、應用與展望與挑戰</a><ul>
+<li><a href="https://blog.darkthread.net/blog/agent-skill/">認識 AI 關鍵術語：Agent / Tool / Skill-黑暗執行緒</a></li>
+<li><a href="https://crossoverjie.top/2026/02/07/AI/create-skills/">一行代码没写，用 AI 搓出三个实用 SKILLS - crossoverJie's Blog</a></li>
+</ul>
+</li>
+<li><a href="https://x.com/thecat88tw/status/2030513646716289024?s=12&amp;t=nkFGFQwRKbLWLzFoXIsU2g">「第二屆推特AI 取暖會」中講的題目</a><ul>
+<li><a href="https://gist.github.com/coodoo/4ccb8e9ab3f5b586f9beb8b7ef5f6d75">「第二屆 AI 取暖會」講義文字稿。</a><ul>
+<li>thinking modal出現後<ul>
+<li>一般 sonnet 就夠，沒事別上 opus<ul>
+<li>設定 <code>effort</code> 為 <code>medium</code> 就好</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>context engineering要處理的問題<ul>
+<li>attention drift, context rot</li>
+</ul>
+</li>
+<li>Agent 四大超能力<ul>
+<li>shell</li>
+<li>file system</li>
+<li>scripting</li>
+<li>subagents</li>
+</ul>
+</li>
+<li>許願 → 監工 → 驗收</li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/watch?v=9kb7oCamafE">Agentic Engineering 不傳之秘 / Jeremy Lu / https://x.com/thecat88tw - YouTube</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="ihower">ihower</h2>
+<ul>
+<li><a href="https://ihower.tw/blog/13630-aie-openclaw">愛好 AI Engineer 電子報 🚀 新型態代理人 OpenClaw 正夯，電子報改版 #35 – ihower { blogging }</a><ul>
+<li>愛好 AI 工程 Blog: blog.aihao.tw/ (整個站都是AI生成)<ul>
+<li><a href="https://blog.aihao.tw/2026/02/24/dont-build-agents-build-skills/">別再打造 Agent 了，打造 Skills 吧 — Anthropic 演講重點整理 | 愛好 AI 工程 Blog</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>:star:<a href="https://ihower.tw/presentation/ihower-agents-202412.pdf">ihower-agents-202412 - ihower-agents-202412.pdf</a><ul>
+<li><a href="https://blog.aotoki.me/posts/2025/01/15/design-your-ai-agent-framework/">如何設計自己的 AI Agent 框架 | 弦而時習之</a></li>
+<li><a href="https://most.tw/posts/ainews/smolagents-deepseek-v3-ai-agent/">小型代理人大革命：Smolagents、網頁爬蟲與DeepSeek V3的超強組合 | 技術視野洞察 - Dennis的專業視角</a></li>
+</ul>
+</li>
+<li><a href="https://ihower.tw/presentation/ihower-edd-202409.pdf">edd - ihower-edd-202409.pdf</a></li>
+<li><a href="https://ihower.tw/blog/13501-practical-ai-agents">實戰 AI Agents 應用開發: TTFT 和 Prompt Caching – ihower { blogging }</a><ul>
+<li><a href="https://ihower.tw/presentation/ihower-agents-202512.pdf">ihower-ai-agents-webconf-2025</a></li>
+</ul>
+</li>
+<li><a href="https://ihower.tw/blog/archives/12621">愛好 AI Engineer 電子報 🚀 AI 應用開發的常見錯誤 #22 – ihower { blogging }</a></li>
+<li><a href="https://ihower.tw/blog/archives/12633">愛好 AI Engineer 電子報 🚀 就是有深度 DeepSeek R1 和 OpenAI Deep Research #23 – ihower { blogging }</a></li>
+<li><a href="https://ihower.tw/blog/archives/12646">愛好 AI Engineer 電子報 🚀 恩尼格瑪評估 #24 – ihower { blogging }</a><ul>
+<li><a href="https://www.youtube.com/watch?v=IrByFa_E8s8">AI 大神免費教你生活用 AI，入門實例解析互動技巧、工具使用、檔案處理，帶你快速掌握LLM應用！！OpenAI 共同創辦人、特斯拉人工智慧總監 Andrej Karpathy - YouTube</a><ul>
+<li>Leaderboard<ul>
+<li><a href="https://lmarena.ai/?leaderboard">Chatbot Arena (formerly LMSYS): Free AI Chat to Compare &amp; Test Best AI Chatbots</a></li>
+<li><a href="https://scale.com/leaderboard">SEAL LLM Leaderboards: Expert-Driven Private Evaluations</a></li>
+</ul>
+</li>
+<li>Tiktokenizer<ul>
+<li><a href="https://tiktokenizer.vercel.app/">Tiktokenizer</a></li>
+</ul>
+</li>
+<li>Don't fully trust it, 可能會有虛構的內容</li>
+<li>model<ul>
+<li>花錢的pre training<ul>
+<li>特性: 不會有最新的資料，會停在某一個時間點</li>
+<li>一般模型<ul>
+<li>寫詩、履歷、郵件</li>
+<li>knowledge-based query</li>
+<li>詢問旅遊建議</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>打磨性格的post training<ul>
+<li>加上強化式學習(reinforcement learning)的模型 =&gt; 思維模型(thinking model)</li>
+<li>使用時機為需要獲取品質較好的回答</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tool use<ul>
+<li>internet search<ul>
+<li>使用時機: <ul>
+<li>替換掉google search的動作</li>
+<li>覺得可能是較新的資訊</li>
+<li>會隨著時間改變的資訊</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>deep research<ul>
+<li>multiple internet search + 思維模型(thinking model)</li>
+</ul>
+</li>
+<li>file upload<ul>
+<li>使用時機: 一起讀文件、一起讀書</li>
+</ul>
+</li>
+<li>python interpreter</li>
+</ul>
+</li>
+<li>使用場景<ul>
+<li>flash card<ul>
+<li>一段文字，請LLM生成flash card</li>
+<li><a href="https://claudeartifacts.com/">Claude Artifacts Showcase | Share Your AI Creations</a></li>
+</ul>
+</li>
+<li>一段文字，請LLM生成diagram，視覺化</li>
+<li>cursor<ul>
+<li>composer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>輸入/輸出<ul>
+<li>文字</li>
+<li>音訊<ul>
+<li>進階語音模式，即模型內部的真實音訊</li>
+</ul>
+</li>
+<li>影片</li>
+<li>圖片</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_1">李宏毅</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?app=desktop&amp;v=2rcJdFuNbZQ&amp;fbclid=IwRlRTSAQc9pJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEeSMh1SSoNQjDPXiCClkK5o82Q7jVJanpp39GhMkd1nf9McIAljlIstRqINzs_aem_9BrP4KmtZ4Jj5s2Q4PP2Ug&amp;d=n">解剖小龍蝦 — 以 OpenClaw 為例介紹 AI Agent 的運作原理 - YouTube</a><ul>
+<li>https://notebooklm.google.com/notebook/4299a7e4-8b2a-4c0d-88d9-d29b5922f1e0</li>
+</ul>
+</li>
+</ul>
+<h2 id="prompt">Prompt</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>使用這些來源:https://www.cna.com.tw/, https://www.dcard.tw
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>產生和老婆聊天的10組有趣話題
+</span></code></pre></div>
+<h2 id="_2">實際動手好用案例</h2>
+<ul>
+<li>第一個過程中全部透過agent mode的案例<ul>
+<li>Keycloak + LDAP</li>
+<li>Vaultwaden</li>
+</ul>
+</li>
+<li>NotebookLM<ul>
+<li>了解巴金森氏症</li>
+</ul>
+</li>
+</ul>
+<h2 id="agentic-ai">Agentic AI</h2>
+<ul>
+<li><a href="https://aaif.io/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation-aaif-anchored-by-new-project-contributions-including-model-context-protocol-mcp-goose-and-agents-md/">Linux Foundation Announces the Formation of the Agentic AI Foundation (AAIF), Anchored by New Project Contributions Including Model Context Protocol (MCP), goose and AGENTS.md - Agentic AI Foundation (AAIF)</a><ul>
+<li><a href="https://block.github.io/goose/docs/quickstart/">Quickstart | goose</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/AFK-surf/open-agent">AFK-surf/open-agent: Open-source alternative to Claude Agent SDK, ChatGPT Agents, and Manus.</a></li>
+<li><a href="https://www.youtube.com/watch?v=utp3ml4AuD4">Build agentic AI with open source - YouTube - Redhat</a><ul>
+<li>LlamaStack<ul>
+<li><a href="https://llama-stack-k8s-operator.pages.dev/">LlamaStack Kubernetes Operator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>:star:<a href="https://ithelp.ithome.com.tw/articles/10397188">30-30: Junior AI Application Engineer 的學習指南 - 透過實作 AI 學習工具人 - iT 邦幫忙</a></li>
+<li><a href="https://plantegg.github.io/2026/03/05/%E4%BB%8E0%E5%88%B01%E5%A4%8D%E5%88%BB%E4%B8%80%E4%B8%AAClaude_Code%E8%BF%99%E6%A0%B7%E7%9A%84Agent/">从 0 到 1 复刻一个 Claude Code 这样的 Agent | plantegg</a><ul>
+<li>crewai</li>
+</ul>
+</li>
+<li>:star:<a href="https://blog.wu-boy.com/2026/04/api-cli-skills-architecture-for-ai-agents-zh-tw/">AI Agent 的下一步：API + CLI + Skills 架構 - 小惡魔 - AppleBOY</a></li>
+<li>agentic workflows<ul>
+<li><a href="https://www.ibm.com/think/topics/agentic-workflows#:~:text=Agentic%20workflows%20are%20AI%2Ddriven%20processes%20where%20autonomous,tool%20use%20to%20execute%20complex%20tasks%20efficiently.">What are Agentic Workflows? | IBM</a></li>
+<li><a href="https://www.youtube.com/watch?v=9mylj0ogCFY">Andrew Ng – The Rise of Agentic Workflows in AI - YouTube</a></li>
+<li><a href="https://openai.com/index/harness-engineering/">Harness engineering: leveraging Codex in an agent-first world | OpenAI</a></li>
+<li><a href="https://github.blog/ai-and-ml/generative-ai/under-the-hood-security-architecture-of-github-agentic-workflows/">Under the hood: Security architecture of GitHub Agentic Workflows - The GitHub Blog</a></li>
+<li><a href="https://github.github.com/gh-aw/introduction/how-they-work/">How They Work | GitHub Agentic Workflows</a></li>
+<li><a href="https://hackmd.io/@BASHCAT/B1zktAnNZx">從 Claude Code 轉移到 OpenCode：一個開發者的真實體驗 - HackMD</a></li>
+<li><a href="https://developer.nvidia.com/nemo-agent-toolkit">NeMo Agent Toolkit | NVIDIA Developer</a><ul>
+<li><a href="https://github.com/NVIDIA/NeMo-Agent-Toolkit">NVIDIA/NeMo-Agent-Toolkit: The NVIDIA NeMo Agent toolkit is an open-source library for efficiently connecting and optimizing teams of AI agents.</a></li>
+<li><a href="https://www.nvidia.com/en-us/solutions/ai/agentic-ai/">Agentic AI Solutions | Transform Your Business With NVIDIA Agentic AI</a></li>
+</ul>
+</li>
+<li><a href="https://www.nvidia.com/gtc/sessions/agentic-ai/">Agentic AI Conference Sessions | NVIDIA GTC 2026</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="langchainlanggraph">LangChain/LangGraph</h3>
+<ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10381445">30-3: [知識] LangChain 的好朋友之 LangGraph - 可以做到 Agentic AI 的關鍵 - iT 邦幫忙</a></li>
+<li><a href="https://weii.dev/langchain-langgraph/">使用 LangChain &amp; LangGraph 打造自己的 AI 助理</a></li>
+<li><a href="https://blog.toright.com/posts/7801/langchain-framework-%e8%ae%93-llm-%e5%bf%ab%e9%80%9f%e8%90%bd%e5%9c%b0%e7%9a%84%e5%a5%bd%e5%b9%ab%e6%89%8b">LangChain Framework 讓 LLM 快速落地的好幫手</a></li>
+<li><a href="https://docs.langchain.com/oss/python/deepagents/overview">Deep Agents overview - Docs by LangChain</a><ul>
+<li><a href="https://krishcnaik.substack.com/p/building-deep-agents-with-langchain">Building Deep Agents with LangChain: A Complete Hands-On Tutorial</a></li>
+<li><a href="https://github.com/langchain-ai/deepagents">langchain-ai/deepagents: Agent harness built with LangChain and LangGraph. Equipped with a planning tool, a filesystem backend, and the ability to spawn subagents - well-equipped to handle complex agentic tasks.</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="deepagent">Deepagent</h4>
+<p>Deepagent CLI
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-LsSf<span class="w"> </span>https://raw.githubusercontent.com/langchain-ai/deepagents/refs/heads/main/libs/cli/scripts/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</span></code></pre></div></p>
+<p>There is a OpenAI-Compatible API on <code>http://10.184.28.123:8000</code> , follow the <a href="https://docs.langchain.com/oss/python/deepagents/cli/configuration#compatible-apis">Configuration - Compatible APIs - Docs by LangChain</a></p>
+<p>the model name can be checked by 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>http://10.184.28.123:8000/v1/models<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>json.tool
+</span></code></pre></div></p>
+<p>~/.deepagents/config.toml
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[models]</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">recent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"openai:nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16"</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">[models.providers.openai]</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">base_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"http://10.184.28.123:8000/v1"</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">api_key_env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"EXAMPLE_API_KEY"</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">models</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="s2">"nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16"</span><span class="p">,</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">]</span>
+</span></code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">EXAMPLE_API_KEY</span><span class="o">=</span>dummy<span class="w"> </span>deepagents
+</span></code></pre></div>
+<h3 id="claude-agent-sdk">Claude Agent SDK</h3>
+<ul>
+<li><a href="https://github.com/anthropics/claude-agent-sdk-python/tree/main">anthropics/claude-agent-sdk-python</a><ul>
+<li>MIT License</li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10391470">Day 15 - Claude Agent SDK：打造你的專屬 AI Agent - iT 邦幫忙</a></li>
+<li><a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Building agents with the Claude Agent SDK | Claude</a></li>
+<li><a href="https://docs.langchain.com/oss/python/deepagents/comparison">Comparison with Claude Agent SDK and Codex - Docs by LangChain</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="openai-agent-sdk">OpenAI Agent SDK</h3>
+<ul>
+<li><a href="https://github.com/openai/openai-agents-python">openai/openai-agents-python: A lightweight, powerful framework for multi-agent workflows</a></li>
+</ul>
+<h3 id="nemoclaw">NemoClaw</h3>
+<ul>
+<li><a href="https://www.nvidia.com/en-us/ai/nemoclaw/">Safer AI Agents &amp; Assistants with OpenClaw | NVIDIA NemoClaw</a><ul>
+<li><a href="https://build.nvidia.com/openshell/learn_more">Architecture: A Secure and Accelerated Agent Stack</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/NVIDIA/NemoClaw">NVIDIA/NemoClaw: NVIDIA plugin for secure installation of OpenClaw</a></li>
+<li><a href="https://docs.nvidia.com/nemoclaw/latest/index.html">NVIDIA NemoClaw — NVIDIA NemoClaw Developer Guide</a></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NEMOCLAW_EXPERIMENTAL</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://www.nvidia.com/nemoclaw.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">NEMOCLAW_EXPERIMENTAL</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>nemoclaw<span class="w"> </span>onboard
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>openshell<span class="w"> </span>term
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>nemoclaw<span class="w"> </span>my-assistant<span class="w"> </span>connect
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>openshell<span class="w"> </span>gateway<span class="w"> </span>destroy<span class="w"> </span>--name<span class="w"> </span>nemoclaw
+</span></code></pre></div>
+<p>/opt/nemoclaw-blueprint/policies/openclaw-sandbox.yaml
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># SPDX-FileCopyrightText: Copyright (c) 2026 NVIDIA CORPORATION &amp; AFFILIATES. All rights reserved.</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1">#</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Default policy for the OpenClaw sandbox.</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># Principle: deny by default, allow only what's needed for core functionality.</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># Dynamic updates (network_policies, inference) can be applied post-creation</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># via `openshell policy set`. Static fields are effectively creation-locked.</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1">#</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="c1"># Policy tiers (future):</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c1">#   default — this file. Minimum for onboard + basic agent operation.</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="c1">#   relaxed — adds third-party model providers, broader web access.</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="c1">#</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c1"># To add endpoints: update this file and re-run `nemoclaw onboard`</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="c1"># or apply dynamically via `openshell policy set`.</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="nt">filesystem_policy</span><span class="p">:</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">  </span><span class="nt">include_workdir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">  </span><span class="nt">read_only</span><span class="p">:</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/lib</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/proc</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/urandom</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/app</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sandbox/.openclaw</span><span class="w">            </span><span class="c1"># Immutable gateway config — prevents agent</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">                                    </span><span class="c1"># from tampering with auth tokens or CORS.</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">                                    </span><span class="c1"># Writable state (agents, plugins) lives in</span>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">                                    </span><span class="c1"># /sandbox/.openclaw-data via symlinks.</span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">                                    </span><span class="c1"># Ref: https://github.com/NVIDIA/NemoClaw/issues/514</span>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">  </span><span class="nt">read_write</span><span class="p">:</span>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sandbox</span>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp</span>
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/null</span>
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sandbox/.openclaw-data</span><span class="w">       </span><span class="c1"># Writable agent/plugin state (symlinked from .openclaw)</span>
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="nt">landlock</span><span class="p">:</span>
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="w">  </span><span class="nt">compatibility</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">best_effort</span>
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="nt">process</span><span class="p">:</span>
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a><span class="w">  </span><span class="nt">run_as_user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sandbox</span>
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a><span class="w">  </span><span class="nt">run_as_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sandbox</span>
+</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a>
+</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a><span class="nt">network_policies</span><span class="p">:</span>
+</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a><span class="w">  </span><span class="nt">claude_code</span><span class="p">:</span>
+</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">claude_code</span>
+</span><span id="__span-8-49"><a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a><span class="w">    </span><span class="nt">endpoints</span><span class="p">:</span>
+</span><span id="__span-8-50"><a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api.anthropic.com</span>
+</span><span id="__span-8-51"><a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-52"><a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a><span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest</span>
+</span><span id="__span-8-53"><a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a><span class="w">        </span><span class="nt">enforcement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enforce</span>
+</span><span id="__span-8-54"><a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a><span class="w">        </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminate</span>
+</span><span id="__span-8-55"><a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a><span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-8-56"><a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="s">"*"</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-57"><a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">statsig.anthropic.com</span>
+</span><span id="__span-8-58"><a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-59"><a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a><span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-8-60"><a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="s">"*"</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-61"><a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sentry.io</span>
+</span><span id="__span-8-62"><a id="__codelineno-8-62" name="__codelineno-8-62" href="#__codelineno-8-62"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-63"><a id="__codelineno-8-63" name="__codelineno-8-63" href="#__codelineno-8-63"></a><span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-8-64"><a id="__codelineno-8-64" name="__codelineno-8-64" href="#__codelineno-8-64"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="s">"*"</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-65"><a id="__codelineno-8-65" name="__codelineno-8-65" href="#__codelineno-8-65"></a><span class="w">    </span><span class="nt">binaries</span><span class="p">:</span>
+</span><span id="__span-8-66"><a id="__codelineno-8-66" name="__codelineno-8-66" href="#__codelineno-8-66"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/usr/local/bin/claude</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-67"><a id="__codelineno-8-67" name="__codelineno-8-67" href="#__codelineno-8-67"></a>
+</span><span id="__span-8-68"><a id="__codelineno-8-68" name="__codelineno-8-68" href="#__codelineno-8-68"></a><span class="w">  </span><span class="nt">nvidia</span><span class="p">:</span>
+</span><span id="__span-8-69"><a id="__codelineno-8-69" name="__codelineno-8-69" href="#__codelineno-8-69"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nvidia</span>
+</span><span id="__span-8-70"><a id="__codelineno-8-70" name="__codelineno-8-70" href="#__codelineno-8-70"></a><span class="w">    </span><span class="nt">endpoints</span><span class="p">:</span>
+</span><span id="__span-8-71"><a id="__codelineno-8-71" name="__codelineno-8-71" href="#__codelineno-8-71"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integrate.api.nvidia.com</span>
+</span><span id="__span-8-72"><a id="__codelineno-8-72" name="__codelineno-8-72" href="#__codelineno-8-72"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-73"><a id="__codelineno-8-73" name="__codelineno-8-73" href="#__codelineno-8-73"></a><span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest</span>
+</span><span id="__span-8-74"><a id="__codelineno-8-74" name="__codelineno-8-74" href="#__codelineno-8-74"></a><span class="w">        </span><span class="nt">enforcement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enforce</span>
+</span><span id="__span-8-75"><a id="__codelineno-8-75" name="__codelineno-8-75" href="#__codelineno-8-75"></a><span class="w">        </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminate</span>
+</span><span id="__span-8-76"><a id="__codelineno-8-76" name="__codelineno-8-76" href="#__codelineno-8-76"></a><span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-8-77"><a id="__codelineno-8-77" name="__codelineno-8-77" href="#__codelineno-8-77"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="s">"*"</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-78"><a id="__codelineno-8-78" name="__codelineno-8-78" href="#__codelineno-8-78"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inference-api.nvidia.com</span>
+</span><span id="__span-8-79"><a id="__codelineno-8-79" name="__codelineno-8-79" href="#__codelineno-8-79"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-80"><a id="__codelineno-8-80" name="__codelineno-8-80" href="#__codelineno-8-80"></a><span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest</span>
+</span><span id="__span-8-81"><a id="__codelineno-8-81" name="__codelineno-8-81" href="#__codelineno-8-81"></a><span class="w">        </span><span class="nt">enforcement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enforce</span>
+</span><span id="__span-8-82"><a id="__codelineno-8-82" name="__codelineno-8-82" href="#__codelineno-8-82"></a><span class="w">        </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminate</span>
+</span><span id="__span-8-83"><a id="__codelineno-8-83" name="__codelineno-8-83" href="#__codelineno-8-83"></a><span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-8-84"><a id="__codelineno-8-84" name="__codelineno-8-84" href="#__codelineno-8-84"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="s">"*"</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-85"><a id="__codelineno-8-85" name="__codelineno-8-85" href="#__codelineno-8-85"></a><span class="w">    </span><span class="nt">binaries</span><span class="p">:</span>
+</span><span id="__span-8-86"><a id="__codelineno-8-86" name="__codelineno-8-86" href="#__codelineno-8-86"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/usr/local/bin/claude</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-87"><a id="__codelineno-8-87" name="__codelineno-8-87" href="#__codelineno-8-87"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/usr/local/bin/openclaw</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-88"><a id="__codelineno-8-88" name="__codelineno-8-88" href="#__codelineno-8-88"></a>
+</span><span id="__span-8-89"><a id="__codelineno-8-89" name="__codelineno-8-89" href="#__codelineno-8-89"></a><span class="w">  </span><span class="nt">github</span><span class="p">:</span>
+</span><span id="__span-8-90"><a id="__codelineno-8-90" name="__codelineno-8-90" href="#__codelineno-8-90"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github</span>
+</span><span id="__span-8-91"><a id="__codelineno-8-91" name="__codelineno-8-91" href="#__codelineno-8-91"></a><span class="w">    </span><span class="nt">endpoints</span><span class="p">:</span>
+</span><span id="__span-8-92"><a id="__codelineno-8-92" name="__codelineno-8-92" href="#__codelineno-8-92"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.com</span>
+</span><span id="__span-8-93"><a id="__codelineno-8-93" name="__codelineno-8-93" href="#__codelineno-8-93"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-94"><a id="__codelineno-8-94" name="__codelineno-8-94" href="#__codelineno-8-94"></a><span class="w">        </span><span class="nt">access</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">full</span>
+</span><span id="__span-8-95"><a id="__codelineno-8-95" name="__codelineno-8-95" href="#__codelineno-8-95"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api.github.com</span>
+</span><span id="__span-8-96"><a id="__codelineno-8-96" name="__codelineno-8-96" href="#__codelineno-8-96"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-97"><a id="__codelineno-8-97" name="__codelineno-8-97" href="#__codelineno-8-97"></a><span class="w">        </span><span class="nt">access</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">full</span>
+</span><span id="__span-8-98"><a id="__codelineno-8-98" name="__codelineno-8-98" href="#__codelineno-8-98"></a><span class="w">    </span><span class="nt">binaries</span><span class="p">:</span>
+</span><span id="__span-8-99"><a id="__codelineno-8-99" name="__codelineno-8-99" href="#__codelineno-8-99"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/usr/bin/gh</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-100"><a id="__codelineno-8-100" name="__codelineno-8-100" href="#__codelineno-8-100"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/usr/bin/git</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-101"><a id="__codelineno-8-101" name="__codelineno-8-101" href="#__codelineno-8-101"></a>
+</span><span id="__span-8-102"><a id="__codelineno-8-102" name="__codelineno-8-102" href="#__codelineno-8-102"></a><span class="w">  </span><span class="c1"># ── OpenClaw "phone home" ────────────────────────────────────────────</span>
+</span><span id="__span-8-103"><a id="__codelineno-8-103" name="__codelineno-8-103" href="#__codelineno-8-103"></a><span class="w">  </span><span class="c1"># Minimum viable set for OpenClaw to authenticate, discover plugins,</span>
+</span><span id="__span-8-104"><a id="__codelineno-8-104" name="__codelineno-8-104" href="#__codelineno-8-104"></a><span class="w">  </span><span class="c1"># and reach ClawHub. Binary-restricted to openclaw only.</span>
+</span><span id="__span-8-105"><a id="__codelineno-8-105" name="__codelineno-8-105" href="#__codelineno-8-105"></a><span class="w">  </span><span class="c1"># Docs access is read-only (GET). ClawHub and openclaw.ai are</span>
+</span><span id="__span-8-106"><a id="__codelineno-8-106" name="__codelineno-8-106" href="#__codelineno-8-106"></a><span class="w">  </span><span class="c1"># restricted to GET+POST (auth flows, plugin discovery).</span>
+</span><span id="__span-8-107"><a id="__codelineno-8-107" name="__codelineno-8-107" href="#__codelineno-8-107"></a>
+</span><span id="__span-8-108"><a id="__codelineno-8-108" name="__codelineno-8-108" href="#__codelineno-8-108"></a><span class="w">  </span><span class="nt">clawhub</span><span class="p">:</span>
+</span><span id="__span-8-109"><a id="__codelineno-8-109" name="__codelineno-8-109" href="#__codelineno-8-109"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clawhub</span>
+</span><span id="__span-8-110"><a id="__codelineno-8-110" name="__codelineno-8-110" href="#__codelineno-8-110"></a><span class="w">    </span><span class="nt">endpoints</span><span class="p">:</span>
+</span><span id="__span-8-111"><a id="__codelineno-8-111" name="__codelineno-8-111" href="#__codelineno-8-111"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clawhub.com</span>
+</span><span id="__span-8-112"><a id="__codelineno-8-112" name="__codelineno-8-112" href="#__codelineno-8-112"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-113"><a id="__codelineno-8-113" name="__codelineno-8-113" href="#__codelineno-8-113"></a><span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest</span>
+</span><span id="__span-8-114"><a id="__codelineno-8-114" name="__codelineno-8-114" href="#__codelineno-8-114"></a><span class="w">        </span><span class="nt">enforcement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enforce</span>
+</span><span id="__span-8-115"><a id="__codelineno-8-115" name="__codelineno-8-115" href="#__codelineno-8-115"></a><span class="w">        </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminate</span>
+</span><span id="__span-8-116"><a id="__codelineno-8-116" name="__codelineno-8-116" href="#__codelineno-8-116"></a><span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-8-117"><a id="__codelineno-8-117" name="__codelineno-8-117" href="#__codelineno-8-117"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="nv">GET</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-118"><a id="__codelineno-8-118" name="__codelineno-8-118" href="#__codelineno-8-118"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="nv">POST</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-119"><a id="__codelineno-8-119" name="__codelineno-8-119" href="#__codelineno-8-119"></a><span class="w">    </span><span class="nt">binaries</span><span class="p">:</span>
+</span><span id="__span-8-120"><a id="__codelineno-8-120" name="__codelineno-8-120" href="#__codelineno-8-120"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/usr/local/bin/openclaw</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-121"><a id="__codelineno-8-121" name="__codelineno-8-121" href="#__codelineno-8-121"></a>
+</span><span id="__span-8-122"><a id="__codelineno-8-122" name="__codelineno-8-122" href="#__codelineno-8-122"></a><span class="w">  </span><span class="nt">openclaw_api</span><span class="p">:</span>
+</span><span id="__span-8-123"><a id="__codelineno-8-123" name="__codelineno-8-123" href="#__codelineno-8-123"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openclaw_api</span>
+</span><span id="__span-8-124"><a id="__codelineno-8-124" name="__codelineno-8-124" href="#__codelineno-8-124"></a><span class="w">    </span><span class="nt">endpoints</span><span class="p">:</span>
+</span><span id="__span-8-125"><a id="__codelineno-8-125" name="__codelineno-8-125" href="#__codelineno-8-125"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openclaw.ai</span>
+</span><span id="__span-8-126"><a id="__codelineno-8-126" name="__codelineno-8-126" href="#__codelineno-8-126"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-127"><a id="__codelineno-8-127" name="__codelineno-8-127" href="#__codelineno-8-127"></a><span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest</span>
+</span><span id="__span-8-128"><a id="__codelineno-8-128" name="__codelineno-8-128" href="#__codelineno-8-128"></a><span class="w">        </span><span class="nt">enforcement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enforce</span>
+</span><span id="__span-8-129"><a id="__codelineno-8-129" name="__codelineno-8-129" href="#__codelineno-8-129"></a><span class="w">        </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminate</span>
+</span><span id="__span-8-130"><a id="__codelineno-8-130" name="__codelineno-8-130" href="#__codelineno-8-130"></a><span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-8-131"><a id="__codelineno-8-131" name="__codelineno-8-131" href="#__codelineno-8-131"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="nv">GET</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-132"><a id="__codelineno-8-132" name="__codelineno-8-132" href="#__codelineno-8-132"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="nv">POST</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-133"><a id="__codelineno-8-133" name="__codelineno-8-133" href="#__codelineno-8-133"></a><span class="w">    </span><span class="nt">binaries</span><span class="p">:</span>
+</span><span id="__span-8-134"><a id="__codelineno-8-134" name="__codelineno-8-134" href="#__codelineno-8-134"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/usr/local/bin/openclaw</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-135"><a id="__codelineno-8-135" name="__codelineno-8-135" href="#__codelineno-8-135"></a>
+</span><span id="__span-8-136"><a id="__codelineno-8-136" name="__codelineno-8-136" href="#__codelineno-8-136"></a><span class="w">  </span><span class="nt">openclaw_docs</span><span class="p">:</span>
+</span><span id="__span-8-137"><a id="__codelineno-8-137" name="__codelineno-8-137" href="#__codelineno-8-137"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openclaw_docs</span>
+</span><span id="__span-8-138"><a id="__codelineno-8-138" name="__codelineno-8-138" href="#__codelineno-8-138"></a><span class="w">    </span><span class="nt">endpoints</span><span class="p">:</span>
+</span><span id="__span-8-139"><a id="__codelineno-8-139" name="__codelineno-8-139" href="#__codelineno-8-139"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docs.openclaw.ai</span>
+</span><span id="__span-8-140"><a id="__codelineno-8-140" name="__codelineno-8-140" href="#__codelineno-8-140"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-141"><a id="__codelineno-8-141" name="__codelineno-8-141" href="#__codelineno-8-141"></a><span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest</span>
+</span><span id="__span-8-142"><a id="__codelineno-8-142" name="__codelineno-8-142" href="#__codelineno-8-142"></a><span class="w">        </span><span class="nt">enforcement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enforce</span>
+</span><span id="__span-8-143"><a id="__codelineno-8-143" name="__codelineno-8-143" href="#__codelineno-8-143"></a><span class="w">        </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminate</span>
+</span><span id="__span-8-144"><a id="__codelineno-8-144" name="__codelineno-8-144" href="#__codelineno-8-144"></a><span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-8-145"><a id="__codelineno-8-145" name="__codelineno-8-145" href="#__codelineno-8-145"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="nv">GET</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-146"><a id="__codelineno-8-146" name="__codelineno-8-146" href="#__codelineno-8-146"></a><span class="w">    </span><span class="nt">binaries</span><span class="p">:</span>
+</span><span id="__span-8-147"><a id="__codelineno-8-147" name="__codelineno-8-147" href="#__codelineno-8-147"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/usr/local/bin/openclaw</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-148"><a id="__codelineno-8-148" name="__codelineno-8-148" href="#__codelineno-8-148"></a>
+</span><span id="__span-8-149"><a id="__codelineno-8-149" name="__codelineno-8-149" href="#__codelineno-8-149"></a><span class="w">  </span><span class="c1"># npm registry — needed for `openclaw plugins install` and `npm install`</span>
+</span><span id="__span-8-150"><a id="__codelineno-8-150" name="__codelineno-8-150" href="#__codelineno-8-150"></a><span class="w">  </span><span class="nt">npm_registry</span><span class="p">:</span>
+</span><span id="__span-8-151"><a id="__codelineno-8-151" name="__codelineno-8-151" href="#__codelineno-8-151"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm_registry</span>
+</span><span id="__span-8-152"><a id="__codelineno-8-152" name="__codelineno-8-152" href="#__codelineno-8-152"></a><span class="w">    </span><span class="nt">endpoints</span><span class="p">:</span>
+</span><span id="__span-8-153"><a id="__codelineno-8-153" name="__codelineno-8-153" href="#__codelineno-8-153"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">registry.npmjs.org</span>
+</span><span id="__span-8-154"><a id="__codelineno-8-154" name="__codelineno-8-154" href="#__codelineno-8-154"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-155"><a id="__codelineno-8-155" name="__codelineno-8-155" href="#__codelineno-8-155"></a><span class="w">        </span><span class="nt">access</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">full</span>
+</span><span id="__span-8-156"><a id="__codelineno-8-156" name="__codelineno-8-156" href="#__codelineno-8-156"></a><span class="w">    </span><span class="nt">binaries</span><span class="p">:</span>
+</span><span id="__span-8-157"><a id="__codelineno-8-157" name="__codelineno-8-157" href="#__codelineno-8-157"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/usr/local/bin/openclaw</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-158"><a id="__codelineno-8-158" name="__codelineno-8-158" href="#__codelineno-8-158"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/usr/local/bin/npm</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-159"><a id="__codelineno-8-159" name="__codelineno-8-159" href="#__codelineno-8-159"></a>
+</span><span id="__span-8-160"><a id="__codelineno-8-160" name="__codelineno-8-160" href="#__codelineno-8-160"></a><span class="w">  </span><span class="c1"># ── Messaging — pre-allowed for OpenClaw agent notifications ────</span>
+</span><span id="__span-8-161"><a id="__codelineno-8-161" name="__codelineno-8-161" href="#__codelineno-8-161"></a><span class="w">  </span><span class="c1"># Restricted to node processes to prevent arbitrary data exfiltration</span>
+</span><span id="__span-8-162"><a id="__codelineno-8-162" name="__codelineno-8-162" href="#__codelineno-8-162"></a><span class="w">  </span><span class="c1"># via curl, wget, python, etc. (See: #272)</span>
+</span><span id="__span-8-163"><a id="__codelineno-8-163" name="__codelineno-8-163" href="#__codelineno-8-163"></a><span class="w">  </span><span class="nt">telegram</span><span class="p">:</span>
+</span><span id="__span-8-164"><a id="__codelineno-8-164" name="__codelineno-8-164" href="#__codelineno-8-164"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">telegram</span>
+</span><span id="__span-8-165"><a id="__codelineno-8-165" name="__codelineno-8-165" href="#__codelineno-8-165"></a><span class="w">    </span><span class="nt">endpoints</span><span class="p">:</span>
+</span><span id="__span-8-166"><a id="__codelineno-8-166" name="__codelineno-8-166" href="#__codelineno-8-166"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api.telegram.org</span>
+</span><span id="__span-8-167"><a id="__codelineno-8-167" name="__codelineno-8-167" href="#__codelineno-8-167"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-168"><a id="__codelineno-8-168" name="__codelineno-8-168" href="#__codelineno-8-168"></a><span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest</span>
+</span><span id="__span-8-169"><a id="__codelineno-8-169" name="__codelineno-8-169" href="#__codelineno-8-169"></a><span class="w">        </span><span class="nt">enforcement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enforce</span>
+</span><span id="__span-8-170"><a id="__codelineno-8-170" name="__codelineno-8-170" href="#__codelineno-8-170"></a><span class="w">        </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminate</span>
+</span><span id="__span-8-171"><a id="__codelineno-8-171" name="__codelineno-8-171" href="#__codelineno-8-171"></a><span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-8-172"><a id="__codelineno-8-172" name="__codelineno-8-172" href="#__codelineno-8-172"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="nv">GET</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/bot*/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-173"><a id="__codelineno-8-173" name="__codelineno-8-173" href="#__codelineno-8-173"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="nv">POST</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/bot*/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-174"><a id="__codelineno-8-174" name="__codelineno-8-174" href="#__codelineno-8-174"></a><span class="w">    </span><span class="nt">binaries</span><span class="p">:</span>
+</span><span id="__span-8-175"><a id="__codelineno-8-175" name="__codelineno-8-175" href="#__codelineno-8-175"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/usr/local/bin/node</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-176"><a id="__codelineno-8-176" name="__codelineno-8-176" href="#__codelineno-8-176"></a>
+</span><span id="__span-8-177"><a id="__codelineno-8-177" name="__codelineno-8-177" href="#__codelineno-8-177"></a><span class="w">  </span><span class="nt">discord</span><span class="p">:</span>
+</span><span id="__span-8-178"><a id="__codelineno-8-178" name="__codelineno-8-178" href="#__codelineno-8-178"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">discord</span>
+</span><span id="__span-8-179"><a id="__codelineno-8-179" name="__codelineno-8-179" href="#__codelineno-8-179"></a><span class="w">    </span><span class="nt">endpoints</span><span class="p">:</span>
+</span><span id="__span-8-180"><a id="__codelineno-8-180" name="__codelineno-8-180" href="#__codelineno-8-180"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">discord.com</span>
+</span><span id="__span-8-181"><a id="__codelineno-8-181" name="__codelineno-8-181" href="#__codelineno-8-181"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-182"><a id="__codelineno-8-182" name="__codelineno-8-182" href="#__codelineno-8-182"></a><span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest</span>
+</span><span id="__span-8-183"><a id="__codelineno-8-183" name="__codelineno-8-183" href="#__codelineno-8-183"></a><span class="w">        </span><span class="nt">enforcement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enforce</span>
+</span><span id="__span-8-184"><a id="__codelineno-8-184" name="__codelineno-8-184" href="#__codelineno-8-184"></a><span class="w">        </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminate</span>
+</span><span id="__span-8-185"><a id="__codelineno-8-185" name="__codelineno-8-185" href="#__codelineno-8-185"></a><span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-8-186"><a id="__codelineno-8-186" name="__codelineno-8-186" href="#__codelineno-8-186"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="nv">GET</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-187"><a id="__codelineno-8-187" name="__codelineno-8-187" href="#__codelineno-8-187"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="nv">POST</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-188"><a id="__codelineno-8-188" name="__codelineno-8-188" href="#__codelineno-8-188"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gateway.discord.gg</span>
+</span><span id="__span-8-189"><a id="__codelineno-8-189" name="__codelineno-8-189" href="#__codelineno-8-189"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-190"><a id="__codelineno-8-190" name="__codelineno-8-190" href="#__codelineno-8-190"></a><span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest</span>
+</span><span id="__span-8-191"><a id="__codelineno-8-191" name="__codelineno-8-191" href="#__codelineno-8-191"></a><span class="w">        </span><span class="nt">enforcement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enforce</span>
+</span><span id="__span-8-192"><a id="__codelineno-8-192" name="__codelineno-8-192" href="#__codelineno-8-192"></a><span class="w">        </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminate</span>
+</span><span id="__span-8-193"><a id="__codelineno-8-193" name="__codelineno-8-193" href="#__codelineno-8-193"></a><span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-8-194"><a id="__codelineno-8-194" name="__codelineno-8-194" href="#__codelineno-8-194"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="nv">GET</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-195"><a id="__codelineno-8-195" name="__codelineno-8-195" href="#__codelineno-8-195"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="nv">POST</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-196"><a id="__codelineno-8-196" name="__codelineno-8-196" href="#__codelineno-8-196"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cdn.discordapp.com</span>
+</span><span id="__span-8-197"><a id="__codelineno-8-197" name="__codelineno-8-197" href="#__codelineno-8-197"></a><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
+</span><span id="__span-8-198"><a id="__codelineno-8-198" name="__codelineno-8-198" href="#__codelineno-8-198"></a><span class="w">        </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rest</span>
+</span><span id="__span-8-199"><a id="__codelineno-8-199" name="__codelineno-8-199" href="#__codelineno-8-199"></a><span class="w">        </span><span class="nt">enforcement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enforce</span>
+</span><span id="__span-8-200"><a id="__codelineno-8-200" name="__codelineno-8-200" href="#__codelineno-8-200"></a><span class="w">        </span><span class="nt">tls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terminate</span>
+</span><span id="__span-8-201"><a id="__codelineno-8-201" name="__codelineno-8-201" href="#__codelineno-8-201"></a><span class="w">        </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-8-202"><a id="__codelineno-8-202" name="__codelineno-8-202" href="#__codelineno-8-202"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">allow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> method</span><span class="p">:</span><span class="w"> </span><span class="nv">GET</span><span class="p p-Indicator">,</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="s">"/**"</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span><span id="__span-8-203"><a id="__codelineno-8-203" name="__codelineno-8-203" href="#__codelineno-8-203"></a><span class="w">    </span><span class="nt">binaries</span><span class="p">:</span>
+</span><span id="__span-8-204"><a id="__codelineno-8-204" name="__codelineno-8-204" href="#__codelineno-8-204"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> path</span><span class="p">:</span><span class="w"> </span><span class="nv">/usr/local/bin/node</span><span class="w"> </span><span class="p p-Indicator">}</span>
+</span></code></pre></div></p>
+<h4 id="openshell">OpenShell</h4>
+<ul>
+<li><a href="https://github.com/NVIDIA/OpenShell">NVIDIA/OpenShell: OpenShell is the safe, private runtime for autonomous AI agents.</a></li>
+</ul>
+<h2 id="mcp">MCP</h2>
+<ul>
+<li><a href="https://myapollo.com.tw/blog/model-context-protocol-explanation-with-examples/">從開發者角度理解 Model Context Protocol (MCP) - MyApollo</a></li>
+<li><a href="https://www.threads.net/@cab_late/post/DHAVMLByyzm">說明MCP</a></li>
+<li><a href="https://www.youtube.com/watch?v=cdBRAVYZKFo">MCP 是什麼？可以吃嗎？</a></li>
+<li><a href="https://www.ithome.com.tw/news/174005">Cloudflare推出新MCP伺服器，僅兩介面簡化全套Cloudflare API存取 | iThome</a></li>
+</ul>
+<h2 id="_3">機器學習</h2>
+<ul>
+<li><a href="https://andy6804tw.github.io/crazyai-ml/">全民瘋AI系列 [經典機器學習]</a></li>
+</ul>
+<h2 id="claude-code">Claude Code</h2>
+<ul>
+<li>Anthropic<ul>
+<li><a href="https://www.youtube.com/watch?v=6eBSHbLKuN0">Mastering Claude Code in 30 minutes - YouTube</a></li>
+<li><a href="https://www.anthropic.com/engineering/claude-code-best-practices">Claude Code Best Practices \ Anthropic</a></li>
+<li><a href="https://www-cdn.anthropic.com/58284b19e702b49db9302d5b6f135ad8871e7658.pdf">How Anthropic teams use Claude Code </a><ul>
+<li><a href="https://vocus.cc/article/684628d8fd8978000117c744">《How Anthropic teams use Claude Code》的中文翻譯</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10382103">Day 17 - AI 工具實戰：Claude Code 從零到上手 - iT 邦幫忙</a></li>
+<li><a href="https://www.darrelltw.com/claude-code-new-command-line-tool/">Claude Code 發佈 Command Line 的新工具 | Darrell TW</a></li>
+<li><a href="https://x.com/dotey/status/1931036909448397037?s=12&amp;t=nkFGFQwRKbLWLzFoXIsU2g">使用 CluadeCode 的經驗和心得</a><ul>
+<li>適用情境1: 熟悉程式碼repository</li>
+<li>適用情境2: 初始化測試環境，完善測試程式 </li>
+</ul>
+</li>
+<li><a href="https://onevcat.com/2025/08/claude-code/">一个半月高强度 Claude Code 使用后感受 | OneV's Den</a></li>
+<li><a href="https://blog.marsen.me/2025/07/31/2025/ai_google_search_api/">[實作筆記] AI Agent 實作 Web Search API：從設計到部署的完整記錄 | Marsen's Blog</a></li>
+<li><a href="https://blog.cashwu.com/blog/2025/claude-code-zero-to-one">Claude Code 從 0 到 1：完整實戰指南 | Cash Wu Geek</a></li>
+<li><a href="https://claude.ai/public/artifacts/29c3af3b-68fd-4458-a78b-8db9cec63b17">Claude Code 完整實戰手冊</a></li>
+<li><a href="https://ywctech.net/ml-ai/prompting-with-claude-code/">我與 Claude Code 協作時怎麼寫 prompt ? (2025 下半) · YWC 科技筆記</a></li>
+<li><a href="https://kenming.idv.tw/claude-code-creator-13-ai-development-tips/">Claude Code 創辦人 Boris 親授分享的 13 條核心技巧（補充個人簡短評註） | Kenmingの鮮思維</a></li>
+<li><a href="https://kaochenlong.com/claude-code-skills">Claude Code Skills：讓 AI 變身專業工匠 | 高見龍</a><ul>
+<li><a href="https://kaochenlong.com/ai-superpowers-skills">給 AI 超能力？Superpowers 的設計與取捨 | 高見龍</a></li>
+</ul>
+</li>
+<li><a href="https://israynotarray.com/ai/20260128/374686091/">想用 Claude Code 開發？這篇帶你從入門到進階 | 是 Ray 不是 Array</a></li>
+<li><a href="https://nijialin.com/2026/02/18/superpowers-vs-spec-kit/">用 superpowers 與 spec-kit 打造 AI 輔助開發流程 - 實戰心得與效率觀察 | 忍者工坊</a></li>
+<li><a href="https://crossoverjie.top/2026/02/24/AI/skilldeck-intro/">全程用 Claude Code 搓了一个 macOS 原生应用：SkillDeck - crossoverJie's Blog</a></li>
+<li><a href="https://hackmd.io/@BASHCAT/B1zktAnNZx">從 Claude Code 轉移到 OpenCode：一個開發者的真實體驗 - HackMD</a></li>
+<li><a href="https://israynotarray.com/ai/20260319/738324368/">Claude Cowork Dispatch 與 Remote Control - 用手機遠端控制你的 AI Agent | 是 Ray 不是 Array</a></li>
+<li><a href="https://israynotarray.com/ai/20260310/3737444063/">CLAUDE.md 與 Rules for AI 撰寫技巧：讓 AI 更懂你的專案 | 是 Ray 不是 Array</a></li>
+<li><a href="https://blog.aotoki.me/posts/2026/03/25/how-much-content-do-agent-skills-need/">Agent Skills 需要多少內容？ | 弦而時習之</a><ul>
+<li><a href="https://code.claude.com/docs/en/best-practices">Best Practices for Claude Code - Claude Code Docs</a></li>
+<li><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents \ Anthropic</a></li>
+<li><a href="https://blog.wu-boy.com/2026/03/what-is-agent-skill-and-impact-on-software-industry-zh-tw/">Agent Skill 是什麼？對軟體產業帶來的變化 - 小惡魔 - AppleBOY</a></li>
+</ul>
+</li>
+<li><a href="https://israynotarray.com/ai/20260331/1748203647/">Claude Code 哪些檔案該 Commit？CLAUDE.md、Settings、Rules、Skills 完整解析 | 是 Ray 不是 Array</a></li>
+<li><a href="https://www.itnotetk.com/2026/04/07/claude-md-python-%e5%b0%88%e6%a1%88%e9%85%8d%e7%bd%ae/#%E7%A8%8B%E5%BC%8F%E7%A2%BC%E9%A2%A8%E6%A0%BC%E8%A6%8F%E7%AF%84">CLAUDE.md — Python 專案配置 – Tony.Wu's Blog</a></li>
+<li><a href="https://ganhua.wang/claude-code">Claude Code 編程指南：高效開發秘籍</a></li>
+</ul>
+<h2 id="_4">應用</h2>
+<h3 id="computer-use">Computer Use</h3>
+<ul>
+<li><a href="https://tenten.co/learning/claude-computer-use/">深夜重磅！Claude 推出 Computer Use：大模型學會使用電腦，開啟全新應用可能</a></li>
+</ul>
+<h3 id="browser-use">Browser Use</h3>
+<ul>
+<li><a href="https://meet.bnext.com.tw/articles/view/52194?">Browser Use讓AI會用網站，4天開發就登上GitHub熱門榜｜Meet創業小聚</a></li>
+</ul>
+<h2 id="cursor">Cursor</h2>
+<ul>
+<li><a href="https://cursor.com/docs">Cursor Docs</a></li>
+<li><a href="https://cursorai.notion.site/Cursor-Enterprise-Kickoff-Guide-19ada74ef04580588689e11a9fc456fd">Cursor Enterprise – Kickoff Guide</a></li>
+<li><a href="https://www.youtube.com/watch?v=3289vhOUdKA">Cursor AI Tutorial for Beginners [2025 Edition] - YouTube</a></li>
+<li><a href="https://cursor.com/blog/agent-best-practices">Best practices for coding with agents · Cursor</a><ul>
+<li>agent harness<ul>
+<li>Instructions: The system prompt and rules that guide agent behavior</li>
+<li>Tools: File editing, codebase search, terminal execution, and more</li>
+<li>User messages: Your prompts and follow-ups that direct the work</li>
+</ul>
+</li>
+<li>planning before coding<ul>
+<li>Using Plan Mode<ul>
+<li>Research your codebase to find relevant files</li>
+<li>Ask clarifying questions about your requirements</li>
+<li>Create a detailed implementation plan with file paths and code references</li>
+<li>Wait for your approval before building</li>
+</ul>
+</li>
+<li>Not every task needs a detailed plan. For quick changes or tasks you've done many times before, jumping straight to the agent is fine.</li>
+</ul>
+</li>
+<li>Let the agent find context<ul>
+<li>You don't need to manually tag every file in your prompt.</li>
+<li>Keep it simple: if you know the exact file, tag it. If not, the agent will find it.</li>
+</ul>
+</li>
+<li>When to start a new conversation<ul>
+<li>You're moving to a different task or feature</li>
+<li>The agent seems confused or keeps making the same mistakes</li>
+<li>You've finished one logical unit of work</li>
+<li>Long conversations can cause the agent to lose focus. </li>
+</ul>
+</li>
+<li>Reference past work</li>
+<li>Cursor provides two main ways to customize agent behavior<ul>
+<li><strong>Rules</strong> for static context that applies to every conversation<ul>
+<li>Think of them as always-on context that the agent sees at the start of every conversation.</li>
+<li>Create rules as markdown files in .cursor/rules/:</li>
+<li>Start simple. Add rules only when you notice the agent making the same mistake repeatedly. Don't over-optimize before you understand your patterns.</li>
+</ul>
+</li>
+<li><strong>Skills</strong> for dynamic capabilities the agent can use when relevant<ul>
+<li>extend what agents can do.</li>
+<li>Skills package domain-specific knowledge, workflows, and scripts that agents can invoke when relevant.</li>
+<li>Skills are defined in SKILL.md files<ul>
+<li>Custom commands: Reusable workflows triggered with / in the agent input</li>
+<li>Hooks: Scripts that run before or after agent actions</li>
+<li>Domain knowledge: Instructions for specific tasks the agent can pull in on demand</li>
+</ul>
+</li>
+<li>Unlike Rules which are always included, Skills are loaded dynamically when the agent decides they're relevant. This keeps your context window clean while giving the agent access to specialized capabilities.</li>
+<li>Beyond coding, you can connect the agent to other tools you use daily. MCP (Model Context Protocol) lets the agent read Slack messages, investigate Datadog logs, debug errors from Sentry, query databases, and more.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The agent can process images directly from your prompts.</li>
+<li>Common agent patterns<ul>
+<li>Test-driven development<ul>
+<li>The agent can write code, run tests, and iterate automatically</li>
+</ul>
+</li>
+<li>Codebase understanding<ul>
+<li>When onboarding to a new codebase, use the agent for learning and exploration. Ask the same questions you would ask a teammate</li>
+</ul>
+</li>
+<li>Git workflows</li>
+</ul>
+</li>
+<li>Reviewing code</li>
+<li>Running agents in parallel<ul>
+<li>We've found that having multiple models attempt the same problem and picking the best result significantly improves the final output, especially for harder tasks.</li>
+<li>Cursor automatically creates and manages git worktrees for parallel agents. Each agent runs in its own worktree with isolated files and changes, so agents can edit, build, and test code without stepping on each other.</li>
+<li>A powerful pattern is running the same prompt across multiple models simultaneously.</li>
+</ul>
+</li>
+<li>Delegating to cloud agents</li>
+<li>Debug Mode for tricky bugs<ul>
+<li>Instead of guessing at fixes, Debug Mode:<ul>
+<li>Generates multiple hypotheses about what could be wrong</li>
+<li>Instruments your code with logging statements</li>
+<li>Asks you to reproduce the bug while collecting runtime data</li>
+<li>Analyzes actual behavior to pinpoint the root cause</li>
+<li>Makes targeted fixes based on evidence</li>
+</ul>
+</li>
+<li>This works best for:<ul>
+<li>Bugs you can reproduce but can't figure out</li>
+<li>Race conditions and timing issues</li>
+<li>Performance problems and memory leaks</li>
+<li>Regressions where something used to work</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>effective way<ul>
+<li>write specific prompts<ul>
+<li>:warning: "add tests for auth.ts" </li>
+<li>:+1:  "Write a test case for auth.ts covering the logout edge case, using the patterns in <strong>tests</strong>/ and avoiding mocks." </li>
+</ul>
+</li>
+<li>Start simple</li>
+<li>review carefully</li>
+<li>provide verifiable goals</li>
+<li>treat agents as capable collaborators</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://cursor.com/for/code-review">Reviewing Code with Cursor | Cursor Docs</a></li>
+</ul>
+<p>agent
+cmd-K
+tab</p>
+<p>cursor rule
+cursor command
+MCP</p>
+<h2 id="gemini">Gemini</h2>
+<ul>
+<li><a href="https://newtoypia.blogspot.com/2026/01/gem.html">玩具烏托邦: gemini 的 gem 新手小作： 懶人的媒體識讀助理</a></li>
+<li><a href="https://vocus.cc/article/6958e7ebfd89780001011d86">【AI 工具全攻略】一次搞懂 ChatGPT, Gemini Gem, NotebookLM 有什麼不同？</a></li>
+</ul>
+<h2 id="local-llmagent">Local LLM/Agent</h2>
+<ul>
+<li><a href="https://www.itnotetk.com/2026/04/19/opencode-gemma4-local-ai-coding-agent-tutorial/">用 OpenCode + Gemma 4 打造本地 AI Coding Agent 完整教學 – Tony.Wu's Blog</a></li>
+</ul>
+<h2 id="inference-engine">Inference engine</h2>
+<h3 id="vllm">vLLM</h3>
+<ul>
+<li>
+<p><a href="https://build.nvidia.com/nvidia/nemotron-3-nano-30b-a3b/modelcard">nemotron-3-nano-30b-a3b Model by NVIDIA | NVIDIA NIM</a>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>vllm<span class="w"> </span>serve<span class="w"> </span>--model<span class="w"> </span>nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>--max-num-seqs<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>--tensor-parallel-size<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span>--max-model-len<span class="w"> </span><span class="m">262144</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span>--trust-remote-code<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span>--tool-call-parser<span class="w"> </span>qwen3_coder<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span>--reasoning-parser-plugin<span class="w"> </span>nano_v3_reasoning_parser.py<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span>--reasoning-parser<span class="w"> </span>nano_v3
+</span></code></pre></div></p>
+</li>
+<li>
+<p>https://github.com/NVIDIA/NemoClaw/issues/315#issuecomment-4090919603
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>vllm<span class="w"> </span>serve<span class="w"> </span>--model<span class="w"> </span>nvidia/NVIDIA-Nemotron-3-Nano-4B-FP8<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>--enable-auto-tool-choice<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>--tool-call-parser<span class="w"> </span>qwen3_coder<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span>--reasoning-parser<span class="w"> </span>nemotron_v3<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span>--max-model-len<span class="w"> </span><span class="m">32768</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span>--max-num-seqs<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span>--trust-remote-code<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span>--gpu-memory-utilization<span class="w"> </span><span class="m">0</span>.85<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span>--kv-cache-dtype<span class="w"> </span>fp8<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">  </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0
+</span></code></pre></div></p>
+</li>
+<li>
+<p><a href="https://docs.vllm.ai/en/stable/deployment/docker/">Using Docker - vLLM</a></p>
+</li>
+<li><a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html">Installing the NVIDIA Container Toolkit — NVIDIA Container Toolkit</a></li>
+</ul>
+<p>nvidia/NVIDIA-Nemotron-3-Nano-4B-FP8
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--runtime<span class="w"> </span>nvidia<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span>-v<span class="w"> </span>~/.cache/huggingface:/root/.cache/huggingface<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span>vllm/vllm-openai:latest<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span>--model<span class="w"> </span>nvidia/NVIDIA-Nemotron-3-Nano-4B-FP8<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span>--enable-auto-tool-choice<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">  </span>--tool-call-parser<span class="w"> </span>qwen3_coder<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">  </span>--reasoning-parser<span class="w"> </span>nemotron_v3<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span>--max-model-len<span class="w"> </span><span class="m">32768</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">  </span>--max-num-seqs<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">  </span>--trust-remote-code<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">  </span>--gpu-memory-utilization<span class="w"> </span><span class="m">0</span>.85<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">  </span>--kv-cache-dtype<span class="w"> </span>fp8<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">  </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0
+</span></code></pre></div></p>
+<p>nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--runtime<span class="w"> </span>nvidia<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span>-v<span class="w"> </span>~/.cache/huggingface:/root/.cache/huggingface<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span>vllm/vllm-openai:latest<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span>--model<span class="w"> </span>nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span>--enable-auto-tool-choice<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span>--tool-call-parser<span class="w"> </span>qwen3_coder<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">  </span>--reasoning-parser<span class="w"> </span>nemotron_v3<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">  </span>--max-model-len<span class="w"> </span><span class="m">32768</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">  </span>--max-num-seqs<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">  </span>--trust-remote-code<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">  </span>--gpu-memory-utilization<span class="w"> </span><span class="m">0</span>.85<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">  </span>--kv-cache-dtype<span class="w"> </span>fp8<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">  </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0
+</span></code></pre></div></p>
+<p>nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--runtime<span class="w"> </span>nvidia<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span>-v<span class="w"> </span>~/.cache/huggingface:/root/.cache/huggingface<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span>vllm/vllm-openai:latest<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span>--model<span class="w"> </span>nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">  </span>--max-num-seqs<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">  </span>--tensor-parallel-size<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span>--max-model-len<span class="w"> </span><span class="m">262144</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">  </span>--trust-remote-code<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">  </span>--tool-call-parser<span class="w"> </span>qwen3_coder<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">  </span>--reasoning-parser<span class="w"> </span>nemotron_v3<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">  </span>--enable-auto-tool-choice<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">  </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0
+</span></code></pre></div></p>
+<h4 id="validation">validation</h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>curl<span class="w"> </span>http://localhost:8000/v1/models<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span>
+</span></code></pre></div>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"list"</span><span class="p">,</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nvidia/NVIDIA-Nemotron-3-Nano-4B-FP8"</span><span class="p">,</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">            </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"model"</span><span class="p">,</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">            </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1774539878</span><span class="p">,</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">            </span><span class="nt">"owned_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vllm"</span><span class="p">,</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">            </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nvidia/NVIDIA-Nemotron-3-Nano-4B-FP8"</span><span class="p">,</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">            </span><span class="nt">"parent"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">            </span><span class="nt">"max_model_len"</span><span class="p">:</span><span class="w"> </span><span class="mi">32768</span><span class="p">,</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">            </span><span class="nt">"permission"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"modelperm-bd89d55791b3a278"</span><span class="p">,</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">                    </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"model_permission"</span><span class="p">,</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">                    </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1774539878</span><span class="p">,</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">                    </span><span class="nt">"allow_create_engine"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">                    </span><span class="nt">"allow_sampling"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">                    </span><span class="nt">"allow_logprobs"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">                    </span><span class="nt">"allow_search_indices"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">                    </span><span class="nt">"allow_view"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">                    </span><span class="nt">"allow_fine_tuning"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">                    </span><span class="nt">"organization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="p">,</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">                    </span><span class="nt">"group"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">                    </span><span class="nt">"is_blocking"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="w">            </span><span class="p">]</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>curl<span class="w"> </span>http://localhost:8000/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span>-d<span class="w"> </span><span class="s1">'{</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="s1">        "model": "nvidia/NVIDIA-Nemotron-3-Nano-4B-FP8",</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="s1">        "messages":[{"role": "user", "content": "Write a haiku about GPUs"}],</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="s1">        "chat_template_kwargs": {"enable_thinking": true}</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="s1">    }'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>json.tool
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>curl<span class="w"> </span>http://localhost:8000/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">    </span>-d<span class="w"> </span><span class="s1">'{</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="s1">        "model": "nvidia/NVIDIA-Nemotron-3-Nano-4B-FP8",</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="s1">        "messages":[{"role": "user", "content": "expalin the message from vllm log: Engine 000: Avg prompt throughput: 2.3 tokens/s, Avg generation throughput: 49.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 0.0%"}],</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="s1">        "chat_template_kwargs": {"enable_thinking": true}</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="s1">    }'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>json.tool
+</span></code></pre></div>
+<ul>
+<li><a href="https://docs.vllm.ai/en/latest/deployment/frameworks/open-webui/">Open WebUI - vLLM</a>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span>--name<span class="w"> </span>open-webui<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">3000</span>:8080<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span>-v<span class="w"> </span>open-webui:/app/backend/data<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">OPENAI_API_BASE_URL</span><span class="o">=</span>http://0.0.0.0:8000/v1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span>--restart<span class="w"> </span>always<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span>ghcr.io/open-webui/open-webui:main
+</span></code></pre></div></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>services:
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span>vllm:
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span>image:<span class="w"> </span>vllm/vllm-openai:latest
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span>container_name:<span class="w"> </span>vllm
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span>restart:<span class="w"> </span>unless-stopped
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span>runtime:<span class="w"> </span>nvidia
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span>ipc:<span class="w"> </span>host
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">    </span>ports:
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">      </span>-<span class="w"> </span><span class="s2">"8000:8000"</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">    </span>volumes:
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">      </span>-<span class="w"> </span>~/.cache/huggingface:/root/.cache/huggingface
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">    </span>deploy:
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">      </span>resources:
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">        </span>reservations:
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">          </span>devices:
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">            </span>-<span class="w"> </span>driver:<span class="w"> </span>nvidia
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">              </span>count:<span class="w"> </span>all
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">              </span>capabilities:<span class="w"> </span><span class="o">[</span>gpu<span class="o">]</span>
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w">    </span>command:<span class="w"> </span>&gt;
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="w">      </span>--model<span class="w"> </span>nvidia/NVIDIA-Nemotron-3-Nano-4B-FP8
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="w">      </span>--enable-auto-tool-choice
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="w">      </span>--tool-call-parser<span class="w"> </span>qwen3_coder
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="w">      </span>--reasoning-parser<span class="w"> </span>nemotron_v3
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="w">      </span>--max-model-len<span class="w"> </span><span class="m">32768</span>
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a><span class="w">      </span>--max-num-seqs<span class="w"> </span><span class="m">1</span>
+</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a><span class="w">      </span>--trust-remote-code
+</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a><span class="w">      </span>--gpu-memory-utilization<span class="w"> </span><span class="m">0</span>.85
+</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a><span class="w">      </span>--kv-cache-dtype<span class="w"> </span>fp8
+</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a><span class="w">      </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0
+</span><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a>
+</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a><span class="w">  </span>open-webui:
+</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a><span class="w">    </span>image:<span class="w"> </span>ghcr.io/open-webui/open-webui:main
+</span><span id="__span-18-33"><a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a><span class="w">    </span>container_name:<span class="w"> </span>open-webui
+</span><span id="__span-18-34"><a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a><span class="w">    </span>restart:<span class="w"> </span>always
+</span><span id="__span-18-35"><a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a><span class="w">    </span>ports:
+</span><span id="__span-18-36"><a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a><span class="w">      </span>-<span class="w"> </span><span class="s2">"3000:8080"</span>
+</span><span id="__span-18-37"><a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a><span class="w">    </span>volumes:
+</span><span id="__span-18-38"><a id="__codelineno-18-38" name="__codelineno-18-38" href="#__codelineno-18-38"></a><span class="w">      </span>-<span class="w"> </span>open-webui-data:/app/backend/data
+</span><span id="__span-18-39"><a id="__codelineno-18-39" name="__codelineno-18-39" href="#__codelineno-18-39"></a><span class="w">    </span>environment:
+</span><span id="__span-18-40"><a id="__codelineno-18-40" name="__codelineno-18-40" href="#__codelineno-18-40"></a><span class="w">      </span>-<span class="w"> </span><span class="nv">OPENAI_API_BASE_URL</span><span class="o">=</span>http://vllm:8000/v1
+</span><span id="__span-18-41"><a id="__codelineno-18-41" name="__codelineno-18-41" href="#__codelineno-18-41"></a><span class="w">    </span>depends_on:
+</span><span id="__span-18-42"><a id="__codelineno-18-42" name="__codelineno-18-42" href="#__codelineno-18-42"></a><span class="w">      </span>-<span class="w"> </span>vllm
+</span><span id="__span-18-43"><a id="__codelineno-18-43" name="__codelineno-18-43" href="#__codelineno-18-43"></a>
+</span><span id="__span-18-44"><a id="__codelineno-18-44" name="__codelineno-18-44" href="#__codelineno-18-44"></a>volumes:
+</span><span id="__span-18-45"><a id="__codelineno-18-45" name="__codelineno-18-45" href="#__codelineno-18-45"></a><span class="w">  </span>open-webui-data:
+</span></code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../LDAP/" class="md-footer__link md-footer__link--prev" aria-label="Previous: LDAP">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                LDAP
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Linux%E6%8A%80%E5%B7%A7/" class="md-footer__link md-footer__link--next" aria-label="Next: Linux技巧">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Linux技巧
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.path", "search.highlight", "search.share", "navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
